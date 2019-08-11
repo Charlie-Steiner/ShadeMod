@@ -1,0 +1,72 @@
+{
+"Shade:Strike_Shade": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage."
+  },
+"Shade:Defend_Shade": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block."
+  },
+"Shade:AnimateDead": {
+    "NAME": "Animate Dead",
+    "DESCRIPTION": "Summon a zombie and a skeleton. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Summon a zombie an two skeletons. NL Exhaust."
+  },
+"Shade:ClawBack": {
+    "NAME": "Claw Back",
+    "DESCRIPTION": "Deal !D! damage. NL Return an exhausted card to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Return an exhausted card to your draw pile."
+  },
+  "Shade:Boneskin": {
+    "NAME": "Boneskin",
+    "DESCRIPTION": "Sacrifice your skeletons.  Gain 1 plated armor for each skeleton sacrificed.",
+    "UPGRADE_DESCRIPTION": "Sacrifice your skeletons.  Gain 2 plated armor for each skeleton sacrificed."
+  },
+  "Shade:RainOfBones": {
+    "NAME": "Rain of Bones",
+    "DESCRIPTION": "A card you could get from combat.",
+    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+  },
+  "Shade:TouchOfTheGrave": {
+    "NAME": "Touch of the Grave",
+    "DESCRIPTION": "A card you could get from combat.",
+    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+  },
+  "Shade:CallOfTheGrave": {
+    "NAME": "Call of the Grave",
+    "DESCRIPTION": "A card you could get from combat.",
+    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+  },
+  "Shade:Bonestorm": {
+    "NAME": "Bonestorm",
+    "DESCRIPTION": "A card you could get from combat.",
+    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+  },
+  "Shade:WallOfFlesh": {
+    "NAME": "Wall of Flesh",
+    "DESCRIPTION": "A card you could get from combat.",
+    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+  },
+  "Shade:CallWraith": {
+    "NAME": "Call Wraith",
+    "DESCRIPTION": "A card you could get from combat.",
+    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+  },
+"Shade:ThingOne": {
+    "NAME": "ThingOne",
+    "DESCRIPTION": "A card you could get from combat.",
+    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+  },
+"Shade:ThingTwo": {
+    "NAME": "Thing Two",
+    "DESCRIPTION": "A card you could get from combat.",
+    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+  },
+"Shade:ThingThree": {
+    "NAME": "Thing Three",
+    "DESCRIPTION": "A card you could get from combat.",
+    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+  }
+}
