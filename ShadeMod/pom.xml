@@ -61,7 +61,7 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target\ShadeMod.jar" tofile="C:\Games\steamapps\common\SlayTheSpire\mods\ShadeMod.jar"/>
+                                <copy file="target\ShadeMod.jar" tofile="C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\mods\ShadeMod.jar"/>
                             </target>
                         </configuration>
                         <goals>
