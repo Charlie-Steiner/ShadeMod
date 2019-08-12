@@ -17,12 +17,15 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import shade.cards.ClawBack;
 import shade.cards.Defend_Shade;
+import shade.ShadeMod;
 import shade.cards.AnimateDead;
 import shade.cards.Boneskin;
 import shade.cards.Strike_Shade;
@@ -39,6 +42,8 @@ import java.util.List;
 public class ShadeCharacter extends CustomPlayer {
 
     public static final String[] orbTextures = {"ShadeImages/char/orb/layer1.png", "ShadeImages/char/orb/layer2.png", "ShadeImages/char/orb/layer3.png", "ShadeImages/char/orb/layer4.png", "ShadeImages/char/orb/layer5.png", "ShadeImages/char/orb/layer6.png", "ShadeImages/char/orb/layer1d.png", "ShadeImages/char/orb/layer2d.png", "ShadeImages/char/orb/layer3d.png", "ShadeImages/char/orb/layer4d.png", "ShadeImages/char/orb/layer5d.png"};
+
+
 
 
     public static Color cardRenderColor = new Color(0.0F, 0.1F, 0.0F, 1.0F);
@@ -205,5 +210,37 @@ public class ShadeCharacter extends CustomPlayer {
     public AbstractCard getStartCardForEvent() {
         return new Strike_Shade();
     }
+
+	public void channelUndead(AbstractOrb orbType) {
+
+		final int INDEX_WRAITH = 0;
+		final int INDEX_ZOMBIE = 1;
+		final int INDEX_SKELETON = 2;
+		
+		int index = -1;
+		
+		if(orbType instanceof shade.orbs.Skeleton)
+		{
+			ShadeMod.logger.info("chanelling skeleton");
+			index = INDEX_SKELETON;
+		}
+		
+		if(index == -1)
+			return;
+		
+		AbstractOrb currentUndead = orbs.get(index);
+		AbstractOrb newUndead;
+		
+		if(currentUndead instanceof EmptyOrbSlot)
+		{
+			ShadeMod.logger.info("only 1 skeleton");
+			orbs.set(index, orbType);
+		}
+		
+		
+		
+		AbstractDungeon.actionManager.orbsChanneledThisCombat.add(orbType);
+		AbstractDungeon.actionManager.orbsChanneledThisTurn.add(orbType);
+	}
 }
 

@@ -165,7 +165,7 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 //		BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
 		String orbStrings = Gdx.files.internal("localization/Shade-OrbStrings.json")
 				.readString(String.valueOf(StandardCharsets.UTF_8));
-//		BaseMod.loadCustomStrings(OrbStrings.class, orbStrings);
+		BaseMod.loadCustomStrings(OrbStrings.class, orbStrings);
 		String eventStrings = Gdx.files.internal("localization/Shade-EventStrings.json")
 				.readString(String.valueOf(StandardCharsets.UTF_8));
 //		BaseMod.loadCustomStrings(EventStrings.class, eventStrings);

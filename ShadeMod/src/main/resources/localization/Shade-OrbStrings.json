@@ -1,4 +1,12 @@
 {
+"Shade:Skeleton": {
+    "NAME": "Skeleton",
+    "DESCRIPTION": [
+      "Deals ",
+      " damage at the start of your turn and has ",
+      " Life."
+    ]
+  },
   "Slimebound:BronzeSlime": {
     "NAME": "Bronze Slime",
     "DESCRIPTION": [
