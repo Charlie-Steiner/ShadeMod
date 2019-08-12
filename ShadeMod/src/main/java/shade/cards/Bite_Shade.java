@@ -22,7 +22,7 @@ public class Bite_Shade
   public static final String ID = "Shade:Bite_Shade";
   public static final String NAME = "Bite";
   public static final String DESCRIPTION = "Deal !D! damage. NL Heal !M! HP.";
-  public static final String IMG_PATH = "cards/attackSlime.png";
+  public static final String IMG_PATH = "cards/default_attack.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;

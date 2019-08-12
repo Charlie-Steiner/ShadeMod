@@ -115,6 +115,7 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 		BaseMod.addCard(new shade.cards.TouchOfTheGrave());
 		BaseMod.addCard(new shade.cards.CallOfTheGrave());
 		BaseMod.addCard(new shade.cards.Bonestorm());
+		BaseMod.addCard(new shade.cards.Bite_Shade());
 
 		// rare cards
 		BaseMod.addCard(new shade.cards.CallWraith());
