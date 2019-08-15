@@ -38,6 +38,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import basemod.animations.AbstractAnimation;
 import shade.ShadeMod;
 import shade.characters.ShadeCharacter;
+import shade.vfx.FakeFlashAtkImgEffect;
 
 public abstract class SpawnedUndead extends AbstractOrb{
 
@@ -98,6 +99,8 @@ public abstract class SpawnedUndead extends AbstractOrb{
     private int yOffset;
     public int debuffBonusAmount;
     public int debuffAmount;
+    public int health;
+    public int healthBonus;
     public Color extraFontColor = null;
     public boolean topSpawnVFX = false;
 
@@ -304,27 +307,29 @@ public void spawnVFX(){
     }
 
     public void render(SpriteBatch sb) {
-
+    
+    	//logger.info("rendering");
 
         if (this.delayTime > 0F) {
             delayTime = delayTime - Gdx.graphics.getDeltaTime();
         } else if (this.atlas == null) {
-            // logger.info("rendering null");
+             //logger.info("rendering null");
             sb.setColor(new Color(1F, 1F, 1F, 2F));
 
             sb.draw(this.img, this.cX - (float) this.img.getWidth() + this.animX * Settings.scale / 2.0F, this.cY + this.animY, (float) this.img.getWidth() * Settings.scale, (float) this.img.getHeight() * Settings.scale, 0, 0, this.img.getWidth(), this.img.getHeight(), false, false);
         } else {
             if (!hasSplashed) {
+            	AbstractDungeon.effectsQueue.add(new FakeFlashAtkImgEffect(this.cX, this.cY, projectileColor, 0.75F, true, 0.3F));            
                 this.hasSplashed = true;
                 postSpawnEffects();
             } else {
 
-                // logger.info("rendering slime model");
+                // logger.info("rendering skeleton model");
                 this.state.update(Gdx.graphics.getDeltaTime());
                 this.state.apply(this.skeleton);
                 this.skeleton.updateWorldTransform();
                 this.skeleton.setPosition(this.cX + this.animX, this.cY + this.animY + this.yOffset);
-                //logger.info("x = " + this.cX + " y = " + (this.cY + AbstractDungeon.sceneOffsetY));
+               // logger.info("x = " + this.cX + " y = " + (this.cY + AbstractDungeon.sceneOffsetY));
 
                 this.skeleton.setColor(modelColor);
                 this.skeleton.setFlip(true, false);
@@ -345,7 +350,7 @@ public void spawnVFX(){
 
     public void renderText(SpriteBatch sb) {
     	
-    	logger.info("rendering text");
+//    	logger.info("rendering text");
         if (this.extraFontColor != null) {
 
 
@@ -355,7 +360,7 @@ public void spawnVFX(){
 
 
 
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.debuffAmount + this.debuffBonusAmount + this.slimeBonus), this.cX + this.NUM_X_OFFSET + fontOffset, this.cY + this.NUM_Y_OFFSET, this.extraFontColor, this.fontScale);
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.health + this.healthBonus), this.cX + this.NUM_X_OFFSET + fontOffset, this.cY + this.NUM_Y_OFFSET, this.extraFontColor, this.fontScale);
 
         } else {
 
