@@ -128,7 +128,7 @@ public abstract class SpawnedUndead extends AbstractOrb{
 
         this.ID = ID;
 
-        //this.img = ImageMaster.loadImage(IMGURL);
+ //       this.img = ImageMaster.loadImage(IMGURL);
 
 
         this.basePassiveAmount = passive;
@@ -344,6 +344,8 @@ public void spawnVFX(){
 
 
     public void renderText(SpriteBatch sb) {
+    	
+    	logger.info("rendering text");
         if (this.extraFontColor != null) {
 
 

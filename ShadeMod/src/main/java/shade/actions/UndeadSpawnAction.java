@@ -30,5 +30,7 @@ public class UndeadSpawnAction extends AbstractGameAction{
         	((ShadeCharacter)AbstractDungeon.player).channelUndead(this.orbType);
         
         ShadeMod.logger.info("Done Channelling");
+        
+        this.isDone = true;
 	}
 }

@@ -43,6 +43,7 @@ public class AnimateDead
 
   public void use(AbstractPlayer p, AbstractMonster m) {
 
+	  ShadeMod.logger.info("Use Animate Dead");
       AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
 	  
   }
