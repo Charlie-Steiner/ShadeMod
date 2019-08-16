@@ -12,16 +12,20 @@ import shade.actions.UndeadAutoAttack;
 public class Skeleton extends SpawnedUndead{
 
 	public static final String ID = "Shade:Skeleton";
+	public static final int damage = 6;
+	public static int damageBonus;
 
 	public Skeleton() {
 
 		super(ID, -10, new Color(1.0F, 217F / 255F, 70F / 255F, 100F),
 				"images/monsters/theBottom/slimeAltM/skeleton.atlas",
 				"images/monsters/theBottom/slimeAltM/skeleton.json", "idle", 1.5F, new Color(1F, 150F / 255F, 0F, 2F),
-				6, 0, false, new Color(.63F, .58F, .41F, 1), new Texture("ShadeImages/orbs/bronzeslime.png"),
+				damage, 0, false, new Color(.63F, .58F, .41F, 1), new Texture("ShadeImages/orbs/bronzeslime.png"),
 				"ShadeImages/orbs/bronzeslime.png");
 		this.extraFontColor = Color.ROYAL;
 		this.health = 1;
+		this.count = 1;
+		this.damageBonus = 0;
 		this.healthBonus = 0;
 		spawnVFX();
 		setSlot(2,3);
@@ -35,11 +39,12 @@ public class Skeleton extends SpawnedUndead{
 
     public void activateEffectUnique() {
 
-        AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,this.passiveAmount, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));
+        AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(this.passiveAmount+this.damageBonus)*this.count, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));
 
     }
 
     public AbstractOrb makeCopy() {
         return new Skeleton();
     }
+
 }

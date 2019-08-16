@@ -29,6 +29,7 @@ import shade.ShadeMod;
 import shade.cards.AnimateDead;
 import shade.cards.Boneskin;
 import shade.cards.Strike_Shade;
+import shade.orbs.SpawnedUndead;
 import shade.patches.AbstractCardEnum;
 import shade.patches.ShadeEnum;
 import shade.relics.YorickSkull;
@@ -45,6 +46,9 @@ public class ShadeCharacter extends CustomPlayer {
 
 
 
+    public static final int INDEX_WRAITH = 0;
+    public static final int INDEX_ZOMBIE = 1;
+    public static final int INDEX_SKELETON = 2;
 
     public static Color cardRenderColor = new Color(0.0F, 0.1F, 0.0F, 1.0F);
 
@@ -145,15 +149,12 @@ public class ShadeCharacter extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<String>();
         retVal.add(Strike_Shade.ID);
         retVal.add(Strike_Shade.ID);
-        retVal.add(Strike_Shade.ID);
-        retVal.add(Strike_Shade.ID);
         retVal.add(Defend_Shade.ID);
         retVal.add(Defend_Shade.ID);
         retVal.add(Defend_Shade.ID);
         retVal.add(Defend_Shade.ID);
         retVal.add(AnimateDead.ID);
         retVal.add(ClawBack.ID);
-        retVal.add(Boneskin.ID);
         return retVal;
     }
     
@@ -213,9 +214,6 @@ public class ShadeCharacter extends CustomPlayer {
 
 	public void channelUndead(AbstractOrb orbType) {
 
-		final int INDEX_WRAITH = 0;
-		final int INDEX_ZOMBIE = 1;
-		final int INDEX_SKELETON = 2;
 		
 		int index = -1;
 		
@@ -235,6 +233,12 @@ public class ShadeCharacter extends CustomPlayer {
 		{
 			ShadeMod.logger.info("only 1 skeleton");
 			orbs.set(index, orbType);
+		}
+		else
+		{
+			ShadeMod.logger.info("more skeletons");
+			SpawnedUndead undead =  (SpawnedUndead)currentUndead;
+			undead.count = undead.count + 1;
 		}
 		
 		

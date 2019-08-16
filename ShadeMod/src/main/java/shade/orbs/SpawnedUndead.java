@@ -100,6 +100,7 @@ public abstract class SpawnedUndead extends AbstractOrb{
     public int debuffBonusAmount;
     public int debuffAmount;
     public int health;
+    public int count;
     public int healthBonus;
     public Color extraFontColor = null;
     public boolean topSpawnVFX = false;
@@ -356,11 +357,11 @@ public void spawnVFX(){
 
             float fontOffset = 26 * Settings.scale;
             if (this.passiveAmount > 9) fontOffset = fontOffset + (6 * Settings.scale);
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, this.passiveAmount + "/", this.cX + this.NUM_X_OFFSET, this.cY + this.NUM_Y_OFFSET, this.c, this.fontScale);
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, this.passiveAmount*this.count + "/", this.cX + this.NUM_X_OFFSET, this.cY + this.NUM_Y_OFFSET, this.c, this.fontScale);
 
 
 
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.health + this.healthBonus), this.cX + this.NUM_X_OFFSET + fontOffset, this.cY + this.NUM_Y_OFFSET, this.extraFontColor, this.fontScale);
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString((this.health + this.healthBonus)*this.count), this.cX + this.NUM_X_OFFSET + fontOffset, this.cY + this.NUM_Y_OFFSET, this.extraFontColor, this.fontScale);
 
         } else {
 
