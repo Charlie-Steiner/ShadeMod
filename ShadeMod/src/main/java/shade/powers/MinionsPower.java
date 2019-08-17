@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
 import shade.ShadeMod;
 import shade.characters.ShadeCharacter;
 import shade.orbs.Skeleton;
+import shade.orbs.SpawnedUndead;
 
 
 public class MinionsPower extends AbstractPower {
@@ -53,25 +54,34 @@ public class MinionsPower extends AbstractPower {
 		
 		if(damageAmount > 0)
 		{
-			if(!(AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot))
-			{
-				Skeleton s = (Skeleton)AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON);
-				
-				if(damageAmount >= s.health*s.count)
-				{	//skeletons destroyed
-					damageAmount -= s.health*s.count;
-					AbstractDungeon.player.orbs.set(ShadeCharacter.INDEX_SKELETON, new EmptyOrbSlot());
-				}
-				else
-				{
-					int minionsLost = Math.floorDiv(damageAmount,s.health);
-					damageAmount = 0;
-					s.count = s.count-minionsLost;
-				}
-			}
+
+			damageAmount = minionBlock(info,damageAmount,ShadeCharacter.INDEX_ZOMBIE);
+			damageAmount = minionBlock(info,damageAmount,ShadeCharacter.INDEX_SKELETON);
 		}
 
 	
+		
+		return damageAmount;
+	}
+	
+	private int minionBlock(DamageInfo info, int damageAmount, int index)
+	{
+		if(!(AbstractDungeon.player.orbs.get(index) instanceof EmptyOrbSlot))
+		{
+			SpawnedUndead u = (SpawnedUndead)AbstractDungeon.player.orbs.get(index);
+			
+			if(damageAmount >= u.health*u.count)
+			{	//skeletons destroyed
+				damageAmount -= u.health*u.count;
+				AbstractDungeon.player.orbs.set(index, new EmptyOrbSlot());
+			}
+			else
+			{
+				int minionsLost = Math.floorDiv(damageAmount,u.health);
+				damageAmount = 0;
+				u.count = u.count-minionsLost;
+			}
+		}
 		
 		return damageAmount;
 	}

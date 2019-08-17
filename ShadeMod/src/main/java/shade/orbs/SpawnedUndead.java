@@ -330,7 +330,7 @@ public void spawnVFX(){
                 this.state.apply(this.skeleton);
                 this.skeleton.updateWorldTransform();
                 this.skeleton.setPosition(this.cX + this.animX, this.cY + this.animY + this.yOffset);
-               // logger.info("x = " + this.cX + " y = " + (this.cY + AbstractDungeon.sceneOffsetY));
+                //logger.info("x = " + this.cX + " y = " + (this.cY + AbstractDungeon.sceneOffsetY));
 
                 this.skeleton.setColor(modelColor);
                 this.skeleton.setFlip(true, false);

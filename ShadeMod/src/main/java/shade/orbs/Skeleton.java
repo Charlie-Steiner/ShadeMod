@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 
 import shade.actions.UndeadAutoAttack;
+import shade.characters.ShadeCharacter;
 
 
 public class Skeleton extends SpawnedUndead{
@@ -27,8 +28,9 @@ public class Skeleton extends SpawnedUndead{
 		this.count = 1;
 		this.damageBonus = 0;
 		this.healthBonus = 0;
+		updateDescription();
 		spawnVFX();
-		setSlot(2,3);
+		setSlot(ShadeCharacter.INDEX_SKELETON,3);
 
 	}
 

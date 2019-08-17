@@ -72,7 +72,11 @@ public class ShadeCharacter extends CustomPlayer {
     private String currentJson = jsonURL;
 
     public float renderscale = 1.0F;
-	
+
+    public boolean moved = false;
+    public float leftScale = 0.15F;
+    
+    
     public ShadeCharacter(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures, "ShadeImages/char/orb/vfx.png", (String) null, (String) null);
 
@@ -92,6 +96,24 @@ public class ShadeCharacter extends CustomPlayer {
         TrackEntry e = this.state.setAnimation(0, "Idle", true);
         e.setTime(e.getEndTime() * MathUtils.random());
         this.state.addListener(new SlimeAnimListener());
+
+    }
+    
+    public void setRenderscale(float renderscale) {
+        this.renderscale = renderscale;
+        reloadAnimation();
+
+
+    }
+    
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (!this.moved) this.movePosition((float)Settings.WIDTH * this.leftScale, AbstractDungeon.floorY); this.moved = true;
+
+
+//        this.hatX = this.skeleton.findBone("eyeback1").getX();
+//        this.hatY = this.skeleton.findBone("eyeback1").getY();
 
     }
 	
@@ -172,7 +194,9 @@ public class ShadeCharacter extends CustomPlayer {
     
     
     public CharSelectInfo getLoadout() {
-        return new CharSelectInfo("The Shade", "A shady shade.", 60, 60, 4, 99, 5, this,
+    	int startingOrbs = 3;
+    	
+        return new CharSelectInfo("The Shade", "A shady shade.", 60, 60, startingOrbs, 99, 5, this,
 
                 getStartingRelics(), getStartingDeck(), false);
     }
@@ -222,16 +246,21 @@ public class ShadeCharacter extends CustomPlayer {
 			ShadeMod.logger.info("chanelling skeleton");
 			index = INDEX_SKELETON;
 		}
+		else if (orbType instanceof shade.orbs.Zombie)
+		{
+
+			ShadeMod.logger.info("chanelling zombie");
+			index = INDEX_ZOMBIE;
+		}
 		
 		if(index == -1)
 			return;
 		
 		AbstractOrb currentUndead = orbs.get(index);
-		AbstractOrb newUndead;
 		
 		if(currentUndead instanceof EmptyOrbSlot)
 		{
-			ShadeMod.logger.info("only 1 skeleton");
+			ShadeMod.logger.info("only 1 minion");
 			orbs.set(index, orbType);
 		}
 		else

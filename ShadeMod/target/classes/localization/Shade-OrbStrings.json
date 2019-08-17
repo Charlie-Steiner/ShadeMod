@@ -7,6 +7,14 @@
       " Life."
     ]
   },
+ "Shade:Zombie": {
+    "NAME": "Zombie",
+    "DESCRIPTION": [
+      "Deals ",
+      " damage at the start of your turn and has ",
+      " Life."
+    ]
+  },
   "Slimebound:BronzeSlime": {
     "NAME": "Bronze Slime",
     "DESCRIPTION": [
