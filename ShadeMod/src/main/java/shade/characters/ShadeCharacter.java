@@ -52,13 +52,10 @@ public class ShadeCharacter extends CustomPlayer {
 
     public static Color cardRenderColor = new Color(0.0F, 0.1F, 0.0F, 1.0F);
 
-    public float xStartOffset = (float) Settings.WIDTH * 0.23F;
-    private static float xSpaceBetweenSlots = 90 * Settings.scale;
-    private static float xSpaceBottomAlternatingOffset = 0;
+    public float xStartOffset = (float) Settings.WIDTH * 0.28F;
+    private static float xSpaceBetweenSlots = 110 * Settings.scale;
     
     private static float yStartOffset = AbstractDungeon.floorY + (100 * Settings.scale);
-
-    private static float ySpaceAlternatingOffset = -60 * Settings.scale;
     
     public float[] orbPositionsX = {0,0,0,0,0,0,0,0,0,0};
 
@@ -118,25 +115,25 @@ public class ShadeCharacter extends CustomPlayer {
     }
 	
     public void initializeSlotPositions() {
-        orbPositionsX[0] = xStartOffset + (xSpaceBetweenSlots * 1);
-        orbPositionsX[1] = xStartOffset + (xSpaceBetweenSlots * 1) + xSpaceBottomAlternatingOffset;
-        orbPositionsX[2] = xStartOffset + (xSpaceBetweenSlots * 2);
-        orbPositionsX[3] = xStartOffset + (xSpaceBetweenSlots * 2) + xSpaceBottomAlternatingOffset;
+        orbPositionsX[0] = xStartOffset + (xSpaceBetweenSlots * 1.7F);
+        orbPositionsX[1] = xStartOffset + (xSpaceBetweenSlots * 2F);
+        orbPositionsX[2] = xStartOffset + (xSpaceBetweenSlots * 0.8F);
+        orbPositionsX[3] = xStartOffset + (xSpaceBetweenSlots * 2);
         orbPositionsX[4] = xStartOffset + (xSpaceBetweenSlots * 3);
-        orbPositionsX[5] = xStartOffset + (xSpaceBetweenSlots * 3) + xSpaceBottomAlternatingOffset;
+        orbPositionsX[5] = xStartOffset + (xSpaceBetweenSlots * 3);
         orbPositionsX[6] = xStartOffset + (xSpaceBetweenSlots * 4);
-        orbPositionsX[7] = xStartOffset + (xSpaceBetweenSlots * 4) + xSpaceBottomAlternatingOffset;
+        orbPositionsX[7] = xStartOffset + (xSpaceBetweenSlots * 4);
         orbPositionsX[8] = xStartOffset + (xSpaceBetweenSlots * 5);
-        orbPositionsX[9] = xStartOffset + (xSpaceBetweenSlots * 5) + xSpaceBottomAlternatingOffset;
+        orbPositionsX[9] = xStartOffset + (xSpaceBetweenSlots * 5);
 
-        orbPositionsY[0] = yStartOffset;
-        orbPositionsY[1] = yStartOffset + -100 * Settings.scale;
-        orbPositionsY[2] = yStartOffset + ySpaceAlternatingOffset;
-        orbPositionsY[3] = yStartOffset + -100 * Settings.scale + ySpaceAlternatingOffset;
+        orbPositionsY[0] = yStartOffset + 55 * Settings.scale;
+        orbPositionsY[1] = yStartOffset - 60 * Settings.scale;
+        orbPositionsY[2] = yStartOffset - 60 * Settings.scale;
+        orbPositionsY[3] = yStartOffset + -100 * Settings.scale;
         orbPositionsY[4] = yStartOffset;
         orbPositionsY[5] = yStartOffset + -100 * Settings.scale;
-        orbPositionsY[6] = yStartOffset + ySpaceAlternatingOffset;
-        orbPositionsY[7] = yStartOffset + -100 * Settings.scale + ySpaceAlternatingOffset;
+        orbPositionsY[6] = yStartOffset;
+        orbPositionsY[7] = yStartOffset + -100 * Settings.scale;
         orbPositionsY[8] = yStartOffset;
         orbPositionsY[9] = yStartOffset + -100 * Settings.scale;
     }
