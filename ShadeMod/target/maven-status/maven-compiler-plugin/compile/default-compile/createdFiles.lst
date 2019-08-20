@@ -3,6 +3,7 @@ shade\cards\WallOfFlesh.class
 shade\cards\AbstractShadeCard.class
 shade\cards\RainOfBones.class
 shade\characters\ShadeCharacter.class
+shade\orbs\SpawnedUndead$1.class
 shade\cards\CallWraith.class
 shade\cards\CallOfTheGrave.class
 shade\patches\ShadeEnum.class

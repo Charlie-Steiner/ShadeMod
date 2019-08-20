@@ -41,6 +41,7 @@ import shade.cards.*;
 import shade.characters.ShadeCharacter;
 import shade.relics.*;
 import shade.patches.*;
+import shade.powers.MinionsPower;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -156,7 +157,7 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 		BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
 		String powerStrings = Gdx.files.internal("localization/Shade-PowerStrings.json")
 				.readString(String.valueOf(StandardCharsets.UTF_8));
-//		BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
+		BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
 		String monsterStrings = Gdx.files.internal("localization/Shade-MonsterStrings.json")
 				.readString(String.valueOf(StandardCharsets.UTF_8));
 		BaseMod.loadCustomStrings(MonsterStrings.class, monsterStrings);
@@ -165,7 +166,7 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 //		BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
 		String orbStrings = Gdx.files.internal("localization/Shade-OrbStrings.json")
 				.readString(String.valueOf(StandardCharsets.UTF_8));
-//		BaseMod.loadCustomStrings(OrbStrings.class, orbStrings);
+		BaseMod.loadCustomStrings(OrbStrings.class, orbStrings);
 		String eventStrings = Gdx.files.internal("localization/Shade-EventStrings.json")
 				.readString(String.valueOf(StandardCharsets.UTF_8));
 //		BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
@@ -198,6 +199,11 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 	}
 
 	public void receiveOnBattleStart(AbstractRoom room) {
+		
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+				new MinionsPower(AbstractDungeon.player)));
+		logger.info(CardCrawlGame.languagePack.getPowerStrings("Shade:MinionsPower").NAME);
+		logger.info(CardCrawlGame.languagePack.getPowerStrings("Slimebound:PotencyPower").NAME);
 		logger.info("preMonsterTurn");
 		logger.info("Common card #: " + AbstractDungeon.commonCardPool.group.size());
 		for (AbstractCard card : AbstractDungeon.commonCardPool.group) {

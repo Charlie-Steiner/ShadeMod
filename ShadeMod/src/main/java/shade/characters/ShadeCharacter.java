@@ -17,15 +17,19 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import shade.cards.ClawBack;
 import shade.cards.Defend_Shade;
+import shade.ShadeMod;
 import shade.cards.AnimateDead;
 import shade.cards.Boneskin;
 import shade.cards.Strike_Shade;
+import shade.orbs.SpawnedUndead;
 import shade.patches.AbstractCardEnum;
 import shade.patches.ShadeEnum;
 import shade.relics.YorickSkull;
@@ -41,15 +45,17 @@ public class ShadeCharacter extends CustomPlayer {
     public static final String[] orbTextures = {"ShadeImages/char/orb/layer1.png", "ShadeImages/char/orb/layer2.png", "ShadeImages/char/orb/layer3.png", "ShadeImages/char/orb/layer4.png", "ShadeImages/char/orb/layer5.png", "ShadeImages/char/orb/layer6.png", "ShadeImages/char/orb/layer1d.png", "ShadeImages/char/orb/layer2d.png", "ShadeImages/char/orb/layer3d.png", "ShadeImages/char/orb/layer4d.png", "ShadeImages/char/orb/layer5d.png"};
 
 
+
+    public static final int INDEX_WRAITH = 0;
+    public static final int INDEX_ZOMBIE = 1;
+    public static final int INDEX_SKELETON = 2;
+
     public static Color cardRenderColor = new Color(0.0F, 0.1F, 0.0F, 1.0F);
 
-    public float xStartOffset = (float) Settings.WIDTH * 0.23F;
-    private static float xSpaceBetweenSlots = 90 * Settings.scale;
-    private static float xSpaceBottomAlternatingOffset = 0;
+    public float xStartOffset = (float) Settings.WIDTH * 0.28F;
+    private static float xSpaceBetweenSlots = 110 * Settings.scale;
     
     private static float yStartOffset = AbstractDungeon.floorY + (100 * Settings.scale);
-
-    private static float ySpaceAlternatingOffset = -60 * Settings.scale;
     
     public float[] orbPositionsX = {0,0,0,0,0,0,0,0,0,0};
 
@@ -63,7 +69,11 @@ public class ShadeCharacter extends CustomPlayer {
     private String currentJson = jsonURL;
 
     public float renderscale = 1.0F;
-	
+
+    public boolean moved = false;
+    public float leftScale = 0.15F;
+    
+    
     public ShadeCharacter(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures, "ShadeImages/char/orb/vfx.png", (String) null, (String) null);
 
@@ -85,27 +95,45 @@ public class ShadeCharacter extends CustomPlayer {
         this.state.addListener(new SlimeAnimListener());
 
     }
+    
+    public void setRenderscale(float renderscale) {
+        this.renderscale = renderscale;
+        reloadAnimation();
+
+
+    }
+    
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (!this.moved) this.movePosition((float)Settings.WIDTH * this.leftScale, AbstractDungeon.floorY); this.moved = true;
+
+
+//        this.hatX = this.skeleton.findBone("eyeback1").getX();
+//        this.hatY = this.skeleton.findBone("eyeback1").getY();
+
+    }
 	
     public void initializeSlotPositions() {
-        orbPositionsX[0] = xStartOffset + (xSpaceBetweenSlots * 1);
-        orbPositionsX[1] = xStartOffset + (xSpaceBetweenSlots * 1) + xSpaceBottomAlternatingOffset;
-        orbPositionsX[2] = xStartOffset + (xSpaceBetweenSlots * 2);
-        orbPositionsX[3] = xStartOffset + (xSpaceBetweenSlots * 2) + xSpaceBottomAlternatingOffset;
+        orbPositionsX[0] = xStartOffset + (xSpaceBetweenSlots * 1.7F);
+        orbPositionsX[1] = xStartOffset + (xSpaceBetweenSlots * 2F);
+        orbPositionsX[2] = xStartOffset + (xSpaceBetweenSlots * 0.8F);
+        orbPositionsX[3] = xStartOffset + (xSpaceBetweenSlots * 2);
         orbPositionsX[4] = xStartOffset + (xSpaceBetweenSlots * 3);
-        orbPositionsX[5] = xStartOffset + (xSpaceBetweenSlots * 3) + xSpaceBottomAlternatingOffset;
+        orbPositionsX[5] = xStartOffset + (xSpaceBetweenSlots * 3);
         orbPositionsX[6] = xStartOffset + (xSpaceBetweenSlots * 4);
-        orbPositionsX[7] = xStartOffset + (xSpaceBetweenSlots * 4) + xSpaceBottomAlternatingOffset;
+        orbPositionsX[7] = xStartOffset + (xSpaceBetweenSlots * 4);
         orbPositionsX[8] = xStartOffset + (xSpaceBetweenSlots * 5);
-        orbPositionsX[9] = xStartOffset + (xSpaceBetweenSlots * 5) + xSpaceBottomAlternatingOffset;
+        orbPositionsX[9] = xStartOffset + (xSpaceBetweenSlots * 5);
 
-        orbPositionsY[0] = yStartOffset;
-        orbPositionsY[1] = yStartOffset + -100 * Settings.scale;
-        orbPositionsY[2] = yStartOffset + ySpaceAlternatingOffset;
-        orbPositionsY[3] = yStartOffset + -100 * Settings.scale + ySpaceAlternatingOffset;
+        orbPositionsY[0] = yStartOffset + 55 * Settings.scale;
+        orbPositionsY[1] = yStartOffset - 60 * Settings.scale;
+        orbPositionsY[2] = yStartOffset - 60 * Settings.scale;
+        orbPositionsY[3] = yStartOffset + -100 * Settings.scale;
         orbPositionsY[4] = yStartOffset;
         orbPositionsY[5] = yStartOffset + -100 * Settings.scale;
-        orbPositionsY[6] = yStartOffset + ySpaceAlternatingOffset;
-        orbPositionsY[7] = yStartOffset + -100 * Settings.scale + ySpaceAlternatingOffset;
+        orbPositionsY[6] = yStartOffset;
+        orbPositionsY[7] = yStartOffset + -100 * Settings.scale;
         orbPositionsY[8] = yStartOffset;
         orbPositionsY[9] = yStartOffset + -100 * Settings.scale;
     }
@@ -140,15 +168,12 @@ public class ShadeCharacter extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<String>();
         retVal.add(Strike_Shade.ID);
         retVal.add(Strike_Shade.ID);
-        retVal.add(Strike_Shade.ID);
-        retVal.add(Strike_Shade.ID);
         retVal.add(Defend_Shade.ID);
         retVal.add(Defend_Shade.ID);
         retVal.add(Defend_Shade.ID);
         retVal.add(Defend_Shade.ID);
         retVal.add(AnimateDead.ID);
         retVal.add(ClawBack.ID);
-        retVal.add(Boneskin.ID);
         return retVal;
     }
     
@@ -166,7 +191,9 @@ public class ShadeCharacter extends CustomPlayer {
     
     
     public CharSelectInfo getLoadout() {
-        return new CharSelectInfo("The Shade", "A shady shade.", 60, 60, 4, 99, 5, this,
+    	int startingOrbs = 3;
+    	
+        return new CharSelectInfo("The Shade", "A shady shade.", 60, 60, startingOrbs, 99, 5, this,
 
                 getStartingRelics(), getStartingDeck(), false);
     }
@@ -205,5 +232,45 @@ public class ShadeCharacter extends CustomPlayer {
     public AbstractCard getStartCardForEvent() {
         return new Strike_Shade();
     }
+
+	public void channelUndead(AbstractOrb orbType) {
+
+		
+		int index = -1;
+		
+		if(orbType instanceof shade.orbs.Skeleton)
+		{
+			ShadeMod.logger.info("chanelling skeleton");
+			index = INDEX_SKELETON;
+		}
+		else if (orbType instanceof shade.orbs.Zombie)
+		{
+
+			ShadeMod.logger.info("chanelling zombie");
+			index = INDEX_ZOMBIE;
+		}
+		
+		if(index == -1)
+			return;
+		
+		AbstractOrb currentUndead = orbs.get(index);
+		
+		if(currentUndead instanceof EmptyOrbSlot)
+		{
+			ShadeMod.logger.info("only 1 minion");
+			orbs.set(index, orbType);
+		}
+		else
+		{
+			ShadeMod.logger.info("more skeletons");
+			SpawnedUndead undead =  (SpawnedUndead)currentUndead;
+			undead.count = undead.count + 1;
+		}
+		
+		
+		
+		AbstractDungeon.actionManager.orbsChanneledThisCombat.add(orbType);
+		AbstractDungeon.actionManager.orbsChanneledThisTurn.add(orbType);
+	}
 }
 

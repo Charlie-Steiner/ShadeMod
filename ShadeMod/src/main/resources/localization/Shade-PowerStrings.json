@@ -1,4 +1,10 @@
 {
+	"Shade:MinionsPower": {
+		"NAME": "Minions",
+		"DESCRIPTIONS": [
+			"Minions will sacrifice themselves to protect you."
+			]
+	},
 	"Slimebound:PotencyPower": {
 		"NAME": "Potency",
 		"DESCRIPTIONS": [
