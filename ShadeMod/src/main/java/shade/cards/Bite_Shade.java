@@ -7,9 +7,11 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 import shade.ShadeMod;
@@ -20,17 +22,26 @@ public class Bite_Shade
   extends AbstractShadeCard
 {
   public static final String ID = "Shade:Bite_Shade";
-  public static final String NAME = "Bite";
-  public static final String DESCRIPTION = "Deal !D! damage. NL Heal !M! HP.";
+  public static final String NAME;
+  public static final String DESCRIPTION;
   public static final String IMG_PATH = "cards/default_attack.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
+  public static String UPGRADED_DESCRIPTION;
   
   private static final int COST = 1;
   private static final int POWER = 7;
   private static final int HEAL_AMT = 2;
   private static final int UPGRADE_BONUS = 1;
+
+  private static final CardStrings cardStrings;
+	static {
+		cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+		NAME = cardStrings.NAME;
+		DESCRIPTION = cardStrings.DESCRIPTION;
+        UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+	}
   
   public Bite_Shade() {
       super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
@@ -59,7 +70,7 @@ public class Bite_Shade
   public void upgrade() {
     if (!this.upgraded) {
       upgradeName();
-      upgradeDamage(3);
+      upgradeDamage(2);
       upgradeMagicNumber(1);
     } 
   }

@@ -54,19 +54,9 @@
     "DESCRIPTION": "A card you could get from combat.",
     "UPGRADE_DESCRIPTION": "A card you could get from combat."
   },
-"Shade:ThingOne": {
-    "NAME": "ThingOne",
-    "DESCRIPTION": "A card you could get from combat.",
-    "UPGRADE_DESCRIPTION": "A card you could get from combat."
-  },
-"Shade:ThingTwo": {
-    "NAME": "Thing Two",
-    "DESCRIPTION": "A card you could get from combat.",
-    "UPGRADE_DESCRIPTION": "A card you could get from combat."
-  },
-"Shade:ThingThree": {
-    "NAME": "Thing Three",
-    "DESCRIPTION": "A card you could get from combat.",
-    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+  "Shade:Bite_Shade": {
+    "NAME": "Bite",
+    "DESCRIPTION": "Deal !D! damage. NL Heal !M! HP.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Heal !M! HP."
   }
 }
