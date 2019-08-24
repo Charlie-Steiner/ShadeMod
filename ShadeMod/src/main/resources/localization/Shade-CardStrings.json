@@ -16,8 +16,8 @@
   },
 "Shade:ClawBack": {
     "NAME": "Claw Back",
-    "DESCRIPTION": "Deal !D! damage. NL Return an exhausted card to your draw pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Return an exhausted card to your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL Return a random exhausted class card to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Return a random exhausted class card to your draw pile."
   },
   "Shade:Boneskin": {
     "NAME": "Boneskin",

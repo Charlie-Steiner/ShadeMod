@@ -158,21 +158,27 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 		String powerStrings = Gdx.files.internal("localization/Shade-PowerStrings.json")
 				.readString(String.valueOf(StandardCharsets.UTF_8));
 		BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
+		String orbStrings = Gdx.files.internal("localization/Shade-OrbStrings.json")
+				.readString(String.valueOf(StandardCharsets.UTF_8));
+		BaseMod.loadCustomStrings(OrbStrings.class, orbStrings);
+		String uiStrings = Gdx.files.internal("localization/Shade-UIStrings.json")
+				.readString(String.valueOf(StandardCharsets.UTF_8));
+		BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
+		
+/*		
 		String monsterStrings = Gdx.files.internal("localization/Shade-MonsterStrings.json")
 				.readString(String.valueOf(StandardCharsets.UTF_8));
 		BaseMod.loadCustomStrings(MonsterStrings.class, monsterStrings);
 		String potionStrings = Gdx.files.internal("localization/Shade-PotionStrings.json")
 				.readString(String.valueOf(StandardCharsets.UTF_8));
-//		BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
-		String orbStrings = Gdx.files.internal("localization/Shade-OrbStrings.json")
-				.readString(String.valueOf(StandardCharsets.UTF_8));
-		BaseMod.loadCustomStrings(OrbStrings.class, orbStrings);
+		BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
 		String eventStrings = Gdx.files.internal("localization/Shade-EventStrings.json")
 				.readString(String.valueOf(StandardCharsets.UTF_8));
-//		BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
+		BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
 		String modStrings = Gdx.files.internal("localization/Shade-DailyModStrings.json")
 				.readString(String.valueOf(StandardCharsets.UTF_8));
-//		BaseMod.loadCustomStrings(RunModStrings.class, modStrings);
+		BaseMod.loadCustomStrings(RunModStrings.class, modStrings);
+*/
 		logger.info("done editing strings");
 
 	}

@@ -39,6 +39,8 @@ public class AnimateDead
 	public AnimateDead() {
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
+		
+		this.exhaust = true;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
