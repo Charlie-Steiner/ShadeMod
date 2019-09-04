@@ -31,13 +31,13 @@
   },
   "Shade:TouchOfTheGrave": {
     "NAME": "Touch of the Grave",
-    "DESCRIPTION": "A card you could get from combat.",
-    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+    "DESCRIPTION": "At the start of your turn, play a random exhausted attack and remove it from play.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, play a random exhausted attack and return it to your discard."
   },
   "Shade:CallOfTheGrave": {
     "NAME": "Call of the Grave",
-    "DESCRIPTION": "A card you could get from combat.",
-    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+    "DESCRIPTION": "At the start of your turn, play a random exhausted skill and remove it from play.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, play a random exhausted skill and return it to your discard."
   },
   "Shade:Bonestorm": {
     "NAME": "Bonestorm",
@@ -58,5 +58,10 @@
     "NAME": "Bite",
     "DESCRIPTION": "Deal !D! damage. NL Heal !M! HP.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Heal !M! HP."
+  },
+  "Shade:RitualOffering": {
+    "NAME": "Ritual Offering",
+    "DESCRIPTION": "Exhaust up to !M! cards from your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust up to !M! cards from your draw pile. NL Draw a card. NL Exhaust."
   }
 }

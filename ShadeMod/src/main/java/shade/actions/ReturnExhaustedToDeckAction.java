@@ -21,7 +21,9 @@ public class ReturnExhaustedToDeckAction
   private AbstractPlayer p;
   private final boolean random;
   private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Shade:ReturnExhaustedToDeckAction");
-  public static final String[] TEXT = uiStrings.TEXT; public ReturnExhaustedToDeckAction(boolean random) {
+  public static final String[] TEXT = uiStrings.TEXT;
+  
+  public ReturnExhaustedToDeckAction(boolean random) {
     this.classless = new ArrayList();
 
     this.random = random;
@@ -55,10 +57,8 @@ public class ReturnExhaustedToDeckAction
 		}
     	
         AbstractCard c = this.p.exhaustPile.getRandomCard(true);
-        c.unfadeOut();
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, true));
         this.p.exhaustPile.removeCard(c);
-        c.fadingOut = false;
         
         this.p.exhaustPile.group.addAll(classless);
         this.classless.clear();
@@ -119,6 +119,9 @@ public class ReturnExhaustedToDeckAction
 	        this.p.exhaustPile.removeCard(c);
 	      } 
 	      AbstractDungeon.gridSelectScreen.selectedCards.clear();
+	      
+	    	this.p.exhaustPile.group.addAll(classless);
+	    	this.classless.clear();
 	      
 	      for (AbstractCard c : this.p.exhaustPile.group) {
 	        c.unhover();

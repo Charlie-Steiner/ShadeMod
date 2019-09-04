@@ -1,12 +1,15 @@
 package shade.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import shade.ShadeMod;
 import shade.patches.AbstractCardEnum;
+import shade.powers.TouchOfTheGravePower;
+import shade.powers.TouchOfTheGravePowerUpgraded;
 
 
 public class TouchOfTheGrave
@@ -20,10 +23,6 @@ public class TouchOfTheGrave
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.POWER;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
-
-
-
-
 
   
   private static final CardStrings cardStrings;
@@ -42,20 +41,23 @@ public class TouchOfTheGrave
   }
 
 
-
   
   public AbstractCard makeCopy() { return new TouchOfTheGrave(); }
-
-
 
   
   public void upgrade() {
     if (!this.upgraded) {
-      
       upgradeName();
-      updateCost(0);
+      this.rawDescription=UPGRADED_DESCRIPTION;
+      initializeDescription();
     } 
   }
   
-  public void use(AbstractPlayer arg0, AbstractMonster arg1) {}
+  public void use(AbstractPlayer p, AbstractMonster m) {
+	  if(!this.upgraded) {
+		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TouchOfTheGravePower(p), 1));
+	  }else {
+		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TouchOfTheGravePowerUpgraded(p), 1));
+	  }
+  }
 }

@@ -3,5 +3,12 @@
     "TEXT": [
       "Select a Card to Return to Your Draw Pile"
     ]
+  },
+  "Shade:ExhaustFromDeckAction": {
+    "TEXT": [
+      "Choose a Card to Exhaust",
+      "Choose ",
+      " Cards to Exhaust"
+    ]
   }
 }

@@ -50,6 +50,7 @@ public class Bite_Shade
     this.baseMagicNumber = 2;
     this.magicNumber = this.baseMagicNumber;
     this.tags.add(AbstractCard.CardTags.HEALING);
+    
   }
 
   
