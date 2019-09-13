@@ -3,6 +3,7 @@ package shade.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.ShowCardAndPoofAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -76,6 +77,7 @@ public class PlayRandomFromExhaustAction extends AbstractGameAction
 		if(this.toDiscard) {
 			AbstractDungeon.actionManager.addToTop(new CleanUpCardAction(c, "exhaust", "discard", -1));
 		}else {
+			AbstractDungeon.actionManager.addToTop(new ShowCardAndPoofAction(c));
 			AbstractDungeon.actionManager.addToTop(new CleanUpCardAction(c, "exhaust", "nowhere", -1));
 		}
 		if (!Settings.FAST_MODE) {
@@ -86,8 +88,7 @@ public class PlayRandomFromExhaustAction extends AbstractGameAction
 
 		this.p.exhaustPile.group.addAll(misfits);
 		this.misfits.clear();
-		this.isDone = true;
 	    
-	    tickDuration();
+	    this.isDone=true;
 	}
 }

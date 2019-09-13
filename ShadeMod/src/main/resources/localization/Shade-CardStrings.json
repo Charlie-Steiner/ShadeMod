@@ -63,5 +63,40 @@
     "NAME": "Ritual Offering",
     "DESCRIPTION": "Exhaust up to !M! cards from your draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Exhaust up to !M! cards from your draw pile. NL Draw a card. NL Exhaust."
+  },
+  "Shade:Frenzy": {
+    "NAME": "Frenzy",
+    "DESCRIPTION": "Gain !M! Strength and Dexterity until next turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength and Dexterity until next turn. NL Exhaust."
+  },
+  "Shade:ExtraLimbs": {
+    "NAME": "Extra Limbs",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Increase the number of strikes by 1 this combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times. NL Increase the number of strikes by 1 this combat. NL Exhaust."
+  },
+  "Shade:SelfBurial": {
+    "NAME": "Self-burial",
+    "DESCRIPTION": "Exchange ALL unexhausted cards for your exhausted ones. NL Draw !M! cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exchange ALL unexhausted cards for your exhausted ones. NL Draw !M! cards. NL Exhaust."
+  },
+  "Shade:GraveBargain": {
+    "NAME": "Grave Bargain",
+    "DESCRIPTION": "Exhaust a card in your hand to return an exhausted card to your draw pile. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "Exhaust a card in your hand to return an exhausted card to your draw pile. NL Draw a card."
+  },
+  "Shade:FleshLikeOak": {
+    "NAME": "Flesh Like Oak",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Strength. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! Strength. NL Exhaust."
+  },
+  "Shade:CloudOfShrapnel": {
+    "NAME": "Cloud of Shrapnel",
+    "DESCRIPTION": "Sacrifice a skeleton to deal !D! damage to all enemies and gain !M! Dexterity. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Sacrifice a skeleton to deal !D! damage to all enemies and gain !M! Dexterity. NL Exhaust."
+  },
+  "Shade:GravesCall'": {
+    "NAME": "The Grave's Call'",
+    "DESCRIPTION": "Deal !D! damage to all enemmies. NL Costs 1 less for every !M! cards exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemmies. NL Costs 1 less for every !M! cards exhausted this combat."
   }
 }

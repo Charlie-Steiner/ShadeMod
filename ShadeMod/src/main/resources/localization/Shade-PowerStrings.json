@@ -36,5 +36,13 @@
 			"At the start of your turn, play #b",
 			" random skills from your discard, then return them to your discard."
 		]
+	},
+	"Shade:FrenzyDownPower": {
+		"NAME": "Losing Frenzy",
+		"DESCRIPTIONS": [
+			"At the start of your turn, after minion attacks, lose #b",
+			"Strength and #b",
+			" Dexterity"
+		]
 	}
 }

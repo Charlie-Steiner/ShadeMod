@@ -111,6 +111,9 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 		BaseMod.addCard(new shade.cards.Boneskin());
 		BaseMod.addCard(new shade.cards.RainOfBones());
 		BaseMod.addCard(new shade.cards.WallOfFlesh());
+		BaseMod.addCard(new shade.cards.Frenzy());
+		BaseMod.addCard(new shade.cards.ExtraLimbs());
+		BaseMod.addCard(new shade.cards.GraveBargain());
 
 		// uncommon cards
 		BaseMod.addCard(new shade.cards.TouchOfTheGrave());
@@ -118,9 +121,12 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 		BaseMod.addCard(new shade.cards.Bonestorm());
 		BaseMod.addCard(new shade.cards.Bite_Shade());
 		BaseMod.addCard(new shade.cards.RitualOffering());
+		BaseMod.addCard(new shade.cards.FleshLikeOak());
+		BaseMod.addCard(new shade.cards.CloudOfShrapnel());
 
 		// rare cards
 		BaseMod.addCard(new shade.cards.CallWraith());
+		BaseMod.addCard(new shade.cards.SelfBurial());
 	}
 
 	public void receiveEditRelics() {

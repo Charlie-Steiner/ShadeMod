@@ -58,6 +58,5 @@ public class ExhaustFromDeckAction extends AbstractGameAction {
 			AbstractDungeon.gridSelectScreen.selectedCards.clear();
 		}
 		tickDuration();
-		this.isDone = true;
 	}
 }
