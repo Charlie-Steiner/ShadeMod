@@ -72,6 +72,8 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 
 	private static final String CHAR_BUTTON = "charSelect/button.png";
 	private static final String CHAR_PORTRAIT = "charSelect/portrait.png";
+	
+	public static int combatExhausts = 0;
 
 	public ShadeMod() {
 		BaseMod.subscribe(this);
@@ -90,6 +92,10 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 		return "ShadeImages/" + resource;
 	}
 
+	public void receivePostExhaust() {
+		combatExhausts++;
+	}
+	
 	public void receiveEditCharacters() {
 
 		shadeCharacter = new ShadeCharacter("TheShade", ShadeEnum.SHADE);
@@ -114,6 +120,8 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 		BaseMod.addCard(new shade.cards.Frenzy());
 		BaseMod.addCard(new shade.cards.ExtraLimbs());
 		BaseMod.addCard(new shade.cards.GraveBargain());
+		BaseMod.addCard(new shade.cards.BoneSpear());
+		BaseMod.addCard(new shade.cards.FuneraryArmor());
 
 		// uncommon cards
 		BaseMod.addCard(new shade.cards.TouchOfTheGrave());
@@ -123,10 +131,14 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 		BaseMod.addCard(new shade.cards.RitualOffering());
 		BaseMod.addCard(new shade.cards.FleshLikeOak());
 		BaseMod.addCard(new shade.cards.CloudOfShrapnel());
+		BaseMod.addCard(new shade.cards.OminousRitual());
+		BaseMod.addCard(new shade.cards.FuneraryJewels());
+		BaseMod.addCard(new shade.cards.SanguineRitual());
 
 		// rare cards
 		BaseMod.addCard(new shade.cards.CallWraith());
 		BaseMod.addCard(new shade.cards.SelfBurial());
+		BaseMod.addCard(new shade.cards.DangerousRitual());
 	}
 
 	public void receiveEditRelics() {
@@ -224,7 +236,8 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 		}
 		logger.info("Uncommon card #: " + AbstractDungeon.uncommonCardPool.group.size());
 		logger.info("Rare card #: " + AbstractDungeon.rareCardPool.group.size());
-
+		
+		combatExhausts = 0;
 	}
 
 	public void receivePostDraw(AbstractCard c) {

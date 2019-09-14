@@ -94,9 +94,34 @@
     "DESCRIPTION": "Sacrifice a skeleton to deal !D! damage to all enemies and gain !M! Dexterity. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Sacrifice a skeleton to deal !D! damage to all enemies and gain !M! Dexterity. NL Exhaust."
   },
-  "Shade:GravesCall'": {
-    "NAME": "The Grave's Call'",
-    "DESCRIPTION": "Deal !D! damage to all enemmies. NL Costs 1 less for every !M! cards exhausted this combat.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemmies. NL Costs 1 less for every !M! cards exhausted this combat."
+  "Shade:SanguineRitual": {
+    "NAME": "Sanguine Ritual",
+    "DESCRIPTION": "Lose !D! HP. NL Gain [R] [R]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Lose !D! HP. NL Gain [R] [R] [R]. NL Exhaust."
+  },
+  "Shade:BoneSpear": {
+    "NAME": "Bone Spear",
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust."
+  },
+  "Shade:FuneraryArmor": {
+    "NAME": "Funerary Armor",
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust."
+  },
+  "Shade:FuneraryJewels": {
+    "NAME": "Funerary Jewels",
+    "DESCRIPTION": "Gain !B! Block. Draw !M! cards. Gain [R]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. Draw !M! cards. Gain [R]. NL Exhaust."
+  },
+  "Shade:DangerousRitual": {
+    "NAME": "Dangerous Ritual",
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Costs 1 less for every !M! cards exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Costs 1 less for every !M! cards exhausted this combat."
+  },
+  "Shade:OminousRitual": {
+    "NAME": "Ominous Ritual",
+    "DESCRIPTION": "Gain Block and deal damage to all enemies for each card exhausted this combat. NL (!M! cards exhausted)",
+    "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies for each card exhausted this combat. NL (!M! cards exhausted)"
   }
 }
