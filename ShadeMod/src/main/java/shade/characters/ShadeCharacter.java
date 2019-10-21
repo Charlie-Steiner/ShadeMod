@@ -25,10 +25,8 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import shade.cards.ClawBack;
 import shade.cards.Defend_Shade;
-import shade.cards.Frenzy;
 import shade.ShadeMod;
 import shade.cards.AnimateDead;
-import shade.cards.Boneskin;
 import shade.cards.Strike_Shade;
 import shade.orbs.SpawnedUndead;
 import shade.patches.AbstractCardEnum;
@@ -176,7 +174,6 @@ public class ShadeCharacter extends CustomPlayer {
         retVal.add(Defend_Shade.ID);
         retVal.add(AnimateDead.ID);
         retVal.add(ClawBack.ID);
-        retVal.add(Frenzy.ID);
         return retVal;
     }
     

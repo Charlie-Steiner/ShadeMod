@@ -13,7 +13,7 @@ import shade.powers.CallOfTheGravePowerUpgraded;
 
 
 public class CallOfTheGrave
-  extends AbstractCard
+  extends AbstractShadeCard
 {
   public static final String ID = "Shade:CallOfTheGrave";
   public static final String NAME;

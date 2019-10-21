@@ -1,11 +1,14 @@
 package shade.cards;
 
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import shade.ShadeMod;
+import shade.actions.UndeadSpawnAction;
 import shade.patches.AbstractCardEnum;
 
 
@@ -22,25 +25,41 @@ public class WallOfFlesh
 
 	private static final CardStrings cardStrings;
 
-	private static final int COST = 1;
+	private static final int COST = 2;
 
 	static {
 		cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 		NAME = cardStrings.NAME;
 		DESCRIPTION = cardStrings.DESCRIPTION;
 		UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+		
 	}
 
 	public WallOfFlesh() {
-		super("Shade:WallOfFlesh", NAME, ShadeMod.getResourcePath("cards/default_skill.png"), 1, DESCRIPTION, TYPE,
+		super("Shade:WallOfFlesh", NAME, ShadeMod.getResourcePath("cards/default_skill.png"), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
+		this.baseBlock = 8;
+		this.block = this.baseBlock;
 	}
 
 
   
   public AbstractCard makeCopy() { return new WallOfFlesh(); }
   
-  public void upgrade() {}
+  public void upgrade() {
+	  if(!this.upgraded)
+	  {
+		  upgradeName();
+		  upgradeBlock(3);
+	  }
+	  	
+  }
   
-  public void use(AbstractPlayer arg0, AbstractMonster arg1) {}
+  
+  public void use(AbstractPlayer p, AbstractMonster m) {
+	  
+	  ShadeMod.logger.info("Use " + ID);
+	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+	  AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p,p,this.block));
+  }
 }

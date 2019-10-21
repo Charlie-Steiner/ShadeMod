@@ -95,7 +95,6 @@ public class UndeadAutoAttack extends AbstractGameAction {
 
         }
 
-
         this.isDone = true;
     }
 	

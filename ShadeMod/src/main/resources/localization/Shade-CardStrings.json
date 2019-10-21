@@ -46,8 +46,23 @@
   },
   "Shade:WallOfFlesh": {
     "NAME": "Wall of Flesh",
-    "DESCRIPTION": "A card you could get from combat.",
-    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+    "DESCRIPTION": "Summon a zombie and gain !B! block.",
+    "UPGRADE_DESCRIPTION": "Summon a zombie and gain !B! block."
+  },
+  "Shade:FingerOfDeath": {
+    "NAME": "Finger of Death",
+    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, summon a zombie.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, summon a zombie."
+  },
+    "Shade:RavenousHorde": {
+    "NAME": "Ravenous Horde",
+    "DESCRIPTION": "Summons X zombies.",
+    "UPGRADE_DESCRIPTION": "Summons X+1 zombies."
+  },
+    "Shade:LichForm": {
+    "NAME": "Lich Form",
+    "DESCRIPTION": "At the start of turn NL summon 1 zombie and 1 skeleton.",
+    "UPGRADE_DESCRIPTION": "At the start of turn NL summon 2 zombies and 2 skeletons."
   },
   "Shade:CallWraith": {
     "NAME": "Call Wraith",
