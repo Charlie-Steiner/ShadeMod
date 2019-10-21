@@ -63,18 +63,19 @@ public class MinionsPower extends AbstractPower {
 	
 	private int minionBlock(DamageInfo info, int damageAmount, int index)
 	{
-		if(!(AbstractDungeon.player.orbs.get(index) instanceof EmptyOrbSlot))
+		//only zombies block
+		if(index == ShadeCharacter.INDEX_ZOMBIE && !(AbstractDungeon.player.orbs.get(index) instanceof EmptyOrbSlot))
 		{
 			SpawnedUndead u = (SpawnedUndead)AbstractDungeon.player.orbs.get(index);
 			
-			if(damageAmount >= u.health*u.count)
+			if(damageAmount >= (u.health+u.healthBonus)*u.count)
 			{	//skeletons destroyed
-				damageAmount -= u.health*u.count;
+				damageAmount -= (u.health+u.healthBonus)*u.count;
 				AbstractDungeon.player.orbs.set(index, new EmptyOrbSlot());
 			}
 			else
 			{
-				int minionsLost = Math.floorDiv(damageAmount,u.health);
+				int minionsLost = Math.floorDiv(damageAmount,(u.health+u.healthBonus));
 				damageAmount = 0;
 				u.count = u.count-minionsLost;
 			}

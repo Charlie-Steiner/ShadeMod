@@ -29,6 +29,7 @@ import com.megacrit.cardcrawl.monsters.exordium.AcidSlime_L;
 import com.megacrit.cardcrawl.monsters.exordium.SlimeBoss;
 import com.megacrit.cardcrawl.monsters.exordium.SpikeSlime_L;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
@@ -216,6 +217,19 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 	}
 
 	public void receivePostPowerApplySubscriber(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+		
+		if(target == AbstractDungeon.player)
+		{
+			for(int i = 0; i <= ShadeCharacter.INDEX_MAX; i++)
+			{
+			
+				AbstractOrb u = AbstractDungeon.player.orbs.get(i);
+				if (!(u instanceof EmptyOrbSlot))
+				{
+					u.updateDescription();
+				}
+			}
+		}
 
 	}
 

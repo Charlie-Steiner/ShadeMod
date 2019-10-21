@@ -25,6 +25,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import shade.cards.ClawBack;
 import shade.cards.Defend_Shade;
+import shade.cards.Frenzy;
 import shade.ShadeMod;
 import shade.cards.AnimateDead;
 import shade.cards.Boneskin;
@@ -49,6 +50,7 @@ public class ShadeCharacter extends CustomPlayer {
     public static final int INDEX_WRAITH = 0;
     public static final int INDEX_ZOMBIE = 1;
     public static final int INDEX_SKELETON = 2;
+    public static final int INDEX_MAX = 2;
 
     public static Color cardRenderColor = new Color(0.0F, 0.1F, 0.0F, 1.0F);
 
@@ -174,6 +176,7 @@ public class ShadeCharacter extends CustomPlayer {
         retVal.add(Defend_Shade.ID);
         retVal.add(AnimateDead.ID);
         retVal.add(ClawBack.ID);
+        retVal.add(Frenzy.ID);
         return retVal;
     }
     

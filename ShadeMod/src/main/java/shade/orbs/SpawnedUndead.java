@@ -102,14 +102,17 @@ public abstract class SpawnedUndead extends AbstractOrb{
     public int health;
     public int count;
     public int healthBonus;
+    public int decayConstant;	//rate of decay of minion (lose 1/decayConstant per turn)
     public Color extraFontColor = null;
     public boolean topSpawnVFX = false;
+    
+    public int index;
 
 
 
 	public SpawnedUndead(String ID, int yOffset, Color projectileColor, String atlasString, String skeletonString,
 			String animString, float scale, Color modelColor, int passive, int initialBoost, boolean movesToAttack,
-			Color deathColor, Texture intentImage, String IMGURL) {
+			Color deathColor, Texture intentImage, String IMGURL,int index) {
 
         this.scale = scale;
         this.modelColor = modelColor;
@@ -137,7 +140,7 @@ public abstract class SpawnedUndead extends AbstractOrb{
 
         this.basePassiveAmount = passive;
         this.movesToAttack = movesToAttack;
-
+        
         this.deathColor = deathColor;
 
         this.evokeAmount = 1;
@@ -147,6 +150,8 @@ public abstract class SpawnedUndead extends AbstractOrb{
         this.upgradedInitialBoost = initialBoost;
 
 
+        this.index = index;
+        
         this.channelAnimTimer = 0.5F;
 
         this.projectileColor = projectileColor;
@@ -207,7 +212,31 @@ public void spawnVFX(){
     public void applyFocus() {
         super.applyFocus();
         
-        updateDescription();
+        if(index == ShadeCharacter.INDEX_SKELETON)
+        {
+        	AbstractPower p = (AbstractPower)AbstractDungeon.player.getPower("Strength");
+        	if(p!= null)
+        	{
+        		logger.info("increasing strength  by " + p.amount);
+        		this.passiveAmount = Math.max(0, p.amount+this.basePassiveAmount);
+        	}
+        	else
+        		this.passiveAmount = this.basePassiveAmount;
+        }
+        else if(index == ShadeCharacter.INDEX_ZOMBIE)
+        {
+        	AbstractPower p = (AbstractPower)AbstractDungeon.player.getPower("Dexterity");
+        	if(p!= null)
+        	{
+        		logger.info("increasing dex  by " + p.amount);
+        		this.healthBonus = p.amount;
+        	}
+        	else
+        		this.healthBonus = 0;
+        }
+      
+        
+        //updateDescription();
     }
 
     public void applyUniqueFocus(int StrAmount) {
@@ -215,7 +244,7 @@ public void spawnVFX(){
         logger.info("Torch head getting buffed by " + StrAmount);
         this.UniqueFocus = this.UniqueFocus + StrAmount;
         this.passiveAmount = this.passiveAmount + StrAmount;
-        updateDescription();
+        //updateDescription();
         //AbstractDungeon.effectsQueue.add(new FireBurstParticleEffect(this.cX, this.cY));
     }
 
@@ -361,7 +390,7 @@ public void spawnVFX(){
 
 
 
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString((this.health + this.healthBonus)*this.count), this.cX + this.NUM_X_OFFSET + fontOffset, this.cY + this.NUM_Y_OFFSET, this.extraFontColor, this.fontScale);
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(Math.max(0, (this.health + this.healthBonus))*this.count), this.cX + this.NUM_X_OFFSET + fontOffset, this.cY + this.NUM_Y_OFFSET, this.extraFontColor, this.fontScale);
 
         } else {
 
