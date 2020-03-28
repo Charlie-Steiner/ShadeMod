@@ -7,55 +7,33 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.math.MathUtils;
-import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.dungeons.Exordium;
-import com.megacrit.cardcrawl.dungeons.TheBeyond;
-import com.megacrit.cardcrawl.dungeons.TheCity;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.exordium.AcidSlime_L;
-import com.megacrit.cardcrawl.monsters.exordium.SlimeBoss;
-import com.megacrit.cardcrawl.monsters.exordium.SpikeSlime_L;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.screens.custom.CustomMod;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.megacrit.cardcrawl.vfx.SmokePuffEffect;
-import com.megacrit.cardcrawl.vfx.SpeechBubble;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import shade.cards.*;
 import shade.characters.ShadeCharacter;
 import shade.relics.*;
 import shade.patches.*;
 import shade.powers.MinionsPower;
 
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 @com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
-public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitializeSubscriber, PostBattleSubscriber,
-		PostInitializeSubscriber, PreMonsterTurnSubscriber, OnCardUseSubscriber,
-		basemod.interfaces.EditCharactersSubscriber, basemod.interfaces.EditRelicsSubscriber,
-		basemod.interfaces.EditCardsSubscriber, basemod.interfaces.EditKeywordsSubscriber, EditStringsSubscriber,
-		basemod.interfaces.PostDrawSubscriber, basemod.interfaces.PostPowerApplySubscriber,
-		basemod.interfaces.OnStartBattleSubscriber {
+public class ShadeMod implements PostInitializeSubscriber, 
+		EditCharactersSubscriber, EditRelicsSubscriber, 
+		EditCardsSubscriber, EditKeywordsSubscriber, EditStringsSubscriber, 
+		OnStartBattleSubscriber, PostPowerApplySubscriber, PostExhaustSubscriber{
 
-	private static final com.badlogic.gdx.graphics.Color SHADE_COLOR = com.megacrit.cardcrawl.helpers.CardHelper
+	private static final Color SHADE_COLOR = com.megacrit.cardcrawl.helpers.CardHelper
 			.getColor(25.0F, 95.0F, 25.0F);
 
 	public static ShadeCharacter shadeCharacter;
@@ -92,13 +70,8 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 	public static final String getResourcePath(String resource) {
 		return "ShadeImages/" + resource;
 	}
-
-	public void receivePostExhaust() {
-		combatExhausts++;
-	}
 	
 	public void receiveEditCharacters() {
-
 		shadeCharacter = new ShadeCharacter("TheShade", ShadeEnum.SHADE);
 		BaseMod.addCharacter(shadeCharacter, getResourcePath("charSelect/button.png"),
 				getResourcePath("charSelect/portrait.png"), ShadeEnum.SHADE);
@@ -146,7 +119,6 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 	}
 
 	public void receiveEditRelics() {
-
 		BaseMod.addRelicToCustomPool(new YorickSkull(), AbstractCardEnum.SHADE);
 	}
 
@@ -206,19 +178,6 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 
 	}
 
-	public boolean receivePreMonsterTurn(AbstractMonster abstractMonster) {
-
-		this.printEnemies();
-
-		return true;
-	}
-
-	public void printEnemies() {
-		for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-			logger.info(monster.name + " HP " + monster.currentHealth);
-		}
-	}
-
 	public void receivePostPowerApplySubscriber(AbstractPower power, AbstractCreature target, AbstractCreature source) {
 		
 		if(target == AbstractDungeon.player)
@@ -233,10 +192,6 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 				}
 			}
 		}
-
-	}
-
-	public void receivePostDungeonInitialize() {
 
 	}
 
@@ -257,26 +212,14 @@ public class ShadeMod implements AddCustomModeModsSubscriber, PostDungeonInitial
 		combatExhausts = 0;
 	}
 
-	public void receivePostDraw(AbstractCard c) {
-
-	}
-
-	public void receiveCustomModeMods(List<CustomMod> l) {
-
-	}
-
-	public void receiveCardUsed(AbstractCard c) {
-
-	}
-
 	public void receiveEditKeywords() {
 		// TODO Auto-generated method stub
-
 	}
 
-	public void receivePostBattle(AbstractRoom arg0) {
-		// TODO Auto-generated method stub
-
+	@Override
+	public void receivePostExhaust(AbstractCard arg0) {
+		combatExhausts++;
 	}
+
 
 }
