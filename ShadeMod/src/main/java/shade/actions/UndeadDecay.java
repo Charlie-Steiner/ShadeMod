@@ -27,8 +27,9 @@ public class UndeadDecay extends AbstractGameAction {
 		
 		
 		int minimum = 0;	//should read some focus value from player related to min undead of type index
+		int decayTime = AbstractDungeon.player.getPower("Shade:MinionsPower").amount;
 		
-		u.count = u.count - (u.count-minimum)/u.decayConstant;
+		u.remove((int)((u.count-minimum)/(decayTime*1.0))+1);
 
 		
 		u.triggerEvokeAnimation();

@@ -2,7 +2,8 @@
 	"Shade:MinionsPower":{
 		"NAME": "Minions",
 		"DESCRIPTIONS": [
-			"Minions will sacrifice themselves to protect you."
+			"Zombies will sacrifice themselves to prevent unblocked damage. Zombies and Skeletons decay at a rate of 1/",
+			" per turn."
 		]
 	},
 	"Shade:TouchOfTheGravePower": {

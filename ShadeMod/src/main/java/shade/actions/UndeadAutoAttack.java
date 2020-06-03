@@ -69,7 +69,7 @@ public class UndeadAutoAttack extends AbstractGameAction {
             return;
         }
         logger.info("Finding target");
-        float speedTime = 0.2F / (float)AbstractDungeon.player.orbs.size();
+        float speedTime = 0.2F;
 
         if (Settings.FAST_MODE) {
 

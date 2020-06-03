@@ -48,7 +48,7 @@ public class AnimateDead
 	  ShadeMod.logger.info("Use Animate Dead");
       AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
       AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-	  
+      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
   }
 
 

@@ -20,6 +20,7 @@ public class MinionsPower extends AbstractPower {
     public static final String NAME = "Minions";
     public static PowerType POWER_TYPE = PowerType.BUFF;
     public static final String IMG = "powers/FirmFortitude.png";
+    public int decayConstant = 3;
 
     public static String[] DESCRIPTIONS;
     private AbstractCreature source;
@@ -28,7 +29,7 @@ public class MinionsPower extends AbstractPower {
     {
     	this.ID = POWER_ID;
     	this.owner = owner;
-    	this .amount = 0;
+    	this.amount = decayConstant;
         this.img = new com.badlogic.gdx.graphics.Texture(ShadeMod.getResourcePath(IMG));
         this.type = POWER_TYPE;
 
@@ -41,7 +42,7 @@ public class MinionsPower extends AbstractPower {
 
 	public void updateDescription() {
 
-		this.description = DESCRIPTIONS[0];
+		this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
 
 	}
 	
@@ -51,7 +52,6 @@ public class MinionsPower extends AbstractPower {
 		
 		if(damageAmount > 0)
 		{
-
 			damageAmount = minionBlock(info,damageAmount,ShadeCharacter.INDEX_ZOMBIE);
 			damageAmount = minionBlock(info,damageAmount,ShadeCharacter.INDEX_SKELETON);
 		}
@@ -68,16 +68,16 @@ public class MinionsPower extends AbstractPower {
 		{
 			SpawnedUndead u = (SpawnedUndead)AbstractDungeon.player.orbs.get(index);
 			
-			if(damageAmount >= (u.health+u.healthBonus)*u.count)
-			{	//skeletons destroyed
-				damageAmount -= (u.health+u.healthBonus)*u.count;
-				AbstractDungeon.player.orbs.set(index, new EmptyOrbSlot());
+			if(damageAmount >= (u.passiveAmount+u.passiveBonus)*u.count)
+			{	//minions destroyed
+				damageAmount -= (u.passiveAmount+u.passiveBonus)*u.count;
+				u.remove(u.count);
 			}
 			else
 			{
-				int minionsLost = Math.floorDiv(damageAmount,(u.health+u.healthBonus));
+				int minionsLost = Math.floorDiv(damageAmount,(u.passiveAmount+u.passiveBonus))+1;
 				damageAmount = 0;
-				u.count = u.count-minionsLost;
+				u.remove(minionsLost);
 			}
 		}
 		

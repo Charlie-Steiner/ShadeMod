@@ -15,21 +15,17 @@ public class Zombie extends SpawnedUndead {
 
 
 	public static final String ID = "Shade:Zombie";
-	public static final int damage = 0;
-	public static int damageBonus;
+	public static final int baseHealth = 5;
 	
 	
 	public Zombie()
 	{
 
-		super(ID, new Color(1.0F, 1.0F, 1.0F, 100F), 0, damage, false, 
+		super(ID, new Color(1.0F, 1.0F, 1.0F, 100F), 0, baseHealth, false, 
 				"ShadeImages/orbs/zombie.png",ShadeCharacter.INDEX_ZOMBIE);
 		this.extraFontColor = Color.ROYAL;
-		this.health = 5;
 		this.count = 1;
-		this.damageBonus = 0;
-		this.healthBonus = 0;
-		this.decayConstant = 5;
+		this.passiveBonus = 0;
 		updateDescription();
 		spawnVFX();
 		setSlot(ShadeCharacter.INDEX_ZOMBIE,3);
@@ -45,15 +41,37 @@ public class Zombie extends SpawnedUndead {
 	public void updateDescription() {
 
 		this.applyFocus();
-        this.description = this.descriptions[0] + this.passiveAmount + this.descriptions[1];
+		int damagePer = this.passiveAmount+this.passiveBonus;
+		int decayAmt = (int)(this.count/(AbstractDungeon.player.getPower("Shade:MinionsPower").amount*1.0))+1;
+		
+		String firstPlural;
+		String secondPlural;
+		String thirdPlural;
+		if(count==1) {
+			firstPlural = this.descriptions[4];
+			secondPlural = this.descriptions[5];
+		}else {
+			firstPlural = this.descriptions[1];
+			secondPlural = this.descriptions[2];
+		}
+		if(decayAmt==1) {
+			thirdPlural = this.descriptions[6];
+		}else {
+			thirdPlural = this.descriptions[3];
+		}
+			
+		
+        this.description = this.descriptions[0] + this.count + firstPlural + damagePer + secondPlural + decayAmt + thirdPlural;
 	}
-
+	
+    public void onStartOfTurn() {
+    	AbstractDungeon.actionManager.addToTop(new UndeadDecay(ShadeCharacter.INDEX_ZOMBIE));
+    }
 	
     public void activateEffectUnique() {
-
-        AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,this.passiveAmount*this.count, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));
-
-        AbstractDungeon.actionManager.addToBottom(new UndeadDecay(ShadeCharacter.INDEX_ZOMBIE));
+    	if(this.debuffAmount>0) {
+    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,this.passiveAmount*this.count, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));
+    	}
     }
 
 }

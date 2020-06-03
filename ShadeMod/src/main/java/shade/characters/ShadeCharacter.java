@@ -209,7 +209,6 @@ public class ShadeCharacter extends CustomPlayer {
 		}
 		else if (orbType instanceof shade.orbs.Zombie)
 		{
-
 			ShadeMod.logger.info("chanelling zombie");
 			index = INDEX_ZOMBIE;
 		}
@@ -228,7 +227,7 @@ public class ShadeCharacter extends CustomPlayer {
 		{
 			ShadeMod.logger.info("more skeletons");
 			SpawnedUndead undead =  (SpawnedUndead)currentUndead;
-			undead.count = undead.count + 1;
+			undead.count++;
 		}
 		
 		

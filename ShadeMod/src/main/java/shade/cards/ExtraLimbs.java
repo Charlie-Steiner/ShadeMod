@@ -49,12 +49,12 @@ public class ExtraLimbs
     this.baseMagicNumber = 2;
     this.magicNumber = this.baseMagicNumber;
     
-    this.exhaust = true;
+   // this.exhaust = true;
   }
 
   
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		for (int x = 0; x <= this.magicNumber; x++) {
+		for (int x = 0; x < this.magicNumber; x++) {
 			AbstractDungeon.actionManager
 					.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
 							AbstractGameAction.AttackEffect.SLASH_DIAGONAL));

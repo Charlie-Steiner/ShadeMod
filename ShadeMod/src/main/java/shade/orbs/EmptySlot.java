@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.vfx.combat.LightningOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
@@ -27,8 +28,7 @@ import org.apache.logging.log4j.Logger;
 
 
 
-public class EmptySlot extends AbstractOrb
-{
+public class EmptySlot extends EmptyOrbSlot{
   private float vfxTimer;
   private float vfxIntervalMin;
   private float vfxIntervalMax;

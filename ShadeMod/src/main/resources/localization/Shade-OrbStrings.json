@@ -2,16 +2,26 @@
 "Shade:Skeleton": {
     "NAME": "Skeleton",
     "DESCRIPTION": [
-      "Deals ",
-      " damage at the end of your turn."
+      "Your ",
+      " skeletons attack random enemies for ",
+      " damage each at the end of your turn (affected by Strength). ",
+      " skeletons decay next turn.",
+      " skeleton attacks a random enemy for ",
+      " damage at the end of your turn (affected by Strength). ",
+      " skeleton decays next turn."
     ]
   },
  "Shade:Zombie": {
     "NAME": "Zombie",
     "DESCRIPTION": [
-      "Can block ",
-      " damage."
-    ]
+      "Your ",
+      " zombies can block up to ",
+      " damage each (affected by Dexterity). ",
+      " zombies decay next turn.",
+      " zombie can block up to ",
+      " damage (affected by Dexterity). ",
+      " zombie decays next turn."
+	]
   },
  "Shade:Wraith": {
     "NAME": "Wraith",

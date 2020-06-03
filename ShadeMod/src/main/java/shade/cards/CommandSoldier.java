@@ -49,9 +49,9 @@ public class CommandSoldier
 	  Skeleton skele = new shade.orbs.Skeleton();
       AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(skele));
       if(this.upgraded)
-          AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(skele.passiveAmount+skele.damageBonus)*skele.count, AbstractGameAction.AttackEffect.BLUNT_LIGHT,skele,false,false,0,true,0));
+          AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(skele.passiveAmount+skele.passiveBonus)*skele.count, AbstractGameAction.AttackEffect.BLUNT_LIGHT,skele,false,false,0,true,0));
       else
-          AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(skele.passiveAmount+skele.damageBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,skele,false,false,0,true,0));
+          AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(skele.passiveAmount+skele.passiveBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,skele,false,false,0,true,0));
 
   }
 

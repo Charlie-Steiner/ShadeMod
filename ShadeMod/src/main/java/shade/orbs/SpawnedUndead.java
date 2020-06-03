@@ -75,10 +75,8 @@ public abstract class SpawnedUndead extends AbstractOrb{
     private int yOffset;
     public int debuffBonusAmount;
     public int debuffAmount;
-    public int health;
     public int count;
-    public int healthBonus;
-    public int decayConstant;	//rate of decay of minion (lose 1/decayConstant per turn)
+    public int passiveBonus;
     public Color extraFontColor = null;
     public boolean topSpawnVFX = false;
     
@@ -112,9 +110,6 @@ public abstract class SpawnedUndead extends AbstractOrb{
         this.descriptions = CardCrawlGame.languagePack.getOrbString(this.ID).DESCRIPTION;
 
         this.name = CardCrawlGame.languagePack.getOrbString(this.ID).NAME;
-        
-
-
 
         //AbstractDungeon.actionManager.addToBottom(new VFXAction(new SlimeFlareEffect(this, OrbVFXColor), .1F));
         this.applyFocus();
@@ -144,6 +139,8 @@ public void spawnVFX(){
     public void onEndOfTurn() {
         activateEffect();
     }
+    
+    public void onStartOfTurn() {}
 
     public void applyFocus() {
         super.applyFocus();
@@ -165,10 +162,10 @@ public void spawnVFX(){
         	if(p!= null)
         	{
         		logger.info("increasing dex  by " + p.amount);
-        		this.healthBonus = p.amount;
+        		this.passiveAmount = this.basePassiveAmount + p.amount;
         	}
         	else
-        		this.healthBonus = 0;
+        		this.passiveAmount = this.basePassiveAmount;
         }
       
         
@@ -281,17 +278,25 @@ public void spawnVFX(){
 
 
             float fontOffset = 26 * Settings.scale;
-            if (this.passiveAmount > 9) fontOffset = fontOffset + (6 * Settings.scale);
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, this.passiveAmount*this.count + "/", this.cX + this.NUM_X_OFFSET, this.cY + this.NUM_Y_OFFSET, this.c, this.fontScale);
+            if (this.count > 9) fontOffset = fontOffset + (6 * Settings.scale);
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, this.count + "/", this.cX + this.NUM_X_OFFSET, this.cY + this.NUM_Y_OFFSET, this.c, this.fontScale);
 
 
-
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(Math.max(0, (this.health + this.healthBonus))*this.count), this.cX + this.NUM_X_OFFSET + fontOffset, this.cY + this.NUM_Y_OFFSET, this.extraFontColor, this.fontScale);
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString((this.passiveAmount + this.passiveBonus)), this.cX + this.NUM_X_OFFSET + fontOffset, this.cY + this.NUM_Y_OFFSET, this.extraFontColor, this.fontScale);
 
         } else {
 
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.passiveAmount), this.cX + this.NUM_X_OFFSET, this.cY + this.NUM_Y_OFFSET, this.c, this.fontScale);
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.count), this.cX + this.NUM_X_OFFSET, this.cY + this.NUM_Y_OFFSET, this.c, this.fontScale);
         }
     }
 	
+	public void remove(int amount){
+		if(count>amount) {
+			count-= amount;
+			triggerEvokeAnimation();
+		}else{
+	    	AbstractDungeon.player.orbs.set(index, new EmptySlot());
+	        ((AbstractOrb)AbstractDungeon.player.orbs.get(index)).setSlot(index, AbstractDungeon.player.maxOrbs);
+		}
+	}
 }
