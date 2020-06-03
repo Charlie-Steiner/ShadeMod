@@ -16,10 +16,6 @@ import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.SkeletonData;
 import com.esotericsoftware.spine.SkeletonJson;
 import com.esotericsoftware.spine.SkeletonMeshRenderer;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -27,18 +23,16 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.helpers.SlimeAnimListener;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import basemod.animations.AbstractAnimation;
 import shade.ShadeMod;
 import shade.characters.ShadeCharacter;
-import shade.vfx.FakeFlashAtkImgEffect;
 
 public abstract class SpawnedUndead extends AbstractOrb{
 
@@ -60,40 +54,22 @@ public abstract class SpawnedUndead extends AbstractOrb{
     public int UniqueFocus;
     public float animX;
     public float animY;
-    public int slimeBonus;
     public boolean movesToAttack;
-    public int upgradedInitialBoost;
-    public String originalRelic = "";
     public String[] descriptions;
-    public com.badlogic.gdx.graphics.Texture intentImage;
-    private Color deathColor;
-    private Color modelColor;
+    private Color mainColor;
     public static String orbID = "";
     public boolean noEvokeBonus;
     private float scale = 1F;
     private static int W;
-    private Texture img;
+    public Texture img;
     private float x;
     private float px;
-    public static SkeletonMeshRenderer sr;
     private AbstractCreature.CreatureAnimation animation;
     private float animationTimer;
-
     private float animationTimerStart;
-    private TextureAtlas atlas;
-    public Skeleton skeleton;
-    public AnimationState state;
-    private AnimationStateData stateData;
-    private AbstractAnimation animationA;
+
     public AbstractPlayer p;
-    public Color projectileColor;
     private float delayTime;
-    private boolean hasSplashed;
-    private boolean madePostDuplicated;
-    private boolean renderBehind;
-    private String atlasString = "images/monsters/theBottom/slimeAltS/skeleton.atlas";
-    private String skeletonString = "images/monsters/theBottom/slimeAltS/skeleton.json";
-    private String animString = "idle";
 
     public String customDescription;
     private int yOffset;
@@ -110,51 +86,29 @@ public abstract class SpawnedUndead extends AbstractOrb{
 
 
 
-	public SpawnedUndead(String ID, int yOffset, Color projectileColor, String atlasString, String skeletonString,
-			String animString, float scale, Color modelColor, int passive, int initialBoost, boolean movesToAttack,
-			Color deathColor, Texture intentImage, String IMGURL,int index) {
+	public SpawnedUndead(String ID, Color mainColor, int yOffset, int passive, boolean movesToAttack, String IMGURL,int index) {
 
-        this.scale = scale;
-        this.modelColor = modelColor;
-        this.atlas = new TextureAtlas(Gdx.files.internal(atlasString));
+        this.c = mainColor;
         //this.renderBehind=true;
-        SkeletonJson json = new SkeletonJson(this.atlas);
 
-
-        json.setScale(Settings.scale / scale);
-        SkeletonData skeletonData = json.readSkeletonData(Gdx.files.internal(skeletonString));
-        this.skeleton = new Skeleton(skeletonData);
-        this.skeleton.setColor(Color.WHITE);
-        this.stateData = new AnimationStateData(skeletonData);
-        this.state = new AnimationState(this.stateData);
-        AnimationState.TrackEntry e = this.state.setAnimation(0, animString, true);
-        e.setTime(e.getEndTime() * MathUtils.random());
-        this.state.addListener(new SlimeAnimListener());
-        this.delayTime = 0.27F;
         this.yOffset = yOffset;
 
         this.ID = ID;
 
- //       this.img = ImageMaster.loadImage(IMGURL);
-
+        this.img = new Texture(IMGURL);
 
         this.basePassiveAmount = passive;
         this.movesToAttack = movesToAttack;
-        
-        this.deathColor = deathColor;
 
-        this.evokeAmount = 1;
+        this.evokeAmount = 0;
 
         this.passiveAmount = this.basePassiveAmount;
-        this.intentImage = intentImage;
-        this.upgradedInitialBoost = initialBoost;
 
 
         this.index = index;
         
         this.channelAnimTimer = 0.5F;
 
-        this.projectileColor = projectileColor;
         this.descriptions = CardCrawlGame.languagePack.getOrbString(this.ID).DESCRIPTION;
 
         this.name = CardCrawlGame.languagePack.getOrbString(this.ID).NAME;
@@ -188,26 +142,8 @@ public void spawnVFX(){
 
 
     public void onEndOfTurn() {
-
-        this.activatedThisTurn = false;
-
-    }
-
-
-    public void onStartOfTurn() {
-
-
         activateEffect();
-
     }
-
-
-
-    /*
-    public void update() {
-
-    }
-    */
 
     public void applyFocus() {
         super.applyFocus();
@@ -250,11 +186,7 @@ public void spawnVFX(){
 
 
     public void onEvoke() {
-    	
-    	
         triggerEvokeAnimation();
-
-
     }
 
 
@@ -266,9 +198,7 @@ public void spawnVFX(){
 
 
     public void activateEffect() {
-
         activateEffectUnique();
-
     }
 
     public void activateEffectUnique() {
@@ -336,45 +266,11 @@ public void spawnVFX(){
 
     }
 
-    public void render(SpriteBatch sb) {
-    
-    	//logger.info("rendering");
-
-        if (this.delayTime > 0F) {
-            delayTime = delayTime - Gdx.graphics.getDeltaTime();
-        } else if (this.atlas == null) {
-             //logger.info("rendering null");
-            sb.setColor(new Color(1F, 1F, 1F, 2F));
-
-            sb.draw(this.img, this.cX - (float) this.img.getWidth() + this.animX * Settings.scale / 2.0F, this.cY + this.animY, (float) this.img.getWidth() * Settings.scale, (float) this.img.getHeight() * Settings.scale, 0, 0, this.img.getWidth(), this.img.getHeight(), false, false);
-        } else {
-            if (!hasSplashed) {
-            	AbstractDungeon.effectsQueue.add(new FakeFlashAtkImgEffect(this.cX, this.cY, projectileColor, 0.75F, true, 0.3F));            
-                this.hasSplashed = true;
-                postSpawnEffects();
-            } else {
-
-                // logger.info("rendering skeleton model");
-                this.state.update(Gdx.graphics.getDeltaTime());
-                this.state.apply(this.skeleton);
-                this.skeleton.updateWorldTransform();
-                this.skeleton.setPosition(this.cX + this.animX, this.cY + this.animY + this.yOffset);
-                //logger.info("x = " + this.cX + " y = " + (this.cY + AbstractDungeon.sceneOffsetY));
-
-                this.skeleton.setColor(modelColor);
-                this.skeleton.setFlip(true, false);
-                sb.end();
-                CardCrawlGame.psb.begin();
-                AbstractMonster.sr.draw(CardCrawlGame.psb, this.skeleton);
-                CardCrawlGame.psb.end();
-                sb.begin();
-                sb.setBlendFunction(770, 771);
-
-            }
-            renderText(sb);
-
-        }
-        //this.hb.render(sb);
+    public void render(SpriteBatch sb) {      
+        sb.setColor(this.c);
+        sb.draw(img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale, this.scale, this.angle / 12.0F, 0, 0, 96, 96, false, false);
+        renderText(sb);
+        this.hb.render(sb);
     }
 
 

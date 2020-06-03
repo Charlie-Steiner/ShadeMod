@@ -22,11 +22,8 @@ public class Zombie extends SpawnedUndead {
 	public Zombie()
 	{
 
-		super(ID, -10, new Color(1.0F, 217F / 255F, 70F / 255F, 100F),
-				"images/monsters/theBottom/slimeAltM/skeleton.atlas",
-				"images/monsters/theBottom/slimeAltM/skeleton.json", "idle", 1.5F, new Color(1F, 150F / 255F, 0F, 2F),
-				damage, 0, false, new Color(.63F, .58F, .41F, 1), new Texture("ShadeImages/orbs/cultist.png"),
-				"ShadeImages/orbs/cultist.png",ShadeCharacter.INDEX_ZOMBIE);
+		super(ID, new Color(1.0F, 1.0F, 1.0F, 100F), 0, damage, false, 
+				"ShadeImages/orbs/zombie.png",ShadeCharacter.INDEX_ZOMBIE);
 		this.extraFontColor = Color.ROYAL;
 		this.health = 5;
 		this.count = 1;
@@ -48,7 +45,7 @@ public class Zombie extends SpawnedUndead {
 	public void updateDescription() {
 
 		this.applyFocus();
-        this.description = this.descriptions[0] + this.passiveAmount + this.descriptions[1] + this.health + this.descriptions[2];
+        this.description = this.descriptions[0] + this.passiveAmount + this.descriptions[1];
 	}
 
 	

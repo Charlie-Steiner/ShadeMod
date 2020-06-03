@@ -2,17 +2,26 @@ package shade;
 
 import basemod.BaseMod;
 import basemod.ModLabel;
+import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
@@ -21,13 +30,18 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import shade.characters.ShadeCharacter;
+import shade.orbs.EmptySlot;
+import shade.cards.*;
 import shade.relics.*;
 import shade.patches.*;
 import shade.powers.MinionsPower;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
-@com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
+@SpireInitializer
 public class ShadeMod implements PostInitializeSubscriber, 
 		EditCharactersSubscriber, EditRelicsSubscriber, 
 		EditCardsSubscriber, EditKeywordsSubscriber, EditStringsSubscriber, 
@@ -36,7 +50,10 @@ public class ShadeMod implements PostInitializeSubscriber,
 	private static final Color SHADE_COLOR = com.megacrit.cardcrawl.helpers.CardHelper
 			.getColor(25.0F, 95.0F, 25.0F);
 
+	public static final Logger logger = LogManager.getLogger(ShadeMod.class.getName());
+
 	public static ShadeCharacter shadeCharacter;
+	public static ShadeMod shademod;
 
 	private static final String ATTACK_CARD = "512/bg_attack_slimebound.png";
 	private static final String SKILL_CARD = "512/bg_skill_slimebound.png";
@@ -61,23 +78,27 @@ public class ShadeMod implements PostInitializeSubscriber,
 				getResourcePath(POWER_CARD), getResourcePath(ENERGY_ORB), getResourcePath(ATTACK_CARD_PORTRAIT),
 				getResourcePath(SKILL_CARD_PORTRAIT), getResourcePath(POWER_CARD_PORTRAIT),
 				getResourcePath(ENERGY_ORB_PORTRAIT), getResourcePath(CARD_ENERGY_ORB));
+		
 	}
-
+	
+    @SuppressWarnings("unused")
 	public static void initialize() {
-		new ShadeMod();
+		shademod = new ShadeMod();
 	}
 
 	public static final String getResourcePath(String resource) {
 		return "ShadeImages/" + resource;
 	}
 	
+    @Override
 	public void receiveEditCharacters() {
-		shadeCharacter = new ShadeCharacter("TheShade", ShadeEnum.SHADE);
+		shadeCharacter = new ShadeCharacter("the Shade", ShadeEnum.SHADE);
 		BaseMod.addCharacter(shadeCharacter, getResourcePath("charSelect/button.png"),
 				getResourcePath("charSelect/portrait.png"), ShadeEnum.SHADE);
-
+		logger.info("Added Shade Character");
 	}
 
+    @Override
 	public void receiveEditCards() {
 
 		// starter cards
@@ -116,14 +137,55 @@ public class ShadeMod implements PostInitializeSubscriber,
 		BaseMod.addCard(new shade.cards.SelfBurial());
 		BaseMod.addCard(new shade.cards.DangerousRitual());
 		BaseMod.addCard(new shade.cards.LichForm());
+		
+		//unlock cards:
+		//unlock starter cards
+		UnlockTracker.unlockCard(Defend_Shade.ID);
+		UnlockTracker.unlockCard(Strike_Shade.ID);
+		UnlockTracker.unlockCard(AnimateDead.ID);
+		UnlockTracker.unlockCard(ClawBack.ID);
+
+		//unlock common cards
+
+		UnlockTracker.unlockCard(Boneskin.ID);
+		UnlockTracker.unlockCard(RainOfBones.ID);
+		UnlockTracker.unlockCard(WallOfFlesh.ID);
+		UnlockTracker.unlockCard(Frenzy.ID);
+		UnlockTracker.unlockCard(ExtraLimbs.ID);
+		UnlockTracker.unlockCard(GraveBargain.ID);
+		UnlockTracker.unlockCard(BoneSpear.ID);
+		UnlockTracker.unlockCard(FuneraryArmor.ID);
+		UnlockTracker.unlockCard(FingerOfDeath.ID);
+
+		//unlock uncommon cards
+		UnlockTracker.unlockCard(TouchOfTheGrave.ID);
+		UnlockTracker.unlockCard(CallOfTheGrave.ID);
+		UnlockTracker.unlockCard(Bonestorm.ID);
+		UnlockTracker.unlockCard(Bite_Shade.ID);
+		UnlockTracker.unlockCard(RitualOffering.ID);
+		UnlockTracker.unlockCard(FleshLikeOak.ID);
+		UnlockTracker.unlockCard(CloudOfShrapnel.ID);
+		UnlockTracker.unlockCard(OminousRitual.ID);
+		UnlockTracker.unlockCard(FuneraryJewels.ID);
+		UnlockTracker.unlockCard(SanguineRitual.ID);
+		UnlockTracker.unlockCard(RavenousHorde.ID);
+
+		//unlock rare cards
+		UnlockTracker.unlockCard(CallWraith.ID);
+		UnlockTracker.unlockCard(SelfBurial.ID);
+		UnlockTracker.unlockCard(DangerousRitual.ID);
+		UnlockTracker.unlockCard(LichForm.ID);
+		
+		logger.info("Done adding Shade cards!");
 	}
 
+    @Override
 	public void receiveEditRelics() {
 		BaseMod.addRelicToCustomPool(new YorickSkull(), AbstractCardEnum.SHADE);
 	}
 
-	public static final Logger logger = LogManager.getLogger(ShadeMod.class.getName());
 
+    @Override
 	public void receivePostInitialize() {
 
 		logger.info("Load Badge Image and mod options");
@@ -133,14 +195,15 @@ public class ShadeMod implements PostInitializeSubscriber,
 		// Create the Mod Menu
 		ModPanel settingsPanel = new ModPanel();
 		settingsPanel.addUIElement(
-				new ModLabel("Shade Mod doesn't have any settings!", 400.0f, 700.0f, settingsPanel, (me) -> {
-				}));
-		BaseMod.registerModBadge(badgeTexture, "Shade", "Jove", "Adds the Shade character to the game.", settingsPanel);
+				new ModLabel("Shade Mod doesn't have any settings!", 400.0f, 700.0f, settingsPanel, (me) -> {}));
+		
+		BaseMod.registerModBadge(badgeTexture, "Shade", "Jove", "Adds the Shade character to the game. Art credit: CausticImp", settingsPanel);
 
 		logger.info("Done loading badge Image and mod options");
 
 	}
-
+    
+    @Override
 	public void receiveEditStrings() {
 
 		logger.info("begin editing Shade strings");
@@ -178,38 +241,44 @@ public class ShadeMod implements PostInitializeSubscriber,
 
 	}
 
+    @Override
 	public void receivePostPowerApplySubscriber(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-		
-		if(target == AbstractDungeon.player)
-		{
-			for(int i = 0; i <= ShadeCharacter.INDEX_MAX; i++)
+		if (AbstractDungeon.player.chosenClass == ShadeEnum.SHADE) {
+			if(target == AbstractDungeon.player)
 			{
-			
-				AbstractOrb u = AbstractDungeon.player.orbs.get(i);
-				if (!(u instanceof EmptyOrbSlot))
+				for(int i = 0; i <= ShadeCharacter.INDEX_MAX; i++)
 				{
-					u.updateDescription();
+					AbstractOrb u = AbstractDungeon.player.orbs.get(i);
+					if (!(u instanceof EmptyOrbSlot))
+					{
+						u.updateDescription();
+					}
 				}
 			}
 		}
-
 	}
 
+    @Override
 	public void receiveOnBattleStart(AbstractRoom room) {
-		
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-				new MinionsPower(AbstractDungeon.player)));
-		logger.info(CardCrawlGame.languagePack.getPowerStrings("Shade:MinionsPower").NAME);
-		logger.info(CardCrawlGame.languagePack.getPowerStrings("Slimebound:PotencyPower").NAME);
-		logger.info("preMonsterTurn");
-		logger.info("Common card #: " + AbstractDungeon.commonCardPool.group.size());
-		for (AbstractCard card : AbstractDungeon.commonCardPool.group) {
-			logger.info(card.name);
-		}
-		logger.info("Uncommon card #: " + AbstractDungeon.uncommonCardPool.group.size());
-		logger.info("Rare card #: " + AbstractDungeon.rareCardPool.group.size());
-		
-		combatExhausts = 0;
+	    if (AbstractDungeon.player.chosenClass == ShadeEnum.SHADE) {
+//	    	AbstractDungeon.player.orbs.set(0, new EmptySlot());
+//	    	AbstractDungeon.player.orbs.set(1, new EmptySlot());
+//	    	AbstractDungeon.player.orbs.set(2, new EmptySlot());
+
+	        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+					new MinionsPower(AbstractDungeon.player)));
+			logger.info(CardCrawlGame.languagePack.getPowerStrings("Shade:MinionsPower").NAME);
+			logger.info(CardCrawlGame.languagePack.getPowerStrings("Slimebound:PotencyPower").NAME);
+			logger.info("preMonsterTurn");
+			logger.info("Common card #: " + AbstractDungeon.commonCardPool.group.size());
+			for (AbstractCard card : AbstractDungeon.commonCardPool.group) {
+				logger.info(card.name);
+			}
+			logger.info("Uncommon card #: " + AbstractDungeon.uncommonCardPool.group.size());
+			logger.info("Rare card #: " + AbstractDungeon.rareCardPool.group.size());
+			
+			combatExhausts = 0;
+	    }
 	}
 
 	public void receiveEditKeywords() {
@@ -218,7 +287,9 @@ public class ShadeMod implements PostInitializeSubscriber,
 
 	@Override
 	public void receivePostExhaust(AbstractCard arg0) {
-		combatExhausts++;
+		if (AbstractDungeon.player.chosenClass == ShadeEnum.SHADE) {
+			combatExhausts++;
+		}
 	}
 
 

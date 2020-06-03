@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
-import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -19,8 +18,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import shade.cards.ClawBack;
@@ -29,20 +26,16 @@ import shade.ShadeMod;
 import shade.cards.AnimateDead;
 import shade.cards.Strike_Shade;
 import shade.orbs.SpawnedUndead;
-import shade.patches.AbstractCardEnum;
-import shade.patches.ShadeEnum;
+import shade.patches.*;
 import shade.relics.YorickSkull;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
 
 
 public class ShadeCharacter extends CustomPlayer {
 
     public static final String[] orbTextures = {"ShadeImages/char/orb/layer1.png", "ShadeImages/char/orb/layer2.png", "ShadeImages/char/orb/layer3.png", "ShadeImages/char/orb/layer4.png", "ShadeImages/char/orb/layer5.png", "ShadeImages/char/orb/layer6.png", "ShadeImages/char/orb/layer1d.png", "ShadeImages/char/orb/layer2d.png", "ShadeImages/char/orb/layer3d.png", "ShadeImages/char/orb/layer4d.png", "ShadeImages/char/orb/layer5d.png"};
-
 
 
     public static final int INDEX_WRAITH = 0;
@@ -61,12 +54,6 @@ public class ShadeCharacter extends CustomPlayer {
 
     public float[] orbPositionsY = {0,0,0,0,0,0,0,0,0,0};
     
-    
-    private String atlasURL = "ShadeImages/char/skeleton.atlas";
-    private String jsonURL = "ShadeImages/char/skeleton.json";
-    private String jsonURLPuddle = "ShadeImages/char/skeletonPuddle.json";
-
-    private String currentJson = jsonURL;
 
     public float renderscale = 1.0F;
 
@@ -77,29 +64,9 @@ public class ShadeCharacter extends CustomPlayer {
     public ShadeCharacter(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures, "ShadeImages/char/orb/vfx.png", (String) null, (String) null);
 
+        initializeClass("ShadeImages/char/idle.png", "ShadeImages/char/shoulder2.png", "ShadeImages/char/shoulder.png", "ShadeImages/char/corpse.png", getLoadout(), 10.0F, 0.0F, 220.0F, 290.0F, new EnergyManager(3));
 
-        this.initializeClass((String) null, "ShadeImages/char/shoulder2.png", "ShadeImages/char/shoulder.png", "ShadeImages/char/corpse.png", this.getLoadout(), 0.0F, 0.0F, 300.0F, 180.0F, new EnergyManager(3));
-        this.reloadAnimation();
-
-
-        this.dialogX = -200 * Settings.scale;
-        this.dialogY = -200 * Settings.scale;
         initializeSlotPositions();
-
-    }
-    
-    public void reloadAnimation() {
-        this.loadAnimation(atlasURL, this.currentJson, renderscale);
-        TrackEntry e = this.state.setAnimation(0, "Idle", true);
-        e.setTime(e.getEndTime() * MathUtils.random());
-        this.state.addListener(new SlimeAnimListener());
-
-    }
-    
-    public void setRenderscale(float renderscale) {
-        this.renderscale = renderscale;
-        reloadAnimation();
-
 
     }
     
@@ -115,9 +82,9 @@ public class ShadeCharacter extends CustomPlayer {
     }
 	
     public void initializeSlotPositions() {
-        orbPositionsX[0] = xStartOffset + (xSpaceBetweenSlots * 1.7F);
-        orbPositionsX[1] = xStartOffset + (xSpaceBetweenSlots * 2F);
-        orbPositionsX[2] = xStartOffset + (xSpaceBetweenSlots * 0.8F);
+        orbPositionsX[0] = xStartOffset + (xSpaceBetweenSlots * 1F);
+        orbPositionsX[1] = xStartOffset + (xSpaceBetweenSlots * 1.5F);
+        orbPositionsX[2] = xStartOffset + (xSpaceBetweenSlots * 0.6F);
         orbPositionsX[3] = xStartOffset + (xSpaceBetweenSlots * 2);
         orbPositionsX[4] = xStartOffset + (xSpaceBetweenSlots * 3);
         orbPositionsX[5] = xStartOffset + (xSpaceBetweenSlots * 3);
@@ -151,12 +118,11 @@ public class ShadeCharacter extends CustomPlayer {
     }
 
     public Color getCardRenderColor() {
-
         return cardRenderColor;
     }
 
     public String getVampireText() {
-        return com.megacrit.cardcrawl.events.city.Vampires.DESCRIPTIONS[5];
+        return com.megacrit.cardcrawl.events.city.Vampires.DESCRIPTIONS[0];
     }
 	
     public void doCharSelectScreenSelectEffect() {
@@ -193,7 +159,7 @@ public class ShadeCharacter extends CustomPlayer {
     public CharSelectInfo getLoadout() {
     	int startingOrbs = 3;
     	
-        return new CharSelectInfo("The Shade", "A shady shade.", 60, 60, startingOrbs, 99, 5, this,
+        return new CharSelectInfo("The Shade", "This sorceror wields the power of the grave. NL A bit of a shady character.", 60, 60, startingOrbs, 99, 5, this,
 
                 getStartingRelics(), getStartingDeck(), false);
     }
@@ -234,8 +200,6 @@ public class ShadeCharacter extends CustomPlayer {
     }
 
 	public void channelUndead(AbstractOrb orbType) {
-
-		
 		int index = -1;
 		
 		if(orbType instanceof shade.orbs.Skeleton)

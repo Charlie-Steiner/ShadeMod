@@ -3,24 +3,26 @@
     "NAME": "Skeleton",
     "DESCRIPTION": [
       "Deals ",
-      " damage at the start of your turn and has ",
-      " Life."
+      " damage at the end of your turn."
     ]
   },
  "Shade:Zombie": {
     "NAME": "Zombie",
     "DESCRIPTION": [
-      "Deals ",
-      " damage at the start of your turn and has ",
-      " Life."
+      "Can block ",
+      " damage."
     ]
   },
  "Shade:Wraith": {
     "NAME": "Wraith",
     "DESCRIPTION": [
-      "Applies ",
-      " weak at the start of your turn and blocks ",
-      " attack(s)."
+      "Prevents the next time you would lose HP."
+    ]
+  },
+  "Shade:Empty": {
+    "NAME": "Empty Slot",
+    "DESCRIPTION": [
+      "You haven't summoned any minions of this type."
     ]
   }
 }
