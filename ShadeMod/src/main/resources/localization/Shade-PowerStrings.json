@@ -45,5 +45,13 @@
 			"Strength and #b",
 			" Dexterity"
 		]
+	},
+		"Shade:StrongBonesPower": {
+		"NAME": "Strong Bones",
+		"DESCRIPTIONS": [
+			"Your Skeletons deal 3 addtional damage this turn.",
+			"Your Skeletons deal 3 addtional damage for #b",
+			" turns."
+		]
 	}
 }

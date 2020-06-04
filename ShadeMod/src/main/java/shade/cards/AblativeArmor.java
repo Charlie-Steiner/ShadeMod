@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
 
 import shade.patches.AbstractCardEnum;
@@ -50,27 +51,24 @@ public class AblativeArmor extends AbstractShadeCard{
     
     public AblativeArmor() {
         super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
-
-        this.block = 8;
+        
+        this.baseMagicNumber = 2;
+        this.magicNumber=this.baseMagicNumber;
+        this.baseDamage=6;
+        this.isMultiDamage= true;
     }
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		SpawnedUndead u = (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE);
 
 		if (u.count > 0) {
-			AbstractDungeon.actionManager.addToBottom(
-					new GainBlockAction(p,p,this.block));
-			AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage,
-					this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
-
+		    for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
+		        addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+		    } 
 			AbstractDungeon.actionManager
-			.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
+			.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, 1), 1));
 			
-			if(u.count==1) {
-				AbstractDungeon.player.orbs.set(ShadeCharacter.INDEX_SKELETON, new EmptyOrbSlot());
-			}else {
-				u.count--;
-			}
+			u.remove(1);
 		}
 	}
 
@@ -94,7 +92,7 @@ public class AblativeArmor extends AbstractShadeCard{
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeBlock(3);
+            upgradeMagicNumber(1);
         }
     }
 }

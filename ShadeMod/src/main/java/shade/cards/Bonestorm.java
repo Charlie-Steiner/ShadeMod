@@ -1,11 +1,18 @@
 package shade.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
+
 import shade.ShadeMod;
+import shade.actions.UndeadSpawnAction;
 import shade.patches.AbstractCardEnum;
 
 
@@ -18,8 +25,8 @@ public class Bonestorm
   public static String UPGRADED_DESCRIPTION;
   public static final String IMG_PATH = "cards/default_attack.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
-  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
-  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
+  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
+  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ALL_ENEMY;
 
 
 
@@ -39,7 +46,13 @@ public class Bonestorm
   
   private static final int COST = 1;
   
-  public Bonestorm() { super("Shade:Bonestorm", NAME, ShadeMod.getResourcePath("cards/default_attack.png"), 1, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET); }
+  public Bonestorm() { 
+      super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
+
+      
+      this.baseDamage = 7;
+      this.isMultiDamage = true;
+  }
 
 
 
@@ -48,7 +61,24 @@ public class Bonestorm
   
   public AbstractCard makeCopy() { return new Bonestorm(); }
   
-  public void upgrade() {}
+  public void upgrade() {
+      if (!this.upgraded) {
+          upgradeName();
+          upgradeDamage(1);
+	        this.rawDescription=UPGRADED_DESCRIPTION;
+	        initializeDescription();
+      }
+  }
   
-  public void use(AbstractPlayer arg0, AbstractMonster arg1) {}
+  public void use(AbstractPlayer p, AbstractMonster arg1) {
+	  AbstractDungeon.actionManager.addToBottom(
+				new VFXAction(new DaggerSprayEffect(AbstractDungeon.getMonsters().shouldFlipVfx()), 0.0F));
+		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage,
+				this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+		
+      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
+      if(this.upgraded) {
+    	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
+      }
+  }
 }

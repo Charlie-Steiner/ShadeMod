@@ -19,16 +19,21 @@ public class FingerOfDeathAction extends AbstractGameAction {
 	
 	@Override
 	public void update() {
-		
-		if(this.target != null)
-		{
-			this.target.damage(this.info);
+		if(this.target != null) {
+		    this.target.damage(this.info);
 			
-			if((this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead) {
-				AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+			if(this.target != null)
+			{
+				this.target.damage(this.info);
+				
+				if((this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead) {
+					AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+				}
 			}
+	    	if ((AbstractDungeon.getCurrRoom()).monsters.areMonstersBasicallyDead()) {
+	          AbstractDungeon.actionManager.clearPostCombatActions();
+	    	}
 		}
-		
 		this.isDone = true;
 	}
 

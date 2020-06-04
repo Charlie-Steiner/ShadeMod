@@ -17,17 +17,17 @@ import shade.patches.AbstractCardEnum;
 public class SkeletonArmy
   extends AbstractShadeCard
 {
-  public static final String ID = "Shade:CommandSoldier";
+  public static final String ID = "Shade:SkeletonArmy";
   public static final String NAME;
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
-  public static final String IMG_PATH = "cards/default_attack.png";
-  private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
-  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.BASIC;
-  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ALL_ENEMY;
+  public static final String IMG_PATH = "cards/default_skill.png";
+  private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
+  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
+  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
   
 
-  private static final int COST = 1;
+  private static final int COST = 3;
 
   private static final CardStrings cardStrings;
   
@@ -43,16 +43,14 @@ public class SkeletonArmy
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
+		this.baseMagicNumber=5;
+		this.magicNumber=this.baseMagicNumber;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  Skeleton skele = new shade.orbs.Skeleton();
-      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(skele));
-      if(this.upgraded)
-          AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(skele.passiveAmount+skele.passiveBonus)*skele.count, AbstractGameAction.AttackEffect.BLUNT_LIGHT,skele,false,false,0,true,0));
-      else
-          AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(skele.passiveAmount+skele.passiveBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,skele,false,false,0,true,0));
-
+	  for(int i=0;i<this.baseMagicNumber;i++) {
+		  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
+	  }
   }
 
 
@@ -62,9 +60,9 @@ public class SkeletonArmy
 
   
   public void upgrade() {
-    if (!this.upgraded)
+    if (!this.upgraded) {
     	upgradeName(); 
-	    this.rawDescription=UPGRADED_DESCRIPTION;
-	    initializeDescription();
+	    upgradeMagicNumber(2);
+    }
   }
 }

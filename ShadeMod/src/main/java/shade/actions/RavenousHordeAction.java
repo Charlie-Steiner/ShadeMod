@@ -29,6 +29,9 @@ public class RavenousHordeAction extends AbstractGameAction {
 			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
 		}
 		
+		if(effect>2) {
+			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
+		}
 
         AbstractDungeon.player.energy.use(this.energyOnUse);
 		this.isDone = true;

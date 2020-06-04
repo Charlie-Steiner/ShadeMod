@@ -1,5 +1,6 @@
 package shade.powers;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -7,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 
 import shade.ShadeMod;
 import shade.characters.ShadeCharacter;
@@ -47,16 +49,19 @@ public class MinionsPower extends AbstractPower {
 	}
 	
 	public int onAttackedToChangeDamage(DamageInfo info, int damageAmount) {
-		
-		
-		
 		if(damageAmount > 0)
 		{
 			damageAmount = minionBlock(info,damageAmount,ShadeCharacter.INDEX_ZOMBIE);
 			damageAmount = minionBlock(info,damageAmount,ShadeCharacter.INDEX_SKELETON);
 		}
 
-	
+		if(damageAmount>1 && (AbstractPower)AbstractDungeon.player.getPower("IntangiblePlayer")==null)
+		{
+			if(!(AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
+				damageAmount = 1;
+				AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new IntangiblePlayerPower(AbstractDungeon.player, 1), 1)); 
+			}
+		}
 		
 		return damageAmount;
 	}

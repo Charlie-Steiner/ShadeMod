@@ -46,14 +46,20 @@ public class RavenousHorde extends AbstractShadeCard {
 
 	@Override
 	public void upgrade() {
-	    if (!this.upgraded)
-	      upgradeName(); 
+	    if (!this.upgraded) {
+	        upgradeName();
+	        this.rawDescription=UPGRADED_DESCRIPTION;
+	        initializeDescription();
+	      } 
 	}
 
 	@Override
 	public void use(AbstractPlayer arg0, AbstractMonster arg1) {
+		int bonus=0;
+		if(this.upgraded)
+			bonus=1;
 		
-		AbstractDungeon.actionManager.addToBottom(new RavenousHordeAction(this.energyOnUse));
+		AbstractDungeon.actionManager.addToBottom(new RavenousHordeAction(this.energyOnUse+bonus));
 		
 	}
 

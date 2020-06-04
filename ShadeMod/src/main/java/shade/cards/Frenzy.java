@@ -44,8 +44,8 @@ public class Frenzy
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
 		this.exhaust = true;
-		this.baseMagicNumber = 3;
-		this.magicNumber = 3;
+		this.baseMagicNumber = 2;
+		this.magicNumber = this.baseMagicNumber;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {

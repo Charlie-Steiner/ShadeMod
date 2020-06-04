@@ -38,8 +38,10 @@ public class WallOfFlesh
 	public WallOfFlesh() {
 		super("Shade:WallOfFlesh", NAME, ShadeMod.getResourcePath("cards/default_skill.png"), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
-		this.baseBlock = 8;
+		this.baseBlock = 4;
 		this.block = this.baseBlock;
+		this.baseMagicNumber=2;
+		this.magicNumber=this.baseMagicNumber;
 	}
 
 
@@ -50,7 +52,7 @@ public class WallOfFlesh
 	  if(!this.upgraded)
 	  {
 		  upgradeName();
-		  upgradeBlock(3);
+		  upgradeBlock(4);
 	  }
 	  	
   }
@@ -59,7 +61,9 @@ public class WallOfFlesh
   public void use(AbstractPlayer p, AbstractMonster m) {
 	  
 	  ShadeMod.logger.info("Use " + ID);
-	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+	  for(int i=0;i<this.magicNumber;i++){
+		  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+	  }
 	  AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p,p,this.block));
   }
 }

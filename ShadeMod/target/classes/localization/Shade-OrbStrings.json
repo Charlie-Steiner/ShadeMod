@@ -26,7 +26,10 @@
  "Shade:Wraith": {
     "NAME": "Wraith",
     "DESCRIPTION": [
-      "Prevents the next time you would lose HP."
+      "You have ",
+      " wraith",
+      " wraiths",
+      ". If you would take unblocked attack damage, instead become intangible and sacrifice a wraith. At the beginning of your turn, sacrifice 1 wraith to deal 30 damage to all enemies."
     ]
   },
   "Shade:Empty": {

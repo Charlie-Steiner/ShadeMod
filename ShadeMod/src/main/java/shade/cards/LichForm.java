@@ -36,27 +36,23 @@ public class LichForm extends AbstractShadeCard {
 	public LichForm() {
 		super(ID,NAME,shade.ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
 		// TODO Auto-generated constructor stub
+		this.baseMagicNumber=2;
+		this.magicNumber=this.baseMagicNumber;
 	}
 
 	@Override
 	public void upgrade() {
 	    if (!this.upgraded) {
 	      upgradeName();
-	      this.rawDescription=UPGRADED_DESCRIPTION;
-	      initializeDescription();
+	      upgradeMagicNumber(1);
 	    } 
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		
-		  if(!this.upgraded) {
-			  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LichFormPower(p), 1));
-		  }else {
-			  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LichFormPower(p), 1));
-			  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LichFormPower(p), 1));
-		  }
-		
+		for(int i=0;i<this.magicNumber;i++) {
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LichFormPower(p), 1));
+		}
 	}
 
 }

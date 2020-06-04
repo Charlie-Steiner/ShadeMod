@@ -11,23 +11,30 @@
   },
 "Shade:AnimateDead": {
     "NAME": "Animate Dead",
-    "DESCRIPTION": "Summon a zombie and two skeletons. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Summon a zombie an two skeletons. NL Exhaust."
+    "DESCRIPTION": "Summon 1 zombie and 2 skeletons. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Summon 2 zombies and 1 skeleton. NL Exhaust."
   },
 "Shade:ClawBack": {
     "NAME": "Claw Back",
     "DESCRIPTION": "Deal !D! damage. NL Return a random exhausted class card to your draw pile.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Return a random exhausted class card to your draw pile."
   },
+  "Shade:AblativeArmor": {
+    "NAME": "Ablative Armor",
+    "DESCRIPTION": "Sacrifice a zombie to apply !M! Weak to all enemies and gain 1 Dexterity.",
+    "UPGRADE_DESCRIPTION": "Sacrifice a zombie to apply !M! Weak to all enemies and gain 1 Dexterity.",
+    "EXTENDED_DESCRIPTION": ["I need a zombie."]
+  },
   "Shade:Boneskin": {
     "NAME": "Boneskin",
-    "DESCRIPTION": "Sacrifice your skeletons.  Gain 1 plated armor for each skeleton sacrificed.",
-    "UPGRADE_DESCRIPTION": "Sacrifice your skeletons.  Gain 2 plated armor for each skeleton sacrificed."
+    "DESCRIPTION": "Sacrifice your skeletons. Gain !M! plated armor for each skeleton sacrificed.",
+    "UPGRADE_DESCRIPTION": "Sacrifice your skeletons. Gain !M! plated armor for each skeleton sacrificed.",
+    "EXTENDED_DESCRIPTION": ["I need a skeleton."]
   },
-  "Shade:RainOfBones": {
-    "NAME": "Rain of Bones",
-    "DESCRIPTION": "A card you could get from combat.",
-    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+  "Shade:FreshBones": {
+    "NAME": "Fresh Bones",
+    "DESCRIPTION": "Summon 1 skeleton. NL Your skeletons deal 3 more damage for !M! turn.",
+    "UPGRADE_DESCRIPTION": "Summon 1 skeleton. NL Your skeletons deal 3 more damage for !M! turns."
   },
   "Shade:TouchOfTheGrave": {
     "NAME": "Touch of the Grave",
@@ -41,33 +48,33 @@
   },
   "Shade:Bonestorm": {
     "NAME": "Bonestorm",
-    "DESCRIPTION": "A card you could get from combat.",
-    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Summon 1 skeleton.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Summon 2 skeletons."
   },
   "Shade:WallOfFlesh": {
     "NAME": "Wall of Flesh",
-    "DESCRIPTION": "Summon a zombie and gain !B! block.",
-    "UPGRADE_DESCRIPTION": "Summon a zombie and gain !B! block."
+    "DESCRIPTION": "Summon !M! zombies and gain !B! block.",
+    "UPGRADE_DESCRIPTION": "Summon !M! zombies and gain !B! block."
   },
   "Shade:FingerOfDeath": {
     "NAME": "Finger of Death",
-    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, summon a zombie.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, summon a zombie."
+    "DESCRIPTION": "Deal !D! damage. NL If it kills the target, summon a zombie.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If it kills the target, summon a zombie."
   },
     "Shade:RavenousHorde": {
     "NAME": "Ravenous Horde",
-    "DESCRIPTION": "Summons X zombies.",
-    "UPGRADE_DESCRIPTION": "Summons X+1 zombies."
+    "DESCRIPTION": "Summon X zombies. NL If this summons 3 or more, summon a skeleton.",
+    "UPGRADE_DESCRIPTION": "Summon X+1 zombies. NL If this summons 3 or more, summon a skeleton."
   },
     "Shade:LichForm": {
     "NAME": "Lich Form",
-    "DESCRIPTION": "At the start of turn NL summon 1 zombie and 1 skeleton.",
-    "UPGRADE_DESCRIPTION": "At the start of turn NL summon 2 zombies and 2 skeletons."
+    "DESCRIPTION": "At the start of your turn summon !M! zombies and !M! skeletons.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn summon !M! zombies and !M! skeletons."
   },
   "Shade:CallWraith": {
     "NAME": "Call Wraith",
-    "DESCRIPTION": "A card you could get from combat.",
-    "UPGRADE_DESCRIPTION": "A card you could get from combat."
+    "DESCRIPTION": "Lose !M! HP. NL Summon a wraith. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Summon a wraith. NL Exhaust"
   },
   "Shade:Bite_Shade": {
     "NAME": "Bite",
@@ -107,12 +114,13 @@
   "Shade:CloudOfShrapnel": {
     "NAME": "Cloud of Shrapnel",
     "DESCRIPTION": "Sacrifice a skeleton to deal !D! damage to all enemies and gain !M! Dexterity. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Sacrifice a skeleton to deal !D! damage to all enemies and gain !M! Dexterity. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Sacrifice a skeleton to deal !D! damage to all enemies and gain !M! Dexterity. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": ["I need a skeleton."]
   },
   "Shade:SanguineRitual": {
     "NAME": "Sanguine Ritual",
-    "DESCRIPTION": "Lose !D! HP. NL Gain [R] [R]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Lose !D! HP. NL Gain [R] [R] [R]. NL Exhaust."
+    "DESCRIPTION": "Lose !D! HP. NL Gain [E] [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Lose !D! HP. NL Gain [E] [E] [E]. NL Exhaust."
   },
   "Shade:BoneSpear": {
     "NAME": "Bone Spear",
@@ -126,8 +134,8 @@
   },
   "Shade:FuneraryJewels": {
     "NAME": "Funerary Jewels",
-    "DESCRIPTION": "Gain !B! Block. Draw !M! cards. Gain [R]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. Draw !M! cards. Gain [R]. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. Draw !M! cards. Gain [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. Draw !M! cards. Gain [E]. NL Exhaust."
   },
   "Shade:DangerousRitual": {
     "NAME": "Dangerous Ritual",
@@ -138,5 +146,15 @@
     "NAME": "Ominous Ritual",
     "DESCRIPTION": "Gain Block and deal damage to all enemies for each card exhausted this combat. NL (!M! cards exhausted)",
     "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies for each card exhausted this combat. NL (!M! cards exhausted)"
+  },
+  "Shade:CommandSoldier": {
+    "NAME": "Command Soldier",
+    "DESCRIPTION": "Summon a skeleton and trigger its attack.",
+    "UPGRADE_DESCRIPTION": "Summon a skeleton and trigger all skeleton attacks."
+  },
+  "Shade:SkeletonArmy": {
+    "NAME": "Skeleton Army",
+    "DESCRIPTION": "Summon !M! skeletons.",
+    "UPGRADE_DESCRIPTION": "Summon !M! skeletons."
   }
 }

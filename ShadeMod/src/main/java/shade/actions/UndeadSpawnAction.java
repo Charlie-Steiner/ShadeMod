@@ -20,8 +20,6 @@ public class UndeadSpawnAction extends AbstractGameAction{
 		
         if (newOrbType!=null) {
             this.orbType=newOrbType;
-            SpawnedUndead s = (SpawnedUndead) newOrbType;
-            
         }
     }
 

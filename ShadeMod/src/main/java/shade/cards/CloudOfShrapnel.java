@@ -28,6 +28,7 @@ public class CloudOfShrapnel extends AbstractShadeCard{
     public static final String NAME;
     public static final String DESCRIPTION;
     public static String UPGRADED_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION;
     public static final String IMG_PATH = "cards/default_attack.png";
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
     private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
@@ -42,6 +43,7 @@ public class CloudOfShrapnel extends AbstractShadeCard{
   		NAME = cardStrings.NAME;
   		DESCRIPTION = cardStrings.DESCRIPTION;
   		UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+  		EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
   	}
 
     
@@ -68,14 +70,22 @@ public class CloudOfShrapnel extends AbstractShadeCard{
 			AbstractDungeon.actionManager
 			.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
 			
-			if(u.count==1) {
-				AbstractDungeon.player.orbs.set(ShadeCharacter.INDEX_SKELETON, new EmptyOrbSlot());
-			}else {
-				u.count--;
-			}
+			u.remove(1);
 		}
 	}
+	
+	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+		boolean canUse = super.canUse(p, m);
+		if (!canUse) {
+			return false;
+		}
+		if (p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot) {
+			canUse = false;
+			this.cantUseMessage = EXTENDED_DESCRIPTION[0];
+		}
 
+		return canUse;
+	}
 
     public AbstractCard makeCopy() {
         return new CloudOfShrapnel();

@@ -49,7 +49,7 @@ public class ExtraLimbs
     this.baseMagicNumber = 2;
     this.magicNumber = this.baseMagicNumber;
     
-   // this.exhaust = true;
+    this.exhaust = true;
   }
 
   

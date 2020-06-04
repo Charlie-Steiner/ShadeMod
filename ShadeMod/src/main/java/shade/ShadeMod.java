@@ -109,8 +109,7 @@ public class ShadeMod implements PostInitializeSubscriber,
 
 		// common cards
 
-		BaseMod.addCard(new shade.cards.Boneskin());
-		BaseMod.addCard(new shade.cards.RainOfBones());
+		BaseMod.addCard(new shade.cards.FreshBones());
 		BaseMod.addCard(new shade.cards.WallOfFlesh());
 		BaseMod.addCard(new shade.cards.Frenzy());
 		BaseMod.addCard(new shade.cards.ExtraLimbs());
@@ -118,11 +117,14 @@ public class ShadeMod implements PostInitializeSubscriber,
 		BaseMod.addCard(new shade.cards.BoneSpear());
 		BaseMod.addCard(new shade.cards.FuneraryArmor());
 		BaseMod.addCard(new shade.cards.FingerOfDeath());
+		BaseMod.addCard(new shade.cards.Bonestorm());
+		BaseMod.addCard(new shade.cards.CommandSoldier());
+		BaseMod.addCard(new shade.cards.SkeletonArmy());
 
 		// uncommon cards
+		BaseMod.addCard(new shade.cards.Boneskin());
 		BaseMod.addCard(new shade.cards.TouchOfTheGrave());
 		BaseMod.addCard(new shade.cards.CallOfTheGrave());
-		BaseMod.addCard(new shade.cards.Bonestorm());
 		BaseMod.addCard(new shade.cards.Bite_Shade());
 		BaseMod.addCard(new shade.cards.RitualOffering());
 		BaseMod.addCard(new shade.cards.FleshLikeOak());
@@ -131,9 +133,10 @@ public class ShadeMod implements PostInitializeSubscriber,
 		BaseMod.addCard(new shade.cards.FuneraryJewels());
 		BaseMod.addCard(new shade.cards.SanguineRitual());
 		BaseMod.addCard(new shade.cards.RavenousHorde());
+		BaseMod.addCard(new shade.cards.AblativeArmor());
+		BaseMod.addCard(new shade.cards.CallWraith());
 
 		// rare cards
-		BaseMod.addCard(new shade.cards.CallWraith());
 		BaseMod.addCard(new shade.cards.SelfBurial());
 		BaseMod.addCard(new shade.cards.DangerousRitual());
 		BaseMod.addCard(new shade.cards.LichForm());
@@ -147,8 +150,7 @@ public class ShadeMod implements PostInitializeSubscriber,
 
 		//unlock common cards
 
-		UnlockTracker.unlockCard(Boneskin.ID);
-		UnlockTracker.unlockCard(RainOfBones.ID);
+		UnlockTracker.unlockCard(FreshBones.ID);
 		UnlockTracker.unlockCard(WallOfFlesh.ID);
 		UnlockTracker.unlockCard(Frenzy.ID);
 		UnlockTracker.unlockCard(ExtraLimbs.ID);
@@ -156,11 +158,14 @@ public class ShadeMod implements PostInitializeSubscriber,
 		UnlockTracker.unlockCard(BoneSpear.ID);
 		UnlockTracker.unlockCard(FuneraryArmor.ID);
 		UnlockTracker.unlockCard(FingerOfDeath.ID);
+		UnlockTracker.unlockCard(Bonestorm.ID);
+		UnlockTracker.unlockCard(CommandSoldier.ID);
+		UnlockTracker.unlockCard(SkeletonArmy.ID);
 
 		//unlock uncommon cards
+		UnlockTracker.unlockCard(Boneskin.ID);
 		UnlockTracker.unlockCard(TouchOfTheGrave.ID);
 		UnlockTracker.unlockCard(CallOfTheGrave.ID);
-		UnlockTracker.unlockCard(Bonestorm.ID);
 		UnlockTracker.unlockCard(Bite_Shade.ID);
 		UnlockTracker.unlockCard(RitualOffering.ID);
 		UnlockTracker.unlockCard(FleshLikeOak.ID);
@@ -169,9 +174,10 @@ public class ShadeMod implements PostInitializeSubscriber,
 		UnlockTracker.unlockCard(FuneraryJewels.ID);
 		UnlockTracker.unlockCard(SanguineRitual.ID);
 		UnlockTracker.unlockCard(RavenousHorde.ID);
+		UnlockTracker.unlockCard(AblativeArmor.ID);
+		UnlockTracker.unlockCard(CallWraith.ID);
 
 		//unlock rare cards
-		UnlockTracker.unlockCard(CallWraith.ID);
 		UnlockTracker.unlockCard(SelfBurial.ID);
 		UnlockTracker.unlockCard(DangerousRitual.ID);
 		UnlockTracker.unlockCard(LichForm.ID);

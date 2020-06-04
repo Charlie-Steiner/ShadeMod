@@ -22,9 +22,9 @@ public class CommandSoldier
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
   public static final String IMG_PATH = "cards/default_attack.png";
-  private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
-  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.BASIC;
-  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ALL_ENEMY;
+  private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
+  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
+  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
   
 
   private static final int COST = 1;

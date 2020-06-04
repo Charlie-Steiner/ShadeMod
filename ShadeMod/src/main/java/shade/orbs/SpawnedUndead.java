@@ -147,14 +147,23 @@ public void spawnVFX(){
         
         if(index == ShadeCharacter.INDEX_SKELETON)
         {
+        	int str = 0;
         	AbstractPower p = (AbstractPower)AbstractDungeon.player.getPower("Strength");
         	if(p!= null)
         	{
         		logger.info("increasing strength  by " + p.amount);
-        		this.passiveAmount = Math.max(0, p.amount+this.basePassiveAmount);
+        		str=p.amount;
         	}
-        	else
-        		this.passiveAmount = this.basePassiveAmount;
+        	
+        	int strBones = 0;
+        	p = (AbstractPower)AbstractDungeon.player.getPower("Shade:StrongBonesPower");
+        	if(p!= null)
+        	{
+        		logger.info("increasing strength of bones  by 3");
+        		strBones = 3;
+        	}
+
+        	this.passiveAmount = this.basePassiveAmount + str + strBones;
         }
         else if(index == ShadeCharacter.INDEX_ZOMBIE)
         {

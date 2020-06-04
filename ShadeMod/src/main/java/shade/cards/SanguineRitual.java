@@ -66,9 +66,11 @@ public class SanguineRitual
 
   
 	public void upgrade() {
-		if (!this.upgraded) {
-			upgradeName();
-		    upgradeMagicNumber(1);
-		}
+	    if (!this.upgraded) {
+	        upgradeName();
+	        this.rawDescription=UPGRADED_DESCRIPTION;
+	        initializeDescription();
+	        upgradeMagicNumber(1);
+	      } 
 	}
 }
