@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import shade.ShadeMod;
+
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 
@@ -58,6 +59,7 @@ public class FleshLikeOak
 
 		AbstractDungeon.actionManager
 				.addToBottom(new GainBlockAction(p, p, this.block));
+		
 	}
 
 

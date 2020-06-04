@@ -49,14 +49,12 @@ public class SanguineRitual
 		
 		this.exhaust = true;
 		
-		this.baseDamage = 2;
-		this.damage = this.baseDamage;
 		this.baseMagicNumber = 2;
 		this.magicNumber = this.baseMagicNumber;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-	    AbstractDungeon.actionManager.addToBottom(new LoseHPAction(p, p, this.damage));
+	    AbstractDungeon.actionManager.addToBottom(new LoseHPAction(p, p, 2));
 	    AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.magicNumber));
 	}
 

@@ -40,32 +40,58 @@ public class OminousRitual extends AbstractShadeCard {
 
 		this.baseDamage = 0;
 		this.damage = this.baseDamage;
-		this.baseMagicNumber = 0;
-		this.magicNumber = this.baseMagicNumber;
+		this.baseBlock=0;
+		this.block=this.baseBlock;
+		this.baseMagicNumber=0;
+		this.magicNumber=this.baseMagicNumber;
 
 		this.isMultiDamage = true;
 		
-		if (CardCrawlGame.dungeon != null) {
-			setM();
-		}
 
 	}
 
-	public void setM() {
-		this.magicNumber=ShadeMod.combatExhausts;
-		this.damage = this.magicNumber;
-	}
+	  public void applyPowers() {
+	    this.baseBlock=ShadeMod.combatExhausts;
+	    this.block=this.baseBlock;
+	    
+	    super.applyPowers();
+	    
+	    this.baseDamage=ShadeMod.combatExhausts;
+	    this.damage=this.baseDamage;
+	    this.baseMagicNumber=ShadeMod.combatExhausts;
+		this.magicNumber=this.baseMagicNumber;
+	    
+	    if (this.magicNumber > 0) {
+	      this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+	      initializeDescription();
+	    }
+	    
 
-	public void triggerOnCardPlayed(AbstractCard c) {
-		setM();
+	  }
+
+	
+	public void onMoveToDiscard() {
+		    this.rawDescription = cardStrings.DESCRIPTION;
+		    initializeDescription();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
+	    this.baseDamage=ShadeMod.combatExhausts;
+	    this.damage=this.baseDamage;
+	    
 	    CardCrawlGame.sound.play("ORB_DARK_EVOKE", 0.1F);
-	    AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));		
+	    AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.damage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));		
 		
-		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p,p,this.magicNumber));
+		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p,p,this.block));
 	}
+	
+	  public void calculateCardDamage(AbstractMonster mo) {
+	    super.calculateCardDamage(mo);
+	    if (ShadeMod.combatExhausts > 0) {
+	      this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+	    }
+	    initializeDescription();
+	  }
 
 	public AbstractCard makeCopy() {
 		return new OminousRitual();

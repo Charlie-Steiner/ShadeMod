@@ -70,6 +70,7 @@ public class AblativeArmor extends AbstractShadeCard{
 			
 			u.remove(1);
 		}
+		
 	}
 
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {

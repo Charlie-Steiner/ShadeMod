@@ -1,6 +1,8 @@
 package shade.cards;
 
 import basemod.helpers.BaseModCardTags;
+import java.util.Iterator;
+
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -11,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
@@ -59,7 +62,16 @@ public class ExtraLimbs
 					.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
 							AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 		}
-	    this.magicNumber += 1;
+
+	    Iterator var1 = GetAllInBattleInstances.get(this.uuid).iterator();
+	    
+	    while (var1.hasNext()) {
+	      AbstractCard c = (AbstractCard)var1.next();
+	      c.baseMagicNumber++;
+	      if (c.baseMagicNumber < 0) {
+	        c.baseMagicNumber = 0;
+	      }
+	    } 
 	}
 
   

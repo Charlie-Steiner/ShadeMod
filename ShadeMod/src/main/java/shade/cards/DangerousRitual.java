@@ -44,23 +44,25 @@ public class DangerousRitual extends AbstractShadeCard {
 
 		this.isMultiDamage = true;
 		
-		if (CardCrawlGame.dungeon != null) {
-			configureCostsOnNewCard();
-		}
-
 	}
 
-	public void configureCostsOnNewCard() {
-		while((int)(ShadeMod.combatExhausts/this.magicNumber) > this.COST-this.cost) {
-			updateCost(-1);
-		}
-	}
-
-	public void triggerOnCardPlayed(AbstractCard c) {
-		if((int)(ShadeMod.combatExhausts/this.magicNumber) > this.COST-this.cost) {
-			updateCost(-1);
-		}
-	}
+	  public void applyPowers() {
+		    super.applyPowers();
+		    
+		    if (ShadeMod.combatExhausts>=this.magicNumber) {
+		    	this.isCostModified = true;
+		    	int diff = this.cost - this.costForTurn;
+		    	if(ShadeMod.combatExhausts>=COST*this.magicNumber) {
+		    		this.cost=0;
+		    	}else {
+		    		this.cost = COST-ShadeMod.combatExhausts/this.magicNumber;
+		    	}
+	    		this.costForTurn = this.cost - diff;
+	            if (this.costForTurn < 0) {
+	                this.costForTurn = 0;
+	            }
+		    }
+	  }
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 	    CardCrawlGame.sound.play("ORB_DARK_EVOKE", 0.1F);

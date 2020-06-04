@@ -15,6 +15,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\FuneraryJewels.
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\CallOfTheGravePower.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\ReturnExhaustedToDeckAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\SanguineRitual.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\orbs\Wraith.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\SkeletonArmy.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\TouchOfTheGravePower.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\GraveBargain.java
@@ -33,6 +34,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\TouchOfTheGrav
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\UndeadAutoAttack.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\CommandSoldier.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\FleshLikeOak.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\StrongBonesPower.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\ShadeEnum.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\orbs\EmptySlot.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\LibraryTypeEnum.java
@@ -40,12 +42,12 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\ShadeMod.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\AbstractShadeCard.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\CardColorEnum.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\relics\YorickSkull.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\FreshBones.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Bonestorm.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\RavenousHorde.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\AbstractCardEnum.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\CallOfTheGravePowerUpgraded.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\orbs\Skeleton.java
-C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\RainOfBones.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\characters\ShadeCharacter.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\BoneSpear.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\ExtraLimbs.java

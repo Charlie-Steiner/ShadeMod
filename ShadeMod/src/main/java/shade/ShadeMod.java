@@ -45,7 +45,7 @@ import java.util.Properties;
 public class ShadeMod implements PostInitializeSubscriber, 
 		EditCharactersSubscriber, EditRelicsSubscriber, 
 		EditCardsSubscriber, EditKeywordsSubscriber, EditStringsSubscriber, 
-		OnStartBattleSubscriber, PostPowerApplySubscriber, PostExhaustSubscriber{
+		OnStartBattleSubscriber, PostPowerApplySubscriber, PostExhaustSubscriber, PostBattleSubscriber{
 
 	private static final Color SHADE_COLOR = com.megacrit.cardcrawl.helpers.CardHelper
 			.getColor(25.0F, 95.0F, 25.0F);
@@ -277,7 +277,6 @@ public class ShadeMod implements PostInitializeSubscriber,
 	        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
 					new MinionsPower(AbstractDungeon.player)));
 			logger.info(CardCrawlGame.languagePack.getPowerStrings("Shade:MinionsPower").NAME);
-			logger.info(CardCrawlGame.languagePack.getPowerStrings("Slimebound:PotencyPower").NAME);
 			logger.info("preMonsterTurn");
 			logger.info("Common card #: " + AbstractDungeon.commonCardPool.group.size());
 			for (AbstractCard card : AbstractDungeon.commonCardPool.group) {
@@ -299,6 +298,10 @@ public class ShadeMod implements PostInitializeSubscriber,
 		if (AbstractDungeon.player.chosenClass == ShadeEnum.SHADE) {
 			combatExhausts++;
 		}
+	}
+	
+	public void receivePostBattle(AbstractRoom arg0) {
+		combatExhausts=0;
 	}
 
 

@@ -52,11 +52,8 @@ public class FreshBones
 
       AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
 
-	  if(!this.upgraded) {
-		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrongBonesPower(p,this.magicNumber), this.magicNumber));
-	  }else {
-		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrongBonesPower(p,this.magicNumber), this.magicNumber));
-	  }
+      AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrongBonesPower(p,this.magicNumber), this.magicNumber));
+	  
   }
 
 

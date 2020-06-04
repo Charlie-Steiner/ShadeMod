@@ -68,8 +68,8 @@
   },
     "Shade:LichForm": {
     "NAME": "Lich Form",
-    "DESCRIPTION": "At the start of your turn summon !M! zombies and !M! skeletons.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn summon !M! zombies and !M! skeletons."
+    "DESCRIPTION": "At the start of your turn, summon !M! zombies and !M! skeletons.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, summon !M! zombies and !M! skeletons."
   },
   "Shade:CallWraith": {
     "NAME": "Call Wraith",
@@ -119,8 +119,8 @@
   },
   "Shade:SanguineRitual": {
     "NAME": "Sanguine Ritual",
-    "DESCRIPTION": "Lose !D! HP. NL Gain [E] [E]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Lose !D! HP. NL Gain [E] [E] [E]. NL Exhaust."
+    "DESCRIPTION": "Lose 2 HP. NL Gain [E] [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Lose 2 HP. NL Gain [E] [E] [E]. NL Exhaust."
   },
   "Shade:BoneSpear": {
     "NAME": "Bone Spear",
@@ -144,8 +144,9 @@
   },
   "Shade:OminousRitual": {
     "NAME": "Ominous Ritual",
-    "DESCRIPTION": "Gain Block and deal damage to all enemies for each card exhausted this combat. NL (!M! cards exhausted)",
-    "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies for each card exhausted this combat. NL (!M! cards exhausted)"
+    "DESCRIPTION": "Gain Block and deal damage to all enemies equal to the number of cards exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies equal to the number of cards exhausted this combat.",
+  	"EXTENDED_DESCRIPTION": [" ( !M! cards)"]
   },
   "Shade:CommandSoldier": {
     "NAME": "Command Soldier",

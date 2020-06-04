@@ -50,9 +50,7 @@ public class LichForm extends AbstractShadeCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		for(int i=0;i<this.magicNumber;i++) {
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LichFormPower(p), 1));
-		}
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LichFormPower(p, this.magicNumber), this.magicNumber));
 	}
 
 }

@@ -1,0 +1,18 @@
+Buggy cards:
+
+Need to test wraith intangibility. (Works! Problem: Wraith still triggers even if it got killed in an attack) (Fix: put the right method into OnAttackedToChangeDamage)
+
+Ominous ritual doesn't gain dex to block (or have block affected by frail), despite it working for the damage part. (trying removing the extra checks from use() ) (okay, now it seems like it's applying double strength?!) (try fixing by moving calls for specifically strength back to where they were)
+
+
+Check that ominous ritual, extra limbs properly reset for next fight.
+
+
+General Todo:
+Set up keywords for zombie, skeleton, wraith.
+
+Something broke text rendering (going to campfire? Some abuse of dev console?)
+
+add coffin dance card.
+
+check whether the Enum patches are actually necessary, or even if they're hurting (like the library crash bug)

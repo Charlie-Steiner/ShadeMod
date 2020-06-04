@@ -62,16 +62,15 @@ public class CloudOfShrapnel extends AbstractShadeCard{
 		SpawnedUndead u = (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON);
 
 		if (u.count > 0) {
-			AbstractDungeon.actionManager.addToBottom(
-					new VFXAction(new DaggerSprayEffect(AbstractDungeon.getMonsters().shouldFlipVfx()), 0.0F));
-			AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage,
-					this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+			AbstractDungeon.actionManager.addToBottom(new VFXAction(new DaggerSprayEffect(AbstractDungeon.getMonsters().shouldFlipVfx()), 0.1F));
+			AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
 
-			AbstractDungeon.actionManager
-			.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
 			
 			u.remove(1);
 		}
+		
+		
 	}
 	
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {

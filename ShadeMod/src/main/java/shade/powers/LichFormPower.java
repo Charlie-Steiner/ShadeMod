@@ -11,7 +11,7 @@ import shade.actions.UndeadSpawnAction;
 
 public class LichFormPower extends AbstractPower {
 	
-    public static final String POWER_ID = "Shade:CallOfTheGravePower";
+    public static final String POWER_ID = "Shade:LichFormPower";
     public static final String NAME = "Potency";
     public static PowerType POWER_TYPE = PowerType.BUFF;
     public static final String IMG = "powers/FirmFortitude.png";
@@ -19,22 +19,29 @@ public class LichFormPower extends AbstractPower {
     public static String[] DESCRIPTIONS;
     
     
-    public LichFormPower(AbstractCreature owner)
+    public LichFormPower(AbstractCreature owner, int amt)
     {
     	this.ID = POWER_ID;
     	this.owner = owner;
-    	this.amount = 1;
+    	this.amount = amt;
         this.img = new com.badlogic.gdx.graphics.Texture(ShadeMod.getResourcePath(IMG));
         this.type = POWER_TYPE;
 
         this.DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(this.ID).DESCRIPTIONS;
         this.name = CardCrawlGame.languagePack.getPowerStrings(this.ID).NAME;
     	updateDescription();
+    	
     }
     
     public void atStartOfTurn() {
     	flash();
-		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
+    	for(int i=0;i<this.amount;i++) {
+			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
+    	}
     }
+    
+	public void updateDescription() {
+		this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
+	}
 }

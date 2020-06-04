@@ -212,6 +212,12 @@ public class ShadeCharacter extends CustomPlayer {
 			ShadeMod.logger.info("chanelling zombie");
 			index = INDEX_ZOMBIE;
 		}
+		else if (orbType instanceof shade.orbs.Wraith)
+		{
+			ShadeMod.logger.info("chanelling wraith");
+			index = INDEX_WRAITH;
+		}
+		
 		
 		if(index == -1)
 			return;

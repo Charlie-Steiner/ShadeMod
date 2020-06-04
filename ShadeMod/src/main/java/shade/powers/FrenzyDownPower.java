@@ -34,6 +34,7 @@ public class FrenzyDownPower extends AbstractPower {
         this.DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(this.ID).DESCRIPTIONS;
         this.name = CardCrawlGame.languagePack.getPowerStrings(this.ID).NAME;
     	updateDescription();
+    	
     }
     
 

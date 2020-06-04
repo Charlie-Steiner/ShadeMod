@@ -20,8 +20,6 @@ public class FingerOfDeathAction extends AbstractGameAction {
 	@Override
 	public void update() {
 		if(this.target != null) {
-		    this.target.damage(this.info);
-			
 			if(this.target != null)
 			{
 				this.target.damage(this.info);

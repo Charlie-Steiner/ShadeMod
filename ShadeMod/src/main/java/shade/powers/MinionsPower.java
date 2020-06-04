@@ -59,7 +59,8 @@ public class MinionsPower extends AbstractPower {
 		{
 			if(!(AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
 				damageAmount = 1;
-				AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new IntangiblePlayerPower(AbstractDungeon.player, 1), 1)); 
+				AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new IntangiblePlayerPower(AbstractDungeon.player, 1), 1));
+				((SpawnedUndead) AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_WRAITH)).remove(1);
 			}
 		}
 		

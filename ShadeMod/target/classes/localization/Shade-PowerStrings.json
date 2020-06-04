@@ -53,5 +53,13 @@
 			"Your Skeletons deal 3 addtional damage for #b",
 			" turns."
 		]
+	},
+		"Shade:LichFormPower": {
+		"NAME": "Lich Form",
+		"DESCRIPTIONS": [
+			"Summon #b",
+			" zommbies and #b",
+			" skeletons at the start of your turn."
+		]
 	}
 }
