@@ -23,7 +23,7 @@ public class Defend_Shade extends AbstractShadeCard {
   private static final int UPGRADE_BONUS = 3;
   
   public Defend_Shade() {
-    super("Shade:Defend_Shade", "Defend", ShadeMod.getResourcePath("cards/defendSlime.png"), 1, "Gain !B! Block.", TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
+    super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), 1, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
 
     
     this.baseBlock = 5;

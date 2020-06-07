@@ -48,16 +48,13 @@ public class CallOfTheGrave
   public void upgrade() {
     if (!this.upgraded) {
       upgradeName();
+      this.isInnate = true;
       this.rawDescription=UPGRADED_DESCRIPTION;
       initializeDescription();
     } 
   }
   
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  if(!this.upgraded) {
-		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new CallOfTheGravePower(p), 1));
-	  }else {
-		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new CallOfTheGravePowerUpgraded(p), 1));
-	  }
+	 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new CallOfTheGravePower(p), 1));
   }
 }

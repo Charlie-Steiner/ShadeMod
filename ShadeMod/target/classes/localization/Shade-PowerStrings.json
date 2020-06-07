@@ -42,15 +42,15 @@
 		"NAME": "Losing Frenzy",
 		"DESCRIPTIONS": [
 			"At the start of your turn, after minion attacks, lose #b",
-			"Strength and #b",
+			" Strength and #b",
 			" Dexterity"
 		]
 	},
 		"Shade:StrongBonesPower": {
 		"NAME": "Strong Bones",
 		"DESCRIPTIONS": [
-			"Your Skeletons deal 3 addtional damage this turn.",
-			"Your Skeletons deal 3 addtional damage for #b",
+			"Your skeletons deal 3 addtional damage this turn.",
+			"Your skeletons deal 3 addtional damage for #b",
 			" turns."
 		]
 	},
@@ -60,6 +60,70 @@
 			"Summon #b",
 			" zommbies and #b",
 			" skeletons at the start of your turn."
+		]
+	},
+		"Shade:GoneDiggingPower": {
+		"NAME": "Gone Digging",
+		"DESCRIPTIONS": [
+			"Summon #b",
+			" zommbies at the start of your next turn."
+		]
+	},
+		"Shade:GraveStillnessPower": {
+		"NAME": "Grave Stillness",
+		"DESCRIPTIONS": [
+			"Your skeletons and zombies don't decay this turn.",
+			"Your skeletons and zombies don't decay for #b",
+			" turns."
+		]
+	},
+		"Shade:OfferingToTheBeyondPower": {
+		"NAME": "Offering to the Beyond",
+		"DESCRIPTIONS": [
+		      "If you exhaust #b",
+		      " more card",
+		      " more cards",
+		      " this turn, summon a wraith.",
+		      " this turn, summon #b",
+		      " wraiths"
+		]
+	},
+		"Shade:OfferingToTheBeyondPowerUpgraded": {
+		"NAME": "Offering to the Beyond +",
+		"DESCRIPTIONS": [
+		      "If you exhaust #b",
+		      " more card",
+		      " more cards",
+		      " this turn, summon a wraith.",
+		      " this turn, summon #b",
+		      " wraiths"
+		]
+	},
+		"Shade:SoulPiercePower": {
+		"NAME": "Offering to the Beyond +",
+		"DESCRIPTIONS": [
+		      "Your wraiths deal #b",
+		      " more damage."
+		]
+	},
+		"Shade:OpenGravesPower": {
+		"NAME": "Open Graves",
+		"DESCRIPTIONS": [
+		      "Alternates between summoning a zombie and a skeleton. ",
+		      "Alternates between summoning zombies and skeletons. ",
+		      "Next turn, summon #b",
+		      "zombie",
+		      "skeleton",
+		      ".",
+		      "s."
+		]
+	},
+		"Shade:Awaken": {
+		"NAME": "Awakening",
+		"DESCRIPTIONS": [
+			"Return an exhausted card to your hand next turn.",
+			"Return an exhausted card to your hand for the next #b",
+			" turns."
 		]
 	}
 }

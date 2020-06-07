@@ -1,0 +1,65 @@
+Shade cards:		Category:	Cost:		Type:		Rarity:
+
+AblativeAmor		
+AnimateDead
+Bite
+Coneskin
+Bonespear
+Bonestorm
+Callofthegrave
+Callwraith
+Clawback
+Cloudofshrapnel
+commandsoldier
+dangerousritual
+extralimbs
+fingerofdeath
+fleshlikeoak
+frenzy
+freshbones
+funeraryarmor
+funeraryjewels
+gravebargain
+lichform
+ominousritual
+ravenoushorde
+ritualoffering
+sanguineritual
+selfburial
+skeletonarmy
+touchofthegrave
+wallofflesh
+
+Total:29
+
+Cards to add:
+Convert one kind of undead to another (lye bath, go digging)
+cards that change decay rate (Aura of Unlife, Grave Stillness, Potion of Restlessness)
+Some power that gives strength. (Potion of Restlessness)
+rainbow summon + debuff self (Greater Animation)
+Power that just instantly makes wraith(s). (Greater Animation)
+power that summons a wraith conditional on cards played that turn (offering to the beyond)
+power that buffs wraiths, or does something fancy when you summon a wraith. (soul pierce)
+
+Power that summons small # of undead every turn (open graves)
+summon # of undead proportional to number of enemies (sense prey)
+cards that deal damage based on zombies (Trample)
+an AOE that scales off of amount of undead. (press the attack)
+Something to let you retain hands(patience)
+A card that lets you regrab a card from your discard to your hand, but only next turn. (Awaken)
+
+card draw! (haruspicy, Brains[draw 2-3])
+How about scry? Haruspicy could be fun. (haruspicy)
+Cards that recur somehow - e.g. from discard to hand when you exhaust a card, or from draw pile to hand when you summon something. (scuttling hand, premonition)
+A single-target way to apply weak.(skeleton hug)
+More ways to sacrifice skeletons for profit (and by profit I mean burst damage). (bone shards)
+Cards that want you to have exact numbers of undead. (coffin dance)
+A rare attack or skill that returns cards directly to your hand. (unbar the grave)
+
+Some cards that interact with curses / statuses.
+Some cards that add curses / statuses.
+cards that generate cards just so you can exhaust them.
+Your next exhaust card this turn is played twice.
+Big rare exhaust attack
+
+Prospective: ~40

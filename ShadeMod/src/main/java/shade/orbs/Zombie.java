@@ -42,7 +42,7 @@ public class Zombie extends SpawnedUndead {
 
 		this.applyFocus();
 		int damagePer = this.passiveAmount+this.passiveBonus;
-		int decayAmt = (int)(this.count/(AbstractDungeon.player.getPower("Shade:MinionsPower").amount*1.0))+1;
+		int decayAmt = UndeadDecay.getDecay(this.count);
 		
 		String firstPlural;
 		String secondPlural;

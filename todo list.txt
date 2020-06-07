@@ -1,11 +1,15 @@
 Buggy cards:
+Broke the StrongBones power update - need to put the RefreshUndeadPower action back in. (done)
 
-Need to test wraith intangibility. (Works! Problem: Wraith still triggers even if it got killed in an attack) (Fix: put the right method into OnAttackedToChangeDamage)
+Call Of The Grave+ sets a card's cost to 0 even after returning it to the deck (lasts until play). probably fix by changing how the card upgrades.
 
-Ominous ritual doesn't gain dex to block (or have block affected by frail), despite it working for the damage part. (trying removing the extra checks from use() ) (okay, now it seems like it's applying double strength?!) (try fixing by moving calls for specifically strength back to where they were)
+Some cards don't have the right card frame, and have "BETA" art rather than palceholder art. Known: Bonestorm, Grave Stillness, Boneskin (I think the bugginess was due to extending the wrong class. Hopefully fixed)
 
+skeleton and zombie orb text isn't updating decay rate fast enough upon change in quantity.
 
-Check that ominous ritual, extra limbs properly reset for next fight.
+minions Power doesn't seem to update description at all.
+
+make wraith tooltip and description update with Soul Pierce
 
 
 General Todo:
@@ -13,6 +17,24 @@ Set up keywords for zombie, skeleton, wraith.
 
 Something broke text rendering (going to campfire? Some abuse of dev console?)
 
-add coffin dance card.
-
 check whether the Enum patches are actually necessary, or even if they're hurting (like the library crash bug)
+
+A patch that makes the intangible cards into powers rather than skills, somehow. Or just be very fastidious about only letting you get back Shade cards. Or specifically exclude them.
+
+Wraith art often doesn't "pop" (add blurry white border?)
+
+Go through custom events and double check that things that only need to happen once are given "if duration = startingDuration" handles.
+
+Make Yorick's skull a stacking relic that summons a skeleton if n'th card played was attack, and zombie if nth card was skill?
+
+
+Balance impressions:
+Retrieving from exhaust happens slightly too often right now. (should get diluted with new cards)
+
+Ominous ritual is too slow, needs buff (at least unupgraded)
+
+nerf call and touch of grave (target oldest rather than random?). Maybe even make them rare, or remove the return-to-deck upgrades? Maybe hit claw back somehow too.
+
+Also, the base deck is a little boring to play. Maybe rework claw back to be more complicated? Make Yorick's skull do something a little complicated? Maybe add a third custom card to the starter deck?
+
+Want to mitigate RNG a little, perticularly in the exhaust synergy cards. Instead, target oldest / newest?

@@ -134,6 +134,8 @@ public class ShadeCharacter extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<String>();
         retVal.add(Strike_Shade.ID);
         retVal.add(Strike_Shade.ID);
+        retVal.add(Strike_Shade.ID);
+        retVal.add(Strike_Shade.ID);
         retVal.add(Defend_Shade.ID);
         retVal.add(Defend_Shade.ID);
         retVal.add(Defend_Shade.ID);

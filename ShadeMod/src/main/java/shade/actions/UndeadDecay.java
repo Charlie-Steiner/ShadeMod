@@ -25,15 +25,19 @@ public class UndeadDecay extends AbstractGameAction {
 		
 		SpawnedUndead u = (SpawnedUndead)AbstractDungeon.player.orbs.get(orbIndex);
 		
-		
-		int minimum = 0;	//should read some focus value from player related to min undead of type index
-		int decayTime = AbstractDungeon.player.getPower("Shade:MinionsPower").amount;
-		
-		u.remove((int)((u.count-minimum)/(decayTime*1.0))+1);
+		u.remove(getDecay(u.count));
 
 		
 		u.triggerEvokeAnimation();
 		this.isDone = true;
 	}
-
+	
+	public static int getDecay(int n) {
+		if(AbstractDungeon.player.hasPower("Shade:GraveStillnessPower")) {
+			return 0;
+		}else {
+			int decayTime = AbstractDungeon.player.getPower("Shade:MinionsPower").amount;
+			return (n-1)/decayTime+1;
+		}
+	}
 }

@@ -39,12 +39,12 @@
   "Shade:TouchOfTheGrave": {
     "NAME": "Touch of the Grave",
     "DESCRIPTION": "At the start of your turn, play a random exhausted attack and remove it from play.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, play a random exhausted attack and return it to your discard."
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random exhausted attack and remove it from play."
   },
   "Shade:CallOfTheGrave": {
     "NAME": "Call of the Grave",
     "DESCRIPTION": "At the start of your turn, play a random exhausted skill and remove it from play.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, play a random exhausted skill and return it to your discard."
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random exhausted skill and remove it from play."
   },
   "Shade:Bonestorm": {
     "NAME": "Bonestorm",
@@ -102,7 +102,7 @@
     "UPGRADE_DESCRIPTION": "Exchange ALL unexhausted cards for your exhausted ones. NL Draw !M! cards. NL Exhaust."
   },
   "Shade:GraveBargain": {
-    "NAME": "Grave Bargain",
+    "NAME": "Grey Bargain",
     "DESCRIPTION": "Exhaust a card in your hand to return an exhausted card to your draw pile. NL Draw a card.",
     "UPGRADE_DESCRIPTION": "Exhaust a card in your hand to return an exhausted card to your draw pile. NL Draw a card."
   },
@@ -122,8 +122,8 @@
     "DESCRIPTION": "Lose 2 HP. NL Gain [E] [E]. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Lose 2 HP. NL Gain [E] [E] [E]. NL Exhaust."
   },
-  "Shade:BoneSpear": {
-    "NAME": "Bone Spear",
+  "Shade:AncientSpear": {
+    "NAME": "Ancient Spear",
     "DESCRIPTION": "Deal !D! damage. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust."
   },
@@ -146,7 +146,7 @@
     "NAME": "Ominous Ritual",
     "DESCRIPTION": "Gain Block and deal damage to all enemies equal to the number of cards exhausted this combat.",
     "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies equal to the number of cards exhausted this combat.",
-  	"EXTENDED_DESCRIPTION": [" ( !M! cards)"]
+  	"EXTENDED_DESCRIPTION": [" NL ( !M! cards )"]
   },
   "Shade:CommandSoldier": {
     "NAME": "Command Soldier",
@@ -157,5 +157,117 @@
     "NAME": "Skeleton Army",
     "DESCRIPTION": "Summon !M! skeletons.",
     "UPGRADE_DESCRIPTION": "Summon !M! skeletons."
+  },
+  "Shade:LyeBath": {
+    "NAME": "Lye Bath",
+    "DESCRIPTION": "Convert all your zombies into skeletons. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "Convert all your zombies into skeletons. NL Draw a card for each one."
+  },
+  "Shade:GoDigging": {
+    "NAME": "Go Digging",
+    "DESCRIPTION": "Sacrifice up to !M! skeletons. At the start of next turn, summon 2 zombies for each one sacrificed.",
+    "UPGRADE_DESCRIPTION": "Sacrifice up to !M! skeletons. At the start of next turn, summon 2 zombies for each one sacrificed."
+  },
+  "Shade:AuraOfUnlife": {
+    "NAME": "Aura of Unlife",
+    "DESCRIPTION": "Your zombies and skeletons take one turn longer to decay.",
+    "UPGRADE_DESCRIPTION": "Your zombies and skeletons take two turns longer to decay.",
+    "EXTENDED_DESCRIPTION": [" NL ( 1/ !M! per turn )"]
+  },
+  "Shade:GraveStillness": {
+    "NAME": "Grave Stillness",
+    "DESCRIPTION": "Gain !B! Block. NL Your skeletons and zombies don't decay this turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Your skeletons and zombies don't decay this turn."
+  },
+  "Shade:PotionOfRestlessness": {
+    "NAME": "Potion of Restlessness",
+    "DESCRIPTION": "Gain 2 Strength. NL Your zombies and skeletons decay one turn quicker.",
+    "UPGRADE_DESCRIPTION": "Gain 3 Strength. NL Your zombies and skeletons decay one turn quicker.",
+    "EXTENDED_DESCRIPTION": [" NL ( 1/ !M! per turn )"]
+  },
+  "Shade:GreaterAnimation": {
+    "NAME": "Greater Animation",
+    "DESCRIPTION": "Summon !M! zombies, !M! skeletons, and 1 wraith. NL Lose 1 Strength and 1 Dexterity.",
+    "UPGRADE_DESCRIPTION": "Summon !M! zombies, !M! skeletons, and 1 wraith. NL Lose 1 Strength and 1 Dexterity."
+  },
+  "Shade:OfferingToTheBeyond": {
+    "NAME": "Offering to the Beyond",
+    "DESCRIPTION": "The next time you exhaust !M! cards in one turn, summon a wraith.",
+    "UPGRADE_DESCRIPTION": "The next time you exhaust !M! cards in one turn, summon a wraith."
+  },
+  "Shade:SoulPierce": {
+    "NAME": "Soul Pierce",
+    "DESCRIPTION": "Your wraiths deal !M! more damage.",
+    "UPGRADE_DESCRIPTION": "Your wraiths deal !M! more damage."
+  },
+  "Shade:OpenGraves": {
+    "NAME": "Open Graves",
+    "DESCRIPTION": "Summon either a zombie or a skeleton at the beginning of your turn, alternating.",
+    "UPGRADE_DESCRIPTION": "Summon a skeleton. NL Summon either a zombie or a skeleton at the beginning of your turn, alternating."
+  },
+  "Shade:SensePrey": {
+    "NAME": "Sense Prey",
+    "DESCRIPTION": "Summon a skeleton for each enemy in combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Summon a skeleton for each enemy in combat. NL Exhaust"
+  },
+  "Shade:Trample": {
+    "NAME": "Trample",
+    "DESCRIPTION": "Deal !D! damage for each of your zombies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage for each of your zombies."
+  },
+  "Shade:PressTheAttack": {
+    "NAME": "Press the Attack",
+    "DESCRIPTION": "Deal !D! damage to all enemies, plus !M! for each of your zombies and skeletons.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies, plus !M! for each of your zombies and skeletons."
+  },
+  "Shade:Patience": {
+    "NAME": "Patience",
+    "DESCRIPTION": "Retain your hand this turn.",
+    "UPGRADE_DESCRIPTION": "Retain your hand and your unspent energy this turn."
+  },
+  "Shade:Awaken": {
+    "NAME": "Awaken",
+    "DESCRIPTION": "Choose an exhausted card. At the start of next turn, return it to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose an exhausted card. At the start of next turn, return it to your hand. NL Draw a card. NL Exhaust."
+  },
+  "Shade:Haruspicy": {
+    "NAME": "Haruspicy",
+    "DESCRIPTION": "Scry 4 and draw 2 cards. NL Sacrifice a zombie or lose 5 HP.",
+    "UPGRADE_DESCRIPTION": "Scry 5 and draw 3 cards. NL Sacrifice a zombie or lose 5 HP."
+  },
+  "Shade:Brains": {
+    "NAME": "Brains",
+    "DESCRIPTION": "Summon a zombie. NL Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Summon a zombie. NL Draw !M! cards."
+  },
+  "Shade:ScuttlingHand": {
+    "NAME": "Scuttling Hand",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you exhaust a card, return this from the discard pile to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Whenever you exhaust a card, return this from the discard pile to your hand."
+  },
+  "Shade:Premonition": {
+    "NAME": "Premonition",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you summon a wraith, return this to your hand from wherever it is and draw a card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Whenever you summon a wraith, return this to your hand from wherever it is and draw a card."
+  },
+  "Shade:SkeletonHug": {
+    "NAME": "Skeleton Hug",
+    "DESCRIPTION": "Summon a skeleton. NL Deal !D! damage. NL Apply 2 Weak and 1 Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Summon a skeleton. NL Deal !D! damage. NL Apply 3 Weak and 2 Vulnerable."
+  },
+  "Shade:BoneShards": {
+    "NAME": "Bone Shards",
+    "DESCRIPTION": "Sacrifice up to !M! skeletons to deal !D! damage each.",
+    "UPGRADE_DESCRIPTION": "Sacrifice up to !M! skeletons to deal !D! damage each."
+  },
+  "Shade:CoffinDance": {
+    "NAME": "Coffin Dance",
+    "DESCRIPTION": "Deal !D! damage. NL If you have exactly 4 zombies and skeletons combined, summon a skeleton.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If you have exactly 4 zombies and skeletons combined, summon a skeleton and gain [E]."
+  },
+  "Shade:UnbarTheGrave": {
+    "NAME": "Unbar the Grave",
+    "DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return the !M! oldest exhausted cards to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return the !M! oldest exhausted cards to your hand. NL Exhaust."
   }
 }

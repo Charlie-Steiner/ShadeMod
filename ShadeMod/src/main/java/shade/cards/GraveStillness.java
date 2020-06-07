@@ -1,5 +1,6 @@
 package shade.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,11 +11,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import shade.ShadeMod;
 import shade.actions.UndeadSpawnAction;
 import shade.patches.AbstractCardEnum;
+import shade.powers.GraveStillnessPower;
+import shade.powers.LichFormPower;
 
 
-public class WallOfFlesh
-		extends AbstractShadeCard {
-	public static final String ID = "Shade:WallOfFlesh";
+public class GraveStillness extends AbstractShadeCard {
+	public static final String ID = "Shade:GraveStillness";
 	public static final String NAME;
 	public static final String DESCRIPTION;
 	public static String UPGRADED_DESCRIPTION;
@@ -25,7 +27,7 @@ public class WallOfFlesh
 
 	private static final CardStrings cardStrings;
 
-	private static final int COST = 2;
+	private static final int COST = 1;
 
 	static {
 		cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -35,35 +37,28 @@ public class WallOfFlesh
 		
 	}
 
-	public WallOfFlesh() {
+	public GraveStillness() {
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
-		this.baseBlock = 4;
+		this.baseBlock = 6;
 		this.block = this.baseBlock;
-		this.baseMagicNumber=2;
-		this.magicNumber=this.baseMagicNumber;
 	}
 
 
   
-  public AbstractCard makeCopy() { return new WallOfFlesh(); }
+  public AbstractCard makeCopy() { return new GraveStillness(); }
   
   public void upgrade() {
 	  if(!this.upgraded)
 	  {
 		  upgradeName();
-		  upgradeBlock(4);
+		  upgradeBlock(3);
 	  }
-	  	
   }
   
   
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  
-	  ShadeMod.logger.info("Use " + ID);
-	  for(int i=0;i<this.magicNumber;i++){
-		  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-	  }
 	  AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p,p,this.block));
+	  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GraveStillnessPower(p, 1), 1));
   }
 }

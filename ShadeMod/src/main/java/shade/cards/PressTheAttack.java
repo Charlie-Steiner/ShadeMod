@@ -13,19 +13,21 @@ import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
 
 import shade.ShadeMod;
 import shade.actions.UndeadSpawnAction;
+import shade.characters.ShadeCharacter;
+import shade.orbs.SpawnedUndead;
 import shade.patches.AbstractCardEnum;
 
 
-public class Bonestorm
+public class PressTheAttack
   extends AbstractShadeCard
 {
-  public static final String ID = "Shade:Bonestorm";
+  public static final String ID = "Shade:PressTheAttack";
   public static final String NAME;
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
   public static final String IMG_PATH = "cards/default_attack.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
-  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
+  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ALL_ENEMY;
 
 
@@ -46,13 +48,15 @@ public class Bonestorm
 
   
   
-  public Bonestorm() { 
+  public PressTheAttack() { 
       super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, 
     		  AbstractCardEnum.SHADE, RARITY, TARGET);
 
       
-      this.baseDamage = 7;
+      this.baseDamage = 4;
       this.isMultiDamage = true;
+      this.baseMagicNumber=2;
+      this.magicNumber=this.baseMagicNumber;
   }
 
 
@@ -60,26 +64,29 @@ public class Bonestorm
 
 
   
-  public AbstractCard makeCopy() { return new Bonestorm(); }
+  public AbstractCard makeCopy() { return new PressTheAttack(); }
   
   public void upgrade() {
       if (!this.upgraded) {
           upgradeName();
-          upgradeDamage(1);
-	        this.rawDescription=UPGRADED_DESCRIPTION;
-	        initializeDescription();
+          upgradeMagicNumber(1);
       }
   }
   
   public void use(AbstractPlayer p, AbstractMonster arg1) {
-	  AbstractDungeon.actionManager.addToBottom(
-				new VFXAction(new DaggerSprayEffect(AbstractDungeon.getMonsters().shouldFlipVfx()), 0.0F));
-		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage,
-				this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+	    int nUndead=0;
+		if (p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
+			nUndead += ((SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+		}
+		if (p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead) {
+			nUndead += ((SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON)).count;
+		}
 		
-      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-      if(this.upgraded) {
-    	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-      }
+		int[] buffedDamage = this.multiDamage;
+		for(int i=0;i<buffedDamage.length;i++) {
+			buffedDamage[i]+=this.magicNumber*nUndead;
+		}
+		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, buffedDamage,
+				this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
   }
 }

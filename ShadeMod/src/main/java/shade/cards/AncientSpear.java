@@ -13,10 +13,10 @@ import shade.ShadeMod;
 import shade.patches.AbstractCardEnum;
 
 
-public class BoneSpear
+public class AncientSpear
   extends AbstractShadeCard
 {
-  public static final String ID = "Shade:BoneSpear";
+  public static final String ID = "Shade:AncientSpear";
   public static final String NAME;
   public static final String DESCRIPTION;
   public static final String IMG_PATH = "cards/default_attack.png";
@@ -35,10 +35,10 @@ public class BoneSpear
         UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	}
   
-  public BoneSpear() {
+  public AncientSpear() {
       super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
    
-    this.baseDamage = 18;
+    this.baseDamage = 20;
     this.damage=this.baseDamage;
     
     this.exhaust = true;
@@ -50,7 +50,7 @@ public class BoneSpear
 	}
 
   
-  public AbstractCard makeCopy() { return new BoneSpear(); }
+  public AbstractCard makeCopy() { return new AncientSpear(); }
 
   
   public void upgrade() {

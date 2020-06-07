@@ -16,15 +16,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 import shade.ShadeMod;
+import shade.characters.ShadeCharacter;
+import shade.orbs.SpawnedUndead;
 import shade.patches.AbstractCardEnum;
 
 
-public class ExtraLimbs
+public class Trample
   extends AbstractShadeCard
 {
-  public static final String ID = "Shade:ExtraLimbs";
+  public static final String ID = "Shade:Trample";
   public static final String NAME;
   public static final String DESCRIPTION;
   public static final String IMG_PATH = "cards/default_attack.png";
@@ -34,7 +35,6 @@ public class ExtraLimbs
   public static String UPGRADED_DESCRIPTION;
   
   private static final int COST = 1;
-  private static final int POWER = 5;
   
   private static final CardStrings cardStrings;
 	static {
@@ -44,44 +44,34 @@ public class ExtraLimbs
         UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	}
   
-  public ExtraLimbs() {
+  public Trample() {
       super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
    
-    this.baseDamage = 6;
+    this.baseDamage = 7;
     this.damage=this.baseDamage;
-    this.baseMagicNumber = 2;
-    this.magicNumber = this.baseMagicNumber;
-    
-    this.exhaust = true;
   }
 
   
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		for (int x = 0; x < this.magicNumber; x++) {
+		int hits=0;
+		if (p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
+			hits += ((SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+		}
+		for (int x = 0; x < hits; x++) {
 			AbstractDungeon.actionManager
 					.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
-							AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+							AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 		}
-
-	    Iterator var1 = GetAllInBattleInstances.get(this.uuid).iterator();
-	    
-	    while (var1.hasNext()) {
-	      AbstractCard c = (AbstractCard)var1.next();
-	      c.baseMagicNumber++;
-	      if (c.baseMagicNumber < 0) {
-	        c.baseMagicNumber = 0;
-	      }
-	    } 
 	}
 
   
-  public AbstractCard makeCopy() { return new ExtraLimbs(); }
+  public AbstractCard makeCopy() { return new Trample(); }
 
   
   public void upgrade() {
     if (!this.upgraded) {
       upgradeName();
-      upgradeMagicNumber(1);
+      upgradeDamage(2);
     } 
   }
 }

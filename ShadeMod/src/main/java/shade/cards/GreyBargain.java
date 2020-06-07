@@ -1,35 +1,39 @@
 package shade.cards;
 
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.OfferingEffect;
-
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import shade.ShadeMod;
-import shade.actions.UndeadSpawnAction;
-import shade.patches.AbstractCardEnum;
+import shade.actions.ReturnExhaustedToDeckAction;
 
-public class CallWraith
-  extends AbstractShadeCard {
-  public static final String ID = "Shade:CallWraith";
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+
+import shade.patches.AbstractCardEnum;
+import shade.powers.FrenzyDownPower;
+
+
+public class GreyBargain
+  extends AbstractShadeCard
+{
+  public static final String ID = "Shade:GreyBargain";
   public static final String NAME;
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
   public static final String IMG_PATH = "cards/default_skill.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
-  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
+  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
-
-
-
-
-
   
+
+  private static final int COST = 1;
+
   private static final CardStrings cardStrings;
   
 	static {
@@ -39,34 +43,30 @@ public class CallWraith
 		UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	}
 
-  private static final int COST = 2;
   
-  public CallWraith() {
+	public GreyBargain() {
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
-		
-		this.baseMagicNumber=5;
-		this.magicNumber=this.baseMagicNumber;
-		
-		this.exhaust = true;
+	}
+
+  public void use(AbstractPlayer p, AbstractMonster m) {
+	  if(p.hand.size()>0) {
+		  AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p,p,1,false));
+		  AbstractDungeon.actionManager.addToBottom(new ReturnExhaustedToDeckAction(false));
+	  }
+	  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,1));
   }
 
+
+
   
-  public AbstractCard makeCopy() { return new CallWraith(); }
+  public AbstractCard makeCopy() { return new GreyBargain(); }
+
   
-  public void upgrade() {    
-	  if (!this.upgraded) {
-	      upgradeName(); 
-	      upgradeBaseCost(1);
-	  }
-	  
-  }
-  
-  public void use(AbstractPlayer p, AbstractMonster arg1) {
-	  
-	  AbstractDungeon.actionManager.addToBottom(new VFXAction(new OfferingEffect(), 0.1F));
-	  AbstractDungeon.actionManager.addToBottom(new LoseHPAction(p, p, this.magicNumber));
-	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Wraith()));
-	  
-  }
+	public void upgrade() {
+		if (!this.upgraded) {
+			upgradeName();
+		    upgradeBaseCost(0);
+		}
+	}
 }

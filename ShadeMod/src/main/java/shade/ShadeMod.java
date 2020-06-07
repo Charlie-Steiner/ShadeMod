@@ -101,6 +101,7 @@ public class ShadeMod implements PostInitializeSubscriber,
     @Override
 	public void receiveEditCards() {
 
+    	//BATCH ONE:
 		// starter cards
 		BaseMod.addCard(new shade.cards.Defend_Shade());
 		BaseMod.addCard(new shade.cards.Strike_Shade());
@@ -108,13 +109,12 @@ public class ShadeMod implements PostInitializeSubscriber,
 		BaseMod.addCard(new shade.cards.ClawBack());
 
 		// common cards
-
 		BaseMod.addCard(new shade.cards.FreshBones());
 		BaseMod.addCard(new shade.cards.WallOfFlesh());
 		BaseMod.addCard(new shade.cards.Frenzy());
 		BaseMod.addCard(new shade.cards.ExtraLimbs());
-		BaseMod.addCard(new shade.cards.GraveBargain());
-		BaseMod.addCard(new shade.cards.BoneSpear());
+		BaseMod.addCard(new shade.cards.GreyBargain());
+		BaseMod.addCard(new shade.cards.AncientSpear());
 		BaseMod.addCard(new shade.cards.FuneraryArmor());
 		BaseMod.addCard(new shade.cards.FingerOfDeath());
 		BaseMod.addCard(new shade.cards.Bonestorm());
@@ -154,8 +154,8 @@ public class ShadeMod implements PostInitializeSubscriber,
 		UnlockTracker.unlockCard(WallOfFlesh.ID);
 		UnlockTracker.unlockCard(Frenzy.ID);
 		UnlockTracker.unlockCard(ExtraLimbs.ID);
-		UnlockTracker.unlockCard(GraveBargain.ID);
-		UnlockTracker.unlockCard(BoneSpear.ID);
+		UnlockTracker.unlockCard(GreyBargain.ID);
+		UnlockTracker.unlockCard(AncientSpear.ID);
 		UnlockTracker.unlockCard(FuneraryArmor.ID);
 		UnlockTracker.unlockCard(FingerOfDeath.ID);
 		UnlockTracker.unlockCard(Bonestorm.ID);
@@ -181,6 +181,37 @@ public class ShadeMod implements PostInitializeSubscriber,
 		UnlockTracker.unlockCard(SelfBurial.ID);
 		UnlockTracker.unlockCard(DangerousRitual.ID);
 		UnlockTracker.unlockCard(LichForm.ID);
+		
+		//BATCH TWO:
+		//common cards
+		BaseMod.addCard(new shade.cards.LyeBath());
+		BaseMod.addCard(new shade.cards.GraveStillness());
+		
+		//uncommon cards
+		BaseMod.addCard(new shade.cards.GoDigging());
+		BaseMod.addCard(new shade.cards.AuraOfUnlife());
+		BaseMod.addCard(new shade.cards.PotionOfRestlessness());
+		
+		//rare cards
+		BaseMod.addCard(new shade.cards.GreaterAnimation());
+		BaseMod.addCard(new shade.cards.OfferingToTheBeyond());
+		BaseMod.addCard(new shade.cards.SoulPierce());
+		
+		//unlock cards:
+		//common cards
+		UnlockTracker.unlockCard(LyeBath.ID);
+		UnlockTracker.unlockCard(GraveStillness.ID);
+		
+		//uncommon cards
+		UnlockTracker.unlockCard(GoDigging.ID);
+		UnlockTracker.unlockCard(AuraOfUnlife.ID);
+		UnlockTracker.unlockCard(PotionOfRestlessness.ID);
+		
+		//rare cards
+		UnlockTracker.unlockCard(GreaterAnimation.ID);
+		UnlockTracker.unlockCard(OfferingToTheBeyond.ID);
+		UnlockTracker.unlockCard(SoulPierce.ID);
+		
 		
 		logger.info("Done adding Shade cards!");
 	}

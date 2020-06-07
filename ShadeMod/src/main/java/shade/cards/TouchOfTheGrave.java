@@ -13,7 +13,7 @@ import shade.powers.TouchOfTheGravePowerUpgraded;
 
 
 public class TouchOfTheGrave
-  extends AbstractCard
+  extends AbstractShadeCard
 {
   public static final String ID = "Shade:TouchOfTheGrave";
   public static final String NAME;
@@ -48,16 +48,13 @@ public class TouchOfTheGrave
   public void upgrade() {
     if (!this.upgraded) {
       upgradeName();
+      this.isInnate=true;
       this.rawDescription=UPGRADED_DESCRIPTION;
       initializeDescription();
     } 
   }
   
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  if(!this.upgraded) {
-		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TouchOfTheGravePower(p), 1));
-	  }else {
-		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TouchOfTheGravePowerUpgraded(p), 1));
-	  }
+	 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TouchOfTheGravePower(p), 1));
   }
 }
