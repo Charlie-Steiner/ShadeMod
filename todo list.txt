@@ -11,6 +11,10 @@ minions Power doesn't seem to update description at all.
 
 make wraith tooltip and description update with Soul Pierce
 
+Boneskin ate zombies as well as skeletons.
+
+Fix UI strings of returncardtohand action, fix "missingname" error of AwakenPower
+
 
 General Todo:
 Set up keywords for zombie, skeleton, wraith.

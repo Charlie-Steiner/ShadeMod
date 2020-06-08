@@ -6,34 +6,26 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import shade.ShadeMod;
 import shade.actions.ReturnExhaustedToDeckAction;
-
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-
+import shade.actions.UndeadSpawnAction;
 import shade.patches.AbstractCardEnum;
-import shade.powers.FrenzyDownPower;
-import shade.powers.AwakenPower;
 
 
-public class Awaken
+public class UnbarTheGrave
   extends AbstractShadeCard
 {
-  public static final String ID = "Shade:Awaken";
+  public static final String ID = "Shade:UnbarTheGrave";
   public static final String NAME;
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
   public static final String IMG_PATH = "cards/default_skill.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
-  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
+  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.RARE;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
   
 
-  private static final int COST = 0;
+  private static final int COST = 2;
 
   private static final CardStrings cardStrings;
   
@@ -45,33 +37,35 @@ public class Awaken
 	}
 
   
-	public Awaken() {
+	public UnbarTheGrave() {
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
+		this.baseMagicNumber=2;
+		this.magicNumber=this.baseMagicNumber;
 		this.exhaust = true;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  if(this.upgraded) {
-		  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,1));
+
+	  ShadeMod.logger.info("Use Animate Dead");
+	  for(int i=0;i<this.magicNumber;i++) {
+	      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
+	      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+	      AbstractDungeon.actionManager.addToBottom(new ReturnExhaustedToDeckAction(true));
 	  }
-	  
-      AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new AwakenPower(p,this.magicNumber), this.magicNumber));
   }
 
 
 
   
-  public AbstractCard makeCopy() { return new Awaken(); }
+  public AbstractCard makeCopy() { return new UnbarTheGrave(); }
 
   
-	public void upgrade() {
-		if (!this.upgraded) {
-			upgradeName();
-		    upgradeBaseCost(0);
-		      this.rawDescription=UPGRADED_DESCRIPTION;
-		      initializeDescription();
-		}
-	}
+  public void upgrade() {
+	    if (!this.upgraded) {
+	        upgradeName();
+	        upgradeMagicNumber(1);
+	      } 
+  }
 }

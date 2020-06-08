@@ -186,31 +186,59 @@ public class ShadeMod implements PostInitializeSubscriber,
 		//common cards
 		BaseMod.addCard(new shade.cards.LyeBath());
 		BaseMod.addCard(new shade.cards.GraveStillness());
+		BaseMod.addCard(new shade.cards.Trample());
+		BaseMod.addCard(new shade.cards.CoffinDance());
+		BaseMod.addCard(new shade.cards.BoneShards());
+		BaseMod.addCard(new shade.cards.SkeletonHug());
+		BaseMod.addCard(new shade.cards.Premonition());
+		BaseMod.addCard(new shade.cards.ScuttlingHand());
+		BaseMod.addCard(new shade.cards.Brains());
 		
 		//uncommon cards
 		BaseMod.addCard(new shade.cards.GoDigging());
 		BaseMod.addCard(new shade.cards.AuraOfUnlife());
 		BaseMod.addCard(new shade.cards.PotionOfRestlessness());
+		BaseMod.addCard(new shade.cards.Awaken());
+		BaseMod.addCard(new shade.cards.Patience());
+		BaseMod.addCard(new shade.cards.PressTheAttack());
+		BaseMod.addCard(new shade.cards.SensePrey());
+		BaseMod.addCard(new shade.cards.OpenGraves());
+		BaseMod.addCard(new shade.cards.Haruspicy());
 		
 		//rare cards
 		BaseMod.addCard(new shade.cards.GreaterAnimation());
 		BaseMod.addCard(new shade.cards.OfferingToTheBeyond());
 		BaseMod.addCard(new shade.cards.SoulPierce());
+		BaseMod.addCard(new shade.cards.UnbarTheGrave());
 		
 		//unlock cards:
 		//common cards
 		UnlockTracker.unlockCard(LyeBath.ID);
 		UnlockTracker.unlockCard(GraveStillness.ID);
+		UnlockTracker.unlockCard(Trample.ID);
+		UnlockTracker.unlockCard(CoffinDance.ID);
+		UnlockTracker.unlockCard(BoneShards.ID);
+		UnlockTracker.unlockCard(SkeletonHug.ID);
+		UnlockTracker.unlockCard(Premonition.ID);
+		UnlockTracker.unlockCard(ScuttlingHand.ID);
+		UnlockTracker.unlockCard(Brains.ID);
 		
 		//uncommon cards
 		UnlockTracker.unlockCard(GoDigging.ID);
 		UnlockTracker.unlockCard(AuraOfUnlife.ID);
 		UnlockTracker.unlockCard(PotionOfRestlessness.ID);
+		UnlockTracker.unlockCard(Awaken.ID);
+		UnlockTracker.unlockCard(Patience.ID);
+		UnlockTracker.unlockCard(PressTheAttack.ID);
+		UnlockTracker.unlockCard(SensePrey.ID);
+		UnlockTracker.unlockCard(OpenGraves.ID);
+		UnlockTracker.unlockCard(Haruspicy.ID);
 		
 		//rare cards
 		UnlockTracker.unlockCard(GreaterAnimation.ID);
 		UnlockTracker.unlockCard(OfferingToTheBeyond.ID);
 		UnlockTracker.unlockCard(SoulPierce.ID);
+		UnlockTracker.unlockCard(UnbarTheGrave.ID);
 		
 		
 		logger.info("Done adding Shade cards!");

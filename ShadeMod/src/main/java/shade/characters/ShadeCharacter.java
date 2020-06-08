@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import shade.cards.ClawBack;
 import shade.cards.Defend_Shade;
 import shade.ShadeMod;
+import shade.actions.FindPremonitions;
 import shade.cards.AnimateDead;
 import shade.cards.Strike_Shade;
 import shade.orbs.SpawnedUndead;
@@ -218,6 +219,7 @@ public class ShadeCharacter extends CustomPlayer {
 		{
 			ShadeMod.logger.info("chanelling wraith");
 			index = INDEX_WRAITH;
+			AbstractDungeon.actionManager.addToBottom(new FindPremonitions());
 		}
 		
 		

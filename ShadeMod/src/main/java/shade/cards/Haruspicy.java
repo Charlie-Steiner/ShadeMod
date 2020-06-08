@@ -10,20 +10,23 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import shade.ShadeMod;
 import shade.actions.ReturnExhaustedToDeckAction;
+import shade.characters.ShadeCharacter;
+import shade.orbs.SpawnedUndead;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 
 import shade.patches.AbstractCardEnum;
 import shade.powers.FrenzyDownPower;
-import shade.powers.AwakenPower;
 
 
-public class Awaken
+public class Haruspicy
   extends AbstractShadeCard
 {
-  public static final String ID = "Shade:Awaken";
+  public static final String ID = "Shade:Haruspicy";
   public static final String NAME;
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
@@ -33,7 +36,7 @@ public class Awaken
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
   
 
-  private static final int COST = 0;
+  private static final int COST = 1;
 
   private static final CardStrings cardStrings;
   
@@ -45,31 +48,35 @@ public class Awaken
 	}
 
   
-	public Awaken() {
+	public Haruspicy() {
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
-		
-		this.exhaust = true;
+
+		this.baseMagicNumber=2;
+		this.magicNumber=this.baseMagicNumber;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  if(this.upgraded) {
-		  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,1));
-	  }
+	  AbstractDungeon.actionManager.addToBottom(new ScryAction(this.magicNumber+2));
+	  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,this.magicNumber));
 	  
-      AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new AwakenPower(p,this.magicNumber), this.magicNumber));
+	  if(p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
+		  ((SpawnedUndead)p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).remove(1);
+	  }else {
+		  AbstractDungeon.actionManager.addToBottom(new LoseHPAction(p, p, 5));
+	  }
   }
 
 
 
   
-  public AbstractCard makeCopy() { return new Awaken(); }
+  public AbstractCard makeCopy() { return new Haruspicy(); }
 
   
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-		    upgradeBaseCost(0);
+		    upgradeMagicNumber(1);
 		      this.rawDescription=UPGRADED_DESCRIPTION;
 		      initializeDescription();
 		}

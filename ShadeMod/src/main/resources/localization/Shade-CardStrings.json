@@ -247,8 +247,8 @@
   },
   "Shade:Premonition": {
     "NAME": "Premonition",
-    "DESCRIPTION": "Deal !D! damage. NL Whenever you summon a wraith, return this to your hand from wherever it is and draw a card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Whenever you summon a wraith, return this to your hand from wherever it is and draw a card."
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you summon a wraith, move this to your hand from wherever it is.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Whenever you summon a wraith, move this to your hand from wherever it is."
   },
   "Shade:SkeletonHug": {
     "NAME": "Skeleton Hug",
@@ -267,7 +267,7 @@
   },
   "Shade:UnbarTheGrave": {
     "NAME": "Unbar the Grave",
-    "DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return the !M! oldest exhausted cards to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return the !M! oldest exhausted cards to your hand. NL Exhaust."
+    "DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return !M! random exhausted cards to your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return !M! random exhausted cards to your draw pile. NL Exhaust."
   }
 }
