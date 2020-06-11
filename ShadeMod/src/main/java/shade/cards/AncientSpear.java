@@ -56,7 +56,7 @@ public class AncientSpear
   public void upgrade() {
     if (!this.upgraded) {
       upgradeName();
-      upgradeDamage(7);
+      upgradeDamage(8);
     } 
   }
 }

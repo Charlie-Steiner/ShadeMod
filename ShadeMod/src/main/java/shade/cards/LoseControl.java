@@ -1,6 +1,7 @@
 package shade.cards;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.status.Wound;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -9,29 +10,31 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import shade.ShadeMod;
-import shade.actions.RefreshUndeadPower;
+import shade.actions.ReturnExhaustedToDeckAction;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 
 import shade.patches.AbstractCardEnum;
 import shade.powers.FrenzyDownPower;
 
 
-public class FleshLikeOak
+public class LoseControl
   extends AbstractShadeCard
 {
-  public static final String ID = "Shade:FleshLikeOak";
+  public static final String ID = "Shade:LoseControl";
   public static final String NAME;
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
   public static final String IMG_PATH = "cards/default_skill.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
-  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
+  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.RARE;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
   
 
-  private static final int COST = 2;
+  private static final int COST = 0;
 
   private static final CardStrings cardStrings;
   
@@ -43,38 +46,29 @@ public class FleshLikeOak
 	}
 
   
-	public FleshLikeOak() {
+	public LoseControl() {
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
-		this.exhaust = true;
-		this.baseMagicNumber = 1;
-		this.magicNumber = this.baseMagicNumber;
-		this.baseBlock = 12;
-		this.block = this.baseBlock;
+		this.baseMagicNumber=3;
+		this.magicNumber=this.baseMagicNumber;
 	}
 
-	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager
-				.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
+  public void use(AbstractPlayer p, AbstractMonster m) {
+	  AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Wound(), 3));
+	  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,this.magicNumber));
+  }
 
-		AbstractDungeon.actionManager
-				.addToBottom(new GainBlockAction(p, p, this.block));
-		
-	      AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
-		
-	}
 
 
   
-  public AbstractCard makeCopy() { return new FleshLikeOak(); }
+  public AbstractCard makeCopy() { return new LoseControl(); }
 
   
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
 		    upgradeMagicNumber(1);
-		    upgradeBlock(3);
 		}
 	}
 }

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
+import shade.actions.RefreshUndeadPower;
 import shade.actions.UndeadSpawnAction;
 import shade.patches.AbstractCardEnum;
 import shade.powers.LichFormPower;
@@ -63,6 +64,8 @@ public class GreaterAnimation extends AbstractShadeCard {
 			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
 		}
 		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Wraith()));
+		
+	      AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
 	}
 
 }

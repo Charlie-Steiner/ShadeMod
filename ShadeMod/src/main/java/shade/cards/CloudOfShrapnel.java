@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
 
 import shade.patches.AbstractCardEnum;
+import shade.actions.RefreshUndeadPower;
 import shade.characters.ShadeCharacter;
 import shade.orbs.SpawnedUndead;
 
@@ -69,7 +70,7 @@ public class CloudOfShrapnel extends AbstractShadeCard{
 			
 			u.remove(1);
 		}
-		
+	      AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
 		
 	}
 	

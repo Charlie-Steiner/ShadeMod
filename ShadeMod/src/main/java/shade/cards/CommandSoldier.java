@@ -10,7 +10,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import shade.ShadeMod;
 import shade.actions.UndeadAutoAttack;
 import shade.actions.UndeadSpawnAction;
+import shade.characters.ShadeCharacter;
 import shade.orbs.Skeleton;
+import shade.orbs.SpawnedUndead;
 import shade.patches.AbstractCardEnum;
 
 
@@ -48,14 +50,26 @@ public class CommandSoldier
   public void use(AbstractPlayer p, AbstractMonster m) {
 	  Skeleton skele = new shade.orbs.Skeleton();
       AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(skele));
-      if(this.upgraded)
-          AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(skele.passiveAmount+skele.passiveBonus)*skele.count, AbstractGameAction.AttackEffect.BLUNT_LIGHT,skele,false,false,0,true,0));
-      else
-          AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(skele.passiveAmount+skele.passiveBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,skele,false,false,0,true,0));
-
+      Skeleton s;
+      int nHits=1;
+      if( AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead){
+    	  s=(Skeleton) AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON);
+    	  nHits=s.count+1;
+      }else {
+    	  s=skele;
+      }
+      
+      s.applyFocus();
+      
+      if(this.upgraded) {
+    	  for(int i=0;i<nHits;i++){
+          	AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(s.passiveAmount+s.passiveBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,s,false,false,0,true,0));
+    	  }
+	  }
+      else {
+          AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(s.passiveAmount+s.passiveBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,s,false,false,0,true,0));
+      }
   }
-
-
 
   
   public AbstractCard makeCopy() { return new CommandSoldier(); }

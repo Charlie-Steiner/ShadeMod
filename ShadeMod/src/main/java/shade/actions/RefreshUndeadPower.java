@@ -21,6 +21,7 @@ public class RefreshUndeadPower extends AbstractGameAction {
 	public void update() {
 		for(int i=0; i<AbstractDungeon.player.maxOrbs;i++) {
 			AbstractDungeon.player.orbs.get(i).applyFocus();
+			AbstractDungeon.player.orbs.get(i).updateDescription();
 		}
 		this.isDone = true;
 	}

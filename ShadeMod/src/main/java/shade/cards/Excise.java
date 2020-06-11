@@ -18,22 +18,23 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 import shade.ShadeMod;
+import shade.actions.ExhaustFromHandAction;
 import shade.patches.AbstractCardEnum;
 
 
-public class Premonition
+public class Excise
   extends AbstractShadeCard
 {
-  public static final String ID = "Shade:Premonition";
+  public static final String ID = "Shade:Excise";
   public static final String NAME;
   public static final String DESCRIPTION;
-  public static final String IMG_PATH = "cards/default_skill.png";
+  public static final String IMG_PATH = "cards/default_attack.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
-  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
+  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
   public static String UPGRADED_DESCRIPTION;
   
-  private static final int COST = 0;
+  private static final int COST = 1;
   
   private static final CardStrings cardStrings;
 	static {
@@ -43,10 +44,10 @@ public class Premonition
         UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	}
   
-  public Premonition() {
+  public Excise() {
       super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
    
-	    this.baseBlock=5;
+	    this.baseBlock=7;
 	    this.block=this.baseBlock;
 
   }
@@ -54,9 +55,11 @@ public class Premonition
   
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block)); 
+		AbstractDungeon.actionManager.addToBottom(new ExhaustFromHandAction("Excise")); 
+
 	}
   
-  public AbstractCard makeCopy() { return new Premonition(); }
+  public AbstractCard makeCopy() { return new Excise(); }
 
   
   public void upgrade() {

@@ -18,47 +18,61 @@ public class FindPremonitions extends AbstractGameAction {
   public void update() {
     if (this.duration == Settings.ACTION_DUR_FAST) {
     	int nAllowed=10-AbstractDungeon.player.hand.size();
+    	ArrayList<AbstractCard> temp = new ArrayList<AbstractCard>();
     	for(AbstractCard c : AbstractDungeon.player.drawPile.group) {
     		if(c.cardID=="Shade:Premonition" && nAllowed>0) {
     			nAllowed--;
-    			
-    	        AbstractDungeon.player.hand.addToHand(c);
-    	        c.unhover();
-    	        c.setAngle(0.0F, true);
-    	        c.lighten(false);
-    	        c.drawScale = 0.12F;
-    	        c.targetDrawScale = 0.75F;
-    	        c.applyPowers();
-    	        AbstractDungeon.player.drawPile.removeCard(c);
+    			temp.add(c);
     		}
     	}
+    	for(AbstractCard t : temp) {
+	        AbstractDungeon.player.hand.addToHand(t);
+	        t.unhover();
+	        t.setAngle(0.0F, true);
+	        t.lighten(false);
+	        t.drawScale = 0.12F;
+	        t.targetDrawScale = 0.75F;
+	        t.applyPowers();
+	        AbstractDungeon.player.drawPile.removeCard(t);
+    	}
+    	
+    	temp = new ArrayList<AbstractCard>();
     	for(AbstractCard c : AbstractDungeon.player.discardPile.group) {
     		if(c.cardID=="Shade:Premonition" && nAllowed>0) {
     			nAllowed--;
-    			
-    	        AbstractDungeon.player.hand.addToHand(c);
-    	        c.unhover();
-    	        c.setAngle(0.0F, true);
-    	        c.lighten(false);
-    	        c.drawScale = 0.12F;
-    	        c.targetDrawScale = 0.75F;
-    	        c.applyPowers();
-    	        AbstractDungeon.player.discardPile.removeCard(c);
+    			temp.add(c);
     		}
     	}
+    	for(AbstractCard t : temp) {
+	        AbstractDungeon.player.hand.addToHand(t);
+	        t.unhover();
+	        t.setAngle(0.0F, true);
+	        t.lighten(false);
+	        t.drawScale = 0.12F;
+	        t.targetDrawScale = 0.75F;
+	        t.applyPowers();
+	        AbstractDungeon.player.discardPile.removeCard(t);
+    	}
+    	
+    	temp = new ArrayList<AbstractCard>();
     	for(AbstractCard c : AbstractDungeon.player.exhaustPile.group) {
     		if(c.cardID=="Shade:Premonition" && nAllowed>0) {
     			nAllowed--;
-    			
-    	        AbstractDungeon.player.hand.addToHand(c);
-    	        c.unhover();
-    	        c.setAngle(0.0F, true);
-    	        c.lighten(false);
-    	        c.drawScale = 0.12F;
-    	        c.targetDrawScale = 0.75F;
-    	        c.applyPowers();
-    	        AbstractDungeon.player.exhaustPile.removeCard(c);
+    			temp.add(c);
     		}
+    	}
+    	for(AbstractCard t : temp) {
+	        t.unfadeOut();
+	        AbstractDungeon.player.hand.addToHand(t);
+	        t.fadingOut = false;
+	        t.stopGlowing();
+	        t.unhover();
+	        t.setAngle(0.0F, true);
+	        t.lighten(false);
+	        t.drawScale = 0.12F;
+	        t.targetDrawScale = 0.75F;
+	        t.applyPowers();
+	        AbstractDungeon.player.exhaustPile.removeCard(t);
     	}
       
       AbstractDungeon.player.hand.refreshHandLayout();

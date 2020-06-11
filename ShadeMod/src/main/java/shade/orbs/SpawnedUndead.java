@@ -176,6 +176,16 @@ public void spawnVFX(){
         	else
         		this.passiveAmount = this.basePassiveAmount;
         }
+        else if(index == ShadeCharacter.INDEX_WRAITH)
+        {
+        	int soulPierce = 0;
+        	AbstractPower p = (AbstractPower) AbstractDungeon.player.getPower("Shade:SoulPiercePower");
+        	if(p!=null) {
+        		soulPierce = p.amount;
+        	}
+        	
+        	this.passiveAmount = this.basePassiveAmount + soulPierce;
+        }
       
         
         //updateDescription();
@@ -288,7 +298,7 @@ public void spawnVFX(){
 
             float fontOffset = 26 * Settings.scale;
             if (this.count > 9) fontOffset = fontOffset + (6 * Settings.scale);
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, this.count + "/", this.cX + this.NUM_X_OFFSET, this.cY + this.NUM_Y_OFFSET, this.c, this.fontScale);
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, this.count + "\u00D7", this.cX + this.NUM_X_OFFSET, this.cY + this.NUM_Y_OFFSET, this.c, this.fontScale);
 
 
             FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString((this.passiveAmount + this.passiveBonus)), this.cX + this.NUM_X_OFFSET + fontOffset, this.cY + this.NUM_Y_OFFSET, this.extraFontColor, this.fontScale);
@@ -303,6 +313,7 @@ public void spawnVFX(){
 		if(count>amount) {
 			count-= amount;
 			triggerEvokeAnimation();
+			this.updateDescription();
 		}else{
 	    	AbstractDungeon.player.orbs.set(index, new EmptySlot());
 	        ((AbstractOrb)AbstractDungeon.player.orbs.get(index)).setSlot(index, AbstractDungeon.player.maxOrbs);

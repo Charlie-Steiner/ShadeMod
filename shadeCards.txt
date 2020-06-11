@@ -56,10 +56,19 @@ More ways to sacrifice skeletons for profit (and by profit I mean burst damage).
 Cards that want you to have exact numbers of undead. (coffin dance)
 A rare attack or skill that returns cards directly to your hand. (unbar the grave)
 
-Some cards that interact with curses / statuses.
-Some cards that add curses / statuses.
-cards that generate cards just so you can exhaust them.
-Your next exhaust card this turn is played twice.
-Big rare exhaust attack
+Some cards that interact with curses / statuses.:
+Energy when you draw a status. (carnophage)
+Gain block and exhaust a card in hand - if it's a status, do something. (Excise)
+The next time a status is added to your deck, do something cool. (Stitch Together)
+
+Some cards that add curses / statuses.:
+summon zombies, get a wound. (Flesh to Flesh)
+add Wounds to your hand, then draw cards (lose control)
+Summon a wraith and gain block, fill your hand with wounds. (flesh offering)
+Deal damage, add wounds, exhaust. (feral strike)
+
+Your next exhaust card this turn is played twice. (dark of night)
+Big rare exhaust attack (tombstone)
+Some other way to gain Strong Bones. (calcify?)
 
 Prospective: ~40

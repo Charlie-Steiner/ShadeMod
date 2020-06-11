@@ -238,6 +238,7 @@ public class ShadeCharacter extends CustomPlayer {
 			ShadeMod.logger.info("more skeletons");
 			SpawnedUndead undead =  (SpawnedUndead)currentUndead;
 			undead.count++;
+			undead.updateDescription();
 		}
 		
 		

@@ -8,20 +8,20 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import shade.actions.RefreshUndeadPower;
 import shade.patches.AbstractCardEnum;
+import shade.powers.CarnophagePower;
 import shade.powers.LichFormPower;
-import shade.powers.SoulPiercePower;
+import shade.powers.StitchTogetherPower;
 
-public class SoulPierce extends AbstractShadeCard {
+public class StitchTogether extends AbstractShadeCard {
 
-	  public static final String ID = "Shade:SoulPierce";
+	  public static final String ID = "Shade:StitchTogether";
 	  public static final String NAME;
 	  public static final String DESCRIPTION;
 	  public static String UPGRADED_DESCRIPTION;
 	  public static final String IMG_PATH = "cards/default_power.png";
 	  private static final AbstractCard.CardType TYPE = AbstractCard.CardType.POWER;
-	  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.RARE;
+	  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
 	  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
 	  
@@ -35,10 +35,10 @@ public class SoulPierce extends AbstractShadeCard {
 			UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 		}
 	  
-	public SoulPierce() {
+	public StitchTogether() {
 		super(ID,NAME,shade.ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
 		// TODO Auto-generated constructor stub
-		this.baseMagicNumber=40;
+		this.baseMagicNumber=6;
 		this.magicNumber=this.baseMagicNumber;
 	}
 
@@ -46,15 +46,13 @@ public class SoulPierce extends AbstractShadeCard {
 	public void upgrade() {
 	    if (!this.upgraded) {
 	      upgradeName();
-	      upgradeMagicNumber(20);
+	      upgradeMagicNumber(3);
 	    } 
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SoulPiercePower(p, this.magicNumber), this.magicNumber));
-		
-	    AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StitchTogetherPower(p, this.magicNumber), this.magicNumber));
 	}
 
 }

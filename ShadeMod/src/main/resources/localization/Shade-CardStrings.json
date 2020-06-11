@@ -101,7 +101,7 @@
     "DESCRIPTION": "Exchange ALL unexhausted cards for your exhausted ones. NL Draw !M! cards. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Exchange ALL unexhausted cards for your exhausted ones. NL Draw !M! cards. NL Exhaust."
   },
-  "Shade:GraveBargain": {
+  "Shade:GreyBargain": {
     "NAME": "Grey Bargain",
     "DESCRIPTION": "Exhaust a card in your hand to return an exhausted card to your draw pile. NL Draw a card.",
     "UPGRADE_DESCRIPTION": "Exhaust a card in your hand to return an exhausted card to your draw pile. NL Draw a card."
@@ -227,8 +227,8 @@
   },
   "Shade:Awaken": {
     "NAME": "Awaken",
-    "DESCRIPTION": "Choose an exhausted card. At the start of next turn, return it to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose an exhausted card. At the start of next turn, return it to your hand. NL Draw a card. NL Exhaust."
+    "DESCRIPTION": "At the start of next turn, choose an exhausted card and return it to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "At the start of next turn, choose an exhausted card and return it to your hand. NL Draw a card. NL Exhaust."
   },
   "Shade:Haruspicy": {
     "NAME": "Haruspicy",
@@ -269,5 +269,50 @@
     "NAME": "Unbar the Grave",
     "DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return !M! random exhausted cards to your draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return !M! random exhausted cards to your draw pile. NL Exhaust."
+  },
+  "Shade:Carnophage": {
+    "NAME": "Carnophage",
+    "DESCRIPTION": "Whenever you draw a Status or Curse card, gain [E].",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you draw a Status or Curse card, gain [E]."
+  },
+  "Shade:Excise": {
+    "NAME": "Excise",
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust a card from your hand. If it's a Status or Curse, gain [E].",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust a card from your hand. If it's a Status or Curse, gain [E]."
+  },
+  "Shade:StitchTogether": {
+    "NAME": "Stitch Together",
+    "DESCRIPTION": "The next time you draw a Status card, Exhaust it, draw a card, and heal !M! HP.",
+    "UPGRADE_DESCRIPTION": "The next time you draw a Status card, Exhaust it, draw a card, and heal !M! HP."
+  },
+  "Shade:FleshToFlesh": {
+    "NAME": "Flesh To Flesh",
+    "DESCRIPTION": "Summon !M! zombies. NL Shuffle a *Wound into your draw pile.",
+    "UPGRADE_DESCRIPTION": "Summon !M! zombies. NL Shuffle a *Wound into your draw pile."
+  },
+  "Shade:LoseControl": {
+    "NAME": "Lose Control",
+    "DESCRIPTION": "Add 3 *Wounds to your hand. Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Add 3 *Wounds to your hand. Draw !M! cards."
+  },
+  "Shade:FleshOffering": {
+    "NAME": "Flesh Offering",
+    "DESCRIPTION": "Summon a wraith. NL Gain !B! Block. NL Add 5 *Wounds to your hand.",
+    "UPGRADE_DESCRIPTION": "Summon a wraith. NL Gain !B! Block. NL Add 5 *Wounds to your hand."
+  },
+  "Shade:FeralStrike": {
+    "NAME": "Feral Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Add a *Wound to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add a *Wound to your hand. NL Exhaust."
+  },
+  "Shade:DarkOfNight": {
+    "NAME": "Dark of Night",
+    "DESCRIPTION": "Your next card that Exhausts this turn is played twice.",
+    "UPGRADE_DESCRIPTION": "Your next two cards that Exhaust this turn are played twice."
+  },
+  "Shade:Tombstone": {
+    "NAME": "Tombstone",
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust."
   }
 }

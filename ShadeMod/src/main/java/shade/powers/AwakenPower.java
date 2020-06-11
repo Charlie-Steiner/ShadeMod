@@ -20,7 +20,6 @@ import shade.characters.ShadeCharacter;
 public class AwakenPower extends AbstractPower {
 	
     public static final String POWER_ID = "Shade:AwakenPower";
-    public static final String NAME = "Strong Bones";
     public static PowerType POWER_TYPE = PowerType.BUFF;
     public static final String IMG = "powers/FirmFortitude.png";
 
@@ -45,12 +44,12 @@ public class AwakenPower extends AbstractPower {
 
     public void atStartOfTurnPostDraw() {
     	AbstractDungeon.actionManager.addToBottom(new ReturnExhaustedToHandAction(false));
-
     	
     	  if (this.amount == 0) {
         		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
           } else {
         	  	AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
+            	flash();
           }
     }
     

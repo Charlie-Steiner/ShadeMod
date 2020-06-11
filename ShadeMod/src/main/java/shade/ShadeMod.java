@@ -193,6 +193,8 @@ public class ShadeMod implements PostInitializeSubscriber,
 		BaseMod.addCard(new shade.cards.Premonition());
 		BaseMod.addCard(new shade.cards.ScuttlingHand());
 		BaseMod.addCard(new shade.cards.Brains());
+		BaseMod.addCard(new shade.cards.FleshToFlesh());
+		BaseMod.addCard(new shade.cards.FeralStrike());
 		
 		//uncommon cards
 		BaseMod.addCard(new shade.cards.GoDigging());
@@ -204,12 +206,19 @@ public class ShadeMod implements PostInitializeSubscriber,
 		BaseMod.addCard(new shade.cards.SensePrey());
 		BaseMod.addCard(new shade.cards.OpenGraves());
 		BaseMod.addCard(new shade.cards.Haruspicy());
+		BaseMod.addCard(new shade.cards.Carnophage());
+		BaseMod.addCard(new shade.cards.Excise());
+		BaseMod.addCard(new shade.cards.StitchTogether());
+		BaseMod.addCard(new shade.cards.FleshOffering());
 		
 		//rare cards
 		BaseMod.addCard(new shade.cards.GreaterAnimation());
 		BaseMod.addCard(new shade.cards.OfferingToTheBeyond());
 		BaseMod.addCard(new shade.cards.SoulPierce());
 		BaseMod.addCard(new shade.cards.UnbarTheGrave());
+		BaseMod.addCard(new shade.cards.LoseControl());
+		BaseMod.addCard(new shade.cards.DarkOfNight());
+		BaseMod.addCard(new shade.cards.Tombstone());
 		
 		//unlock cards:
 		//common cards
@@ -222,6 +231,8 @@ public class ShadeMod implements PostInitializeSubscriber,
 		UnlockTracker.unlockCard(Premonition.ID);
 		UnlockTracker.unlockCard(ScuttlingHand.ID);
 		UnlockTracker.unlockCard(Brains.ID);
+		UnlockTracker.unlockCard(FleshToFlesh.ID);
+		UnlockTracker.unlockCard(FeralStrike.ID);
 		
 		//uncommon cards
 		UnlockTracker.unlockCard(GoDigging.ID);
@@ -233,12 +244,19 @@ public class ShadeMod implements PostInitializeSubscriber,
 		UnlockTracker.unlockCard(SensePrey.ID);
 		UnlockTracker.unlockCard(OpenGraves.ID);
 		UnlockTracker.unlockCard(Haruspicy.ID);
+		UnlockTracker.unlockCard(Carnophage.ID);
+		UnlockTracker.unlockCard(Excise.ID);
+		UnlockTracker.unlockCard(StitchTogether.ID);
+		UnlockTracker.unlockCard(FleshOffering.ID);
 		
 		//rare cards
 		UnlockTracker.unlockCard(GreaterAnimation.ID);
 		UnlockTracker.unlockCard(OfferingToTheBeyond.ID);
 		UnlockTracker.unlockCard(SoulPierce.ID);
 		UnlockTracker.unlockCard(UnbarTheGrave.ID);
+		UnlockTracker.unlockCard(LoseControl.ID);
+		UnlockTracker.unlockCard(DarkOfNight.ID);
+		UnlockTracker.unlockCard(Tombstone.ID);
 		
 		
 		logger.info("Done adding Shade cards!");
@@ -323,6 +341,8 @@ public class ShadeMod implements PostInitializeSubscriber,
 		}
 	}
 
+    public int decayConstant = 3;
+    
     @Override
 	public void receiveOnBattleStart(AbstractRoom room) {
 	    if (AbstractDungeon.player.chosenClass == ShadeEnum.SHADE) {
@@ -334,7 +354,7 @@ public class ShadeMod implements PostInitializeSubscriber,
 	         }
 
 	        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-					new MinionsPower(AbstractDungeon.player)));
+					new MinionsPower(AbstractDungeon.player, decayConstant)));
 			logger.info(CardCrawlGame.languagePack.getPowerStrings("Shade:MinionsPower").NAME);
 			logger.info("preMonsterTurn");
 			logger.info("Common card #: " + AbstractDungeon.commonCardPool.group.size());

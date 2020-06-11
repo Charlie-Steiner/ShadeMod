@@ -31,9 +31,9 @@ public class OpenGravesPower extends AbstractPower {
 
         this.DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(this.ID).DESCRIPTIONS;
         this.name = CardCrawlGame.languagePack.getPowerStrings(this.ID).NAME;
-    	updateDescription();
     	
     	this.zombieTurn=true;
+    	updateDescription();
     }
     
     public void atStartOfTurn() {
@@ -48,15 +48,17 @@ public class OpenGravesPower extends AbstractPower {
     		}
     	}
     	this.zombieTurn = !this.zombieTurn;
+    	
+    	this.updateDescription();
     }
     
 	public void updateDescription() {
 		//1 if zombieTurn is false
 		int skeleInt = zombieTurn ? 0 : 1;
 		if(this.amount==1) {
-			this.description = DESCRIPTIONS[0] + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[2] + DESCRIPTIONS[3+skeleInt] + DESCRIPTIONS[5];
+			this.description = DESCRIPTIONS[0] + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3+skeleInt] + DESCRIPTIONS[5];
 		}else {
-			this.description = DESCRIPTIONS[1] + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[2] + DESCRIPTIONS[3+skeleInt] + DESCRIPTIONS[6];
+			this.description = DESCRIPTIONS[1] + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3+skeleInt] + DESCRIPTIONS[6];
 		}
 	}
 }

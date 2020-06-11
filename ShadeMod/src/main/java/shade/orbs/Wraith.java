@@ -58,11 +58,7 @@ public class Wraith extends SpawnedUndead {
 
     	AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new VerticalAuraEffect(Color.BLACK, p.hb.cX, p.hb.cY), 0.33F));
     	
-    	if(p.hasPower("Shade:SoulPiercePower")) {
-        	AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.passiveAmount+p.getPower("Shade:SoulPiercePower").amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
-    	}else {
-    		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.passiveAmount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
-    	}
+    	AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.passiveAmount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
     	
     	this.remove(1);
     }

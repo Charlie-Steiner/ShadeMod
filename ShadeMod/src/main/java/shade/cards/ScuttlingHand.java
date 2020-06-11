@@ -57,9 +57,11 @@ public class ScuttlingHand
 							AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 	}
 	
-	public void triggerOnExhaust() {
-		AbstractDungeon.actionManager.addToBottom(new DiscardToHandAction(this));
-	}
+	  public void triggerOnCardPlayed(AbstractCard cardPlayed) {
+		  if(cardPlayed.exhaust) {
+			  AbstractDungeon.actionManager.addToBottom(new DiscardToHandAction(this));
+		  }
+	  }
   
   public AbstractCard makeCopy() { return new ScuttlingHand(); }
 

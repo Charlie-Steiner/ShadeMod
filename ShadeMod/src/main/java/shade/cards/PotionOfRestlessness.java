@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
+import shade.actions.RefreshUndeadPower;
 import shade.patches.AbstractCardEnum;
 import shade.powers.LichFormPower;
 
@@ -83,5 +84,6 @@ public class PotionOfRestlessness extends AbstractShadeCard {
 		if(p.getPower("Shade:MinionsPower").amount > 1) {
 			p.getPower("Shade:MinionsPower").amount -= 1;
 		}
+	      AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
 	}
 }

@@ -4,6 +4,11 @@
       "Select a Card to Return to Your Draw Pile"
     ]
   },
+  "Shade:ReturnExhaustedToHandAction": {
+    "TEXT": [
+      "Select a Card to Return to Your Hand"
+    ]
+  },
   "Shade:ExhaustFromDeckAction": {
     "TEXT": [
       "Choose a Card to Exhaust",

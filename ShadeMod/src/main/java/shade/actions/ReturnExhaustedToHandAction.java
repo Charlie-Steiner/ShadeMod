@@ -20,7 +20,7 @@ public class ReturnExhaustedToHandAction
 {
   private AbstractPlayer p;
   private final boolean random;
-  private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Shade:ReturnExhaustedToDeckAction");
+  private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Shade:ReturnExhaustedToHandAction");
   public static final String[] TEXT = uiStrings.TEXT;
   
   public ReturnExhaustedToHandAction(boolean random) {

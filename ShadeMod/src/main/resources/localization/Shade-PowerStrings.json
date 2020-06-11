@@ -9,33 +9,33 @@
 	"Shade:TouchOfTheGravePower": {
 		"NAME": "Touch of the Grave",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random attack from your discard, then remove it.",
+			"At the start of your turn, play a random exhasuted attack card, then remove it.",
 			"At the start of your turn, play #b",
-			" random attacks from your discard, then remove them."
+			" random exhasuted attack cards, then remove them."
 		]
 	},
 	"Shade:TouchOfTheGravePowerUpgraded": {
 		"NAME": "Touch of the Grave +",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random attack from your discard, then return it to your discard.",
+			"At the start of your turn, play a random exhasuted attack card, then return it to your discard.",
 			"At the start of your turn, play #b",
-			" random attacks from your discard, then return them to your discard."
+			" random exhasuted attack cards, then return them to your discard."
 		]
 	},
 	"Shade:CallOfTheGravePower": {
 		"NAME": "Call of the Grave",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random skill from your discard, then remove it.",
+			"At the start of your turn, play a random exhausted class skill, then remove it.",
 			"At the start of your turn, play #b",
-			" random skills from your discard, then remove them."
+			" random exhasuted class skills, then remove them."
 		]
 	},
 	"Shade:CallOfTheGravePowerUpgraded": {
 		"NAME": "Call of the Grave +",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random skill from your discard, then return it to your discard.",
+			"At the start of your turn, play a random exhausted class skill, then return it to your discard.",
 			"At the start of your turn, play #b",
-			" random skills from your discard, then return them to your discard."
+			" random exhasuted class skills, then return them to your discard."
 		]
 	},
 	"Shade:FrenzyDownPower": {
@@ -100,7 +100,7 @@
 		]
 	},
 		"Shade:SoulPiercePower": {
-		"NAME": "Offering to the Beyond +",
+		"NAME": "Soul Pierce",
 		"DESCRIPTIONS": [
 		      "Your wraiths deal #b",
 		      " more damage."
@@ -112,18 +112,40 @@
 		      "Alternates between summoning a zombie and a skeleton. ",
 		      "Alternates between summoning zombies and skeletons. ",
 		      "Next turn, summon #b",
-		      "zombie",
-		      "skeleton",
+		      " zombie",
+		      " skeleton",
 		      ".",
 		      "s."
 		]
 	},
-		"Shade:Awaken": {
+		"Shade:AwakenPower": {
 		"NAME": "Awakening",
 		"DESCRIPTIONS": [
 			"Return an exhausted card to your hand next turn.",
 			"Return an exhausted card to your hand for the next #b",
 			" turns."
+		]
+	},
+		"Shade:CarnophagePower": {
+		"NAME": "Carnophagy",
+		"DESCRIPTIONS": [
+			"Wenever you draw a Status or Curse card, gain #b",
+			" energy."
+		]
+	},
+		"Shade:StitchTogetherPower": {
+		"NAME": "Stitch Together",
+		"DESCRIPTIONS": [
+			"The next time you draw a Status card, exhaust it, draw a card, and heal #b",
+			" HP."
+		]
+	},
+		"Shade:DarkOfNightPower": {
+		"NAME": "Dark Night",
+		"DESCRIPTIONS": [
+			"The next card that Exhausts is played twice.",
+			"The next #b",
+			" cards that Exhaust are played twice."
 		]
 	}
 }

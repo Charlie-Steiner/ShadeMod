@@ -49,6 +49,9 @@ public class Awaken
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
+		this.baseMagicNumber=1;
+		this.magicNumber=this.baseMagicNumber;
+		
 		this.exhaust = true;
 	}
 
@@ -69,7 +72,6 @@ public class Awaken
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-		    upgradeBaseCost(0);
 		      this.rawDescription=UPGRADED_DESCRIPTION;
 		      initializeDescription();
 		}

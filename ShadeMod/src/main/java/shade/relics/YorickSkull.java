@@ -1,9 +1,14 @@
 package shade.relics;
 
 import basemod.abstracts.CustomRelic;
+import shade.actions.UndeadSpawnAction;
+
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Logger;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
@@ -16,11 +21,12 @@ public class YorickSkull extends CustomRelic {
     public static final String ID = "Shade:YorickSkull";
     public static final String IMG_PATH = "relics/YorickSkull.png";
     public static final String OUTLINE_IMG_PATH = "relics/YorickSkullOutline.png";
-    private static final int HP_PER_CARD = 1;
+    private static final int COUNT = 10;
 
     public YorickSkull() {
     	        super(ID, new Texture(shade.ShadeMod.getResourcePath(IMG_PATH)), new Texture(shade.ShadeMod.getResourcePath(OUTLINE_IMG_PATH)),
                 RelicTier.STARTER, LandingSound.MAGICAL);
+    	        this.counter = 0;
     }
 
     @Override
@@ -28,8 +34,33 @@ public class YorickSkull extends CustomRelic {
         return this.DESCRIPTIONS[0];
     }
 
-
-    public void atBattleStartPreDraw() {}
+    
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        this.counter++;
+        
+        if (this.counter == 10) {
+          this.counter = 0;
+          flash();
+          this.pulse = false;
+          addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+          if(card.type==CardType.SKILL) {
+        	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+          }else{
+        	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
+          }
+        } else if (this.counter == 9) {
+          beginPulse();
+          this.pulse = true;
+        }
+    }
+    
+    
+    public void atBattleStart() {
+        if (this.counter == 9) {
+          beginPulse();
+          this.pulse = true;
+        } 
+    }
 
     @Override
     public AbstractRelic makeCopy() {

@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
 
 import shade.patches.AbstractCardEnum;
+import shade.actions.RefreshUndeadPower;
 import shade.characters.ShadeCharacter;
 import shade.orbs.SpawnedUndead;
 
@@ -32,7 +33,7 @@ public class AblativeArmor extends AbstractShadeCard{
     public static String UPGRADED_DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION;
     public static final String IMG_PATH = "cards/default_attack.png";
-    private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
+    private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
     private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ALL_ENEMY;
 
@@ -69,7 +70,7 @@ public class AblativeArmor extends AbstractShadeCard{
 			
 			u.remove(1);
 		}
-		
+	      AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
 	}
 
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
