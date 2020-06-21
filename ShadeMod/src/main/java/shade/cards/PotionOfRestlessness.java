@@ -77,9 +77,9 @@ public class PotionOfRestlessness extends AbstractShadeCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if(!this.upgraded) {
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, 2), 2));
-		}else {
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, 3), 3));
+		}else {
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, 4), 4));
 		}
 		if(p.getPower("Shade:MinionsPower").amount > 1) {
 			p.getPower("Shade:MinionsPower").amount -= 1;

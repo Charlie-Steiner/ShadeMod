@@ -40,7 +40,7 @@ public class GraveStillness extends AbstractShadeCard {
 	public GraveStillness() {
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
-		this.baseBlock = 6;
+		this.baseBlock = 5;
 		this.block = this.baseBlock;
 	}
 

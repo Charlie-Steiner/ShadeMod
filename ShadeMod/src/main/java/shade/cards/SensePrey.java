@@ -54,6 +54,7 @@ public class SensePrey
       } 
       for (int i = 0; i < count; i++) {
     	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
+    	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
       }
   }
 

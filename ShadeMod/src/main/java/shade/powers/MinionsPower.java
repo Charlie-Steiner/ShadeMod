@@ -1,6 +1,7 @@
 package shade.powers;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -54,7 +55,7 @@ public class MinionsPower extends AbstractPower {
 				damageAmount = minionBlock(info,damageAmount,ShadeCharacter.INDEX_SKELETON);
 			}
 	
-			if(damageAmount>1 && (AbstractPower)AbstractDungeon.player.getPower("IntangiblePlayer")==null)
+			if(damageAmount>1 && (AbstractPower)AbstractDungeon.player.getPower("Buffer")==null && (AbstractPower)AbstractDungeon.player.getPower("IntangiblePlayer")==null)
 			{
 				if(!(AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
 					damageAmount = 1;
@@ -87,6 +88,7 @@ public class MinionsPower extends AbstractPower {
 				int minionsLost = (damageAmount-1)/(u.passiveAmount+u.passiveBonus)+1;
 				damageAmount = 0;
 				u.remove(minionsLost);
+				AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player,AbstractDungeon.player,(u.passiveAmount+u.passiveBonus)*minionsLost-damageAmount));
 			}
 		}
 		

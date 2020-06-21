@@ -55,7 +55,7 @@ public class LoseControl
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Wound(), 3));
+	  AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Wound(), 2));
 	  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,this.magicNumber));
   }
 

@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import shade.ShadeMod;
+import shade.actions.RefreshUndeadPower;
 
 
 public class FrenzyDownPower extends AbstractPower {
@@ -42,6 +43,7 @@ public class FrenzyDownPower extends AbstractPower {
     	flash();
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, -this.amount), -this.amount));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DexterityPower(this.owner, -this.amount), -this.amount));
+        AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
 	}
     

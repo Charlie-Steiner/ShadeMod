@@ -23,7 +23,7 @@ public class Skeleton extends SpawnedUndead {
 
 		super(ID, new Color(1.0F, 1.0F, 1.0F, 100F), 0, damage, true, 
 				"ShadeImages/orbs/skeleton.png",ShadeCharacter.INDEX_SKELETON);
-		this.extraFontColor = Color.ROYAL;
+		this.extraFontColor = Color.ROYAL.cpy();
 		this.count = 1;
 		this.passiveBonus = 0;
 		updateDescription();

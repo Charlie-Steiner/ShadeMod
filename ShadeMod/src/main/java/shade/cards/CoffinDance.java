@@ -56,6 +56,8 @@ public class CoffinDance extends AbstractShadeCard{
         super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
 
         this.baseDamage = 8;
+        this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber;
     }
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -71,9 +73,8 @@ public class CoffinDance extends AbstractShadeCard{
 		}
 		
 		if(undeads==4) {
-		    AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-			if(this.upgraded) {
-				AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
+			for(int i=0;i<this.magicNumber;i++) {
+			    AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
 			}
 		}
 	}
@@ -86,7 +87,7 @@ public class CoffinDance extends AbstractShadeCard{
         if (!this.upgraded) {
             upgradeName();
             upgradeDamage(3);
-            this.rawDescription=UPGRADED_DESCRIPTION;
+            upgradeMagicNumber(2);
             initializeDescription();
         }
     }

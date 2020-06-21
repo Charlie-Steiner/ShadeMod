@@ -9,14 +9,18 @@ public class RavenousHordeAction extends AbstractGameAction {
 	
 	private int effect;
 	private int energyOnUse;
-	public RavenousHordeAction(int energy)
+	private boolean upgraded;
+	public RavenousHordeAction(int energy, boolean upgraded)
 	{
 		this.energyOnUse = energy;
-		this.effect = this.energyOnUse;
+		this.effect = this.energyOnUse+1;
+		this.upgraded = upgraded;
 	}
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
+		int threshold = this.upgraded?4:2;
+		
 		
 		if(AbstractDungeon.player.hasRelic("Chemical X"))
 		{
@@ -29,7 +33,7 @@ public class RavenousHordeAction extends AbstractGameAction {
 			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
 		}
 		
-		if(effect>2) {
+		if(effect>=threshold) {
 			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
 		}
 

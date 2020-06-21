@@ -26,7 +26,7 @@ public class Wraith extends SpawnedUndead {
 	{
 		super(ID, new Color(1.0F, 1.0F, 1.0F, 100F), 0, damage, false, 
 				"ShadeImages/orbs/wraith.png",ShadeCharacter.INDEX_WRAITH);
-		this.extraFontColor = Color.ROYAL;
+		this.extraFontColor = Color.ROYAL.cpy();
 		this.count = 1;
 		this.passiveBonus = 0;
 		updateDescription();

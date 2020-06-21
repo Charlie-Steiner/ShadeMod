@@ -86,7 +86,7 @@ public abstract class SpawnedUndead extends AbstractOrb{
 
 	public SpawnedUndead(String ID, Color mainColor, int yOffset, int passive, boolean movesToAttack, String IMGURL,int index) {
 
-        this.c = mainColor;
+        this.c = mainColor.cpy();
         //this.renderBehind=true;
 
         this.yOffset = yOffset;
@@ -298,14 +298,13 @@ public void spawnVFX(){
 
             float fontOffset = 26 * Settings.scale;
             if (this.count > 9) fontOffset = fontOffset + (6 * Settings.scale);
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, this.count + "\u00D7", this.cX + this.NUM_X_OFFSET, this.cY + this.NUM_Y_OFFSET, this.c, this.fontScale);
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString((this.passiveAmount + this.passiveBonus)) + "\u00D7", this.cX + this.NUM_X_OFFSET, this.cY + this.NUM_Y_OFFSET, this.c, this.fontScale);
 
-
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString((this.passiveAmount + this.passiveBonus)), this.cX + this.NUM_X_OFFSET + fontOffset, this.cY + this.NUM_Y_OFFSET, this.extraFontColor, this.fontScale);
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.count), this.cX + this.NUM_X_OFFSET + fontOffset, this.cY + this.NUM_Y_OFFSET, this.extraFontColor, this.fontScale);
 
         } else {
 
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.count), this.cX + this.NUM_X_OFFSET, this.cY + this.NUM_Y_OFFSET, this.c, this.fontScale);
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString((this.passiveAmount + this.passiveBonus)), this.cX + this.NUM_X_OFFSET, this.cY + this.NUM_Y_OFFSET, this.c, this.fontScale);
         }
     }
 	

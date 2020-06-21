@@ -66,7 +66,7 @@ public class FreshBones
   public void upgrade() {
     if (!this.upgraded) {
       upgradeName();
-      upgradeMagicNumber(2);
+      upgradeMagicNumber(1);
       this.rawDescription=UPGRADED_DESCRIPTION;
       initializeDescription();
     }

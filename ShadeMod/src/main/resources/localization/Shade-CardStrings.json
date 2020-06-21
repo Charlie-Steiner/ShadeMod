@@ -12,7 +12,7 @@
 "Shade:AnimateDead": {
     "NAME": "Animate Dead",
     "DESCRIPTION": "Summon 1 zombie and 2 skeletons. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Summon 2 zombies and 1 skeleton. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Summon 2 zombies and 2 skeletons. NL Exhaust."
   },
 "Shade:ClawBack": {
     "NAME": "Claw Back",
@@ -27,9 +27,9 @@
   },
   "Shade:Boneskin": {
     "NAME": "Boneskin",
-    "DESCRIPTION": "Sacrifice your skeletons. Gain !M! plated armor for each skeleton sacrificed.",
-    "UPGRADE_DESCRIPTION": "Sacrifice your skeletons. Gain !M! plated armor for each skeleton sacrificed.",
-    "EXTENDED_DESCRIPTION": ["I need a skeleton."]
+    "DESCRIPTION": "Sacrifice up to !M! zombies. Gain 2 plated armor for each zombie sacrificed.",
+    "UPGRADE_DESCRIPTION": "Sacrifice up to !M! zombies. Gain 3 plated armor for each zombie sacrificed.",
+    "EXTENDED_DESCRIPTION": ["I need a zombie."]
   },
   "Shade:FreshBones": {
     "NAME": "Fresh Bones",
@@ -63,8 +63,8 @@
   },
     "Shade:RavenousHorde": {
     "NAME": "Ravenous Horde",
-    "DESCRIPTION": "Summon X zombies. NL If this summons 3 or more, summon a skeleton.",
-    "UPGRADE_DESCRIPTION": "Summon X+1 zombies. NL If this summons 3 or more, summon a skeleton."
+    "DESCRIPTION": "Summon X+1 zombies. NL If this summons 4 or more, summon a skeleton.",
+    "UPGRADE_DESCRIPTION": "Summon X+1 zombies. NL If this summons 2 or more, summon a skeleton."
   },
     "Shade:LichForm": {
     "NAME": "Lich Form",
@@ -151,12 +151,12 @@
   "Shade:CommandSoldier": {
     "NAME": "Command Soldier",
     "DESCRIPTION": "Summon a skeleton and trigger its attack.",
-    "UPGRADE_DESCRIPTION": "Summon a skeleton and trigger all skeleton attacks."
+    "UPGRADE_DESCRIPTION": "Summon a skeleton and trigger up to 3 skeleton attacks."
   },
   "Shade:SkeletonArmy": {
     "NAME": "Skeleton Army",
-    "DESCRIPTION": "Summon !M! skeletons.",
-    "UPGRADE_DESCRIPTION": "Summon !M! skeletons."
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Summon !M! skeletons.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Summon !M! skeletons."
   },
   "Shade:LyeBath": {
     "NAME": "Lye Bath",
@@ -181,8 +181,8 @@
   },
   "Shade:PotionOfRestlessness": {
     "NAME": "Potion of Restlessness",
-    "DESCRIPTION": "Gain 2 Strength. NL Your zombies and skeletons decay one turn quicker.",
-    "UPGRADE_DESCRIPTION": "Gain 3 Strength. NL Your zombies and skeletons decay one turn quicker.",
+    "DESCRIPTION": "Gain 3 Strength. NL Your zombies and skeletons decay one turn quicker.",
+    "UPGRADE_DESCRIPTION": "Gain 4 Strength. NL Your zombies and skeletons decay one turn quicker.",
     "EXTENDED_DESCRIPTION": [" NL ( 1/ !M! per turn )"]
   },
   "Shade:GreaterAnimation": {
@@ -207,8 +207,8 @@
   },
   "Shade:SensePrey": {
     "NAME": "Sense Prey",
-    "DESCRIPTION": "Summon a skeleton for each enemy in combat. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Summon a skeleton for each enemy in combat. NL Exhaust"
+    "DESCRIPTION": "Summon a zombie and a skeleton for each enemy in combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Summon a zombie and a skeleton for each enemy in combat. NL Exhaust"
   },
   "Shade:Trample": {
     "NAME": "Trample",
@@ -262,8 +262,8 @@
   },
   "Shade:CoffinDance": {
     "NAME": "Coffin Dance",
-    "DESCRIPTION": "Deal !D! damage. NL If you have exactly 4 zombies and skeletons combined, summon a skeleton.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If you have exactly 4 zombies and skeletons combined, summon a skeleton and gain [E]."
+    "DESCRIPTION": "Deal !D! damage. NL If you have exactly 4 zombies and skeletons combined, summon !M! zombies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If you have exactly 4 zombies and skeletons combined, summon !M! zombies."
   },
   "Shade:UnbarTheGrave": {
     "NAME": "Unbar the Grave",
@@ -292,8 +292,8 @@
   },
   "Shade:LoseControl": {
     "NAME": "Lose Control",
-    "DESCRIPTION": "Add 3 *Wounds to your hand. Draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Add 3 *Wounds to your hand. Draw !M! cards."
+    "DESCRIPTION": "Add 2 *Wounds to your hand. Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Add 2 *Wounds to your hand. Draw !M! cards."
   },
   "Shade:FleshOffering": {
     "NAME": "Flesh Offering",

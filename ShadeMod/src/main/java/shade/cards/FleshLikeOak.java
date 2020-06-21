@@ -73,8 +73,7 @@ public class FleshLikeOak
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-		    upgradeMagicNumber(1);
-		    upgradeBlock(3);
+		    upgradeBlock(4);
 		}
 	}
 }

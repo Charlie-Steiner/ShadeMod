@@ -54,7 +54,7 @@ public class Boneskin
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
-		this.baseMagicNumber=1;
+		this.baseMagicNumber=4;
 		this.magicNumber=this.baseMagicNumber;
 	}
 
@@ -63,7 +63,7 @@ public class Boneskin
 		if (!canUse) {
 			return false;
 		}
-		if (p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot) {
+		if (p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot) {
 			canUse = false;
 			this.cantUseMessage = EXTENDED_DESCRIPTION[0];
 		}
@@ -79,18 +79,22 @@ public class Boneskin
   public void upgrade() {
     if (!this.upgraded) {
       upgradeName();
-      upgradeBaseCost(1);
-      upgradeMagicNumber(1);
+      upgradeMagicNumber(-1);
     } 
   }
   
   public void use(AbstractPlayer p, AbstractMonster arg1) {
-	SpawnedUndead u = (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON);
-
-	if (u.count > 0) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PlatedArmorPower(p, u.count*this.magicNumber), u.count*this.magicNumber));
-		
-		u.remove(u.count);
+	SpawnedUndead u = (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE);
+	int removed = Math.min(this.magicNumber, u.count);
+	int armor;
+	if(this.upgraded) {
+		armor=removed*3;
+	}else {
+		armor=removed*2;
 	}
+		
+	AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PlatedArmorPower(p, armor), armor));
+
+	u.remove(removed);
   }
 }

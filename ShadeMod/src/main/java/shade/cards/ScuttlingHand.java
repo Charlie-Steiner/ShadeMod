@@ -28,7 +28,7 @@ public class ScuttlingHand
   public static final String DESCRIPTION;
   public static final String IMG_PATH = "cards/default_attack.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
-  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
+  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
   public static String UPGRADED_DESCRIPTION;
   

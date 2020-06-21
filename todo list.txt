@@ -1,44 +1,91 @@
 Buggy cards:
-Broke the StrongBones power update - need to put the RefreshUndeadPower action back in. (done)
 
-Call Of The Grave+ sets a card's cost to 0 even after returning it to the deck (lasts until play). probably fix by changing how the card upgrades.
+minions Power doesn't seem to update description at all. (???) (maybe fixed by overriding stackPower and ReducePower to force description updates) (nope, still broke!)
 
-Some cards don't have the right card frame, and have "BETA" art rather than palceholder art. Known: Bonestorm, Grave Stillness, Boneskin (I think the bugginess was due to extending the wrong class. Hopefully fixed)
+Frenzy doesn't reset minions power when FrenzyDown goes away, so they can stay strong one turn too long. (added refresh to FrenzyDown)
 
-skeleton and zombie orb text isn't updating decay rate fast enough upon change in quantity.
 
-minions Power doesn't seem to update description at all.
+Jason's bugs:
 
-make wraith tooltip and description update with Soul Pierce
+OrbPositions not right for Surrounded fight.
 
-Boneskin ate zombies as well as skeletons.
+Wraiths shouldn't trigger if you have barrier. (done)
 
-Fix UI strings of returncardtohand action, fix "missingname" error of AwakenPower
+Bone shards triggered 4x even with 1 skeleton. (tried to change method of doing damage)
 
+Strikes and defends show up in matching game? (hopefully fixed by changing getStartingCardForEvent in shadeCharacter)
+
+
+Balance ideas:
+Uncommonify scuttling hand to reduce kunai/shuriken stacking. (done)
+
+Buff Coffin Dance (done by summoning zmobies)
+
+Buff potion of restlessness, nerf flesh like oak. (check)
+
+Fresh Bones + goes from 3 turns to 2. (done)
+
+Buff BoneSkin (maybe make it "sacrifice up to 4(3) skeletons, gain 2(3) played armor each", or something) (card changed)
+
+Look at Grave stillness. (nerfed block)
+
+Reduce Skeleton Army # of skeletons, have it do some damage instead. (done)
+
+Command Soldier + a little too extreme. (capped at 3)
+
+Bone shards maybe too strong? (dinged by 1)
+
+Buff Lose Control to 2 wounds? (done)
+
+Buff Sense Prey to summon zombies? (done)
 
 General Todo:
+More 2-cost rares?
+
+Think about changing carnophage, right now requires too much synergy. Maybe have it summon undead as well?
+
+Need more ways to summon zombies.
+
+Think about ways to protect zombies.
+
+make it a little easier to exhaust your own cards.
+
+Add a self-synergy card like claw?
+
+Improve starting relic.
+
+Nerf zombie strength overall, make them give block on hit rather than disappearing entirely. (done)
+
+Look into "skeletons all attack one enemy"
+
+Needs more help for multi-enemy fights.
+
+Look into Spire Shield debuffing your strength.
+
+Add rare power that causes zombies to poison things on death.
+
+Go through attacks/powers/skills and commons/uncommons/rares to balance the #s.
+
+If there are >10 skeletons, maybe start condensing attacks to save time.
+
+Add helpful tooltips for undead decay, skeleton attacks, wraith intangible triggers, zombie blocking.
+
+Make custom emptySlot orbs for the different undead?
+
+Make call and Touch of the grave legibly flash what card they're replaying. (maybe they need unfadeout and stopglowing on the shown card?)
+
 Set up keywords for zombie, skeleton, wraith.
 
-Something broke text rendering (going to campfire? Some abuse of dev console?)
-
-check whether the Enum patches are actually necessary, or even if they're hurting (like the library crash bug)
-
-A patch that makes the intangible cards into powers rather than skills, somehow. Or just be very fastidious about only letting you get back Shade cards. Or specifically exclude them.
+Something broke text rendering (going to campfire? Some abuse of dev console? Just got it after a fight where I only played AnimateDead, ClawBack, clawed back animate dead,strike, defend, bite. Timer gone, potion names gone, names of Map, Deck, Options tooltips gone, "Add a card to your hand" text is only gone when *highlighted*, other text still there.) (possibly breaking a color. Replace calls to colors with that color.cpy() ) (tried)
 
 Wraith art often doesn't "pop" (add blurry white border?)
 
-Go through custom events and double check that things that only need to happen once are given "if duration = startingDuration" handles.
+Go through custom actions and double check that things that only need to happen once are given "if duration = startingDuration" handles?
 
-Make Yorick's skull a stacking relic that summons a skeleton if n'th card played was attack, and zombie if nth card was skill?
+Make Yorick's skull a stacking relic that summons a skeleton if n'th card played was attack, and zombie if nth card was skill? (done)
 
+Make sacrifice cards glow if canUse.
 
-Balance impressions:
-Retrieving from exhaust happens slightly too often right now. (should get diluted with new cards)
+Make sacrifice cards use canUse even if they're "up to."
 
-Ominous ritual is too slow, needs buff (at least unupgraded)
-
-nerf call and touch of grave (target oldest rather than random?). Maybe even make them rare, or remove the return-to-deck upgrades? Maybe hit claw back somehow too.
-
-Also, the base deck is a little boring to play. Maybe rework claw back to be more complicated? Make Yorick's skull do something a little complicated? Maybe add a third custom card to the starter deck?
-
-Want to mitigate RNG a little, perticularly in the exhaust synergy cards. Instead, target oldest / newest?
+Card art, Power art, more interesting VFX / SFX, custom heart scene.

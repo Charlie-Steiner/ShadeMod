@@ -4,6 +4,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.helpers.CardLibrary.LibraryType;
 
 public class LibraryTypeEnum {
-  @SpireEnum
+  @SpireEnum(name = "SHADE_COLOR") @SuppressWarnings("unused")
   public static LibraryType SHADE;
 }

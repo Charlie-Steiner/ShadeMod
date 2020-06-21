@@ -62,7 +62,7 @@ public class CommandSoldier
       s.applyFocus();
       
       if(this.upgraded) {
-    	  for(int i=0;i<nHits;i++){
+    	  for(int i=0;i<Math.min(s.count,3);i++){
           	AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(s.passiveAmount+s.passiveBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,s,false,false,0,true,0));
     	  }
 	  }

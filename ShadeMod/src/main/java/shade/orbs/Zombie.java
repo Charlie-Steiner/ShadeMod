@@ -15,7 +15,7 @@ public class Zombie extends SpawnedUndead {
 
 
 	public static final String ID = "Shade:Zombie";
-	public static final int baseHealth = 5;
+	public static final int baseHealth = 4;
 	
 	
 	public Zombie()
@@ -23,7 +23,7 @@ public class Zombie extends SpawnedUndead {
 
 		super(ID, new Color(1.0F, 1.0F, 1.0F, 100F), 0, baseHealth, false, 
 				"ShadeImages/orbs/zombie.png",ShadeCharacter.INDEX_ZOMBIE);
-		this.extraFontColor = Color.ROYAL;
+		this.extraFontColor = Color.ROYAL.cpy();
 		this.count = 1;
 		this.passiveBonus = 0;
 		updateDescription();

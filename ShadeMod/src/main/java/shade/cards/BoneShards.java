@@ -53,7 +53,7 @@ public class BoneShards extends AbstractShadeCard{
     public BoneShards() {
         super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
 
-        this.baseDamage = 10;
+        this.baseDamage = 9;
         this.baseMagicNumber = 2;
         this.magicNumber=this.baseMagicNumber;
     }
@@ -61,14 +61,11 @@ public class BoneShards extends AbstractShadeCard{
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if(p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead) {
 			SpawnedUndead u = (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON);
-			int thrown =0;
-			while(u.count>0 && thrown<this.magicNumber) {
+			for(int i=0;i<Math.min(u.count, this.magicNumber);i++) {
 				AbstractDungeon.actionManager.addToBottom(new VFXAction(new ThrowDaggerEffect(m.hb.cX, m.hb.cY)));
 				AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
-				
-				thrown++;
-				u.remove(1);
 			}
+			u.remove(this.magicNumber);
 		}
 		
 	}

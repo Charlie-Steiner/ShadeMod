@@ -199,7 +199,7 @@ public class ShadeCharacter extends CustomPlayer {
     }
 
     public AbstractCard getStartCardForEvent() {
-        return new Strike_Shade();
+        return new AnimateDead();
     }
 
 	public void channelUndead(AbstractOrb orbType) {
