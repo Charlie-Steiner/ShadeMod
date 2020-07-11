@@ -67,7 +67,7 @@ public class Consume extends AbstractShadeCard{
     }
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-	    AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.damage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SMASH));		
+	    AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SMASH));		
 		
 	    AbstractDungeon.actionManager.addToBottom(new ExhaustTopCardAction(this.magicNumber));
 		

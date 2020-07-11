@@ -43,7 +43,7 @@ public class YorickSkull extends CustomRelic {
           this.counter = 0;
           flash();
           this.pulse = false;
-          addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+          AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
           AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
         } else if (this.counter == 9) {
           beginPulse();
