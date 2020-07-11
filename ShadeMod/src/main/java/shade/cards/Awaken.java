@@ -27,7 +27,7 @@ public class Awaken
   public static final String NAME;
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
-  public static final String IMG_PATH = "cards/default_skill.png";
+  public static final String IMG_PATH = "cards/Awaken.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;

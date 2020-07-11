@@ -30,7 +30,7 @@ public class Boneskin
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
   public static String EXTENDED_DESCRIPTION[];
-  public static final String IMG_PATH = "cards/default_skill.png";
+  public static final String IMG_PATH = "cards/Boneskin.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;

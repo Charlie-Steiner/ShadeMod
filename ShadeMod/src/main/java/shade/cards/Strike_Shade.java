@@ -18,7 +18,7 @@ public class Strike_Shade
   public static final String ID = "Shade:Strike_Shade";
   public static final String NAME = "Strike";
   public static final String DESCRIPTION = "Deal !D! damage.";
-  public static final String IMG_PATH = "cards/attackSlime.png";
+  public static final String IMG_PATH = "cards/Strike_Shade.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.BASIC;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
