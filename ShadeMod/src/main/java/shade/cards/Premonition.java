@@ -27,7 +27,7 @@ public class Premonition
   public static final String ID = "Shade:Premonition";
   public static final String NAME;
   public static final String DESCRIPTION;
-  public static final String IMG_PATH = "cards/default_skill.png";
+  public static final String IMG_PATH = "cards/premonition.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;

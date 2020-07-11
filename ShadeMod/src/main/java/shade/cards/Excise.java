@@ -28,7 +28,7 @@ public class Excise
   public static final String ID = "Shade:Excise";
   public static final String NAME;
   public static final String DESCRIPTION;
-  public static final String IMG_PATH = "cards/default_attack.png";
+  public static final String IMG_PATH = "cards/excise.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;

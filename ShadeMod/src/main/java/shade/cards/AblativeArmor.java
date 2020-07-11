@@ -32,7 +32,7 @@ public class AblativeArmor extends AbstractShadeCard{
     public static final String DESCRIPTION;
     public static String UPGRADED_DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION;
-    public static final String IMG_PATH = "cards/default_attack.png";
+    public static final String IMG_PATH = "cards/ablative_armor.png";
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
     private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ALL_ENEMY;

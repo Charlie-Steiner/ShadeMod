@@ -30,7 +30,7 @@ public class LyeBath
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
   public static final String[] EXTENDED_DESCRIPTION;
-  public static final String IMG_PATH = "cards/default_skill.png";
+  public static final String IMG_PATH = "cards/lye_bath.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
