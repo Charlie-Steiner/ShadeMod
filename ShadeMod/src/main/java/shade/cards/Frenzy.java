@@ -43,8 +43,7 @@ public class Frenzy
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
-		this.exhaust = true;
-		this.baseMagicNumber = 2;
+		this.baseMagicNumber = 1;
 		this.magicNumber = this.baseMagicNumber;
 	}
 
@@ -65,7 +64,7 @@ public class Frenzy
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-		    upgradeMagicNumber(2);
+		    upgradeMagicNumber(1);
 		}
 	}
 }

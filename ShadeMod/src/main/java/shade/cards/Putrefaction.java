@@ -7,17 +7,14 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import shade.actions.RefreshUndeadPower;
-import shade.actions.UndeadSpawnAction;
 import shade.patches.AbstractCardEnum;
-import shade.powers.LichFormPower;
+import shade.powers.PutrefactionPower;
 
-public class GreaterAnimation extends AbstractShadeCard {
+public class Putrefaction extends AbstractShadeCard {
 
-	  public static final String ID = "Shade:GreaterAnimation";
+	  public static final String ID = "Shade:Putrefaction";
 	  public static final String NAME;
 	  public static final String DESCRIPTION;
 	  public static String UPGRADED_DESCRIPTION;
@@ -37,7 +34,7 @@ public class GreaterAnimation extends AbstractShadeCard {
 			UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 		}
 	  
-	public GreaterAnimation() {
+	public Putrefaction() {
 		super(ID,NAME,shade.ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
 		// TODO Auto-generated constructor stub
 		this.baseMagicNumber=2;
@@ -54,17 +51,7 @@ public class GreaterAnimation extends AbstractShadeCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, -1), -1));
-		
-		for(int i=0;i<this.magicNumber;i++){
-			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-		}
-		for(int i=0;i<this.magicNumber;i++){
-			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-		}
-		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Wraith()));
-		
-	      AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PutrefactionPower(p, this.magicNumber), this.magicNumber));
 	}
 
 }

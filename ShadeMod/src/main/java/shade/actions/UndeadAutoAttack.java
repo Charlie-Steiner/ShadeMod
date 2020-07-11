@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -39,7 +40,6 @@ public class UndeadAutoAttack extends AbstractGameAction {
     private SpawnedUndead undead;
     private boolean beamVFX;
     private boolean appliesPoison;
-    private boolean appliesSlimed;
     private boolean appliesWeak;
 
 
@@ -82,10 +82,12 @@ public class UndeadAutoAttack extends AbstractGameAction {
 
             if (this.block > 0 ) AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.block));
 
-
-            AbstractDungeon.actionManager.addToTop(new DamageAction(mo,
-                    new DamageInfo(AbstractDungeon.player, this.damage, DamageInfo.DamageType.THORNS),
-                    AE));
+            if(!this.owner.hasPower("Shade:CoordinationPower")) {
+	            AbstractDungeon.actionManager.addToTop(new DamageAction(mo,
+	                    new DamageInfo(AbstractDungeon.player, this.damage, DamageInfo.DamageType.THORNS),AE));
+            }else {
+            	AbstractDungeon.actionManager.addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, this.damage, DamageInfo.DamageType.THORNS, AE));
+            }
 
             if (this.appliesPoison) AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, AbstractDungeon.player, new PoisonPower(mo, AbstractDungeon.player, this.debuffamount), this.debuffamount, true, AbstractGameAction.AttackEffect.POISON));
             if (this.appliesWeak)  AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, AbstractDungeon.player, new WeakPower(mo, this.debuffamount, false), this.debuffamount, true, AbstractGameAction.AttackEffect.NONE));

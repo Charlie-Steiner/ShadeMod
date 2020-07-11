@@ -46,10 +46,10 @@ public class ShadeCharacter extends CustomPlayer {
 
     public static Color cardRenderColor = new Color(0.0F, 0.1F, 0.0F, 1.0F);
 
-    public float xStartOffset = (float) Settings.WIDTH * 0.28F;
+    public float xStartOffset = (float) Settings.WIDTH * 0.03F;
     private static float xSpaceBetweenSlots = 110 * Settings.scale;
     
-    private static float yStartOffset = AbstractDungeon.floorY + (100 * Settings.scale);
+    private static float yStartOffset = AbstractDungeon.floorY * 0.29F;
     
     public float[] orbPositionsX = {0,0,0,0,0,0,0,0,0,0};
 
@@ -58,7 +58,6 @@ public class ShadeCharacter extends CustomPlayer {
 
     public float renderscale = 1.0F;
 
-    public boolean moved = false;
     public float leftScale = 0.15F;
     
     
@@ -71,21 +70,12 @@ public class ShadeCharacter extends CustomPlayer {
 
     }
     
-    @Override
-    public void render(SpriteBatch sb) {
-        super.render(sb);
-        if (!this.moved) this.movePosition((float)Settings.WIDTH * this.leftScale, AbstractDungeon.floorY); this.moved = true;
-
-
-//        this.hatX = this.skeleton.findBone("eyeback1").getX();
-//        this.hatY = this.skeleton.findBone("eyeback1").getY();
-
-    }
-	
     public void initializeSlotPositions() {
+    	//we only care about slots 0, 1 and 2 for wraiths, zombies, and skeletons
         orbPositionsX[0] = xStartOffset + (xSpaceBetweenSlots * 1F);
         orbPositionsX[1] = xStartOffset + (xSpaceBetweenSlots * 1.5F);
         orbPositionsX[2] = xStartOffset + (xSpaceBetweenSlots * 0.6F);
+        
         orbPositionsX[3] = xStartOffset + (xSpaceBetweenSlots * 2);
         orbPositionsX[4] = xStartOffset + (xSpaceBetweenSlots * 3);
         orbPositionsX[5] = xStartOffset + (xSpaceBetweenSlots * 3);
@@ -97,6 +87,7 @@ public class ShadeCharacter extends CustomPlayer {
         orbPositionsY[0] = yStartOffset + 55 * Settings.scale;
         orbPositionsY[1] = yStartOffset - 60 * Settings.scale;
         orbPositionsY[2] = yStartOffset - 60 * Settings.scale;
+        
         orbPositionsY[3] = yStartOffset + -100 * Settings.scale;
         orbPositionsY[4] = yStartOffset;
         orbPositionsY[5] = yStartOffset + -100 * Settings.scale;
@@ -104,6 +95,7 @@ public class ShadeCharacter extends CustomPlayer {
         orbPositionsY[7] = yStartOffset + -100 * Settings.scale;
         orbPositionsY[8] = yStartOffset;
         orbPositionsY[9] = yStartOffset + -100 * Settings.scale;
+        
     }
 
     public String getTitle(PlayerClass playerClass) {
@@ -147,7 +139,7 @@ public class ShadeCharacter extends CustomPlayer {
     }
     
     public Color getSlashAttackColor() {
-        return Color.BLACK;
+        return Color.BLACK.cpy();
     }
     
     public AbstractPlayer newInstance() {

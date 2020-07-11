@@ -1,5 +1,6 @@
 package shade.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -7,17 +8,21 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import shade.actions.RefreshUndeadPower;
+import shade.actions.UndeadAutoAttack;
 import shade.actions.UndeadSpawnAction;
+import shade.characters.ShadeCharacter;
+import shade.orbs.Skeleton;
+import shade.orbs.SpawnedUndead;
 import shade.patches.AbstractCardEnum;
+import shade.powers.CoordinationPower;
 import shade.powers.LichFormPower;
+import shade.powers.SoulPiercePower;
 
-public class GreaterAnimation extends AbstractShadeCard {
+public class Coordination extends AbstractShadeCard {
 
-	  public static final String ID = "Shade:GreaterAnimation";
+	  public static final String ID = "Shade:Coordination";
 	  public static final String NAME;
 	  public static final String DESCRIPTION;
 	  public static String UPGRADED_DESCRIPTION;
@@ -28,7 +33,7 @@ public class GreaterAnimation extends AbstractShadeCard {
 
 	  
 	  private static final CardStrings cardStrings;
-	  private static final int COST = 2;
+	  private static final int COST = 1;
 	
 		static {
 			cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -37,34 +42,40 @@ public class GreaterAnimation extends AbstractShadeCard {
 			UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 		}
 	  
-	public GreaterAnimation() {
+	public Coordination() {
 		super(ID,NAME,shade.ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
 		// TODO Auto-generated constructor stub
-		this.baseMagicNumber=2;
-		this.magicNumber=this.baseMagicNumber;
 	}
 
 	@Override
 	public void upgrade() {
 	    if (!this.upgraded) {
 	      upgradeName();
-	      upgradeMagicNumber(1);
+	      this.rawDescription=UPGRADED_DESCRIPTION;
+	      initializeDescription();
 	    } 
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, -1), -1));
+		AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new CoordinationPower(p)));
 		
-		for(int i=0;i<this.magicNumber;i++){
-			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-		}
-		for(int i=0;i<this.magicNumber;i++){
-			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-		}
-		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Wraith()));
-		
-	      AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
+
+	      
+	      if(this.upgraded) {
+	    	  
+		      int nHits=0;
+		      Skeleton s;
+		      if( AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead){
+		    	  s=(Skeleton) AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON);
+		    	  nHits=Math.min(s.count,2);
+		    	  
+		    	  for(int i=0;i<nHits;i++){
+			          	AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(s.passiveAmount+s.passiveBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,s,false,false,0,true,0));
+			      }
+		      }
+		      
+		  }
 	}
 
 }

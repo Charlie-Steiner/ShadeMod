@@ -1,39 +1,34 @@
 package shade.cards;
 
-import basemod.helpers.BaseModCardTags;
-import java.util.Iterator;
-
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
+import com.megacrit.cardcrawl.powers.PoisonPower;
+
 import shade.ShadeMod;
 import shade.patches.AbstractCardEnum;
 
 
-public class ExtraLimbs
+public class Asphyxiate
   extends AbstractShadeCard
 {
-  public static final String ID = "Shade:ExtraLimbs";
+  public static final String ID = "Shade:Asphyxiate";
   public static final String NAME;
   public static final String DESCRIPTION;
   public static final String IMG_PATH = "cards/default_attack.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
-  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
+  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
   public static String UPGRADED_DESCRIPTION;
   
-  private static final int COST = 1;
+  private static final int COST = 2;
   
   private static final CardStrings cardStrings;
 	static {
@@ -43,46 +38,35 @@ public class ExtraLimbs
         UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	}
   
-  public ExtraLimbs() {
+  public Asphyxiate() {
       super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
-   
-    this.baseDamage = 6;
-    this.damage=this.baseDamage;
-    this.baseMagicNumber = 2;
-    this.magicNumber = this.baseMagicNumber;
+      this.baseMagicNumber=7;
+      this.magicNumber=this.baseMagicNumber;
     
     this.exhaust = true;
   }
 
   
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		for (int x = 0; x < this.magicNumber; x++) {
-			AbstractDungeon.actionManager
-					.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
-							AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber), this.magicNumber));
+
+		int pStacks=0;
+		if(m.hasPower("Poison")) {
+			pStacks=m.getPower("Poison").amount;
 		}
+		AbstractDungeon.actionManager
+		.addToBottom(new DamageAction(m, new DamageInfo(p, pStacks+this.magicNumber, this.damageTypeForTurn),
+				AbstractGameAction.AttackEffect.POISON));
 	}
 
-	
-	public void triggerOnExhaust() {
-	    Iterator var1 = GetAllInBattleInstances.get(this.uuid).iterator();
-	    
-	    while (var1.hasNext()) {
-	      AbstractCard c = (AbstractCard)var1.next();
-	      c.baseMagicNumber++;
-	      if (c.baseMagicNumber < 0) {
-	        c.baseMagicNumber = 0;
-	      }
-	    } 
-	}
   
-  public AbstractCard makeCopy() { return new ExtraLimbs(); }
+  public AbstractCard makeCopy() { return new Asphyxiate(); }
 
   
   public void upgrade() {
     if (!this.upgraded) {
       upgradeName();
-      upgradeDamage(2);
+      upgradeMagicNumber(3);
     } 
   }
 }

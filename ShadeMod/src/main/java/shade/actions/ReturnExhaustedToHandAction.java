@@ -73,6 +73,11 @@ public class ReturnExhaustedToHandAction
 	        return;
 	      }
 	      
+	      if(this.p.hand.size()>=10){
+		        this.isDone = true;
+		        return;
+		  }
+	      
 	    	for (Iterator<AbstractCard> ex = this.p.exhaustPile.group.iterator(); ex.hasNext(); ) {
 		        AbstractCard derp = (AbstractCard)ex.next();
 		        if (derp.color.equals(AbstractCard.CardColor.COLORLESS) || derp.color.equals(AbstractCard.CardColor.CURSE)) {

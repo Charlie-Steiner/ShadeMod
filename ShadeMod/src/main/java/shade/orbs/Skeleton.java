@@ -68,10 +68,37 @@ public class Skeleton extends SpawnedUndead {
     	AbstractDungeon.actionManager.addToTop(new UndeadDecay(ShadeCharacter.INDEX_SKELETON));
     }
 	
+    public static int smallThreshold = 12;
+    public static int bigThreshold = 30;
+    
     public void activateEffectUnique() {
     	int damageTot = this.passiveAmount + this.passiveBonus;
-    	for(int i=0; i<this.count;i++) {
-    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));}
+
+    	
+    	
+    	if(this.count>bigThreshold) {
+    		int bigs = (this.count-4)/5;
+    		int remain = (this.count-4)%5+4;
+	    	for(int i=0; i<bigs;i++) {
+	    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot*5, AbstractGameAction.AttackEffect.BLUNT_HEAVY,this,false,false,0,true,0));
+	    	}
+	    	for(int i=0; i<remain;i++) {
+	    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));
+	    	}
+    	}else if(this.count>smallThreshold) {
+    		int bigs = (this.count-4)/3;
+    		int remain = (this.count-4)%3+4;
+	    	for(int i=0; i<bigs;i++) {
+	    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot*3, AbstractGameAction.AttackEffect.BLUNT_HEAVY,this,false,false,0,true,0));
+	    	}
+	    	for(int i=0; i<remain;i++) {
+	    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));
+	    	}
+    	}else{
+	    	for(int i=0; i<this.count;i++) {
+	    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));
+	    	}
+    	}
     }
 
 }

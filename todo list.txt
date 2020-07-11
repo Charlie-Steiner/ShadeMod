@@ -1,72 +1,57 @@
-Buggy cards:
+Bugs:
+Check that coordination text isn't broken by apostrophes.
+
+Check if consume text renders Wounds properly.
 
 minions Power doesn't seem to update description at all. (???) (maybe fixed by overriding stackPower and ReducePower to force description updates) (nope, still broke!)
 
-Frenzy doesn't reset minions power when FrenzyDown goes away, so they can stay strong one turn too long. (added refresh to FrenzyDown)
-
-
-Jason's bugs:
-
-OrbPositions not right for Surrounded fight.
+Saving and reloading slowly scooches the character (both image and hp bar) backwards in the X direction. Even saved across restarts. What? (probably fixed by deleting legacy Render method in character.)
 
 Wraiths shouldn't trigger if you have barrier. (done)
 
-Bone shards triggered 4x even with 1 skeleton. (tried to change method of doing damage)
+Just got an 11-card hand. Probably from Awaken? (done)
 
-Strikes and defends show up in matching game? (hopefully fixed by changing getStartingCardForEvent in shadeCharacter)
-
+Grave Stillness treated as debuff, eats artifact? (done)
 
 Balance ideas:
-Uncommonify scuttling hand to reduce kunai/shuriken stacking. (done)
+For now, trying out non-exhausting animate dead with unchanged Claw Back.
 
-Buff Coffin Dance (done by summoning zmobies)
+Buff Yorick skull - maybe summon a zombie at the start of each combat, and also on every 10th card. (done)
 
-Buff potion of restlessness, nerf flesh like oak. (check)
+Buff unupgraded Grey Bargain somehow, like by reducing energy cost but removing card draw? (done)
 
-Fresh Bones + goes from 3 turns to 2. (done)
+Make extra limbs scale when you exhaust it, not just when you play it. (done, but need to test)
+
+Wraith decks need help beating bosses (scaling)
+
+The basic problem is there's too much synergy between exhaust and undead. Undead is sort of in a good place right now, but needs to rely less on the exhaust-synergy cards. Meanwhile, exhaust-synergy needs to be able to scale to beat bosses or the heart, without just being really stupid dumb in hallway fights. Could also use more variety (more wounds, some poison).
+
+Cards with too much synergy: Animate dead, Cloud of Shrapnel? Sense Prey? Unbar the grave. (Part of the problem is the starting cards are synergistic)
+
+Lye bath+ is too extreme (set equal to 2, required you to have zombie)
+
+Maybe make Grave Stillness reduce undead decay by a constant amount, rather than totally eliminating? (done)
+
+May need more exhaust attacks for touch of the grave payoff.
+
+Frenzy still seems too good. (hella nerfed, no longer exhausts)
+
+Greater animation feels weak. (buffed)
+
+increase finger of death payoff for more fun. (done)
+
+Awaken+ getting back itself (and thereby netting you +1 card per turn) is a bit dumb. (nerfed)
 
 Buff BoneSkin (maybe make it "sacrifice up to 4(3) skeletons, gain 2(3) played armor each", or something) (card changed)
 
-Look at Grave stillness. (nerfed block)
-
-Reduce Skeleton Army # of skeletons, have it do some damage instead. (done)
-
-Command Soldier + a little too extreme. (capped at 3)
-
-Bone shards maybe too strong? (dinged by 1)
-
-Buff Lose Control to 2 wounds? (done)
-
-Buff Sense Prey to summon zombies? (done)
-
 General Todo:
-More 2-cost rares?
+The general feeling is there's not enough "packages." Getting undead and undead synergy just seems stronger than the other things you can be doing. An alternative way of looking at it is that there's too *much* overlap between exhaust and undead stuff.
 
-Think about changing carnophage, right now requires too much synergy. Maybe have it summon undead as well?
+Follow up on the ideas in cards file.
 
-Need more ways to summon zombies.
+Look into Spire Shield debuffing your strength. (probably fine)
 
-Think about ways to protect zombies.
-
-make it a little easier to exhaust your own cards.
-
-Add a self-synergy card like claw?
-
-Improve starting relic.
-
-Nerf zombie strength overall, make them give block on hit rather than disappearing entirely. (done)
-
-Look into "skeletons all attack one enemy"
-
-Needs more help for multi-enemy fights.
-
-Look into Spire Shield debuffing your strength.
-
-Add rare power that causes zombies to poison things on death.
-
-Go through attacks/powers/skills and commons/uncommons/rares to balance the #s.
-
-If there are >10 skeletons, maybe start condensing attacks to save time.
+If there are >10 skeletons, maybe start condensing attacks to save time. (done)
 
 Add helpful tooltips for undead decay, skeleton attacks, wraith intangible triggers, zombie blocking.
 
@@ -76,13 +61,9 @@ Make call and Touch of the grave legibly flash what card they're replaying. (may
 
 Set up keywords for zombie, skeleton, wraith.
 
-Something broke text rendering (going to campfire? Some abuse of dev console? Just got it after a fight where I only played AnimateDead, ClawBack, clawed back animate dead,strike, defend, bite. Timer gone, potion names gone, names of Map, Deck, Options tooltips gone, "Add a card to your hand" text is only gone when *highlighted*, other text still there.) (possibly breaking a color. Replace calls to colors with that color.cpy() ) (tried)
-
 Wraith art often doesn't "pop" (add blurry white border?)
 
-Go through custom actions and double check that things that only need to happen once are given "if duration = startingDuration" handles?
-
-Make Yorick's skull a stacking relic that summons a skeleton if n'th card played was attack, and zombie if nth card was skill? (done)
+Go through custom actions and double check that things that only need to happen once are given "if duration = startingDuration" handles? (probably fine)
 
 Make sacrifice cards glow if canUse.
 

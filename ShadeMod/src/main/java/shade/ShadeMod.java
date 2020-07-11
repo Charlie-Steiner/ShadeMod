@@ -191,7 +191,6 @@ public class ShadeMod implements PostInitializeSubscriber,
 		BaseMod.addCard(new shade.cards.BoneShards());
 		BaseMod.addCard(new shade.cards.SkeletonHug());
 		BaseMod.addCard(new shade.cards.Premonition());
-		BaseMod.addCard(new shade.cards.ScuttlingHand());
 		BaseMod.addCard(new shade.cards.Brains());
 		BaseMod.addCard(new shade.cards.FleshToFlesh());
 		BaseMod.addCard(new shade.cards.FeralStrike());
@@ -210,6 +209,7 @@ public class ShadeMod implements PostInitializeSubscriber,
 		BaseMod.addCard(new shade.cards.Excise());
 		BaseMod.addCard(new shade.cards.StitchTogether());
 		BaseMod.addCard(new shade.cards.FleshOffering());
+		BaseMod.addCard(new shade.cards.ScuttlingHand());
 		
 		//rare cards
 		BaseMod.addCard(new shade.cards.GreaterAnimation());
@@ -229,7 +229,6 @@ public class ShadeMod implements PostInitializeSubscriber,
 		UnlockTracker.unlockCard(BoneShards.ID);
 		UnlockTracker.unlockCard(SkeletonHug.ID);
 		UnlockTracker.unlockCard(Premonition.ID);
-		UnlockTracker.unlockCard(ScuttlingHand.ID);
 		UnlockTracker.unlockCard(Brains.ID);
 		UnlockTracker.unlockCard(FleshToFlesh.ID);
 		UnlockTracker.unlockCard(FeralStrike.ID);
@@ -248,6 +247,7 @@ public class ShadeMod implements PostInitializeSubscriber,
 		UnlockTracker.unlockCard(Excise.ID);
 		UnlockTracker.unlockCard(StitchTogether.ID);
 		UnlockTracker.unlockCard(FleshOffering.ID);
+		UnlockTracker.unlockCard(ScuttlingHand.ID);
 		
 		//rare cards
 		UnlockTracker.unlockCard(GreaterAnimation.ID);
@@ -258,6 +258,25 @@ public class ShadeMod implements PostInitializeSubscriber,
 		UnlockTracker.unlockCard(DarkOfNight.ID);
 		UnlockTracker.unlockCard(Tombstone.ID);
 		
+		//BATCH THREE:
+		BaseMod.addCard(new shade.cards.Putrefaction());
+		BaseMod.addCard(new shade.cards.PoundOfFlesh());
+		BaseMod.addCard(new shade.cards.Doomsay());
+		BaseMod.addCard(new shade.cards.Consume());
+		BaseMod.addCard(new shade.cards.Coordination());
+		BaseMod.addCard(new shade.cards.SoulToxin());
+		BaseMod.addCard(new shade.cards.Asphyxiate());
+		BaseMod.addCard(new shade.cards.SpontaneousRitual());
+
+		//unlock cards:
+		UnlockTracker.unlockCard(shade.cards.Putrefaction.ID);
+		UnlockTracker.unlockCard(shade.cards.PoundOfFlesh.ID);
+		UnlockTracker.unlockCard(shade.cards.Doomsay.ID);
+		UnlockTracker.unlockCard(shade.cards.Consume.ID);
+		UnlockTracker.unlockCard(shade.cards.Coordination.ID);
+		UnlockTracker.unlockCard(shade.cards.SoulToxin.ID);
+		UnlockTracker.unlockCard(shade.cards.Asphyxiate.ID);
+		UnlockTracker.unlockCard(shade.cards.SpontaneousRitual.ID);
 		
 		logger.info("Done adding Shade cards!");
 	}
@@ -354,15 +373,9 @@ public class ShadeMod implements PostInitializeSubscriber,
 	         }
 
 	        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-					new MinionsPower(AbstractDungeon.player, decayConstant)));
+					new MinionsPower(AbstractDungeon.player, decayConstant),decayConstant));
 			logger.info(CardCrawlGame.languagePack.getPowerStrings("Shade:MinionsPower").NAME);
-			logger.info("preMonsterTurn");
-			logger.info("Common card #: " + AbstractDungeon.commonCardPool.group.size());
-			for (AbstractCard card : AbstractDungeon.commonCardPool.group) {
-				logger.info(card.name);
-			}
-			logger.info("Uncommon card #: " + AbstractDungeon.uncommonCardPool.group.size());
-			logger.info("Rare card #: " + AbstractDungeon.rareCardPool.group.size());
+
 			
 			combatExhausts = 0;
 	    }

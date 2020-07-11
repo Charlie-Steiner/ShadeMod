@@ -33,11 +33,19 @@ public class UndeadDecay extends AbstractGameAction {
 	}
 	
 	public static int getDecay(int n) {
+		int reduction=0;
 		if(AbstractDungeon.player.hasPower("Shade:GraveStillnessPower")) {
-			return 0;
-		}else {
+			reduction += AbstractDungeon.player.getPower("Shade:GraveStillnessPower").amount;
+		}
+		if(AbstractDungeon.player.hasPower("Shade:MinionsPower")) {
 			int decayTime = AbstractDungeon.player.getPower("Shade:MinionsPower").amount;
-			return (n-1)/decayTime+1;
+			if((n-1)/decayTime+1 > reduction) {
+				return (n-1)/decayTime+1 - reduction;
+			}else {
+				return 0;
+			}
+		} else {
+			return 1;
 		}
 	}
 }

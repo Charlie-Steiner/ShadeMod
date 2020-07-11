@@ -33,7 +33,7 @@ public class Awaken
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
   
 
-  private static final int COST = 0;
+  private static final int COST = 1;
 
   private static final CardStrings cardStrings;
   
@@ -55,11 +55,7 @@ public class Awaken
 		this.exhaust = true;
 	}
 
-  public void use(AbstractPlayer p, AbstractMonster m) {
-	  if(this.upgraded) {
-		  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,1));
-	  }
-	  
+  public void use(AbstractPlayer p, AbstractMonster m) { 
       AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new AwakenPower(p,this.magicNumber), this.magicNumber));
   }
 
@@ -72,6 +68,7 @@ public class Awaken
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
+			upgradeBaseCost(0);
 		      this.rawDescription=UPGRADED_DESCRIPTION;
 		      initializeDescription();
 		}

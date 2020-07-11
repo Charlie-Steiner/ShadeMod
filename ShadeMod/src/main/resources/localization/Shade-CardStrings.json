@@ -11,8 +11,8 @@
   },
 "Shade:AnimateDead": {
     "NAME": "Animate Dead",
-    "DESCRIPTION": "Summon 1 zombie and 2 skeletons. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Summon 2 zombies and 2 skeletons. NL Exhaust."
+    "DESCRIPTION": "Summon 1 zombie and 2 skeletons.",
+    "UPGRADE_DESCRIPTION": "Summon 2 zombies and 2 skeletons."
   },
 "Shade:ClawBack": {
     "NAME": "Claw Back",
@@ -58,8 +58,8 @@
   },
   "Shade:FingerOfDeath": {
     "NAME": "Finger of Death",
-    "DESCRIPTION": "Deal !D! damage. NL If it kills the target, summon a zombie.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If it kills the target, summon a zombie."
+    "DESCRIPTION": "Deal !D! damage. NL If it kills the target, summon 2 zombies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If it kills the target, summon 2 zombies."
   },
     "Shade:RavenousHorde": {
     "NAME": "Ravenous Horde",
@@ -88,13 +88,13 @@
   },
   "Shade:Frenzy": {
     "NAME": "Frenzy",
-    "DESCRIPTION": "Gain !M! Strength and Dexterity until next turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Strength and Dexterity until next turn. NL Exhaust."
+    "DESCRIPTION": "Gain !M! Strength and Dexterity until next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength and Dexterity until next turn."
   },
   "Shade:ExtraLimbs": {
     "NAME": "Extra Limbs",
-    "DESCRIPTION": "Deal !D! damage !M! times. NL Increase the number of strikes by 1 this combat. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times. NL Increase the number of strikes by 1 this combat. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage !M! times. NL When Exhausted, increase the number of strikes by 1 this combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times. NL When Exhausted, Increase the number of strikes by 1 this combat. NL Exhaust."
   },
   "Shade:SelfBurial": {
     "NAME": "Self-burial",
@@ -103,7 +103,7 @@
   },
   "Shade:GreyBargain": {
     "NAME": "Grey Bargain",
-    "DESCRIPTION": "Exhaust a card in your hand to return an exhausted card to your draw pile. NL Draw a card.",
+    "DESCRIPTION": "Exhaust a card in your hand to return an exhausted card to your draw pile.",
     "UPGRADE_DESCRIPTION": "Exhaust a card in your hand to return an exhausted card to your draw pile. NL Draw a card."
   },
   "Shade:FleshLikeOak": {
@@ -144,8 +144,8 @@
   },
   "Shade:OminousRitual": {
     "NAME": "Ominous Ritual",
-    "DESCRIPTION": "Gain Block and deal damage to all enemies equal to the number of cards exhausted this combat.",
-    "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies equal to the number of cards exhausted this combat.",
+    "DESCRIPTION": "Gain Block and deal damage to all enemies for each card exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies for each card exhausted this combat.",
   	"EXTENDED_DESCRIPTION": [" NL ( !M! cards )"]
   },
   "Shade:CommandSoldier": {
@@ -155,13 +155,14 @@
   },
   "Shade:SkeletonArmy": {
     "NAME": "Skeleton Army",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Summon !M! skeletons.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Summon !M! skeletons."
+    "DESCRIPTION": "Deal !D! damage. NL Summon !M! skeletons.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Summon !M! skeletons."
   },
   "Shade:LyeBath": {
     "NAME": "Lye Bath",
     "DESCRIPTION": "Convert all your zombies into skeletons. NL Draw a card.",
-    "UPGRADE_DESCRIPTION": "Convert all your zombies into skeletons. NL Draw a card for each one."
+    "UPGRADE_DESCRIPTION": "Convert all your zombies into skeletons. NL Draw two cards.",
+    "EXTENDED_DESCRIPTION": ["I need a zombie."]
   },
   "Shade:GoDigging": {
     "NAME": "Go Digging",
@@ -176,19 +177,19 @@
   },
   "Shade:GraveStillness": {
     "NAME": "Grave Stillness",
-    "DESCRIPTION": "Gain !B! Block. NL Your skeletons and zombies don't decay this turn.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Your skeletons and zombies don't decay this turn."
+    "DESCRIPTION": "Gain !B! Block. NL Your zombies and skeletons decay by !M! less this turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Your zombies and skeletons decay by !M! less this turn."
   },
   "Shade:PotionOfRestlessness": {
     "NAME": "Potion of Restlessness",
-    "DESCRIPTION": "Gain 3 Strength. NL Your zombies and skeletons decay one turn quicker.",
-    "UPGRADE_DESCRIPTION": "Gain 4 Strength. NL Your zombies and skeletons decay one turn quicker.",
+    "DESCRIPTION": "Gain 2 Strength. NL Your zombies and skeletons decay one turn quicker.",
+    "UPGRADE_DESCRIPTION": "Gain 3 Strength. NL Your zombies and skeletons decay one turn quicker.",
     "EXTENDED_DESCRIPTION": [" NL ( 1/ !M! per turn )"]
   },
   "Shade:GreaterAnimation": {
     "NAME": "Greater Animation",
-    "DESCRIPTION": "Summon !M! zombies, !M! skeletons, and 1 wraith. NL Lose 1 Strength and 1 Dexterity.",
-    "UPGRADE_DESCRIPTION": "Summon !M! zombies, !M! skeletons, and 1 wraith. NL Lose 1 Strength and 1 Dexterity."
+    "DESCRIPTION": "Summon !M! zombies, !M! skeletons, and 1 wraith. NL Lose 1 Dexterity.",
+    "UPGRADE_DESCRIPTION": "Summon !M! zombies, !M! skeletons, and 1 wraith. NL Lose 1 Dexterity."
   },
   "Shade:OfferingToTheBeyond": {
     "NAME": "Offering to the Beyond",
@@ -228,12 +229,12 @@
   "Shade:Awaken": {
     "NAME": "Awaken",
     "DESCRIPTION": "At the start of next turn, choose an exhausted card and return it to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "At the start of next turn, choose an exhausted card and return it to your hand. NL Draw a card. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "At the start of next turn, choose an exhausted card and return it to your hand. NL Exhaust."
   },
   "Shade:Haruspicy": {
     "NAME": "Haruspicy",
-    "DESCRIPTION": "Scry 4 and draw 2 cards. NL Sacrifice a zombie or lose 5 HP.",
-    "UPGRADE_DESCRIPTION": "Scry 5 and draw 3 cards. NL Sacrifice a zombie or lose 5 HP."
+    "DESCRIPTION": "Scry 5 and draw 2 cards. NL Sacrifice a zombie or lose 4 HP.",
+    "UPGRADE_DESCRIPTION": "Scry 6 and draw 3 cards. NL Sacrifice a zombie or lose 4 HP."
   },
   "Shade:Brains": {
     "NAME": "Brains",
@@ -314,5 +315,46 @@
     "NAME": "Tombstone",
     "DESCRIPTION": "Deal !D! damage. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust."
+  },
+  "Shade:Putrefaction": {
+    "NAME": "Putrefaction",
+    "DESCRIPTION": "Whenever a zombie dies, apply !M! Poison to all enemies.",
+    "UPGRADE_DESCRIPTION": "Whenever a zombie dies, apply !M! Poison to all enemies."
+  },
+  "Shade:PoundOfFlesh": {
+    "NAME": "Pound of Flesh",
+    "DESCRIPTION": "Deal !D! damage. NL Next turn, summon !M! zombies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Next turn, summon !M! zombies."
+  },
+  "Shade:Doomsay": {
+    "NAME": "Doomsay",
+    "DESCRIPTION": "Deal !D! damage. NL Scry !M!.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Scry !M!."
+  },
+  "Shade:Consume": {
+    "NAME": "Consume",
+    "DESCRIPTION": "Exhaust the top !M! cards of your deck. NL Add !M! *Wounds to your discard pile. NL Deal !D! damage to all enemies.",
+    "UPGRADE_DESCRIPTION": "Exhaust the top !M! cards of your deck. NL Add !M! *Wounds to your discard pile. NL Deal !D! damage to all enemies."
+  },
+  "Shade:Coordination": {
+    "NAME": "Coordination",
+    "DESCRIPTION": "Your skeletons' attacks hit all enemies.",
+    "UPGRADE_DESCRIPTION": "Your skeletons' attacks all enemies. NL Trigger up to 2 skeleton attacks."
+  },
+  "Shade:SoulToxin": {
+    "NAME": "Soul Toxin",
+    "DESCRIPTION": "Apply 2 Weak. NL Target loses 3 HP. NL If you have a wraith, apply !M! Poison.",
+    "UPGRADE_DESCRIPTION": "Apply 3 Weak. NL Target loses 5 HP. NL If you have a wraith, apply !M! Poison."
+  },
+  "Shade:Asphyxiate": {
+    "NAME": "Asphyxiate",
+    "DESCRIPTION": "Apply !M! Poison. NL Deal damage equal to the enemy's poison. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Poison. NL Deal damage equal to the enemy's poison. NL Exhaust."
+  },
+  "Shade:SpontaneousRitual": {
+    "NAME": "Spontaneous Ritual",
+    "DESCRIPTION": "Exhaust your hand. NL Deal damage for each card exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Add 3 *Wounds to your hand. NL Exhaust your hand. NL Deal damage for each card exhausted this combat.",
+  	"EXTENDED_DESCRIPTION": [" NL ( !M! cards )"]
   }
 }

@@ -58,7 +58,7 @@
 		"NAME": "Lich Form",
 		"DESCRIPTIONS": [
 			"Summon #b",
-			" zommbies and #b",
+			" zombies and #b",
 			" skeletons at the start of your turn."
 		]
 	},
@@ -66,15 +66,14 @@
 		"NAME": "Gone Digging",
 		"DESCRIPTIONS": [
 			"Summon #b",
-			" zommbies at the start of your next turn."
+			" zombies at the start of your next turn."
 		]
 	},
 		"Shade:GraveStillnessPower": {
 		"NAME": "Grave Stillness",
 		"DESCRIPTIONS": [
-			"Your skeletons and zombies don't decay this turn.",
-			"Your skeletons and zombies don't decay for #b",
-			" turns."
+			"Your zombies and skeletons decay by #b",
+			" less this turn."
 		]
 	},
 		"Shade:OfferingToTheBeyondPower": {
@@ -146,6 +145,19 @@
 			"The next card that Exhausts is played twice.",
 			"The next #b",
 			" cards that Exhaust are played twice."
+		]
+	},
+		"Shade:PutrefactionPower": {
+		"NAME": "Putrefaction",
+		"DESCRIPTIONS": [
+		      "Your zombies apply #b",
+		      " poison to all enemies on death."
+		]
+	},
+		"Shade:CoordinationPower": {
+		"NAME": "Coordination",
+		"DESCRIPTIONS": [
+		      "Your skeletons' attacks hit all enemies"
 		]
 	}
 }

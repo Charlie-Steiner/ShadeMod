@@ -1,8 +1,10 @@
 package shade.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,7 +27,7 @@ public class SkeletonArmy
   public static final String IMG_PATH = "cards/default_skill.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
-  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ALL_ENEMY;
+  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
   
 
   private static final int COST = 3;
@@ -49,7 +51,6 @@ public class SkeletonArmy
 		
 		this.baseDamage=13;
 		
-		this.isMultiDamage=true;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
@@ -58,7 +59,9 @@ public class SkeletonArmy
 	  }
 	  
 
-	  AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+		AbstractDungeon.actionManager
+		.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
+				AbstractGameAction.AttackEffect.SLASH_HEAVY));
   }
 
 

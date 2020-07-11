@@ -1,74 +1,79 @@
-Shade cards:		Category:	Cost:		Type:		Rarity:
+Shade cards:
+Cost:
+X		1
+0		13
+1		35
+2		8
+3		4
+4+		1
 
-AblativeAmor		
-AnimateDead
-Bite
-Coneskin
-Bonespear
-Bonestorm
-Callofthegrave
-Callwraith
-Clawback
-Cloudofshrapnel
-commandsoldier
-dangerousritual
-extralimbs
-fingerofdeath
-fleshlikeoak
-frenzy
-freshbones
-funeraryarmor
-funeraryjewels
-gravebargain
-lichform
-ominousritual
-ravenoushorde
-ritualoffering
-sanguineritual
-selfburial
-skeletonarmy
-touchofthegrave
-wallofflesh
+Rarity:
+Basic		4
+Common		21
+Uncommon	27
+Rare		10
 
-Total:29
+Type:
+Attack		19
+Skill		32
+Power		11
+
+	Rarity:	Com	Unc	Rare
+Cost: X		0	1	0
+0		2	8	2
+1		14	14	2
+2		3	3	1
+3		1	1	2
+4+		0	0	1
+Type:
+Skill		11	15	4
+Attack		10	5	2
+Power		0	7	4
+
+Distribution conclusions: Have plenty of 0-costs, but they're clustered at uncommon. Want more skills at common and way more attacks at uncommon. Want a few more powers (some 2 cost?).  Maybe want another X card. Need more rares and just a few less commons.
+
+Budget: ~14 cards, mostly uncommon and rare concepts.
+
+Median Basegame character, by comparison:
+Cost:
+X		3
+0		12
+1		42
+2		13
+3		4
+4+		1
+
+Rarity:
+Basic		4
+Common		19
+Uncommon	36
+Rare		17
+
+Type:
+Attack		28
+Skill		36
+Power		14
 
 Cards to add:
-Convert one kind of undead to another (lye bath, go digging)
-cards that change decay rate (Aura of Unlife, Grave Stillness, Potion of Restlessness)
-Some power that gives strength. (Potion of Restlessness)
-rainbow summon + debuff self (Greater Animation)
-Power that just instantly makes wraith(s). (Greater Animation)
-power that summons a wraith conditional on cards played that turn (offering to the beyond)
-power that buffs wraiths, or does something fancy when you summon a wraith. (soul pierce)
 
-Power that summons small # of undead every turn (open graves)
-summon # of undead proportional to number of enemies (sense prey)
-cards that deal damage based on zombies (Trample)
-an AOE that scales off of amount of undead. (press the attack)
-Something to let you retain hands(patience)
-A card that lets you regrab a card from your discard to your hand, but only next turn. (Awaken)
+2-cost rare power that makes zombies poison things on death. (Putrefaction)
 
-card draw! (haruspicy, Brains[draw 2-3])
-How about scry? Haruspicy could be fun. (haruspicy)
-Cards that recur somehow - e.g. from discard to hand when you exhaust a card, or from draw pile to hand when you summon something. (scuttling hand, premonition)
-A single-target way to apply weak.(skeleton hug)
-More ways to sacrifice skeletons for profit (and by profit I mean burst damage). (bone shards)
-Cards that want you to have exact numbers of undead. (coffin dance)
-A rare attack or skill that returns cards directly to your hand. (unbar the grave)
+attack that summons zombies next turn. (Pound of Flesh)
 
-Some cards that interact with curses / statuses.:
-Energy when you draw a status. (carnophage)
-Gain block and exhaust a card in hand - if it's a status, do something. (Excise)
-The next time a status is added to your deck, do something cool. (Stitch Together)
+Scry attack (Doomsay)
 
-Some cards that add curses / statuses.:
-summon zombies, get a wound. (Flesh to Flesh)
-add Wounds to your hand, then draw cards (lose control)
-Summon a wraith and gain block, fill your hand with wounds. (flesh offering)
-Deal damage, add wounds, exhaust. (feral strike)
+Rare that really eats up your deck. Exhausts/wounds in exhcange for power. (Consume)
 
-Your next exhaust card this turn is played twice. (dark of night)
-Big rare exhaust attack (tombstone)
-Some other way to gain Strong Bones. (calcify?)
+Uncommon 2-cost power that maakes skeleton attacks AOE (Coordination)
 
-Prospective: ~40
+Card that exhausts cards to summon zombies and deal damage. (Attract Ghouls)
+
+AoE attack that adds a wound to draw pile. (Reckless Swipe)
+
+Power that makes wraiths scale as the fight goes on. (Soul Toxin)
+
+Attack that applies debuffs and exhausts. (Asphyxiate)
+
+New basic card. Move "claw back" to uncommon, instead we want the new basic card to be a little fiddly. Maybe draw a card, exhaust a card? (Careful Cut) And/Or maybe change basic cards by making animate dead not exhaust?
+
+Cheap attack that scales off exhausts and synergizes with itself (by exhausting your whole hand after playing), to such a degree that it could beat the heart. (Spontaneous Ritual)

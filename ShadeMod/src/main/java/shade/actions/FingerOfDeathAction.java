@@ -26,6 +26,7 @@ public class FingerOfDeathAction extends AbstractGameAction {
 				
 				if((this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead) {
 					AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+					AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
 				}
 			}
 	    	if ((AbstractDungeon.getCurrRoom()).monsters.areMonstersBasicallyDead()) {

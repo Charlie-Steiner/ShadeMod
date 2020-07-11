@@ -41,7 +41,6 @@ public class AnimateDead
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
 		
-		this.exhaust = true;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {

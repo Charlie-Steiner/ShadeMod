@@ -56,7 +56,7 @@ public class Bite_Shade
   
   public void use(AbstractPlayer p, AbstractMonster m) {
 	  if (m != null) {
-	        AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m.hb.cX, m.hb.cY - 40.0F * Settings.scale, Settings.GOLD_COLOR), 0.3F));
+	        AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m.hb.cX, m.hb.cY - 40.0F * Settings.scale, Settings.GOLD_COLOR.cpy()), 0.3F));
 	  }
 	  AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
 	  AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, this.magicNumber));

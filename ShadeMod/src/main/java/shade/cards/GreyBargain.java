@@ -32,7 +32,7 @@ public class GreyBargain
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
   
 
-  private static final int COST = 1;
+  private static final int COST = 0;
 
   private static final CardStrings cardStrings;
   
@@ -54,7 +54,9 @@ public class GreyBargain
 		  AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p,p,1,false));
 		  AbstractDungeon.actionManager.addToBottom(new ReturnExhaustedToDeckAction(false));
 	  }
-	  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,1));
+	  if(this.upgraded) {
+		  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,1));
+	  }
   }
 
 

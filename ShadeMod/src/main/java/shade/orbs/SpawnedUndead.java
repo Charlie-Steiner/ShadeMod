@@ -16,6 +16,7 @@ import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.SkeletonData;
 import com.esotericsoftware.spine.SkeletonJson;
 import com.esotericsoftware.spine.SkeletonMeshRenderer;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -29,6 +30,7 @@ import com.megacrit.cardcrawl.helpers.SlimeAnimListener;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 
 import basemod.animations.AbstractAnimation;
 import shade.ShadeMod;
@@ -125,8 +127,8 @@ public void spawnVFX(){
  @Override
     public void setSlot(int slotNum, int maxOrbs) {
         if (AbstractDungeon.player instanceof ShadeCharacter) {
-            this.tX = ((ShadeCharacter) AbstractDungeon.player).orbPositionsX[slotNum];
-            this.tY = ((ShadeCharacter) AbstractDungeon.player).orbPositionsY[slotNum];
+            this.tX = ((ShadeCharacter) AbstractDungeon.player).orbPositionsX[slotNum]+AbstractDungeon.player.drawX;
+            this.tY = ((ShadeCharacter) AbstractDungeon.player).orbPositionsY[slotNum]+AbstractDungeon.player.drawY;
 
         }
 
@@ -309,13 +311,26 @@ public void spawnVFX(){
     }
 	
 	public void remove(int amount){
+		int nR = amount;
 		if(count>amount) {
 			count-= amount;
 			triggerEvokeAnimation();
 			this.updateDescription();
 		}else{
+			nR=count;
 	    	AbstractDungeon.player.orbs.set(index, new EmptySlot());
 	        ((AbstractOrb)AbstractDungeon.player.orbs.get(index)).setSlot(index, AbstractDungeon.player.maxOrbs);
+		}
+		
+		if(this.index == ShadeCharacter.INDEX_ZOMBIE) {
+			if(AbstractDungeon.player.hasPower("Shade:PutrefactionPower")) {
+			      for (AbstractMonster monster : (AbstractDungeon.getMonsters()).monsters) {
+			          if (!monster.isDead && !monster.isDying) {
+			            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction
+			            		(monster, p, new PoisonPower(monster, p, AbstractDungeon.player.getPower("Shade:PutrefactionPower").amount*nR), AbstractDungeon.player.getPower("Shade:PutrefactionPower").amount*nR));
+			          } 
+			      } 
+			}
 		}
 	}
 }

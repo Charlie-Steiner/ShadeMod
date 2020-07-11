@@ -40,8 +40,10 @@ public class GraveStillness extends AbstractShadeCard {
 	public GraveStillness() {
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
-		this.baseBlock = 5;
+		this.baseBlock = 6;
 		this.block = this.baseBlock;
+		this.baseMagicNumber=1;
+		this.magicNumber=this.baseMagicNumber;
 	}
 
 
@@ -53,12 +55,13 @@ public class GraveStillness extends AbstractShadeCard {
 	  {
 		  upgradeName();
 		  upgradeBlock(3);
+		  upgradeMagicNumber(1);
 	  }
   }
   
   
   public void use(AbstractPlayer p, AbstractMonster m) {
 	  AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p,p,this.block));
-	  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GraveStillnessPower(p, 1), 1));
+	  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GraveStillnessPower(p, this.magicNumber), this.magicNumber));
   }
 }

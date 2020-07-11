@@ -57,13 +57,13 @@ public class Haruspicy
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  AbstractDungeon.actionManager.addToBottom(new ScryAction(this.magicNumber+2));
+	  AbstractDungeon.actionManager.addToBottom(new ScryAction(this.magicNumber+3));
 	  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,this.magicNumber));
 	  
 	  if(p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
 		  ((SpawnedUndead)p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).remove(1);
 	  }else {
-		  AbstractDungeon.actionManager.addToBottom(new LoseHPAction(p, p, 5));
+		  AbstractDungeon.actionManager.addToBottom(new LoseHPAction(p, p, 4));
 	  }
   }
 

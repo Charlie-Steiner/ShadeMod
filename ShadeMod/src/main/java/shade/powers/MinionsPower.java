@@ -86,9 +86,9 @@ public class MinionsPower extends AbstractPower {
 			else
 			{
 				int minionsLost = (damageAmount-1)/(u.passiveAmount+u.passiveBonus)+1;
+				AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player,AbstractDungeon.player,(u.passiveAmount+u.passiveBonus)*minionsLost-damageAmount));
 				damageAmount = 0;
 				u.remove(minionsLost);
-				AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player,AbstractDungeon.player,(u.passiveAmount+u.passiveBonus)*minionsLost-damageAmount));
 			}
 		}
 		

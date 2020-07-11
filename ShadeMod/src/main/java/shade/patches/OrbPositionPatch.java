@@ -23,8 +23,8 @@ public class OrbPositionPatch {
     public static SpireReturn<Void> Prefix(AbstractOrb abstractOrb_instance, int slotNum, int maxOrbs) {
 
         if (AbstractDungeon.player instanceof ShadeCharacter) {
-            abstractOrb_instance.tX = ((ShadeCharacter) AbstractDungeon.player).orbPositionsX[slotNum];
-            abstractOrb_instance.tY = ((ShadeCharacter) AbstractDungeon.player).orbPositionsY[slotNum];
+            abstractOrb_instance.tX = ((ShadeCharacter) AbstractDungeon.player).orbPositionsX[slotNum]+AbstractDungeon.player.drawX;
+            abstractOrb_instance.tY = ((ShadeCharacter) AbstractDungeon.player).orbPositionsY[slotNum]+AbstractDungeon.player.drawY;
 
             abstractOrb_instance.hb.move(abstractOrb_instance.tX, abstractOrb_instance.tY);
             return SpireReturn.Return(null);
