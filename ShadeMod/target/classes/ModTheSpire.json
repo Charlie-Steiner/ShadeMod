@@ -2,10 +2,10 @@
   "modid": "Shade",
   "name": "Shade Mod",
   "author_list": ["Jove"],
-  "description": "Adds the Shade character to the game. Art credit: CausticImp",
-  "version": "0.1",
+  "description": "Adds the Shade character to the game. Art credits: CausticImp",
+  "version": "0.2",
   "sts_version": "1-27-2020",
   "mts_version": "3.16.0",
   "dependencies": ["basemod", "stslib"],
-  "update_json": "https://api.github.com/repos/mikemayhemdev/ShadeMod/releases/latest"
+  "update_json": "https://api.github.com/repos/jove22-dev/ShadeMod/releases/latest"
 }

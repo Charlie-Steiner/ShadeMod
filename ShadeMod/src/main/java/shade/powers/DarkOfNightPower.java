@@ -68,7 +68,7 @@ public class DarkOfNightPower extends AbstractPower {
           
           this.amount--;
           if (this.amount == 0) {
-            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+        	  AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
           }
         } 
       }

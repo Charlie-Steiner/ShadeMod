@@ -85,7 +85,7 @@ public class UndeadAutoAttack extends AbstractGameAction {
             if(!this.owner.hasPower("Shade:CoordinationPower")) {
 	            AbstractDungeon.actionManager.addToTop(new DamageAction(mo,
 	                    new DamageInfo(AbstractDungeon.player, this.damage, DamageInfo.DamageType.THORNS),AE));
-            }else {
+            }else{
             	AbstractDungeon.actionManager.addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, this.damage, DamageInfo.DamageType.THORNS, AE));
             }
 

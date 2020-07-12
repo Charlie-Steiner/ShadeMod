@@ -38,7 +38,7 @@ public class WallOfFlesh
 	public WallOfFlesh() {
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
-		this.baseBlock = 4;
+		this.baseBlock = 7;
 		this.block = this.baseBlock;
 		this.baseMagicNumber=2;
 		this.magicNumber=this.baseMagicNumber;

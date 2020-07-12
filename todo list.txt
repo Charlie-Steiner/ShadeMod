@@ -1,5 +1,31 @@
 Bugs:
-Check that coordination text isn't broken by apostrophes.
+self-burial shouldn't return statuses/curses.
+
+Maybe swap rarity of ominous and dangerous rituals.
+
+Maybe take a look at flash offering to try to reduce relic variance.
+
+Spire shield shouldn't give you -focus.
+
+Torii appears to work correctly with zombies, but might need science.
+
+Check that extra limbs is actually showing up in card choices?
+
+Grave stillness needs a trigger to update undead descriptions.
+
+coordination might be causing skeleton attacks to double-count strength and apply vulnerable when they shouldn't. Probably have to generate multi-damage myself.
+
+Change description on skeletons when coordination is in play.
+
+Frenzy still didn't quite update zombie block number upon play?
+
+Crash on undeadautoatack line 89 only on Jason's computer (resolved as jason's problem)
+
+Ravenous horde + maybe missed summoning a skele at 1 and 2 energy.
+
+Check that coordination text isn't broken by apostrophes. (seems okay)
+
+Check if OminousRitual does multidamage properly with its weird action.
 
 Check if consume text renders Wounds properly.
 
@@ -14,6 +40,8 @@ Just got an 11-card hand. Probably from Awaken? (done)
 Grave Stillness treated as debuff, eats artifact? (done)
 
 Balance ideas:
+As a card, press the attack is pretty dumb.
+
 For now, trying out non-exhausting animate dead with unchanged Claw Back.
 
 Buff Yorick skull - maybe summon a zombie at the start of each combat, and also on every 10th card. (done)

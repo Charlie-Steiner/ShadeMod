@@ -11,10 +11,10 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/16036/Documents/my_mods/lib/BaseMod.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16036/Documents/my_mods/lib/desktop-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16036/Documents/my_mods/lib/ModTheSpire.jar"/>
-	<classpathentry kind="lib" path="C:/Users/16036/Documents/my_mods/lib/StSLib.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Charlie/git/ShadeMod/lib/BaseMod.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Charlie/git/ShadeMod/lib/desktop-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Charlie/git/ShadeMod/lib/ModTheSpire.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Charlie/git/ShadeMod/lib/StSLib.jar"/>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -22,9 +22,9 @@
 	</classpathentry>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
+			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
