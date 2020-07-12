@@ -54,26 +54,21 @@ Attack		28
 Skill		36
 Power		14
 
-Cards to add:
-
-2-cost rare power that makes zombies poison things on death. (Putrefaction)
-
-attack that summons zombies next turn. (Pound of Flesh)
-
-Scry attack (Doomsay)
-
-Rare that really eats up your deck. Exhausts/wounds in exhcange for power. (Consume)
-
-Uncommon 2-cost power that maakes skeleton attacks AOE (Coordination)
+Card ideas:
 
 Card that exhausts cards to summon zombies and deal damage. (Attract Ghouls)
 
 AoE attack that adds a wound to draw pile. (Reckless Swipe)
 
-Power that makes wraiths scale as the fight goes on. (Soul Toxin)
-
-Attack that applies debuffs and exhausts. (Asphyxiate)
-
 New basic card. Move "claw back" to uncommon, instead we want the new basic card to be a little fiddly. Maybe draw a card, exhaust a card? (Careful Cut) And/Or maybe change basic cards by making animate dead not exhaust?
 
-Cheap attack that scales off exhausts and synergizes with itself (by exhausting your whole hand after playing), to such a degree that it could beat the heart. (Spontaneous Ritual)
+
+Card Art:
+
+Color direction: Zombies green/grey/brown, skeletons blue/green/grey, wraiths
+black/blue/brown. Exhaust can be green/brown/red/grey, rituals get a little purple.
+
+Cards that need better art:
+Self Burial
+
+Cards that need resizing: 
