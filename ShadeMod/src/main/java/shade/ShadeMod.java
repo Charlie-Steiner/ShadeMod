@@ -33,6 +33,7 @@ import shade.characters.ShadeCharacter;
 import shade.orbs.EmptySlot;
 import shade.cards.*;
 import shade.relics.*;
+import shade.ui.ShadeTipTracker;
 import shade.patches.*;
 import shade.powers.MinionsPower;
 
@@ -79,6 +80,11 @@ public class ShadeMod implements PostInitializeSubscriber,
 				getResourcePath(SKILL_CARD_PORTRAIT), getResourcePath(POWER_CARD_PORTRAIT),
 				getResourcePath(ENERGY_ORB_PORTRAIT), getResourcePath(CARD_ENERGY_ORB));
 		
+		
+
+	    logger.info("Adding mod settings");
+	    ShadeTipTracker.initialize();
+	    logger.info("Done adding mod settings");
 	}
 	
     @SuppressWarnings("unused")
@@ -324,6 +330,9 @@ public class ShadeMod implements PostInitializeSubscriber,
 		String uiStrings = Gdx.files.internal("localization/Shade-UIStrings.json")
 				.readString(String.valueOf(StandardCharsets.UTF_8));
 		BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
+		String tutorialStrings=Gdx.files.internal("localization/Shade-TutorialStrings.json")
+				.readString(String.valueOf(StandardCharsets.UTF_8));
+		BaseMod.loadCustomStrings(TutorialStrings.class, tutorialStrings);
 		
 /*		
 		String monsterStrings = Gdx.files.internal("localization/Shade-MonsterStrings.json")

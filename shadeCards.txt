@@ -69,6 +69,10 @@ Color direction: Zombies green/grey/brown, skeletons blue/green/grey, wraiths
 black/blue/brown. Exhaust can be green/brown/red/grey, rituals get a little purple.
 
 Cards that need better art:
+Consume needs recolored feed art, Move Consume's art to TouchOfTheGrave.
 Self Burial
+Bone shards needs colorization
 
 Cards that need resizing: 
+Dangerous Ritual to attack.
+Lich Form to power.

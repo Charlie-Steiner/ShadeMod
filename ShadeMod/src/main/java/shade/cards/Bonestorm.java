@@ -65,7 +65,6 @@ public class Bonestorm
   public void upgrade() {
       if (!this.upgraded) {
           upgradeName();
-          upgradeDamage(1);
 	        this.rawDescription=UPGRADED_DESCRIPTION;
 	        initializeDescription();
       }

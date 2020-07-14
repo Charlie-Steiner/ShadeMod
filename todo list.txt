@@ -1,100 +1,27 @@
-Bugs:
+Card Bugs+Balance:
+FleshOffering should maybe put some in the discard and be less bad to reduce medkit variance.
+
 self-burial shouldn't return statuses/curses.
-
-Maybe swap rarity of ominous and dangerous rituals.
-
-Maybe take a look at flash offering to try to reduce relic variance.
 
 Spire shield shouldn't give you -focus.
 
-Torii appears to work correctly with zombies, but might need science.
-
-Check that extra limbs is actually showing up in card choices?
-
-Grave stillness needs a trigger to update undead descriptions.
-
-coordination might be causing skeleton attacks to double-count strength and apply vulnerable when they shouldn't. Probably have to generate multi-damage myself.
-
 Change description on skeletons when coordination is in play.
-
-Frenzy still didn't quite update zombie block number upon play?
-
-Crash on undeadautoatack line 89 only on Jason's computer (resolved as jason's problem)
-
-Ravenous horde + maybe missed summoning a skele at 1 and 2 energy.
-
-Check that coordination text isn't broken by apostrophes. (seems okay)
-
-Check if OminousRitual does multidamage properly with its weird action.
-
-Check if consume text renders Wounds properly.
 
 minions Power doesn't seem to update description at all. (???) (maybe fixed by overriding stackPower and ReducePower to force description updates) (nope, still broke!)
 
-Saving and reloading slowly scooches the character (both image and hp bar) backwards in the X direction. Even saved across restarts. What? (probably fixed by deleting legacy Render method in character.)
-
-Wraiths shouldn't trigger if you have barrier. (done)
-
-Just got an 11-card hand. Probably from Awaken? (done)
-
-Grave Stillness treated as debuff, eats artifact? (done)
-
-Balance ideas:
 As a card, press the attack is pretty dumb.
 
 For now, trying out non-exhausting animate dead with unchanged Claw Back.
 
-Buff Yorick skull - maybe summon a zombie at the start of each combat, and also on every 10th card. (done)
-
-Buff unupgraded Grey Bargain somehow, like by reducing energy cost but removing card draw? (done)
-
-Make extra limbs scale when you exhaust it, not just when you play it. (done, but need to test)
-
-Wraith decks need help beating bosses (scaling)
-
-The basic problem is there's too much synergy between exhaust and undead. Undead is sort of in a good place right now, but needs to rely less on the exhaust-synergy cards. Meanwhile, exhaust-synergy needs to be able to scale to beat bosses or the heart, without just being really stupid dumb in hallway fights. Could also use more variety (more wounds, some poison).
-
-Cards with too much synergy: Animate dead, Cloud of Shrapnel? Sense Prey? Unbar the grave. (Part of the problem is the starting cards are synergistic)
-
-Lye bath+ is too extreme (set equal to 2, required you to have zombie)
-
-Maybe make Grave Stillness reduce undead decay by a constant amount, rather than totally eliminating? (done)
-
-May need more exhaust attacks for touch of the grave payoff.
-
-Frenzy still seems too good. (hella nerfed, no longer exhausts)
-
-Greater animation feels weak. (buffed)
-
-increase finger of death payoff for more fun. (done)
-
-Awaken+ getting back itself (and thereby netting you +1 card per turn) is a bit dumb. (nerfed)
-
-Buff BoneSkin (maybe make it "sacrifice up to 4(3) skeletons, gain 2(3) played armor each", or something) (card changed)
-
-General Todo:
-The general feeling is there's not enough "packages." Getting undead and undead synergy just seems stronger than the other things you can be doing. An alternative way of looking at it is that there's too *much* overlap between exhaust and undead stuff.
-
-Follow up on the ideas in cards file.
-
-Look into Spire Shield debuffing your strength. (probably fine)
-
-If there are >10 skeletons, maybe start condensing attacks to save time. (done)
-
-Add helpful tooltips for undead decay, skeleton attacks, wraith intangible triggers, zombie blocking.
-
-Make custom emptySlot orbs for the different undead?
-
 Make call and Touch of the grave legibly flash what card they're replaying. (maybe they need unfadeout and stopglowing on the shown card?)
 
-Set up keywords for zombie, skeleton, wraith.
+General Todo:
+Maybe make a special change to zombie's calculated block, or a tooltip, for speed potion, to make it clear that it won't help?
+
+Set up keywords for zombie, skeleton, wraith?
 
 Wraith art often doesn't "pop" (add blurry white border?)
 
-Go through custom actions and double check that things that only need to happen once are given "if duration = startingDuration" handles? (probably fine)
-
 Make sacrifice cards glow if canUse.
-
-Make sacrifice cards use canUse even if they're "up to."
 
 Card art, Power art, more interesting VFX / SFX, custom heart scene.

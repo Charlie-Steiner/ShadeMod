@@ -19,7 +19,7 @@ public class RavenousHordeAction extends AbstractGameAction {
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-		int threshold = this.upgraded?4:2;
+		int threshold = this.upgraded?2:4;
 		
 		
 		if(AbstractDungeon.player.hasRelic("Chemical X"))

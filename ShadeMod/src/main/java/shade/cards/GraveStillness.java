@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import shade.ShadeMod;
+import shade.actions.RefreshUndeadPower;
 import shade.actions.UndeadSpawnAction;
 import shade.patches.AbstractCardEnum;
 import shade.powers.GraveStillnessPower;
@@ -63,5 +64,6 @@ public class GraveStillness extends AbstractShadeCard {
   public void use(AbstractPlayer p, AbstractMonster m) {
 	  AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p,p,this.block));
 	  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GraveStillnessPower(p, this.magicNumber), this.magicNumber));
+      AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
   }
 }

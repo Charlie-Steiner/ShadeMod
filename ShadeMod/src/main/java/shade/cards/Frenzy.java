@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import shade.ShadeMod;
+import shade.actions.RefreshUndeadPower;
+
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import shade.patches.AbstractCardEnum;
 import shade.powers.FrenzyDownPower;
@@ -43,8 +45,10 @@ public class Frenzy
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
-		this.baseMagicNumber = 1;
+		this.baseMagicNumber = 2;
 		this.magicNumber = this.baseMagicNumber;
+		
+		this.exhaust=true;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
@@ -53,6 +57,8 @@ public class Frenzy
 	    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
 	    
 	    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FrenzyDownPower(p, this.magicNumber), this.magicNumber));
+	    
+	    AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
   }
 
 

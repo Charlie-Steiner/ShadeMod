@@ -10,11 +10,13 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.VerticalAuraEffect;
 
 import shade.actions.UndeadAutoAttack;
 import shade.actions.UndeadDecay;
 import shade.characters.ShadeCharacter;
+import shade.ui.ShadeTipTracker;
 
 public class Wraith extends SpawnedUndead {
 
@@ -32,7 +34,21 @@ public class Wraith extends SpawnedUndead {
 		updateDescription();
 		spawnVFX();
 		setSlot(ShadeCharacter.INDEX_WRAITH,3);
+		
+		ShadeTipTracker.checkForTip(ShadeTipTracker.TipKey.WraithTip);
 	}
+	
+    public void applyFocus() {
+        super.applyFocus();
+        
+    	int soulPierce = 0;
+    	AbstractPower p = (AbstractPower) AbstractDungeon.player.getPower("Shade:SoulPiercePower");
+    	if(p!=null) {
+    		soulPierce = p.amount;
+    	}
+    	
+    	this.passiveAmount = this.basePassiveAmount + soulPierce;  
+    }
 	
 	
 	@Override

@@ -65,15 +65,8 @@ public class ExtraLimbs
 
 	
 	public void triggerOnExhaust() {
-	    Iterator var1 = GetAllInBattleInstances.get(this.uuid).iterator();
-	    
-	    while (var1.hasNext()) {
-	      AbstractCard c = (AbstractCard)var1.next();
-	      c.baseMagicNumber++;
-	      if (c.baseMagicNumber < 0) {
-	        c.baseMagicNumber = 0;
-	      }
-	    } 
+		this.baseMagicNumber++;
+		ShadeMod.logger.info("Triggered exhaust on Extra Limbs");
 	}
   
   public AbstractCard makeCopy() { return new ExtraLimbs(); }

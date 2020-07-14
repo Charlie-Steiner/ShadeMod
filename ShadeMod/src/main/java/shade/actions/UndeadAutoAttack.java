@@ -86,7 +86,7 @@ public class UndeadAutoAttack extends AbstractGameAction {
 	            AbstractDungeon.actionManager.addToTop(new DamageAction(mo,
 	                    new DamageInfo(AbstractDungeon.player, this.damage, DamageInfo.DamageType.THORNS),AE));
             }else{
-            	AbstractDungeon.actionManager.addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, this.damage, DamageInfo.DamageType.THORNS, AE));
+            	AbstractDungeon.actionManager.addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(this.damage, true), DamageInfo.DamageType.THORNS, AE));
             }
 
             if (this.appliesPoison) AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, AbstractDungeon.player, new PoisonPower(mo, AbstractDungeon.player, this.debuffamount), this.debuffamount, true, AbstractGameAction.AttackEffect.POISON));

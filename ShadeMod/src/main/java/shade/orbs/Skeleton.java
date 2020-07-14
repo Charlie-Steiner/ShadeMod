@@ -6,10 +6,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import shade.actions.UndeadAutoAttack;
 import shade.actions.UndeadDecay;
 import shade.characters.ShadeCharacter;
+import shade.ui.ShadeTipTracker;
 
 public class Skeleton extends SpawnedUndead {
 
@@ -31,6 +33,27 @@ public class Skeleton extends SpawnedUndead {
 		setSlot(ShadeCharacter.INDEX_SKELETON,3);
 	}
 	
+    public void applyFocus() {
+        super.applyFocus();
+        
+    	int str = 0;
+    	AbstractPower p = (AbstractPower)AbstractDungeon.player.getPower("Strength");
+    	if(p!= null)
+    	{
+    		logger.info("increasing strength  by " + p.amount/2);
+    		str=p.amount;
+    	}
+    	
+    	int strBones = 0;
+    	p = (AbstractPower)AbstractDungeon.player.getPower("Shade:StrongBonesPower");
+    	if(p!= null)
+    	{
+    		logger.info("increasing strength of bones  by 3");
+    		strBones = 3;
+    	}
+
+    	this.passiveAmount = this.basePassiveAmount + str/2 + strBones;
+    }
 	
 	@Override
 	public AbstractOrb makeCopy() {
@@ -74,7 +97,7 @@ public class Skeleton extends SpawnedUndead {
     public void activateEffectUnique() {
     	int damageTot = this.passiveAmount + this.passiveBonus;
 
-    	
+    	ShadeTipTracker.checkForTip(ShadeTipTracker.TipKey.SkeletonTip);
     	
     	if(this.count>bigThreshold) {
     		int bigs = (this.count-4)/5;

@@ -88,8 +88,8 @@
   },
   "Shade:Frenzy": {
     "NAME": "Frenzy",
-    "DESCRIPTION": "Gain !M! Strength and Dexterity until next turn.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Strength and Dexterity until next turn."
+    "DESCRIPTION": "Gain !M! Strength and Dexterity until next turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength and Dexterity until next turn. NL Exhaust."
   },
   "Shade:ExtraLimbs": {
     "NAME": "Extra Limbs",
@@ -103,8 +103,9 @@
   },
   "Shade:GreyBargain": {
     "NAME": "Grey Bargain",
-    "DESCRIPTION": "Exhaust a card in your hand to return an exhausted card to your draw pile.",
-    "UPGRADE_DESCRIPTION": "Exhaust a card in your hand to return an exhausted card to your draw pile. NL Draw a card."
+    "DESCRIPTION": "Return an exhausted card to your draw pile by exhausting a card in your hand.",
+    "UPGRADE_DESCRIPTION": "Return an exhausted card to your draw pile by exhausting a card in your hand. NL Draw a card.",
+    "EXTENDED_DESCRIPTION": ["I need a card in hand."]
   },
   "Shade:FleshLikeOak": {
     "NAME": "Flesh Like Oak",
@@ -253,8 +254,8 @@
   },
   "Shade:SkeletonHug": {
     "NAME": "Skeleton Hug",
-    "DESCRIPTION": "Summon a skeleton. NL Deal !D! damage. NL Apply 2 Weak and 1 Vulnerable.",
-    "UPGRADE_DESCRIPTION": "Summon a skeleton. NL Deal !D! damage. NL Apply 3 Weak and 2 Vulnerable."
+    "DESCRIPTION": "Summon a skeleton. NL Deal !D! damage. NL Apply !M! Weak and !M! Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Summon a skeleton. NL Deal !D! damage. NL Apply !M! Weak and !M! Vulnerable."
   },
   "Shade:BoneShards": {
     "NAME": "Bone Shards",
@@ -298,8 +299,8 @@
   },
   "Shade:FleshOffering": {
     "NAME": "Flesh Offering",
-    "DESCRIPTION": "Summon a wraith. NL Gain !B! Block. NL Add 5 *Wounds to your hand.",
-    "UPGRADE_DESCRIPTION": "Summon a wraith. NL Gain !B! Block. NL Add 5 *Wounds to your hand."
+    "DESCRIPTION": "Summon a wraith. NL Gain !B! Block. NL Add 4 *Wounds to your discard pile.",
+    "UPGRADE_DESCRIPTION": "Summon a wraith. NL Gain !B! Block. NL Add 4 *Wounds to your discard pile."
   },
   "Shade:FeralStrike": {
     "NAME": "Feral Strike",

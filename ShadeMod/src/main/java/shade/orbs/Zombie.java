@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import shade.actions.UndeadAutoAttack;
 import shade.actions.UndeadDecay;
@@ -30,6 +31,21 @@ public class Zombie extends SpawnedUndead {
 		spawnVFX();
 		setSlot(ShadeCharacter.INDEX_ZOMBIE,3);
 	}
+	
+    public void applyFocus() {
+        super.applyFocus();
+        
+    	AbstractPower p = (AbstractPower)AbstractDungeon.player.getPower("Dexterity");
+    	if(p!= null)
+    	{
+    		logger.info("increasing dex  by " + p.amount/2);
+    		this.passiveAmount = this.basePassiveAmount + p.amount/2;
+    	}
+    	else
+    		this.passiveAmount = this.basePassiveAmount;
+        
+    	
+    }
 	
 	
 	@Override

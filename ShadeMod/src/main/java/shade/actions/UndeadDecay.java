@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import shade.orbs.SpawnedUndead;
+import shade.ui.ShadeTipTracker;
 
 
 
@@ -21,7 +22,7 @@ public class UndeadDecay extends AbstractGameAction {
 	
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
+		ShadeTipTracker.checkForTip(ShadeTipTracker.TipKey.DecayTip);
 		
 		SpawnedUndead u = (SpawnedUndead)AbstractDungeon.player.orbs.get(orbIndex);
 		

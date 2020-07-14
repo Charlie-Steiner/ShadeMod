@@ -6,10 +6,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import shade.ShadeMod;
 import shade.actions.ReturnExhaustedToDeckAction;
+import shade.characters.ShadeCharacter;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -26,6 +28,7 @@ public class GreyBargain
   public static final String NAME;
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
+  public static final String[] EXTENDED_DESCRIPTION;
   public static final String IMG_PATH = "cards/GreyBargain.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
@@ -41,6 +44,7 @@ public class GreyBargain
 		NAME = cardStrings.NAME;
 		DESCRIPTION = cardStrings.DESCRIPTION;
 		UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+  		EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	}
 
   
@@ -51,8 +55,8 @@ public class GreyBargain
 
   public void use(AbstractPlayer p, AbstractMonster m) {
 	  if(p.hand.size()>0) {
-		  AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p,p,1,false));
 		  AbstractDungeon.actionManager.addToBottom(new ReturnExhaustedToDeckAction(false));
+		  AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p,p,1,false));
 	  }
 	  if(this.upgraded) {
 		  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,1));
@@ -60,7 +64,18 @@ public class GreyBargain
   }
 
 
+	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+		boolean canUse = super.canUse(p, m);
+		if (!canUse) {
+			return false;
+		}
+		if (p.hand.size()==0) {
+			canUse = false;
+			this.cantUseMessage = EXTENDED_DESCRIPTION[0];
+		}
 
+		return canUse;
+	}
   
   public AbstractCard makeCopy() { return new GreyBargain(); }
 

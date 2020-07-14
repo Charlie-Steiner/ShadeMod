@@ -144,55 +144,6 @@ public void spawnVFX(){
     
     public void onStartOfTurn() {}
 
-    public void applyFocus() {
-        super.applyFocus();
-        
-        if(index == ShadeCharacter.INDEX_SKELETON)
-        {
-        	int str = 0;
-        	AbstractPower p = (AbstractPower)AbstractDungeon.player.getPower("Strength");
-        	if(p!= null)
-        	{
-        		logger.info("increasing strength  by " + p.amount);
-        		str=p.amount;
-        	}
-        	
-        	int strBones = 0;
-        	p = (AbstractPower)AbstractDungeon.player.getPower("Shade:StrongBonesPower");
-        	if(p!= null)
-        	{
-        		logger.info("increasing strength of bones  by 3");
-        		strBones = 3;
-        	}
-
-        	this.passiveAmount = this.basePassiveAmount + str + strBones;
-        }
-        else if(index == ShadeCharacter.INDEX_ZOMBIE)
-        {
-        	AbstractPower p = (AbstractPower)AbstractDungeon.player.getPower("Dexterity");
-        	if(p!= null)
-        	{
-        		logger.info("increasing dex  by " + p.amount);
-        		this.passiveAmount = this.basePassiveAmount + p.amount;
-        	}
-        	else
-        		this.passiveAmount = this.basePassiveAmount;
-        }
-        else if(index == ShadeCharacter.INDEX_WRAITH)
-        {
-        	int soulPierce = 0;
-        	AbstractPower p = (AbstractPower) AbstractDungeon.player.getPower("Shade:SoulPiercePower");
-        	if(p!=null) {
-        		soulPierce = p.amount;
-        	}
-        	
-        	this.passiveAmount = this.basePassiveAmount + soulPierce;
-        }
-      
-        
-        //updateDescription();
-    }
-
     public void applyUniqueFocus(int StrAmount) {
 
         logger.info("Torch head getting buffed by " + StrAmount);

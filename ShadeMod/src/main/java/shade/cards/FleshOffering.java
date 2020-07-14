@@ -3,6 +3,7 @@ package shade.cards;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.status.Wound;
@@ -48,7 +49,7 @@ public class FleshOffering
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
-		this.baseBlock=17;
+		this.baseBlock=16;
 		this.block=this.baseBlock;
   }
 
@@ -58,7 +59,7 @@ public class FleshOffering
   public void upgrade() {    
 	  if (!this.upgraded) {
 	      upgradeName(); 
-	      upgradeBlock(7);
+	      upgradeBlock(6);
 	  }
 	  
   }
@@ -66,7 +67,7 @@ public class FleshOffering
   public void use(AbstractPlayer p, AbstractMonster arg1) {
 	  
 	  AbstractDungeon.actionManager.addToBottom(new VFXAction(new OfferingEffect(), 0.1F));
-	  AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Wound(), 5));
+	  AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Wound(), 4));
 
 	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Wraith()));
 	  AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));

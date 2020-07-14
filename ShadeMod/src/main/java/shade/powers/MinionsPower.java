@@ -17,6 +17,7 @@ import shade.ShadeMod;
 import shade.characters.ShadeCharacter;
 import shade.orbs.Skeleton;
 import shade.orbs.SpawnedUndead;
+import shade.ui.ShadeTipTracker;
 
 
 public class MinionsPower extends AbstractPower {
@@ -76,6 +77,8 @@ public class MinionsPower extends AbstractPower {
 		//only zombies block
 		if(index == ShadeCharacter.INDEX_ZOMBIE && AbstractDungeon.player.orbs.get(index) instanceof SpawnedUndead)
 		{
+			ShadeTipTracker.checkForTip(ShadeTipTracker.TipKey.ZombieTip);
+			
 			SpawnedUndead u = (SpawnedUndead)AbstractDungeon.player.orbs.get(index);
 			
 			if(damageAmount >= (u.passiveAmount+u.passiveBonus)*u.count)
