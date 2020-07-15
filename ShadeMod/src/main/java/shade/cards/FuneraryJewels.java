@@ -70,6 +70,8 @@ public class FuneraryJewels
 			upgradeName();
 		    upgradeMagicNumber(1);
 		    upgradeBlock(1);
+		      this.rawDescription=UPGRADED_DESCRIPTION;
+		      initializeDescription();
 		}
 	}
 }

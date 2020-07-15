@@ -33,8 +33,8 @@
   },
   "Shade:FreshBones": {
     "NAME": "Fresh Bones",
-    "DESCRIPTION": "Summon 1 skeleton. NL Your skeletons deal 3 more damage for !M! turn.",
-    "UPGRADE_DESCRIPTION": "Summon 1 skeleton. NL Your skeletons deal 3 more damage for !M! turns."
+    "DESCRIPTION": "Summon a skeleton. NL Your skeletons deal 3 more damage for !M! turn.",
+    "UPGRADE_DESCRIPTION": "Summon a skeleton. NL Your skeletons deal 3 more damage for !M! turns."
   },
   "Shade:TouchOfTheGrave": {
     "NAME": "Touch of the Grave",
@@ -135,13 +135,13 @@
   },
   "Shade:FuneraryJewels": {
     "NAME": "Funerary Jewels",
-    "DESCRIPTION": "Gain !B! Block. Draw !M! cards. Gain [E]. NL Exhaust.",
+    "DESCRIPTION": "Gain !B! Block. Draw !M! card. Gain [E]. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. Draw !M! cards. Gain [E]. NL Exhaust."
   },
   "Shade:DangerousRitual": {
     "NAME": "Dangerous Ritual",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Costs 1 less for every !M! cards exhausted this combat.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Costs 1 less for every !M! cards exhausted this combat."
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Costs 1 less per !M! cards exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Costs 1 less per !M! cards exhausted this combat."
   },
   "Shade:OminousRitual": {
     "NAME": "Ominous Ritual",

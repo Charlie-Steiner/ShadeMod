@@ -22,6 +22,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\CallOfTheGrave
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\ReturnExhaustedToDeckAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\SoulPiercePower.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\CoffinDance.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\ui\ShadeTipTracker.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\OpenGravesPower.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\TouchOfTheGravePower.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\CallOfTheGrave.java
@@ -107,6 +108,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\GreaterAnimatio
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\ZombieDex.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\FindPremonitions.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\PressTheAttack.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\ExtraLimbAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\AbstractCardEnum.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\orbs\Skeleton.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Asphyxiate.java

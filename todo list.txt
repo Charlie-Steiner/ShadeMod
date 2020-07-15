@@ -1,21 +1,57 @@
 Card Bugs+Balance:
-FleshOffering should maybe put some in the discard and be less bad to reduce medkit variance.
+Make offering to the Beyond a little easier to do.
+
+Increase base hp a little?
+
+Greater animation is too strong, but the debuff feels bad, so find some other way to nerf.
+
+When you have multiple stacks of awaken, should let you pick multiple cards rather than lasting multiple turns.
+
+Should boneskin be a power? Or just deleted? Change to something that gives you block for summoning/watching die skeletons?
+
+Make lye bath let you draw a card when no zombies, if it's weak?
+
+Asphyxiate attack damage doesn't scale with strength?
+
+Stitch together can trigger too many times if you draw multiple statuses - needs to instantly change a local variable to track use.
+
+Boneskin is really weird now? What's with the upgrade effect?
+
+Claw back maybe should return to discard?
+
+Asphyxiate is too nuts. Also has a bug where it deals the damage even if poison is blocked by artifact.
+
+Make doomsay a multiattack to encourage picking it up later?
+
+Nerf grave stillness +, so that it still only decays by 1 less?
+
+Flesh to flesh opop, especially upgraded. (1 cost block 16?!)
+
+Is boneskin text right, or does it sacrifice skeletons?
+
+Skeleton army a little too good (maybe can revert to skill now with scaling change?) Should probably go to uncommon for snecko eye visibility.
+
+Pound of flesh slightly too good.
+
+Lich form a bit too good / not interesting (reduce zombies?)
+
+Need more meme rares.
 
 self-burial shouldn't return statuses/curses.
-
-Spire shield shouldn't give you -focus.
 
 Change description on skeletons when coordination is in play.
 
 minions Power doesn't seem to update description at all. (???) (maybe fixed by overriding stackPower and ReducePower to force description updates) (nope, still broke!)
 
-As a card, press the attack is pretty dumb.
+As a card, press the attack is pretty dumb. Trample also too strong.
 
 For now, trying out non-exhausting animate dead with unchanged Claw Back.
 
 Make call and Touch of the grave legibly flash what card they're replaying. (maybe they need unfadeout and stopglowing on the shown card?)
 
 General Todo:
+Spire shield shouldn't give you -focus.
+
 Maybe make a special change to zombie's calculated block, or a tooltip, for speed potion, to make it clear that it won't help?
 
 Set up keywords for zombie, skeleton, wraith?
