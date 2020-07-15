@@ -36,7 +36,7 @@ public class LichFormPower extends AbstractPower {
     public void atStartOfTurn() {
     	flash();
     	for(int i=0;i<this.amount;i++) {
-			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+			//AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
 			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
     	}
     }

@@ -238,5 +238,11 @@ public class ShadeCharacter extends CustomPlayer {
 		AbstractDungeon.actionManager.orbsChanneledThisCombat.add(orbType);
 		AbstractDungeon.actionManager.orbsChanneledThisTurn.add(orbType);
 	}
+
+	@Override
+	public String getPortraitImageName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 

@@ -68,8 +68,8 @@
   },
     "Shade:LichForm": {
     "NAME": "Lich Form",
-    "DESCRIPTION": "At the start of your turn, summon !M! zombies and !M! skeletons.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, summon !M! zombies and !M! skeletons."
+    "DESCRIPTION": "At the start of your turn, summon !M! skeletons.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, summon !M! skeletons."
   },
   "Shade:CallWraith": {
     "NAME": "Call Wraith",
