@@ -36,7 +36,7 @@ public class LichForm extends AbstractShadeCard {
 	public LichForm() {
 		super(ID,NAME,shade.ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
 		// TODO Auto-generated constructor stub
-		this.baseMagicNumber=2;
+		this.baseMagicNumber=3;
 		this.magicNumber=this.baseMagicNumber;
 	}
 
@@ -44,7 +44,7 @@ public class LichForm extends AbstractShadeCard {
 	public void upgrade() {
 	    if (!this.upgraded) {
 	      upgradeName();
-	      upgradeMagicNumber(1);
+	      upgradeMagicNumber(2);
 	    } 
 	}
 
