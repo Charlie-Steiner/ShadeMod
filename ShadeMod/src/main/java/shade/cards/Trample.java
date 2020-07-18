@@ -62,7 +62,7 @@ public class Trample
 			this.baseDamage += this.magicNumber*((SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
 		}
 		
-		this.applyPowers();
+		this.damage=this.baseDamage;
 		
 		AbstractDungeon.actionManager
 				.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),

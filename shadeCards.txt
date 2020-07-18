@@ -62,19 +62,13 @@ AoE attack that adds a wound to draw pile. (Reckless Swipe)
 
 New basic card. Move "claw back" to uncommon, instead we want the new basic card to be a little fiddly. Maybe draw a card, exhaust a card? (Careful Cut) And/Or maybe change basic cards by making animate dead not exhaust?
 
-Meme rare: Summon a bunch of undead, then get eaten by them later (playing a second copy should increase the amount of damage it does to you, not change the countdown)
+Meme rare: Summon a bunch of undead, then get eaten by them later (playing a second copy should increase the amount of damage it does to you, not change the countdown) (Mad Hubris)
 
-Meme rare: Meta-scaling card that requires you to sacrifice your undeads to increase its own damage.
+Meme rare: Meta-scaling card that requires you to sacrifice your undeads to increase its own damage. (Hungry Blade)
 
-Meme rare incentivizing you to have no undeads.
+Meme rare incentivizing you to have no undeads.(make it an X card that exhausts for easy recurring?) (Strength in Solitude)
 
-Card that specifically increases your block per zombie.
-
-
-Card rarity changes:
-Lye Bath could use a tweak (only use half zombies, rounded down?) and rarity change to uncommon.
-
-Skeleton army to uncommon and back to skill.
+rare that lets you play a specific car from the exhaust pile (maybe 1 cost ethereal, upgrades to lose ethereal?)
 
 
 Card Art:
@@ -88,5 +82,3 @@ Self Burial
 Bone shards needs colorization
 
 Cards that need resizing: 
-Dangerous Ritual to attack.
-Lich Form to power.

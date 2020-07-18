@@ -213,8 +213,8 @@
   },
   "Shade:Trample": {
     "NAME": "Trample",
-    "DESCRIPTION": "Deal damage equal to 4 times your number of zombies.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to 5 times your number of zombies."
+    "DESCRIPTION": "Deal damage equal to !M! times your number of zombies.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to !M! times your number of zombies."
   },
   "Shade:PressTheAttack": {
     "NAME": "Press the Attack",

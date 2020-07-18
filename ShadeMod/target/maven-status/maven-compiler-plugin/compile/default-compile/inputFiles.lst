@@ -29,7 +29,9 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\CallOfTheGrave.
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Frenzy.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\SelfBurial.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Defend_Shade.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\PlayFromExhaustAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Coordination.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\AsphyxiateAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\GreyBargain.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\TouchOfTheGrave.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\relics\YorickSkull3.java
@@ -38,6 +40,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\TouchOfTheGrav
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\UndeadAutoAttack.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\GoneDiggingPower.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\StrongBonesPower.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\MadHubrisPower.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\orbs\EmptySlot.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\LibraryTypeEnum.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\FreshBones.java
@@ -61,6 +64,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\GoDigging.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\LichForm.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\DarkOfNight.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\FrenzyDownPower.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\OneIsEnoughAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\GraveStillness.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\WallOfFlesh.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\UndeadSpawnAction.java
@@ -72,6 +76,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\CarnophagePowe
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\SkeletonStr.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\FuneraryJewels.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\SanguineRitual.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\MadHubris.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Trample.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\LoseControl.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\BoneShards.java
@@ -90,6 +95,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\GraveStillness
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\UndeadDecay.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\orbs\Zombie.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\CommandSoldier.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\CarefulCut.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\FleshLikeOak.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Carnophage.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\FeralStrike.java
@@ -100,6 +106,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\ShadeMod.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\AbstractShadeCard.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Premonition.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\relics\YorickSkull.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\LastGasp.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\PoundOfFlesh.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\RavenousHorde.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\UnbarTheGrave.java
@@ -108,9 +115,9 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\GreaterAnimatio
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\ZombieDex.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\FindPremonitions.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\PressTheAttack.java
-C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\ExtraLimbAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\AbstractCardEnum.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\orbs\Skeleton.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\OneIsEnough.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Asphyxiate.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\ExtraLimbs.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\LichFormPower.java

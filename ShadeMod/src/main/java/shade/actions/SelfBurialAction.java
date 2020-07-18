@@ -41,7 +41,7 @@ public class SelfBurialAction extends AbstractGameAction {
 		if(!this.p.exhaustPile.isEmpty()) {
 			for(int i=this.p.exhaustPile.size();i>0;i--) {
 				derp = this.p.exhaustPile.getTopCard();
-				if(derp.color==AbstractCardEnum.SHADE) {
+				if(!(derp.color.equals(AbstractCard.CardColor.COLORLESS) || derp.color.equals(AbstractCard.CardColor.CURSE))) {
 					this.exhausts.add(derp);
 				}else {
 					this.spares.add(derp);

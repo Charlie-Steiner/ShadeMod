@@ -47,7 +47,7 @@ public class PlayRandomFromExhaustAction extends AbstractGameAction
 		
 		for (Iterator<AbstractCard> ex = this.p.exhaustPile.group.iterator(); ex.hasNext(); ) {
 			AbstractCard derp = (AbstractCard)ex.next();
-			if (!derp.type.equals(this.type)) {
+			if (!derp.type.equals(this.type) || derp.color.equals(AbstractCard.CardColor.COLORLESS) || derp.color.equals(AbstractCard.CardColor.CURSE)) {
 				this.misfits.add(derp);
 				ex.remove();
 			} 
