@@ -25,7 +25,7 @@ public class MadHubrisPower extends AbstractPower {
 	
     public static final String POWER_ID = "Shade:MadHubrisPower";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/FirmFortitude.png";
+    public static final String IMG = "powers/mad_hubris.png";
 
     public static String[] DESCRIPTIONS;
     

@@ -17,7 +17,7 @@ public class OfferingToTheBeyondPower extends TwoAmountPower {
 	
     public static final String POWER_ID = "Shade:OfferingToTheBeyondPower";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/FirmFortitude.png";
+    public static final String IMG = "powers/offering_to_the_beyond.png";
 
     public static String[] DESCRIPTIONS;
     private final static int CARDS = 3;

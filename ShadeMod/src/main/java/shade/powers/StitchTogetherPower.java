@@ -20,7 +20,7 @@ public class StitchTogetherPower extends AbstractPower {
     public static final String POWER_ID = "Shade:StitchTogetherPower";
     public static final String NAME = "Potency";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/FirmFortitude.png";
+    public static final String IMG = "powers/stitch_together.png";
 
     public static String[] DESCRIPTIONS;
     private boolean triggered;

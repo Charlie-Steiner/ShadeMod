@@ -25,7 +25,7 @@ public class MinionsPower extends AbstractPower {
     public static final String POWER_ID = "Shade:MinionsPower";
     public static final String NAME = "Minions";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/FirmFortitude.png";
+    public static final String IMG = "powers/minions.png";
 
     public static String[] DESCRIPTIONS;
     private AbstractCreature source;
