@@ -20,7 +20,7 @@ public class FrenzyDownPower extends AbstractPower {
     public static final String POWER_ID = "Shade:FrenzyDownPower";
     public static final String NAME = "Potency";
     public static PowerType POWER_TYPE = PowerType.DEBUFF;
-    public static final String IMG = "powers/FirmFortitude.png";
+    public static final String IMG = "powers/frenzy_down.png";
 
     public static String[] DESCRIPTIONS;
     

@@ -13,7 +13,7 @@ public class CoordinationPower extends AbstractPower {
 	
     public static final String POWER_ID = "Shade:CoordinationPower";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/FirmFortitude.png";
+    public static final String IMG = "powers/coordination.png";
 
     public static String[] DESCRIPTIONS;
     

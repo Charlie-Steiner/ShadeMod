@@ -21,7 +21,7 @@ public class AwakenPower extends AbstractPower {
 	
     public static final String POWER_ID = "Shade:AwakenPower";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/FirmFortitude.png";
+    public static final String IMG = "powers/awaken.png";
 
     public static String[] DESCRIPTIONS;
     

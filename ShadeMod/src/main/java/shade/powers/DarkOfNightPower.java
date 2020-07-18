@@ -23,7 +23,7 @@ public class DarkOfNightPower extends AbstractPower {
 	
     public static final String POWER_ID = "Shade:DarkOfNightPower";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/FirmFortitude.png";
+    public static final String IMG = "powers/dark_of_night.png";
 
     public static String[] DESCRIPTIONS;
     

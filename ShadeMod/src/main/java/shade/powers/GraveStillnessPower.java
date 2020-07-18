@@ -17,7 +17,7 @@ public class GraveStillnessPower extends AbstractPower {
     public static final String POWER_ID = "Shade:GraveStillnessPower";
     public static final String NAME = "Potency";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/FirmFortitude.png";
+    public static final String IMG = "powers/grave_stillness.png";
 
     public static String[] DESCRIPTIONS;
     

@@ -21,7 +21,7 @@ public class StrongBonesPower extends AbstractPower {
     public static final String POWER_ID = "Shade:StrongBonesPower";
     public static final String NAME = "Strong Bones";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/FirmFortitude.png";
+    public static final String IMG = "powers/strong_bones.png";
 
     public static String[] DESCRIPTIONS;
     
