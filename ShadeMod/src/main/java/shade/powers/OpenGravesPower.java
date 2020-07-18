@@ -14,7 +14,7 @@ public class OpenGravesPower extends AbstractPower {
     public static final String POWER_ID = "Shade:OpenGravesPower";
     public static final String NAME = "Potency";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/FirmFortitude.png";
+    public static final String IMG = "powers/open_graves.png";
 
     public static String[] DESCRIPTIONS;
     
