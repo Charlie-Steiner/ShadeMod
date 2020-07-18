@@ -1,39 +1,30 @@
 Card Bugs+Balance:
-Nerf wraiths to 25 damage on the assumption that you'll want a scaling rare with them?
 
-Need to make sure that the recurring cards don't work with Apparitions.
+OneIsEnough should still eat your energy and exhaust if played with undead. Just needs exhaust tag.
+
+Need to make CallOfTheGrave not replay apparitions. (done)
 
 Need a tooltip about how shade cards only get back shade cards, not statuses, curses, or colorless cards. Or need to make a keyword for this concept.
 
 Zombies don't block MadHubris, probably would fun if they did?
 
-Last gasp works correctly if there's only one card in exhaust, but returns the card to your draw rather than playing it if you do the card select screen. (probably fixed)
+Spontaneous ritual does 1 too much damage? Probably counts itself as a card in hand during effect calculation. (I think it's fixed, but need to keep an eye on this one to check for edge cases where it's broken)
 
-Offering To the Beyond needs a second number that counts down as you exhaust cards, a la panache. (may have found TwoAmountPower in stslib)
+SpontaneousRitual doesn't update count while in exhaust. Does OminousRitual?
 
-Should double check that call of the grave handles ravenous horde and one is enough correctly. (seems to)
+Should also check if spontaneous ritual is affected by strength / vulnerable properly. Spontaneous ritual isn't affect by strength, vuln, or weak.
 
-Power text for awaken not changed to reflect functionality. (done)
-
-Asphyxiate now deals accidentally damage equal to the poison stacks *before* playing the card. (probably fixed by moving poisong checking from constructor to Update method of asphyxiate action)
-
-Spontaneous ritual does 1 too much damage? Probably counts itself as a card in hand during effect calculation. (maybe fixed)
-
-Should also check if spontaneous ritual is affected by strength / vulnerable properly.
-
-Trample does 0 damage? (trying manipulating baseDamage instead. Also, am I sure that ominousRitual applies strength and vulnerable correctly? The DamageAllEnemiesAction is still weird.)
-
-OneIsEnough doesn't check for having undeads yet. (should now)
-
-PressTheAttack needs a refresh undead power (done)
+Trample now deals damage and scales with strength, but isn't affected by vulnerable, though is affected by weakened. (removed applypowers from card use? Not sure what's going on)
 
 Lich form a bit too good / not interesting (trying only skeletons)
 
 Change description on skeletons when coordination is in play.
 
-minions Power doesn't seem to update description at all. (???) (maybe fixed by overriding stackPower and ReducePower to force description updates) (nope, still broke!)
+minions Power doesn't seem to update description at all. (???) (maybe fixed by overriding stackPower and ReducePower to force description updates) (nope, still broke!) (Is this fixed or is it a charlie computer problem?)
 
 Make call and Touch of the grave, and Last Gasp, legibly flash what card they're replaying. (maybe they need unfadeout and stopglowing on the shown card?)
+
+Nerf wraiths on damage on the assumption that you'll want a scaling rare with them?
 
 General Todo:
 Spire shield shouldn't give you -focus.
