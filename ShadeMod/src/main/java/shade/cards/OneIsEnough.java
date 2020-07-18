@@ -46,6 +46,7 @@ public class OneIsEnough extends AbstractShadeCard{
 		super(ID,NAME,ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
 		this.baseDamage = 11;
 		this.damage = this.baseDamage;
+		this.exhaust = true;
 	}
 	
 	public AbstractCard makeCopy()
@@ -68,6 +69,10 @@ public class OneIsEnough extends AbstractShadeCard{
 				&& p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot
 				&& p.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot) {
 			AbstractDungeon.actionManager.addToBottom(new OneIsEnoughAction(this.energyOnUse, this.upgraded, p, m, this.damage,this.damageTypeForTurn, this.freeToPlayOnce));
+		}
+		else
+		{
+			AbstractDungeon.player.energy.use(this.energyOnUse);
 		}
 		
 	}
