@@ -319,7 +319,7 @@
   "Shade:Putrefaction": {
     "NAME": "Putrefaction",
     "DESCRIPTION": "Whenever a zombie dies, apply !M! Poison to all enemies.",
-    "UPGRADE_DESCRIPTION": "Whenever a zombie dies, apply !M! Poison to all enemies."
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever a zombie dies, apply !M! Poison to all enemies."
   },
   "Shade:PoundOfFlesh": {
     "NAME": "Pound of Flesh",
