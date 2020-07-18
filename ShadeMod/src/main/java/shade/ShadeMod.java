@@ -128,7 +128,7 @@ public class ShadeMod implements PostInitializeSubscriber,
 		BaseMod.addCard(new shade.cards.SkeletonArmy());
 
 		// uncommon cards
-		BaseMod.addCard(new shade.cards.Boneskin());
+		//BaseMod.addCard(new shade.cards.Boneskin());
 		BaseMod.addCard(new shade.cards.TouchOfTheGrave());
 		BaseMod.addCard(new shade.cards.CallOfTheGrave());
 		BaseMod.addCard(new shade.cards.Bite_Shade());
@@ -169,7 +169,7 @@ public class ShadeMod implements PostInitializeSubscriber,
 		UnlockTracker.unlockCard(SkeletonArmy.ID);
 
 		//unlock uncommon cards
-		UnlockTracker.unlockCard(Boneskin.ID);
+		//UnlockTracker.unlockCard(Boneskin.ID);
 		UnlockTracker.unlockCard(TouchOfTheGrave.ID);
 		UnlockTracker.unlockCard(CallOfTheGrave.ID);
 		UnlockTracker.unlockCard(Bite_Shade.ID);
@@ -273,6 +273,10 @@ public class ShadeMod implements PostInitializeSubscriber,
 		BaseMod.addCard(new shade.cards.SoulToxin());
 		BaseMod.addCard(new shade.cards.Asphyxiate());
 		BaseMod.addCard(new shade.cards.SpontaneousRitual());
+		BaseMod.addCard(new shade.cards.CarefulCut());
+		BaseMod.addCard(new shade.cards.MadHubris());
+		BaseMod.addCard(new shade.cards.OneIsEnough());
+		BaseMod.addCard(new shade.cards.LastGasp());
 
 		//unlock cards:
 		UnlockTracker.unlockCard(shade.cards.Putrefaction.ID);
@@ -283,6 +287,10 @@ public class ShadeMod implements PostInitializeSubscriber,
 		UnlockTracker.unlockCard(shade.cards.SoulToxin.ID);
 		UnlockTracker.unlockCard(shade.cards.Asphyxiate.ID);
 		UnlockTracker.unlockCard(shade.cards.SpontaneousRitual.ID);
+		UnlockTracker.unlockCard(shade.cards.CarefulCut.ID);
+		UnlockTracker.unlockCard(shade.cards.MadHubris.ID);
+		UnlockTracker.unlockCard(shade.cards.OneIsEnough.ID);
+		UnlockTracker.unlockCard(shade.cards.LastGasp.ID);
 		
 		logger.info("Done adding Shade cards!");
 	}

@@ -15,5 +15,10 @@
       "Choose ",
       " Cards to Exhaust"
     ]
+  },
+  "Shade:PlayFromExhaustAction": {
+    "TEXT": [
+      "Select a Card to Play"
+    ]
   }
 }

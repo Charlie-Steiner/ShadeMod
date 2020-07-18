@@ -25,6 +25,7 @@ import shade.cards.Defend_Shade;
 import shade.ShadeMod;
 import shade.actions.FindPremonitions;
 import shade.cards.AnimateDead;
+import shade.cards.CarefulCut;
 import shade.cards.Strike_Shade;
 import shade.orbs.SpawnedUndead;
 import shade.patches.*;
@@ -134,7 +135,7 @@ public class ShadeCharacter extends CustomPlayer {
         retVal.add(Defend_Shade.ID);
         retVal.add(Defend_Shade.ID);
         retVal.add(AnimateDead.ID);
-        retVal.add(ClawBack.ID);
+        retVal.add(CarefulCut.ID);
         return retVal;
     }
     
@@ -154,7 +155,7 @@ public class ShadeCharacter extends CustomPlayer {
     public CharSelectInfo getLoadout() {
     	int startingOrbs = 3;
     	
-        return new CharSelectInfo("The Shade", "This sorceror wields the power of the grave. NL A bit of a shady character.", 60, 60, startingOrbs, 99, 5, this,
+        return new CharSelectInfo("The Shade", "This sorceror wields the power of the grave. NL A bit of a shady character.", 65, 65, startingOrbs, 99, 5, this,
 
                 getStartingRelics(), getStartingDeck(), false);
     }
@@ -241,7 +242,7 @@ public class ShadeCharacter extends CustomPlayer {
 
 	@Override
 	public String getPortraitImageName() {
-		// TODO Auto-generated method stub
+		//Seems to be required on Jason's computer but not Charlie's really should be handled by BaseMod.
 		return null;
 	}
 }

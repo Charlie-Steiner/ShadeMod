@@ -47,21 +47,26 @@ public class Trample
   public Trample() {
       super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
    
-    this.baseDamage = 7;
+      
+    this.baseMagicNumber=4;
+    this.magicNumber=this.baseMagicNumber;
+    
+    this.baseDamage = 0;
     this.damage=this.baseDamage;
   }
 
   
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		int hits=0;
+		this.baseDamage = 0;
 		if (p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
-			hits += ((SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+			this.baseDamage += this.magicNumber*((SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
 		}
-		for (int x = 0; x < hits; x++) {
-			AbstractDungeon.actionManager
-					.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
-							AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-		}
+		
+		this.applyPowers();
+		
+		AbstractDungeon.actionManager
+				.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
+						AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 	}
 
   
@@ -71,7 +76,7 @@ public class Trample
   public void upgrade() {
     if (!this.upgraded) {
       upgradeName();
-      upgradeDamage(2);
+      upgradeMagicNumber(1);
     } 
   }
 }

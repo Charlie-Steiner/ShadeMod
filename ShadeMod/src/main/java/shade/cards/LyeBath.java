@@ -29,10 +29,9 @@ public class LyeBath
   public static final String NAME;
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
-  public static final String[] EXTENDED_DESCRIPTION;
   public static final String IMG_PATH = "cards/lye_bath.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
-  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
+  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
   
 
@@ -45,7 +44,6 @@ public class LyeBath
 		NAME = cardStrings.NAME;
 		DESCRIPTION = cardStrings.DESCRIPTION;
 		UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-  		EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	}
 
   
@@ -58,7 +56,7 @@ public class LyeBath
   public void use(AbstractPlayer p, AbstractMonster m) {
 	  AbstractOrb z = p.orbs.get(ShadeCharacter.INDEX_ZOMBIE);
 	  int n = 0;
-	  if(!(z instanceof EmptyOrbSlot)) {
+	  if(z instanceof SpawnedUndead) {
 		  n=((SpawnedUndead) z).count;
 		  ((SpawnedUndead) z).remove(n);
 		  for(int i=0;i<n;i++) {
@@ -73,20 +71,6 @@ public class LyeBath
 	  }
   }
   
-  
-	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-		boolean canUse = super.canUse(p, m);
-		if (!canUse) {
-			return false;
-		}
-		if (p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot) {
-			canUse = false;
-			this.cantUseMessage = EXTENDED_DESCRIPTION[0];
-		}
-
-		return canUse;
-	}
-
 
   
   public AbstractCard makeCopy() { return new LyeBath(); }

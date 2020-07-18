@@ -38,13 +38,13 @@
   },
   "Shade:TouchOfTheGrave": {
     "NAME": "Touch of the Grave",
-    "DESCRIPTION": "At the start of your turn, play a random exhausted attack and remove it from play.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random exhausted attack and remove it from play."
+    "DESCRIPTION": "At the start of your turn, play a random exhausted Shade attack and remove it from play.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random exhausted Shade attack and remove it from play."
   },
   "Shade:CallOfTheGrave": {
     "NAME": "Call of the Grave",
-    "DESCRIPTION": "At the start of your turn, play a random exhausted skill and remove it from play.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random exhausted skill and remove it from play."
+    "DESCRIPTION": "At the start of your turn, play a random exhausted Shade skill and remove it from play.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random exhausted Shade skill and remove it from play."
   },
   "Shade:Bonestorm": {
     "NAME": "Bonestorm",
@@ -156,14 +156,13 @@
   },
   "Shade:SkeletonArmy": {
     "NAME": "Skeleton Army",
-    "DESCRIPTION": "Deal !D! damage. NL Summon !M! skeletons.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Summon !M! skeletons."
+    "DESCRIPTION": "Summon !M! skeletons.",
+    "UPGRADE_DESCRIPTION": "Summon !M! skeletons."
   },
   "Shade:LyeBath": {
     "NAME": "Lye Bath",
     "DESCRIPTION": "Convert all your zombies into skeletons. NL Draw a card.",
-    "UPGRADE_DESCRIPTION": "Convert all your zombies into skeletons. NL Draw two cards.",
-    "EXTENDED_DESCRIPTION": ["I need a zombie."]
+    "UPGRADE_DESCRIPTION": "Convert all your zombies into skeletons. NL Draw two cards."
   },
   "Shade:GoDigging": {
     "NAME": "Go Digging",
@@ -189,8 +188,8 @@
   },
   "Shade:GreaterAnimation": {
     "NAME": "Greater Animation",
-    "DESCRIPTION": "Summon !M! zombies, !M! skeletons, and 1 wraith. NL Lose 1 Dexterity.",
-    "UPGRADE_DESCRIPTION": "Summon !M! zombies, !M! skeletons, and 1 wraith. NL Lose 1 Dexterity."
+    "DESCRIPTION": "Summon 1 zombie, !M! skeletons, and 1 wraith. NL Lose 1 Strength and 1 Dexterity.",
+    "UPGRADE_DESCRIPTION": "Summon 1 zombie, !M! skeletons, and 1 wraith."
   },
   "Shade:OfferingToTheBeyond": {
     "NAME": "Offering to the Beyond",
@@ -214,13 +213,13 @@
   },
   "Shade:Trample": {
     "NAME": "Trample",
-    "DESCRIPTION": "Deal !D! damage for each of your zombies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage for each of your zombies."
+    "DESCRIPTION": "Deal damage equal to 4 times your number of zombies.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to 5 times your number of zombies."
   },
   "Shade:PressTheAttack": {
     "NAME": "Press the Attack",
-    "DESCRIPTION": "Deal !D! damage to all enemies, plus !M! for each of your zombies and skeletons.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies, plus !M! for each of your zombies and skeletons."
+    "DESCRIPTION": "Deal !D! damage. NL Your skeletons deal 3 more damage for 1 turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Your skeletons deal 3 more damage for 1 turn."
   },
   "Shade:Patience": {
     "NAME": "Patience",
@@ -289,8 +288,8 @@
   },
   "Shade:FleshToFlesh": {
     "NAME": "Flesh To Flesh",
-    "DESCRIPTION": "Summon !M! zombies. NL Shuffle a *Wound into your draw pile.",
-    "UPGRADE_DESCRIPTION": "Summon !M! zombies. NL Shuffle a *Wound into your draw pile."
+    "DESCRIPTION": "Summon !M! zombies. NL Add a *Wound to your discard pile.",
+    "UPGRADE_DESCRIPTION": "Summon !M! zombies. NL Add a *Wound to your discard pile."
   },
   "Shade:LoseControl": {
     "NAME": "Lose Control",
@@ -329,8 +328,8 @@
   },
   "Shade:Doomsay": {
     "NAME": "Doomsay",
-    "DESCRIPTION": "Deal !D! damage. NL Scry !M!.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Scry !M!."
+    "DESCRIPTION": "Deal !D! damage twice. NL Scry !M!.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage twice. NL Scry !M!."
   },
   "Shade:Consume": {
     "NAME": "Consume",
@@ -357,5 +356,25 @@
     "DESCRIPTION": "Exhaust your hand. NL Deal damage for each card exhausted this combat.",
     "UPGRADE_DESCRIPTION": "Add 3 *Wounds to your hand. NL Exhaust your hand. NL Deal damage for each card exhausted this combat.",
   	"EXTENDED_DESCRIPTION": [" NL ( !M! cards )"]
+  },
+  "Shade:CarefulCut": {
+    "NAME": "Careful Cut",
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Exhaust a card from your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Exhaust a card from your hand."
+  },
+  "Shade:MadHubris": {
+    "NAME": "Mad Hubris",
+    "DESCRIPTION": "Summon !M! skeletons. NL At the start of your next turn, your skeletons attack you.",
+    "UPGRADE_DESCRIPTION": "Summon !M! skeletons. NL At the start of your next turn, your skeletons attack you."
+  },
+  "Shade:OneIsEnough": {
+    "NAME": "One Is Enough",
+    "DESCRIPTION": "If you have no undead, deal !D! damage X times. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "If you have no undead, deal !D! damage X+1 times. NL Exhaust."
+  },
+  "Shade:LastGasp": {
+    "NAME": "Last Gasp",
+    "DESCRIPTION": "Ethereal. NL Play a card from your exhaust pile, then remove it from play.",
+    "UPGRADE_DESCRIPTION": "Play a card from your exhaust pile, then remove it from play."
   }
 }

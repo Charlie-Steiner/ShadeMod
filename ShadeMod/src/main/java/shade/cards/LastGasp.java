@@ -1,36 +1,41 @@
 package shade.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import shade.ShadeMod;
-import shade.actions.UndeadAutoAttack;
-import shade.actions.UndeadSpawnAction;
-import shade.orbs.Skeleton;
+import shade.actions.PlayFromExhaustAction;
+import shade.actions.ReturnExhaustedToDeckAction;
+import shade.characters.ShadeCharacter;
+
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+
 import shade.patches.AbstractCardEnum;
+import shade.powers.FrenzyDownPower;
 
 
-public class SkeletonArmy
+public class LastGasp
   extends AbstractShadeCard
 {
-  public static final String ID = "Shade:SkeletonArmy";
+  public static final String ID = "Shade:LastGasp";
   public static final String NAME;
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
-  public static final String IMG_PATH = "cards/skeleton_army.png";
+  public static final String IMG_PATH = "cards/GreyBargain.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
-  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
+  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.RARE;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
   
 
-  private static final int COST = 3;
+  private static final int COST = 1;
 
   private static final CardStrings cardStrings;
   
@@ -42,32 +47,27 @@ public class SkeletonArmy
 	}
 
   
-	public SkeletonArmy() {
+	public LastGasp() {
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
-		this.baseMagicNumber=5;
-		this.magicNumber=this.baseMagicNumber;
-		
+  		this.isEthereal=true;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  for(int i=0;i<this.magicNumber;i++) {
-		  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-	  }
-	  
+	  AbstractDungeon.actionManager.addToBottom(new PlayFromExhaustAction());
   }
 
-
+  
+  public AbstractCard makeCopy() { return new LastGasp(); }
 
   
-  public AbstractCard makeCopy() { return new SkeletonArmy(); }
-
-  
-  public void upgrade() {
-    if (!this.upgraded) {
-    	upgradeName();
-	    upgradeMagicNumber(2);
-    }
-  }
+	public void upgrade() {
+		if (!this.upgraded) {
+			upgradeName();
+		    this.isEthereal=false;
+		    this.rawDescription=UPGRADED_DESCRIPTION;
+		    initializeDescription();
+		}
+	}
 }

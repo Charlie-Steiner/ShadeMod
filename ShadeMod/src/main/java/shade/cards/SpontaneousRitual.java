@@ -74,6 +74,11 @@ public class SpontaneousRitual extends AbstractShadeCard {
 	    this.damage=this.baseDamage;
 	    int tempDamage=this.damage+p.hand.size();
 	    
+	    if(p.hand.contains(this)) {
+	    	tempDamage-= 1;
+	    }
+
+	    
 		if(this.upgraded) {
 			AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(new Wound(), 3));
 			tempDamage+=3;

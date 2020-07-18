@@ -23,7 +23,7 @@ public class StitchTogetherPower extends AbstractPower {
     public static final String IMG = "powers/FirmFortitude.png";
 
     public static String[] DESCRIPTIONS;
-    
+    private boolean triggered;
     
     public StitchTogetherPower(AbstractCreature owner, int amt)
     {
@@ -32,6 +32,7 @@ public class StitchTogetherPower extends AbstractPower {
     	this.amount = amt;
         this.img = new com.badlogic.gdx.graphics.Texture(ShadeMod.getResourcePath(IMG));
         this.type = POWER_TYPE;
+        this.triggered=false;
 
         this.DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(this.ID).DESCRIPTIONS;
         this.name = CardCrawlGame.languagePack.getPowerStrings(this.ID).NAME;
@@ -41,12 +42,15 @@ public class StitchTogetherPower extends AbstractPower {
     
     public void onCardDraw(AbstractCard card) {
         if (card.type == AbstractCard.CardType.STATUS || card.type == AbstractCard.CardType.CURSE) {
-          flash();
-          AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-          AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card,AbstractDungeon.player.hand));
-    	  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player,1));
-    	  AbstractDungeon.actionManager.addToBottom(new HealAction(this.owner, this.owner, this.amount));
-        } 
+        	if(!this.triggered) {
+	          flash();
+	          AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+	          AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card,AbstractDungeon.player.hand));
+	    	  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player,1));
+	    	  AbstractDungeon.actionManager.addToBottom(new HealAction(this.owner, this.owner, this.amount));
+        	}
+        	this.triggered=true;
+        }
       }
     
 	public void updateDescription() {

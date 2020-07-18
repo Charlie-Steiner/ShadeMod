@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
 import shade.ShadeMod;
+import shade.actions.AsphyxiateAction;
 import shade.patches.AbstractCardEnum;
 
 
@@ -49,14 +50,8 @@ public class Asphyxiate
   
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber), this.magicNumber));
-
-		int pStacks=0;
-		if(m.hasPower("Poison")) {
-			pStacks=m.getPower("Poison").amount;
-		}
-		AbstractDungeon.actionManager
-		.addToBottom(new DamageAction(m, new DamageInfo(p, pStacks+this.magicNumber, this.damageTypeForTurn),
-				AbstractGameAction.AttackEffect.POISON));
+		AbstractDungeon.actionManager.addToBottom(new AsphyxiateAction(m,this.damageTypeForTurn));
+		
 	}
 
   
@@ -66,7 +61,7 @@ public class Asphyxiate
   public void upgrade() {
     if (!this.upgraded) {
       upgradeName();
-      upgradeMagicNumber(3);
+      upgradeMagicNumber(2);
     } 
   }
 }

@@ -38,7 +38,7 @@ public class OfferingToTheBeyond extends AbstractShadeCard {
 	public OfferingToTheBeyond() {
 		super(ID,NAME,shade.ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
 		// TODO Auto-generated constructor stub
-		this.baseMagicNumber=4;
+		this.baseMagicNumber=3;
 		this.magicNumber=this.baseMagicNumber;
 	}
 
@@ -47,6 +47,7 @@ public class OfferingToTheBeyond extends AbstractShadeCard {
 	    if (!this.upgraded) {
 	      upgradeName();
 	      upgradeMagicNumber(-1);
+	      upgradeBaseCost(0);
 	    } 
 	}
 

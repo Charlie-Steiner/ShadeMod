@@ -1,53 +1,39 @@
 Card Bugs+Balance:
-Make offering to the Beyond a little easier to do.
+Nerf wraiths to 25 damage on the assumption that you'll want a scaling rare with them?
 
-Increase base hp a little?
+Need to make sure that the recurring cards don't work with Apparitions.
 
-Greater animation is too strong, but the debuff feels bad, so find some other way to nerf.
+Need a tooltip about how shade cards only get back shade cards, not statuses, curses, or colorless cards. Or need to make a keyword for this concept.
 
-When you have multiple stacks of awaken, should let you pick multiple cards rather than lasting multiple turns.
+Zombies don't block MadHubris, probably would fun if they did?
 
-Should boneskin be a power? Or just deleted? Change to something that gives you block for summoning/watching die skeletons?
+Last gasp works correctly if there's only one card in exhaust, but returns the card to your draw rather than playing it if you do the card select screen. (probably fixed)
 
-Make lye bath let you draw a card when no zombies, if it's weak?
+Offering To the Beyond needs a second number that counts down as you exhaust cards, a la panache. (may have found TwoAmountPower in stslib)
 
-Asphyxiate attack damage doesn't scale with strength?
+Should double check that call of the grave handles ravenous horde and one is enough correctly. (seems to)
 
-Stitch together can trigger too many times if you draw multiple statuses - needs to instantly change a local variable to track use.
+Power text for awaken not changed to reflect functionality. (done)
 
-Boneskin is really weird now? What's with the upgrade effect?
+Asphyxiate now deals accidentally damage equal to the poison stacks *before* playing the card. (probably fixed by moving poisong checking from constructor to Update method of asphyxiate action)
 
-Claw back maybe should return to discard?
+Spontaneous ritual does 1 too much damage? Probably counts itself as a card in hand during effect calculation. (maybe fixed)
 
-Asphyxiate is too nuts. Also has a bug where it deals the damage even if poison is blocked by artifact.
+Should also check if spontaneous ritual is affected by strength / vulnerable properly.
 
-Make doomsay a multiattack to encourage picking it up later?
+Trample does 0 damage? (trying manipulating baseDamage instead. Also, am I sure that ominousRitual applies strength and vulnerable correctly? The DamageAllEnemiesAction is still weird.)
 
-Nerf grave stillness +, so that it still only decays by 1 less?
+OneIsEnough doesn't check for having undeads yet. (should now)
 
-Flesh to flesh opop, especially upgraded. (1 cost block 16?!)
+PressTheAttack needs a refresh undead power (done)
 
-Is boneskin text right, or does it sacrifice skeletons?
-
-Skeleton army a little too good (maybe can revert to skill now with scaling change?) Should probably go to uncommon for snecko eye visibility.
-
-Pound of flesh slightly too good.
-
-Lich form a bit too good / not interesting (reduce zombies?)
-
-Need more meme rares.
-
-self-burial shouldn't return statuses/curses.
+Lich form a bit too good / not interesting (trying only skeletons)
 
 Change description on skeletons when coordination is in play.
 
 minions Power doesn't seem to update description at all. (???) (maybe fixed by overriding stackPower and ReducePower to force description updates) (nope, still broke!)
 
-As a card, press the attack is pretty dumb. Trample also too strong.
-
-For now, trying out non-exhausting animate dead with unchanged Claw Back.
-
-Make call and Touch of the grave legibly flash what card they're replaying. (maybe they need unfadeout and stopglowing on the shown card?)
+Make call and Touch of the grave, and Last Gasp, legibly flash what card they're replaying. (maybe they need unfadeout and stopglowing on the shown card?)
 
 General Todo:
 Spire shield shouldn't give you -focus.
@@ -61,3 +47,5 @@ Wraith art often doesn't "pop" (add blurry white border?)
 Make sacrifice cards glow if canUse.
 
 Card art, Power art, more interesting VFX / SFX, custom heart scene.
+
+Revisit getPortraitImageName in ShadeCharacter, delete for "production" output.

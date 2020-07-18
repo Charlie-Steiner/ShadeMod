@@ -2,8 +2,11 @@ package shade.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,10 +15,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
 
 import shade.ShadeMod;
+import shade.actions.RefreshUndeadPower;
 import shade.actions.UndeadSpawnAction;
 import shade.characters.ShadeCharacter;
 import shade.orbs.SpawnedUndead;
 import shade.patches.AbstractCardEnum;
+import shade.powers.StrongBonesPower;
 
 
 public class PressTheAttack
@@ -28,7 +33,7 @@ public class PressTheAttack
   public static final String IMG_PATH = "cards/default_attack.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
-  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ALL_ENEMY;
+  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
 
 
 
@@ -53,10 +58,7 @@ public class PressTheAttack
     		  AbstractCardEnum.SHADE, RARITY, TARGET);
 
       
-      this.baseDamage = 4;
-      this.isMultiDamage = true;
-      this.baseMagicNumber=2;
-      this.magicNumber=this.baseMagicNumber;
+      this.baseDamage = 9;
   }
 
 
@@ -69,24 +71,16 @@ public class PressTheAttack
   public void upgrade() {
       if (!this.upgraded) {
           upgradeName();
-          upgradeMagicNumber(1);
+          upgradeDamage(3);
       }
   }
   
-  public void use(AbstractPlayer p, AbstractMonster arg1) {
-	    int nUndead=0;
-		if (p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
-			nUndead += ((SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
-		}
-		if (p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead) {
-			nUndead += ((SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON)).count;
-		}
-		
-		int[] buffedDamage = this.multiDamage;
-		for(int i=0;i<buffedDamage.length;i++) {
-			buffedDamage[i]+=this.magicNumber*nUndead;
-		}
-		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, buffedDamage,
-				this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+  public void use(AbstractPlayer p, AbstractMonster m) {
+	  AbstractDungeon.actionManager
+		.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
+				AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+	  
+	  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrongBonesPower(p,1), 1));
+      AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
   }
 }

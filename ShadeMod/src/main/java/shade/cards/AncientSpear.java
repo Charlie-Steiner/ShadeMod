@@ -38,7 +38,7 @@ public class AncientSpear
   public AncientSpear() {
       super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
    
-    this.baseDamage = 20;
+    this.baseDamage = 21;
     this.damage=this.baseDamage;
     
     this.exhaust = true;

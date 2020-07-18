@@ -58,7 +58,6 @@
 		"NAME": "Lich Form",
 		"DESCRIPTIONS": [
 			"Summon #b",
-			" zombies and #b",
 			" skeletons at the start of your turn."
 		]
 	},
@@ -121,8 +120,8 @@
 		"NAME": "Awakening",
 		"DESCRIPTIONS": [
 			"Return an exhausted card to your hand next turn.",
-			"Return an exhausted card to your hand for the next #b",
-			" turns."
+			"Return #b",
+			" exhausted cards to your hand next turn."
 		]
 	},
 		"Shade:CarnophagePower": {
@@ -158,6 +157,14 @@
 		"NAME": "Coordination",
 		"DESCRIPTIONS": [
 		      "Your skeletons' attacks hit all enemies"
+		]
+	},
+		"Shade:MadHubrisPower": {
+		"NAME": "Mad Hubris",
+		"DESCRIPTIONS": [
+		      "At the start of your next turn, your skeletons attack you.",
+		      "At the start of your next turn, your skeletons attack you #b",
+			  " times."		      
 		]
 	}
 }

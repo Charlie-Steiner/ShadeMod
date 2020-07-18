@@ -48,23 +48,26 @@ public class GreaterAnimation extends AbstractShadeCard {
 	public void upgrade() {
 	    if (!this.upgraded) {
 	      upgradeName();
-	      upgradeMagicNumber(1);
+	      this.rawDescription=UPGRADED_DESCRIPTION;
+	      initializeDescription();
 	    } 
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, -1), -1));
-		
-		for(int i=0;i<this.magicNumber;i++){
-			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+		if(!this.upgraded){
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, -1), -1));
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, -1), -1));
 		}
+		
+		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+		
 		for(int i=0;i<this.magicNumber;i++){
 			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
 		}
 		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Wraith()));
 		
-	      AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
+	    AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
 	}
 
 }

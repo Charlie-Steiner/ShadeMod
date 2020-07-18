@@ -56,13 +56,14 @@ public class Doomsay extends AbstractShadeCard{
     public Doomsay() {
         super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
 
-        this.baseDamage = 7;
+        this.baseDamage = 3;
         this.baseMagicNumber = 4;
         this.magicNumber = this.baseMagicNumber;
     }
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
 
 		AbstractDungeon.actionManager.addToBottom(new ScryAction(this.magicNumber));
@@ -75,7 +76,7 @@ public class Doomsay extends AbstractShadeCard{
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeDamage(2);
+            upgradeDamage(1);
             upgradeMagicNumber(2);
         }
     }

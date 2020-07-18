@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
 import shade.ShadeMod;
+import shade.patches.AbstractCardEnum;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -21,23 +22,30 @@ public class SelfBurialAction extends AbstractGameAction {
 	private static final UIStrings uiStrings = CardCrawlGame.languagePack
 			.getUIString("Shade:ReturnExhaustedToDeckAction");
 	public static final String[] TEXT = uiStrings.TEXT;
+	
+	private ArrayList<AbstractCard> spares;
+	private ArrayList<AbstractCard> exhausts;
 
 	public SelfBurialAction() {
 		this.exhausts=new ArrayList();
+		this.spares=new ArrayList();
 		this.p = AbstractDungeon.player;
 		setValues(this.p, AbstractDungeon.player, this.amount);
 		this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
 		this.duration = Settings.ACTION_DUR_FAST;
 	}
 	
-	private ArrayList<AbstractCard> exhausts;
 
 	public void update() {
 		AbstractCard derp;
 		if(!this.p.exhaustPile.isEmpty()) {
 			for(int i=this.p.exhaustPile.size();i>0;i--) {
 				derp = this.p.exhaustPile.getTopCard();
-				this.exhausts.add(derp);
+				if(derp.color==AbstractCardEnum.SHADE) {
+					this.exhausts.add(derp);
+				}else {
+					this.spares.add(derp);
+				}
 				this.p.exhaustPile.group.remove(derp);
 			}
 		}
@@ -53,6 +61,11 @@ public class SelfBurialAction extends AbstractGameAction {
 		for(int i=this.p.hand.size();i>0;i--) {
 			this.p.hand.moveToExhaustPile(this.p.hand.getTopCard());
 		}
+		
+		for(int i=this.spares.size()-1;i>=0;i--) {
+			this.p.exhaustPile.addToRandomSpot(spares.get(i).makeStatEquivalentCopy());
+		}
+		this.spares.clear();
 		
 		
 		CardCrawlGame.sound.play("CARD_OBTAIN");

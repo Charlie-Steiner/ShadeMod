@@ -10,11 +10,13 @@ public class RavenousHordeAction extends AbstractGameAction {
 	private int effect;
 	private int energyOnUse;
 	private boolean upgraded;
-	public RavenousHordeAction(int energy, boolean upgraded)
+	private boolean freeToPlayOnce;
+	public RavenousHordeAction(int energy, boolean upgraded, boolean freeToPlayOnce)
 	{
 		this.energyOnUse = energy;
 		this.effect = this.energyOnUse+1;
 		this.upgraded = upgraded;
+		this.freeToPlayOnce=freeToPlayOnce;
 	}
 	@Override
 	public void update() {
@@ -36,8 +38,9 @@ public class RavenousHordeAction extends AbstractGameAction {
 		if(effect>=threshold) {
 			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
 		}
-
-        AbstractDungeon.player.energy.use(this.energyOnUse);
+		if(!this.freeToPlayOnce) {
+			AbstractDungeon.player.energy.use(this.energyOnUse);
+		}
 		this.isDone = true;
 	}
 

@@ -44,7 +44,7 @@ public class FuneraryArmor
 		
 		this.exhaust = true;
 		
-		this.baseBlock = 9;
+		this.baseBlock = 10;
 		this.block = this.baseBlock;
 	}
 

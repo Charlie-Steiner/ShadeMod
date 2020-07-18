@@ -1,6 +1,7 @@
 package shade.cards;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.status.Wound;
@@ -40,7 +41,7 @@ public class FleshToFlesh
 	public FleshToFlesh() {
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
-		this.baseMagicNumber=3;
+		this.baseMagicNumber=2;
 		this.magicNumber=this.baseMagicNumber;
 	}
 
@@ -64,6 +65,6 @@ public class FleshToFlesh
 	  for(int i=0;i<this.magicNumber;i++){
 		  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
 	  }
-	  AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Wound(), 1, true, true));
+	  AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Wound(), 1));
   }
 }

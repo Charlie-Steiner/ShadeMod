@@ -1,0 +1,129 @@
+package shade.actions;
+
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.ShowCardAndPoofAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
+
+import shade.actions.CleanUpCardAction;
+
+import shade.ShadeMod;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+
+
+public class PlayFromExhaustAction extends AbstractGameAction
+{
+	private AbstractPlayer p;
+	private ArrayList<AbstractCard> classless;
+	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Shade:PlayFromExhaustAction");
+	public static final String[] TEXT = uiStrings.TEXT;
+	
+	public PlayFromExhaustAction() {
+		this.classless = new ArrayList();
+		this.p = AbstractDungeon.player;
+		setValues(this.p, AbstractDungeon.player, this.amount);
+		this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
+		this.duration = Settings.ACTION_DUR_FAST;
+	}
+	  
+	public void update() {
+    	if (this.duration == Settings.ACTION_DUR_FAST) {
+  	      if (this.p.exhaustPile.isEmpty()) {
+  	        this.isDone = true;
+  	        return;
+  	      }
+  	      
+  	    	for (Iterator<AbstractCard> ex = this.p.exhaustPile.group.iterator(); ex.hasNext(); ) {
+  		        AbstractCard derp = (AbstractCard)ex.next();
+  		        if (derp.color.equals(AbstractCard.CardColor.COLORLESS) || derp.color.equals(AbstractCard.CardColor.CURSE)) {
+  		          this.classless.add(derp);
+  		          ex.remove();
+  		        } 
+  		    }
+  	    	
+  	      if (this.p.exhaustPile.isEmpty()) {
+  	    	  this.p.exhaustPile.group.addAll(classless);
+  	    	  this.classless.clear();
+  		        this.isDone = true;
+  		        return;
+  	      }
+  	      
+  	      if (this.p.exhaustPile.size() == 1) {
+  	        AbstractCard c = this.p.exhaustPile.getTopCard();
+  	        playCard(c);
+  	        
+  	    	this.p.exhaustPile.group.addAll(classless);
+  	    	this.classless.clear();
+  	        this.isDone = true;
+  	        
+  	        return;
+  	      } 
+  	      
+  	      for (AbstractCard cx : this.p.exhaustPile.group) {
+  	        cx.stopGlowing();
+  	        cx.unfadeOut();
+  	      }
+  	      
+  	      AbstractDungeon.gridSelectScreen.open(this.p.exhaustPile, 1, TEXT[0], false);
+  	      tickDuration();
+  	      
+  	      return;
+  	    } 
+  	    
+  	    if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+  	      for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
+  	    	playCard(c);
+  	      } 
+  	      AbstractDungeon.gridSelectScreen.selectedCards.clear();
+  	      
+  	    	this.p.exhaustPile.group.addAll(classless);
+  	    	this.classless.clear();
+  	      
+  	      for (AbstractCard cx : this.p.exhaustPile.group) {
+  	        cx.unhover();
+  	        cx.target_x = CardGroup.DISCARD_PILE_X;
+  	        cx.target_y = 0.0F;
+  	      }
+  	    }
+  	    
+
+		tickDuration();
+	}
+	
+	public static void playCard(AbstractCard c) {
+		AbstractMonster t = AbstractDungeon.getMonsters().getRandomMonster(true);
+		
+		
+		c.freeToPlayOnce = true;
+		c.purgeOnUse=true;
+		
+
+		ShadeMod.logger.info("Targeting a monster with a random " + c.type.toString());
+		c.applyPowers();
+		c.freeToPlayOnce=true;
+		c.purgeOnUse=true;
+		AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(c));
+		AbstractDungeon.actionManager.addToTop(new QueueCardAction(c, t));
+		AbstractDungeon.actionManager.addToTop(new ShowCardAndPoofAction(c));
+		AbstractDungeon.actionManager.addToTop(new CleanUpCardAction(c, "exhaust", "nowhere", -1));
+		if (!Settings.FAST_MODE) {
+			AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+		} else {
+			AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
+		}
+	}
+}

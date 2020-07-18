@@ -56,7 +56,6 @@ public class GraveStillness extends AbstractShadeCard {
 	  {
 		  upgradeName();
 		  upgradeBlock(3);
-		  upgradeMagicNumber(1);
 	  }
   }
   

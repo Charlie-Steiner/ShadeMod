@@ -24,7 +24,7 @@ public class ClawBack extends AbstractShadeCard{
     public static String UPGRADED_DESCRIPTION;
     public static final String IMG_PATH = "cards/ClawBack.png";
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
-    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.BASIC;
+    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
 
     private static final int COST = 1;
