@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.ShowCardAndPoofAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -61,34 +62,61 @@ public class PlayRandomFromExhaustAction extends AbstractGameAction
 		}
 		
 		AbstractCard c = this.p.exhaustPile.getRandomCard(true);
+
+		playCard(c);
+		
+		this.p.exhaustPile.group.addAll(misfits);
+		this.misfits.clear();
+	    
+	    this.isDone=true;
+	}
+	
+	public static void playCard(AbstractCard c) {
 		AbstractMonster t = AbstractDungeon.getMonsters().getRandomMonster(true);
 		
 		
-		c.freeToPlayOnce = true;
-		c.purgeOnUse=true;
+//		c.freeToPlayOnce = true;
+//		c.purgeOnUse=true;
 		
 
-		ShadeMod.logger.info("Targeting a monster with a random " + c.type.toString());
+		ShadeMod.logger.info("Targeting a random monster with " + c.type.toString());
 		c.applyPowers();
-		c.freeToPlayOnce=true;
-		c.purgeOnUse=true;
-		AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(c));
-		AbstractDungeon.actionManager.addToTop(new QueueCardAction(c, t));
-		if(this.toDiscard) {
-			AbstractDungeon.actionManager.addToTop(new CleanUpCardAction(c, "exhaust", "discard", -1));
-		}else {
-			AbstractDungeon.actionManager.addToTop(new ShowCardAndPoofAction(c));
-			AbstractDungeon.actionManager.addToTop(new CleanUpCardAction(c, "exhaust", "nowhere", -1));
-		}
+//		c.freeToPlayOnce=true;
+//		c.purgeOnUse=true;
+		
+		/*
+		AbstractCard c2 = c.makeStatEquivalentCopy();
+        c2.current_y = -200.0F * Settings.scale;
+        c2.target_x = Settings.WIDTH / 2.0F + 200.0F * Settings.scale;
+        c2.target_y = Settings.HEIGHT / 2.0F;
+        c2.targetAngle = 0.0F;
+        c2.lighten(false);
+        c2.drawScale = 0.12F;
+        c2.targetDrawScale = 0.75F;
+        AbstractDungeon.actionManager.addToBottom(new ShowCardAndPoofAction(c2));
+		*/
+		
+        AbstractCard tmp = c.makeSameInstanceOf();
+        AbstractDungeon.player.limbo.addToBottom(tmp);
+        tmp.current_x = Settings.WIDTH / 2.0F;
+        tmp.current_y = Settings.HEIGHT / 2.0F;
+        tmp.target_x = Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
+        tmp.target_y = Settings.HEIGHT / 2.0F;
+        
+        if (t != null) {
+          tmp.calculateCardDamage(t);
+        }
+        
+        tmp.purgeOnUse = true;
+        AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, t, AbstractDungeon.player.energy.energy, true, true), true);
+
+        
+		//AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(c, t, false, true));
+		AbstractDungeon.actionManager.addToTop(new CleanUpCardAction(c, "exhaust", "nowhere", -1));
 		if (!Settings.FAST_MODE) {
 			AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
 		} else {
 			AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
 		}
-
-		this.p.exhaustPile.group.addAll(misfits);
-		this.misfits.clear();
-	    
-	    this.isDone=true;
 	}
 }

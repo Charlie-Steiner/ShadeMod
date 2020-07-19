@@ -3,7 +3,7 @@
   "name": "Shade Mod",
   "author_list": ["Jove"],
   "description": "Adds the Shade character to the game. Art credits: CausticImp",
-  "version": "0.2",
+  "version": "0.3",
   "sts_version": "1-27-2020",
   "mts_version": "3.16.0",
   "dependencies": ["basemod", "stslib"],
