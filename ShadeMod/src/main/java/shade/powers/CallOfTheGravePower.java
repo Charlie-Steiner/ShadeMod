@@ -17,7 +17,7 @@ public class CallOfTheGravePower extends AbstractPower {
     public static final String POWER_ID = "Shade:CallOfTheGravePower";
     public static final String NAME = "Potency";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/FirmFortitude.png";
+    public static final String IMG = "powers/call_of_the_grave.png";
 
     public static String[] DESCRIPTIONS;
     
