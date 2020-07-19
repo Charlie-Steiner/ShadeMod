@@ -9,33 +9,33 @@
 	"Shade:TouchOfTheGravePower": {
 		"NAME": "Touch of the Grave",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random exhasuted attack card, then remove it.",
+			"At the start of your turn, play a random #yunearthed attack, then remove it.",
 			"At the start of your turn, play #b",
-			" random exhasuted attack cards, then remove them."
+			" random #yunearthed attacks, then remove them."
 		]
 	},
 	"Shade:TouchOfTheGravePowerUpgraded": {
 		"NAME": "Touch of the Grave +",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random exhasuted attack card, then return it to your discard.",
+			"At the start of your turn, play a random #yunearthed attack, then return it to your discard.",
 			"At the start of your turn, play #b",
-			" random exhasuted attack cards, then return them to your discard."
+			" random #yunearthed attacks, then return them to your discard."
 		]
 	},
 	"Shade:CallOfTheGravePower": {
 		"NAME": "Call of the Grave",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random exhausted class skill, then remove it.",
+			"At the start of your turn, play a random #yunearthed skill, then remove it.",
 			"At the start of your turn, play #b",
-			" random exhasuted class skills, then remove them."
+			" random #yunearthed skills, then remove them."
 		]
 	},
 	"Shade:CallOfTheGravePowerUpgraded": {
 		"NAME": "Call of the Grave +",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random exhausted class skill, then return it to your discard.",
+			"At the start of your turn, play a random #yunearthed skill, then return it to your discard.",
 			"At the start of your turn, play #b",
-			" random exhasuted class skills, then return them to your discard."
+			" random #yunearthed skills, then return them to your discard."
 		]
 	},
 	"Shade:FrenzyDownPower": {
@@ -119,9 +119,9 @@
 		"Shade:AwakenPower": {
 		"NAME": "Awakening",
 		"DESCRIPTIONS": [
-			"Return an exhausted card to your hand next turn.",
+			"Return an #yunearthed card to your hand next turn.",
 			"Return #b",
-			" exhausted cards to your hand next turn."
+			" #yunearthed cards to your hand next turn."
 		]
 	},
 		"Shade:CarnophagePower": {

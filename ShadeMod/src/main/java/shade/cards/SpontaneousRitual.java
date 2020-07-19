@@ -84,10 +84,14 @@ public class SpontaneousRitual extends AbstractShadeCard {
 			tempDamage+=3;
 		}
 		
-		AbstractDungeon.actionManager.addToBottom(new ExhaustFromHandAction(10,true,false,false));
+		AbstractDungeon.actionManager.addToBottom(new ExhaustFromHandAction(p.hand.size(),true,false,false));
 
 	    CardCrawlGame.sound.play("ORB_DARK_EVOKE", 0.1F);
-	    AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, tempDamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+	    
+		DamageInfo d = new DamageInfo(p, tempDamage, this.damageTypeForTurn);
+		d.applyPowers(p, m);
+		
+	    AbstractDungeon.actionManager.addToBottom(new DamageAction(m, d, AbstractGameAction.AttackEffect.FIRE));
 		
 	}
 	
@@ -105,6 +109,26 @@ public class SpontaneousRitual extends AbstractShadeCard {
 
 	public AbstractCard makeCopy() {
 		return new SpontaneousRitual();
+	}
+	
+	public void onMoveToDiscard() {
+		if(this.upgraded) {
+			this.rawDescription = UPGRADED_DESCRIPTION;
+		}else {
+			this.rawDescription = cardStrings.DESCRIPTION;
+		}
+		
+	    initializeDescription();
+	}
+	
+	public void triggerOnExhaust(){
+		if(this.upgraded) {
+			this.rawDescription = UPGRADED_DESCRIPTION;
+		}else {
+			this.rawDescription = cardStrings.DESCRIPTION;
+		}
+		
+	    initializeDescription();
 	}
 
 	public void upgrade() {

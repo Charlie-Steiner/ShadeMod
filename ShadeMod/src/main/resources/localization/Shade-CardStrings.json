@@ -16,8 +16,8 @@
   },
 "Shade:ClawBack": {
     "NAME": "Claw Back",
-    "DESCRIPTION": "Deal !D! damage. NL Return a random exhausted class card to your draw pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Return a random exhausted class card to your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL Return a random shade:unearthed card to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Return a random shade:unearthed card to your draw pile."
   },
   "Shade:AblativeArmor": {
     "NAME": "Ablative Armor",
@@ -38,13 +38,13 @@
   },
   "Shade:TouchOfTheGrave": {
     "NAME": "Touch of the Grave",
-    "DESCRIPTION": "At the start of your turn, play a random exhausted Shade attack and remove it from play.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random exhausted Shade attack and remove it from play."
+    "DESCRIPTION": "At the start of your turn, play a random shade:unearthed attack and remove it from play.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random shade:unearthed attack and remove it from play."
   },
   "Shade:CallOfTheGrave": {
     "NAME": "Call of the Grave",
-    "DESCRIPTION": "At the start of your turn, play a random exhausted Shade skill and remove it from play.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random exhausted Shade skill and remove it from play."
+    "DESCRIPTION": "At the start of your turn, play a random shade:unearthed skill and remove it from play.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random shade:unearthed skill and remove it from play."
   },
   "Shade:Bonestorm": {
     "NAME": "Bonestorm",
@@ -98,14 +98,14 @@
   },
   "Shade:SelfBurial": {
     "NAME": "Self-burial",
-    "DESCRIPTION": "Exchange ALL unexhausted cards for your exhausted ones. NL Draw !M! cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Exchange ALL unexhausted cards for your exhausted ones. NL Draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Exchange ALL unexhausted cards for ALL shade:unearthed cards. NL Draw !M! cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exchange ALL unexhausted cards for ALL shade:unearthed cards. NL Draw !M! cards. NL Exhaust."
   },
   "Shade:GreyBargain": {
     "NAME": "Grey Bargain",
-    "DESCRIPTION": "Return an exhausted card to your draw pile by exhausting a card in your hand.",
-    "UPGRADE_DESCRIPTION": "Return an exhausted card to your draw pile by exhausting a card in your hand. NL Draw a card.",
-    "EXTENDED_DESCRIPTION": ["I need a card in hand."]
+    "DESCRIPTION": "Return an shade:unearthed card to your draw pile by exhausting a card in your hand.",
+    "UPGRADE_DESCRIPTION": "Return an shade:unearthed card to your draw pile by exhausting a card in your hand. NL Draw a card.",
+    "EXTENDED_DESCRIPTION": ["I need a card to exhaust."]
   },
   "Shade:FleshLikeOak": {
     "NAME": "Flesh Like Oak",
@@ -214,7 +214,8 @@
   "Shade:Trample": {
     "NAME": "Trample",
     "DESCRIPTION": "Deal damage equal to !M! times your number of zombies.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to !M! times your number of zombies."
+    "UPGRADE_DESCRIPTION": "Deal damage equal to !M! times your number of zombies.",
+    "EXTENDED_DESCRIPTION": [" NL ( !D! damage )"]
   },
   "Shade:PressTheAttack": {
     "NAME": "Press the Attack",
@@ -228,8 +229,8 @@
   },
   "Shade:Awaken": {
     "NAME": "Awaken",
-    "DESCRIPTION": "At the start of next turn, choose an exhausted card and return it to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "At the start of next turn, choose an exhausted card and return it to your hand. NL Exhaust."
+    "DESCRIPTION": "At the start of next turn, choose an shade:unearthed card and return it to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "At the start of next turn, choose an shade:unearthed card and return it to your hand. NL Exhaust."
   },
   "Shade:Haruspicy": {
     "NAME": "Haruspicy",
@@ -248,8 +249,8 @@
   },
   "Shade:Premonition": {
     "NAME": "Premonition",
-    "DESCRIPTION": "Gain !B! Block. NL Whenever you summon a wraith, move this to your hand from wherever it is.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Whenever you summon a wraith, move this to your hand from wherever it is."
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you summon a wraith, move this to your hand from WHEREVER it is.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Whenever you summon a wraith, move this to your hand from WHEREVER it is."
   },
   "Shade:SkeletonHug": {
     "NAME": "Skeleton Hug",
@@ -268,8 +269,8 @@
   },
   "Shade:UnbarTheGrave": {
     "NAME": "Unbar the Grave",
-    "DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return !M! random exhausted cards to your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return !M! random exhausted cards to your draw pile. NL Exhaust."
+    "DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return !M! random shade:unearthed cards to your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return !M! random shade:unearthed cards to your draw pile. NL Exhaust."
   },
   "Shade:Carnophage": {
     "NAME": "Carnophage",
@@ -355,7 +356,7 @@
     "NAME": "Spontaneous Ritual",
     "DESCRIPTION": "Exhaust your hand. NL Deal damage for each card exhausted this combat.",
     "UPGRADE_DESCRIPTION": "Add 3 *Wounds to your hand. NL Exhaust your hand. NL Deal damage for each card exhausted this combat.",
-  	"EXTENDED_DESCRIPTION": [" NL ( !M! cards )"]
+  	"EXTENDED_DESCRIPTION": [" NL ( !M! cards so far )"]
   },
   "Shade:CarefulCut": {
     "NAME": "Careful Cut",
@@ -374,7 +375,7 @@
   },
   "Shade:LastGasp": {
     "NAME": "Last Gasp",
-    "DESCRIPTION": "Ethereal. NL Play a card from your exhaust pile, then remove it from play.",
-    "UPGRADE_DESCRIPTION": "Play a card from your exhaust pile, then remove it from play."
+    "DESCRIPTION": "Ethereal. NL Choose an shade:unearthed card, play it, then remove it from play.",
+    "UPGRADE_DESCRIPTION": "Choose an shade:unearthed card, play it, then remove it from play."
   }
 }

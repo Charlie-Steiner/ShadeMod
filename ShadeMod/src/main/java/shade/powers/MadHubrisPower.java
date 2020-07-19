@@ -52,7 +52,7 @@ public class MadHubrisPower extends AbstractPower {
     			int damage = s.passiveAmount+s.passiveBonus;
     			for(int j=0;j<s.count;j++) {
 			    	AbstractDungeon.actionManager.addToTop(new DamageAction(owner,
-			                new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS),AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+			                new DamageInfo(AbstractDungeon.getRandomMonster(), damage, DamageInfo.DamageType.THORNS),AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     			}
     		}
     	}

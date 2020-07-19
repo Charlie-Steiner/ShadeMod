@@ -12,6 +12,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
@@ -359,6 +361,22 @@ public class ShadeMod implements PostInitializeSubscriber,
 		logger.info("done editing strings");
 
 	}
+    
+    public void receiveEditKeywords() {
+        Gson gson = new Gson();
+        
+        logger.info("Adding keywords:");
+        String keywordStrings=Gdx.files.internal("localization/Shade-KeywordStrings.json")
+				.readString(String.valueOf(StandardCharsets.UTF_8));
+        Keyword[] keywords = (Keyword[])gson.fromJson(keywordStrings, Keyword[].class);
+
+        if (keywords != null) {
+          for (Keyword keyword : keywords) {
+            BaseMod.addKeyword("shade", keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+            logger.info(keyword.PROPER_NAME);
+          }
+        }
+     }
 
     @Override
 	public void receivePostPowerApplySubscriber(AbstractPower power, AbstractCreature target, AbstractCreature source) {
@@ -396,10 +414,6 @@ public class ShadeMod implements PostInitializeSubscriber,
 			
 			combatExhausts = 0;
 	    }
-	}
-
-	public void receiveEditKeywords() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override

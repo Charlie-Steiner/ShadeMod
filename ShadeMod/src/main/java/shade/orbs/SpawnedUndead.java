@@ -269,6 +269,7 @@ public void spawnVFX(){
 			this.updateDescription();
 		}else{
 			nR=count;
+			ShadeMod.logger.info("Removing last undead: Yorick count " + AbstractDungeon.player.getRelic("Shade:YorickSkull").counter);
 	    	AbstractDungeon.player.orbs.set(index, new EmptySlot());
 	        ((AbstractOrb)AbstractDungeon.player.orbs.get(index)).setSlot(index, AbstractDungeon.player.maxOrbs);
 		}

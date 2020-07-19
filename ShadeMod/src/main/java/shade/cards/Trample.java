@@ -64,11 +64,39 @@ public class Trample
 		
 		this.damage=this.baseDamage;
 		
+		DamageInfo d = new DamageInfo(p, this.damage, this.damageTypeForTurn);
+		d.applyPowers(p, m);
+		
 		AbstractDungeon.actionManager
-				.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
-						AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+				.addToBottom(new DamageAction(m, d, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+	}
+	
+	public void calculateCardDamage(AbstractMonster mo) {
+		
+		this.baseDamage = 0;
+		if (AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
+			this.baseDamage += this.magicNumber*((SpawnedUndead) AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+		}
+		
+	    super.calculateCardDamage(mo);
+	    
+	    this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+    	
+	    initializeDescription();
 	}
 
+	  
+	public void onMoveToDiscard() {
+		this.rawDescription = cardStrings.DESCRIPTION;
+		
+	    initializeDescription();
+	}
+	
+	public void triggerOnExhaust(){
+		this.rawDescription = cardStrings.DESCRIPTION;
+
+	    initializeDescription();
+	}
   
   public AbstractCard makeCopy() { return new Trample(); }
 

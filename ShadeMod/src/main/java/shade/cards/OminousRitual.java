@@ -91,6 +91,26 @@ public class OminousRitual extends AbstractShadeCard {
 	public AbstractCard makeCopy() {
 		return new OminousRitual();
 	}
+	
+	public void onMoveToDiscard() {
+		if(this.upgraded) {
+			this.rawDescription = UPGRADED_DESCRIPTION;
+		}else {
+			this.rawDescription = cardStrings.DESCRIPTION;
+		}
+		
+	    initializeDescription();
+	}
+	
+	public void triggerOnExhaust(){
+		if(this.upgraded) {
+			this.rawDescription = UPGRADED_DESCRIPTION;
+		}else {
+			this.rawDescription = cardStrings.DESCRIPTION;
+		}
+		
+	    initializeDescription();
+	}
 
 	public void upgrade() {
 		if (!this.upgraded) {

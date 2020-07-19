@@ -1,37 +1,16 @@
 Card Bugs+Balance:
-
-OneIsEnough should still eat your energy and exhaust if played with undead. Just needs exhaust tag.
-
-Need to make CallOfTheGrave not replay apparitions. (done)
-
-Need a tooltip about how shade cards only get back shade cards, not statuses, curses, or colorless cards. Or need to make a keyword for this concept.
-
-Zombies don't block MadHubris, probably would fun if they did?
-
-Spontaneous ritual does 1 too much damage? Probably counts itself as a card in hand during effect calculation. (I think it's fixed, but need to keep an eye on this one to check for edge cases where it's broken)
-
-SpontaneousRitual doesn't update count while in exhaust. Does OminousRitual?
-
-Should also check if spontaneous ritual is affected by strength / vulnerable properly. Spontaneous ritual isn't affect by strength, vuln, or weak.
-
-Trample now deals damage and scales with strength, but isn't affected by vulnerable, though is affected by weakened. (removed applypowers from card use? Not sure what's going on)
-
-Lich form a bit too good / not interesting (trying only skeletons)
+Add ExtendedDescription estimate of damage to Trample? (check that it is applied when drawn naturally)
 
 Change description on skeletons when coordination is in play.
 
-minions Power doesn't seem to update description at all. (???) (maybe fixed by overriding stackPower and ReducePower to force description updates) (nope, still broke!) (Is this fixed or is it a charlie computer problem?)
+Make call and Touch of the grave, and Last Gasp, legibly flash what card they're replaying.
 
-Make call and Touch of the grave, and Last Gasp, legibly flash what card they're replaying. (maybe they need unfadeout and stopglowing on the shown card?)
-
-Nerf wraiths on damage on the assumption that you'll want a scaling rare with them?
+Nerf wraith damage a little?
 
 General Todo:
 Spire shield shouldn't give you -focus.
 
 Maybe make a special change to zombie's calculated block, or a tooltip, for speed potion, to make it clear that it won't help?
-
-Set up keywords for zombie, skeleton, wraith?
 
 Wraith art often doesn't "pop" (add blurry white border?)
 

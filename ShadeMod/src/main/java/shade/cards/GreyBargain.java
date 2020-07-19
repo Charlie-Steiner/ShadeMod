@@ -69,7 +69,7 @@ public class GreyBargain
 		if (!canUse) {
 			return false;
 		}
-		if (p.hand.size()==0) {
+		if (p.hand.size()==0 || (p.hand.size()==1 && p.hand.contains(this)) ) {
 			canUse = false;
 			this.cantUseMessage = EXTENDED_DESCRIPTION[0];
 		}

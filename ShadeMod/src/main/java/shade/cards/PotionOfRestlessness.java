@@ -45,11 +45,12 @@ public class PotionOfRestlessness extends AbstractShadeCard {
 	public void applyPowers() {
 	    super.applyPowers();
 	    
-		if(AbstractDungeon.player.getPower("Shade:MinionsPower").amount>1) {
-			this.baseMagicNumber=AbstractDungeon.player.getPower("Shade:MinionsPower").amount - 1;
-		}else{
-			this.baseMagicNumber=1;
-		}
+	    this.baseMagicNumber=1;
+	    if(AbstractDungeon.player.hasPower("Shade:MinionsPower")) {
+			if(AbstractDungeon.player.getPower("Shade:MinionsPower").amount>1) {
+				this.baseMagicNumber=AbstractDungeon.player.getPower("Shade:MinionsPower").amount - 1;
+			}
+	    }
 		this.magicNumber=this.baseMagicNumber;
 	    
 	    if (this.magicNumber > 0) {

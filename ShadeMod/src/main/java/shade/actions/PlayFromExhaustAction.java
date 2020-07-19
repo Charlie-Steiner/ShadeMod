@@ -3,6 +3,7 @@ package shade.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.ShowCardAndPoofAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -116,14 +117,21 @@ public class PlayFromExhaustAction extends AbstractGameAction
 		c.applyPowers();
 		c.freeToPlayOnce=true;
 		c.purgeOnUse=true;
-		AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(c));
-		AbstractDungeon.actionManager.addToTop(new QueueCardAction(c, t));
-		AbstractDungeon.actionManager.addToTop(new ShowCardAndPoofAction(c));
+		
+        c.current_y = -200.0F * Settings.scale;
+        c.target_x = Settings.WIDTH / 2.0F + 200.0F * Settings.scale;
+        c.target_y = Settings.HEIGHT / 2.0F;
+        c.targetAngle = 0.0F;
+        c.lighten(false);
+        c.drawScale = 0.12F;
+        c.targetDrawScale = 0.75F;
+		
+		AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(c, t, false, true));
 		AbstractDungeon.actionManager.addToTop(new CleanUpCardAction(c, "exhaust", "nowhere", -1));
 		if (!Settings.FAST_MODE) {
 			AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
 		} else {
-			AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
+			AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_FAST));
 		}
 	}
 }
