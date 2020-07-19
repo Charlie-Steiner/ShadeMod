@@ -12,9 +12,8 @@ import shade.actions.UndeadSpawnAction;
 public class LichFormPower extends AbstractPower {
 	
     public static final String POWER_ID = "Shade:LichFormPower";
-    public static final String NAME = "Potency";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/Lich.png";
+    public static final String IMG = "powers/lich.png";
 
     public static String[] DESCRIPTIONS;
     

@@ -136,7 +136,7 @@
   "Shade:FuneraryJewels": {
     "NAME": "Funerary Jewels",
     "DESCRIPTION": "Gain !B! Block. Draw !M! card. Gain [E]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. Draw !M! cards. Gain [E]. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. Draw !M! card. Gain [E]. NL Exhaust."
   },
   "Shade:DangerousRitual": {
     "NAME": "Dangerous Ritual",
@@ -249,8 +249,8 @@
   },
   "Shade:Premonition": {
     "NAME": "Premonition",
-    "DESCRIPTION": "Gain !B! Block. NL Whenever you summon a wraith, move this to your hand from WHEREVER it is.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Whenever you summon a wraith, move this to your hand from WHEREVER it is."
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you summon a wraith, move this to your hand from wherever it is.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Whenever you summon a wraith, move this to your hand from wherever it is."
   },
   "Shade:SkeletonHug": {
     "NAME": "Skeleton Hug",
@@ -294,8 +294,8 @@
   },
   "Shade:LoseControl": {
     "NAME": "Lose Control",
-    "DESCRIPTION": "Add 2 *Wounds to your hand. Draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Add 2 *Wounds to your hand. Draw !M! cards."
+    "DESCRIPTION": "Add 2 *Wounds to your hand and 1 to your discard pile. NL Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Add 2 *Wounds to your hand and 1 to your discard pile. NL Draw !M! cards."
   },
   "Shade:FleshOffering": {
     "NAME": "Flesh Offering",

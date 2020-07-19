@@ -49,7 +49,7 @@ public class FleshOffering
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
-		this.baseBlock=16;
+		this.baseBlock=14;
 		this.block=this.baseBlock;
   }
 
@@ -59,7 +59,7 @@ public class FleshOffering
   public void upgrade() {    
 	  if (!this.upgraded) {
 	      upgradeName(); 
-	      upgradeBlock(6);
+	      upgradeBlock(5);
 	  }
 	  
   }

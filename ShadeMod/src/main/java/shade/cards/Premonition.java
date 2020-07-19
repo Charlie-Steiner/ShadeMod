@@ -46,7 +46,7 @@ public class Premonition
   public Premonition() {
       super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
    
-	    this.baseBlock=6;
+	    this.baseBlock=5;
 	    this.block=this.baseBlock;
 
   }

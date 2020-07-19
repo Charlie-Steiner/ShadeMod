@@ -68,10 +68,7 @@ public class FuneraryJewels
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-		    upgradeMagicNumber(1);
-		    upgradeBlock(1);
-		      this.rawDescription=UPGRADED_DESCRIPTION;
-		      initializeDescription();
+		    upgradeBlock(2);
 		}
 	}
 }

@@ -1,11 +1,11 @@
 Card Bugs+Balance:
+Check that lich form doesn't crash game.
+
 Add ExtendedDescription estimate of damage to Trample? (check that it is applied when drawn naturally)
 
 Change description on skeletons when coordination is in play.
 
-Make call and Touch of the grave, and Last Gasp, legibly flash what card they're replaying.
-
-Nerf wraith damage a little?
+Make call and Touch of the grave, and Last Gasp, legibly flash what card they're replaying. (looks like copying DarkOfNight's scheme works!)
 
 General Todo:
 Spire shield shouldn't give you -focus.

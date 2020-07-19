@@ -15,6 +15,7 @@ import shade.actions.ReturnExhaustedToDeckAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 
 import shade.patches.AbstractCardEnum;
@@ -56,6 +57,7 @@ public class LoseControl
 
   public void use(AbstractPlayer p, AbstractMonster m) {
 	  AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Wound(), 2));
+	  AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Wound(), 1));
 	  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,this.magicNumber));
   }
 
