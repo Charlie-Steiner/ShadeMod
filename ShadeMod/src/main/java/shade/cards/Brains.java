@@ -70,7 +70,9 @@ public class Brains
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
+	        this.rawDescription=UPGRADED_DESCRIPTION;
 		    upgradeMagicNumber(1);
+	        initializeDescription();
 		}
 	}
 }

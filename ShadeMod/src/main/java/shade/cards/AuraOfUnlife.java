@@ -51,7 +51,6 @@ public class AuraOfUnlife extends AbstractShadeCard {
 		}
 		this.magicNumber=this.baseMagicNumber;
 	    
-		upgradeBaseCost(0);
 	    if (this.magicNumber > 0) {
 	      this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
 	      initializeDescription();
@@ -68,6 +67,7 @@ public class AuraOfUnlife extends AbstractShadeCard {
 	public void upgrade() {
 	    if (!this.upgraded) {
 	      upgradeName();
+			upgradeBaseCost(0);
 		    this.rawDescription=UPGRADED_DESCRIPTION;
 		    initializeDescription();
 	    } 
