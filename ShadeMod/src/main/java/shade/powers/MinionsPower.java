@@ -1,5 +1,7 @@
 package shade.powers;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,6 +20,7 @@ import shade.characters.ShadeCharacter;
 import shade.orbs.Skeleton;
 import shade.orbs.SpawnedUndead;
 import shade.ui.ShadeTipTracker;
+import shade.ui.TextureLoader;
 
 
 public class MinionsPower extends AbstractPower {
@@ -25,7 +28,9 @@ public class MinionsPower extends AbstractPower {
     public static final String POWER_ID = "Shade:MinionsPower";
     public static final String NAME = "Minions";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/minions.png";
+    public static final String IMG = "powers/minions";
+    private static final Texture tex84 = TextureLoader.getTexture(ShadeMod.getResourcePath(IMG+"_84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(ShadeMod.getResourcePath(IMG+"_32.png"));
 
     public static String[] DESCRIPTIONS;
     private AbstractCreature source;
@@ -35,8 +40,10 @@ public class MinionsPower extends AbstractPower {
     	this.ID = POWER_ID;
     	this.owner = owner;
     	this.amount = amt;
-        this.img = new com.badlogic.gdx.graphics.Texture(ShadeMod.getResourcePath(IMG));
         this.type = POWER_TYPE;
+        
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         this.DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(this.ID).DESCRIPTIONS;
         this.name = CardCrawlGame.languagePack.getPowerStrings(this.ID).NAME;

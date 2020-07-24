@@ -1,5 +1,6 @@
 package shade.powers;
 
+
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -16,12 +17,19 @@ import shade.ShadeMod;
 import shade.actions.ReturnExhaustedToHandAction;
 import shade.characters.ShadeCharacter;
 
+import com.badlogic.gdx.graphics.Texture;
+import shade.ui.TextureLoader;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+
 
 public class AwakenPower extends AbstractPower {
 	
     public static final String POWER_ID = "Shade:AwakenPower";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/awaken.png";
+    public static final String IMG = "powers/awaken";
+    private static final Texture tex84 = TextureLoader.getTexture(ShadeMod.getResourcePath(IMG+"_84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(ShadeMod.getResourcePath(IMG+"_32.png"));
+
 
     public static String[] DESCRIPTIONS;
     
@@ -30,8 +38,10 @@ public class AwakenPower extends AbstractPower {
     	this.ID = POWER_ID;
     	this.owner = owner;
     	this.amount = newAmount;
-        this.img = new com.badlogic.gdx.graphics.Texture(ShadeMod.getResourcePath(IMG));
         this.type = POWER_TYPE;
+        
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         this.DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(this.ID).DESCRIPTIONS;
         this.name = CardCrawlGame.languagePack.getPowerStrings(this.ID).NAME;

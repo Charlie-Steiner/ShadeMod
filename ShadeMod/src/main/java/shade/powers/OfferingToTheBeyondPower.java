@@ -7,17 +7,21 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
-
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 
 import shade.ShadeMod;
 import shade.actions.UndeadSpawnAction;
+import shade.ui.TextureLoader;
 
 public class OfferingToTheBeyondPower extends TwoAmountPower {
 	
     public static final String POWER_ID = "Shade:OfferingToTheBeyondPower";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/offering_to_the_beyond.png";
+    public static final String IMG = "powers/offering_to_the_beyond";
+    private static final Texture tex84 = TextureLoader.getTexture(ShadeMod.getResourcePath(IMG+"_84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(ShadeMod.getResourcePath(IMG+"_32.png"));
 
     public static String[] DESCRIPTIONS;
     private final static int CARDS = 3;
@@ -29,8 +33,10 @@ public class OfferingToTheBeyondPower extends TwoAmountPower {
     	this.owner = owner;
     	this.amount = amt;
     	this.amount2 = CARDS;
-        this.img = new com.badlogic.gdx.graphics.Texture(ShadeMod.getResourcePath(IMG));
         this.type = POWER_TYPE;
+        
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         this.DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(this.ID).DESCRIPTIONS;
         this.name = CardCrawlGame.languagePack.getPowerStrings(this.ID).NAME;

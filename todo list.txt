@@ -1,11 +1,48 @@
 Card Bugs+Balance:
-Check that lich form doesn't crash game.
+Buff OneIsEnough to do something (like remove your undead and gain block) if you have undead.
+
+Upgrade carnophage to give you a defensive bonus on drawing a status/curse? The upgrade to innate is bad.
+
+Re-buff skeleton hug a bit? Remove vulnerable to increase weak?
+
+Make excise say draw a card.
+
+Think about adding more energy scaling?
+
+Make zombies scale with 1/2 str rather than floor(1/2)?
+
+Try buffing flesh to flesh somehow.
+
+double check that potioning your minionsPower.
+
+Against intangible, grouping up the skeletons distorts the actual amount of damage.
+
+Think about bufffing Ravenous Horde in terms of block per energy.
+
+Potion of restlessness+ in your hand may have broken text.
+
+Bryan:
+"
+Zombie block wasn't updated when I drank a dex potion.  Summoning another zombie fixes.Asphyxiate doesn't deal damage, it causes hp loss.  (Ignored Byrd flight).	Stitch Together works on curses.	Spire Shield still gives focus down.+2 dexterity potionPermanent
+Grave Stillness/Putrefaction interaction.  If you have zombies, then 0 zombies decay, it will apply 0 poison to all enemies.  This breaks the debuff and applying more poison won't fix it.This may only bug if they don't already have poison.
+Spontaneous Ritual+ doesn't exhaust your whole hand
+"
+
+Flesh to flesh to add wound to hand?
+
+Grey bargain mistakenly draws the card before returning the thing, meaning it shuffles if you play with 0 cards in deack.
+
+Check interaction between play from exhaust and cards with canUse conditions
 
 Add ExtendedDescription estimate of damage to Trample? (check that it is applied when drawn naturally)
 
 Change description on skeletons when coordination is in play.
 
-Make call and Touch of the grave, and Last Gasp, legibly flash what card they're replaying. (looks like copying DarkOfNight's scheme works!)
+Asphyxiate does too much damage to birds.
+
+Sense prey slightly too good (and still hard to balance)
+
+Extra limbs only hits twice upon replay by touch of the grave (rituals seem fine though)
 
 General Todo:
 Spire shield shouldn't give you -focus.
