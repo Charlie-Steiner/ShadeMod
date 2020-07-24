@@ -3,6 +3,7 @@ package shade.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -80,19 +81,27 @@ public class SpontaneousRitual extends AbstractShadeCard {
 
 	    
 		if(this.upgraded) {
-			AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(new Wound(), 3));
-			tempDamage+=3;
+			
+				tempDamage+= 3 - java.lang.Math.max(p.hand.size()-8, 0);	//when hand is too large, dont add the full 3 to damage (extra wounds are automatically discarded)
+				AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(new Wound(), 3));
 		}
 		
-		AbstractDungeon.actionManager.addToBottom(new ExhaustFromHandAction(p.hand.size(),true,false,false));
+		AbstractDungeon.actionManager.addToBottom(new ExhaustFromHandAction(tempDamage,true,false,false));	//p.hand.size() not updading correctly for some reason
 
 	    CardCrawlGame.sound.play("ORB_DARK_EVOKE", 0.1F);
+	    
 	    
 		DamageInfo d = new DamageInfo(p, tempDamage, this.damageTypeForTurn);
 		d.applyPowers(p, m);
 		
 	    AbstractDungeon.actionManager.addToBottom(new DamageAction(m, d, AbstractGameAction.AttackEffect.FIRE));
-		
+
+	    
+	    if(AbstractDungeon.player.hasRelic("Unceasing Top"))	//hack to get around unceasing top not triggering correctly
+		{
+			  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,1));
+		}
+	    
 	}
 	
 	  public void calculateCardDamage(AbstractMonster mo) {

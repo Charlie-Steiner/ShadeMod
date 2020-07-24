@@ -45,7 +45,9 @@ public class Putrefaction extends AbstractShadeCard {
 	public void upgrade() {
 	    if (!this.upgraded) {
 	      upgradeName();
-	      this.isInnate = true;
+
+	      upgradeBaseCost(1);
+	      //this.isInnate = true;
 	      this.rawDescription=UPGRADED_DESCRIPTION;
 	      initializeDescription();
 	    } 

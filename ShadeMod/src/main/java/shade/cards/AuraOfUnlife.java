@@ -45,7 +45,7 @@ public class AuraOfUnlife extends AbstractShadeCard {
 	    super.applyPowers();
 	    
 		if(!this.upgraded) {
-			this.baseMagicNumber=AbstractDungeon.player.getPower("Shade:MinionsPower").amount + 1;
+			this.baseMagicNumber=AbstractDungeon.player.getPower("Shade:MinionsPower").amount + 2;
 		}else {
 			this.baseMagicNumber=AbstractDungeon.player.getPower("Shade:MinionsPower").amount + 2;
 		}
@@ -67,6 +67,7 @@ public class AuraOfUnlife extends AbstractShadeCard {
 	public void upgrade() {
 	    if (!this.upgraded) {
 	      upgradeName();
+			upgradeBaseCost(0);
 		    this.rawDescription=UPGRADED_DESCRIPTION;
 		    initializeDescription();
 	    } 

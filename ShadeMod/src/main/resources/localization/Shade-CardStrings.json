@@ -171,7 +171,7 @@
   },
   "Shade:AuraOfUnlife": {
     "NAME": "Aura of Unlife",
-    "DESCRIPTION": "Your zombies and skeletons take one turn longer to decay.",
+    "DESCRIPTION": "Your zombies and skeletons take two turns longer to decay.",
     "UPGRADE_DESCRIPTION": "Your zombies and skeletons take two turns longer to decay.",
     "EXTENDED_DESCRIPTION": [" NL ( 1/ !M! per turn )"]
   },
@@ -239,8 +239,8 @@
   },
   "Shade:Brains": {
     "NAME": "Brains",
-    "DESCRIPTION": "Summon a zombie. NL Draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Summon a zombie. NL Draw !M! cards."
+    "DESCRIPTION": "Summon a zombie. NL Draw 2 cards.",
+    "UPGRADE_DESCRIPTION": "Summon two zombies. NL Draw 2 cards."
   },
   "Shade:ScuttlingHand": {
     "NAME": "Scuttling Hand",
@@ -254,8 +254,8 @@
   },
   "Shade:SkeletonHug": {
     "NAME": "Skeleton Hug",
-    "DESCRIPTION": "Summon a skeleton. NL Deal !D! damage. NL Apply !M! Weak and !M! Vulnerable.",
-    "UPGRADE_DESCRIPTION": "Summon a skeleton. NL Deal !D! damage. NL Apply !M! Weak and !M! Vulnerable."
+    "DESCRIPTION": "Summon a skeleton. NL Deal !D! damage. NL Apply !M! Weak.",
+    "UPGRADE_DESCRIPTION": "Summon a skeleton. NL Deal !D! damage. NL Apply !M! Weak."
   },
   "Shade:BoneShards": {
     "NAME": "Bone Shards",
@@ -320,7 +320,7 @@
   "Shade:Putrefaction": {
     "NAME": "Putrefaction",
     "DESCRIPTION": "Whenever a zombie dies, apply !M! Poison to all enemies.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever a zombie dies, apply !M! Poison to all enemies."
+    "UPGRADE_DESCRIPTION": "Whenever a zombie dies, apply !M! Poison to all enemies."
   },
   "Shade:PoundOfFlesh": {
     "NAME": "Pound of Flesh",

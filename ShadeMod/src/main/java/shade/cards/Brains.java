@@ -49,14 +49,16 @@ public class Brains
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
-		this.baseMagicNumber=2;
+		this.baseMagicNumber=1;
 		this.magicNumber=this.baseMagicNumber;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-
-	  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,this.magicNumber));
+	  
+	  for(int i=0;i<this.magicNumber;i++){
+		  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+	  }
+	  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,2));
   }
 
 
@@ -68,7 +70,9 @@ public class Brains
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
+	        this.rawDescription=UPGRADED_DESCRIPTION;
 		    upgradeMagicNumber(1);
+	        initializeDescription();
 		}
 	}
 }
