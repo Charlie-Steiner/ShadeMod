@@ -41,7 +41,7 @@ public class FleshToFlesh
 	public FleshToFlesh() {
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
-		this.baseMagicNumber=2;
+		this.baseMagicNumber=3;
 		this.magicNumber=this.baseMagicNumber;
 	}
 
