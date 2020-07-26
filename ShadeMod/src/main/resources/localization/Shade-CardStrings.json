@@ -63,8 +63,8 @@
   },
     "Shade:RavenousHorde": {
     "NAME": "Ravenous Horde",
-    "DESCRIPTION": "Lose !M! HP. NL Summon 2X zombies.",
-    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Summon 2X+1 zombies."
+    "DESCRIPTION": "Lose !M! HP. NL Summon 2 X zombies.",
+    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Summon 2 X + 1 zombies."
   },
     "Shade:LichForm": {
     "NAME": "Lich Form",
@@ -370,8 +370,8 @@
   },
   "Shade:OneIsEnough": {
     "NAME": "One Is Enough",
-    "DESCRIPTION": "If you have no undead, deal !D! damage X times. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "If you have no undead, deal !D! damage X+1 times. NL Exhaust."
+    "DESCRIPTION": "Sacrifice all your undead for 2 X block each and X [E]. NL If you have none, instead deal !D! damage X times.",
+    "UPGRADE_DESCRIPTION": "Sacrifice all your undead for 2 X block each and X [E]. NL If you have none, instead deal !D! damage X times."
   },
   "Shade:LastGasp": {
     "NAME": "Last Gasp",

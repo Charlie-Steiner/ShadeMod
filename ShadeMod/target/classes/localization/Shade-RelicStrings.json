@@ -1,9 +1,0 @@
-{
-  "Shade:YorickSkull": {
-    "NAME": "Yorick's Skull",
-    "FLAVOR": "I knew him, alas.",
-    "DESCRIPTIONS": [
-      "Start each combat with a zombie. Whenever you play #b10 cards, summon a zombie."
-    ]
-  }
-}
