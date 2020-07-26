@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 
 import shade.ShadeMod;
 import shade.patches.AbstractCardEnum;
+import shade.relics.Thing;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -37,6 +38,7 @@ public class SelfBurialAction extends AbstractGameAction {
 	
 
 	public void update() {
+		
 		AbstractCard derp;
 		if(!this.p.exhaustPile.isEmpty()) {
 			for(int i=this.p.exhaustPile.size();i>0;i--) {
@@ -74,6 +76,8 @@ public class SelfBurialAction extends AbstractGameAction {
 		}
 		this.exhausts.clear();
 		
+		
+
 		
 		this.isDone = true;
 	}

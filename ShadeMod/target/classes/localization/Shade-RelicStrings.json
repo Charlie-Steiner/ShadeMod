@@ -5,5 +5,19 @@
     "DESCRIPTIONS": [
       "Start each combat with a zombie. Whenever you play #b10 cards, summon a zombie."
     ]
+  },
+  "Shade:YorickPolishedSkull": {
+    "NAME": "Yorick's Polished Skull",
+    "FLAVOR": "I knew him, alas.",
+    "DESCRIPTIONS": [
+      "Start each combat with a zombie and a skeleton. Whenever you play #b10 cards, summon a zombie and a skeleton."
+    ]
+  },
+    "Shade:Thing": {
+    "NAME": "Thing",
+    "FLAVOR": "Its creepy.",
+    "DESCRIPTIONS": [
+      "When you exhume a card, gain 3 block."
+    ]
   }
 }
