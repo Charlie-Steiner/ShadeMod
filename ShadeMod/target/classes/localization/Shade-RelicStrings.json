@@ -17,7 +17,7 @@
     "NAME": "Thing",
     "FLAVOR": "Its creepy.",
     "DESCRIPTIONS": [
-      "When you exhume a card, gain 3 block."
+      "When you exhume a card from your exhaust to your hand or deck, gain 3 block."
     ]
   }
 }

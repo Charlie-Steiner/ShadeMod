@@ -97,6 +97,7 @@ public class PlayRandomFromExhaustAction extends AbstractGameAction
 		*/
 		
         AbstractCard tmp = c.makeSameInstanceOf();
+        tmp.magicNumber = c.magicNumber;
         AbstractDungeon.player.limbo.addToBottom(tmp);
         tmp.current_x = Settings.WIDTH / 2.0F;
         tmp.current_y = Settings.HEIGHT / 2.0F;

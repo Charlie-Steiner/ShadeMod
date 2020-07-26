@@ -46,7 +46,6 @@ public class OneIsEnough extends AbstractShadeCard{
 		super(ID,NAME,ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
 		this.baseDamage = 11;
 		this.damage = this.baseDamage;
-		this.exhaust = true;
 	}
 	
 	public AbstractCard makeCopy()

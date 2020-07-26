@@ -390,6 +390,7 @@ public class ShadeMod implements PostInitializeSubscriber,
 					AbstractOrb u = AbstractDungeon.player.orbs.get(i);
 					if (!(u instanceof EmptyOrbSlot))
 					{
+						u.applyFocus();
 						u.updateDescription();
 					}
 				}

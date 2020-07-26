@@ -1,14 +1,14 @@
-Command soldier attacks 1 too many times only when you have 0 skeletons. (should be fixed)
+Spontaneous ritual didn't return scuttling hand.
+
+Maybe buff potion of restlessness back to 3/4.
+
+Maybe buff specifically touch of the grave to return the cards to your discard?
 
 Buff OneIsEnough to do something, like remove your undead and gain block, if you have undead.
 
-Make excise draw a card. [didn't work? Double check after recompiling]
+Make excise draw a card. [doesn't work right now?]
 
-Extra limbs only hits twice upon replay by touch of the grave. rituals seem fine though.
-
-Check that Ravenous Horde really summons the right number now.
-
-Zombie block wasn't updated when I drank a dex potion and started with 0 dex. Need to patch a call in to constructor, not just updateDescription?
+Zombie block wasn't updated when I drank a dex potion and started with 0 dex. Need to patch a call in to constructor, not just updateDescription? (maybe fixed by hanging onpowerapplysubscriber. Nope.)
 
 Check interaction between play from exhaust and cards with canUse conditions
 
