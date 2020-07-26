@@ -14,30 +14,28 @@ public class RavenousHordeAction extends AbstractGameAction {
 	public RavenousHordeAction(int energy, boolean upgraded, boolean freeToPlayOnce)
 	{
 		this.energyOnUse = energy;
-		this.effect = this.energyOnUse+1;
+		this.effect = this.energyOnUse;
 		this.upgraded = upgraded;
 		this.freeToPlayOnce=freeToPlayOnce;
 	}
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		int threshold = this.upgraded?2:4;
-		
-		
 		if(AbstractDungeon.player.hasRelic("Chemical X"))
 		{
 			this.effect += 2;
 			AbstractDungeon.player.getRelic("Chemical X").flash();
 		}
 		
+		this.effect *= 2;
+		if(upgraded) {
+			this.effect+=1;
+		}
+		
 		for(int i = 0; i < effect; i++)
 		{
 			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
 		}
-		
-		if(effect>=threshold) {
-			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-		}
+
 		if(!this.freeToPlayOnce) {
 			AbstractDungeon.player.energy.use(this.energyOnUse);
 		}

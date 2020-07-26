@@ -277,7 +277,7 @@ public void spawnVFX(){
 		}
 		
 		if(this.index == ShadeCharacter.INDEX_ZOMBIE) {
-			if(AbstractDungeon.player.hasPower("Shade:PutrefactionPower")) {
+			if(AbstractDungeon.player.hasPower("Shade:PutrefactionPower") && nR>0) {
 			      for (AbstractMonster monster : (AbstractDungeon.getMonsters()).monsters) {
 			          if (!monster.isDead && !monster.isDying) {
 			            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction

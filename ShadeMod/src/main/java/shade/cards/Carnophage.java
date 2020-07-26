@@ -36,16 +36,14 @@ public class Carnophage extends AbstractShadeCard {
 	  
 	public Carnophage() {
 		super(ID,NAME,shade.ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
 	public void upgrade() {
 	    if (!this.upgraded) {
 	      upgradeName();
-	      this.isInnate=true;
-	      this.rawDescription=UPGRADED_DESCRIPTION;
-	      initializeDescription();
+	      upgradeBaseCost(0);
 	    } 
 	}
 

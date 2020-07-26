@@ -14,6 +14,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import basemod.BaseMod;
 import shade.ShadeMod;
 import shade.actions.ExhaustFromHandAction;
 import shade.patches.AbstractCardEnum;
@@ -73,20 +75,19 @@ public class SpontaneousRitual extends AbstractShadeCard {
 
 	    this.baseDamage=ShadeMod.combatExhausts;
 	    this.damage=this.baseDamage;
-	    int tempDamage=this.damage+p.hand.size();
 	    
+	    int tempDamage=this.damage+p.hand.size();
 	    if(p.hand.contains(this)) {
 	    	tempDamage-= 1;
 	    }
 
 	    
 		if(this.upgraded) {
-			
-				tempDamage+= 3 - java.lang.Math.max(p.hand.size()-8, 0);	//when hand is too large, dont add the full 3 to damage (extra wounds are automatically discarded)
+				tempDamage+= 3 - java.lang.Math.max(p.hand.size()-BaseMod.MAX_HAND_SIZE+2, 0);	//when hand is too large, don't add the full 3 to damage (extra wounds are automatically discarded)
 				AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(new Wound(), 3));
 		}
 		
-		AbstractDungeon.actionManager.addToBottom(new ExhaustFromHandAction(tempDamage,true,false,false));	//p.hand.size() not updading correctly for some reason
+		AbstractDungeon.actionManager.addToBottom(new ExhaustFromHandAction(BaseMod.MAX_HAND_SIZE,true,false,false));	//p.hand.size() not updating correctly for some reason
 
 	    CardCrawlGame.sound.play("ORB_DARK_EVOKE", 0.1F);
 	    

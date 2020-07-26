@@ -29,6 +29,7 @@ public class AsphyxiateAction extends AbstractGameAction {
 			pStacks=t.getPower("Poison").amount;
 		}
 		this.info = new DamageInfo(t,pStacks,this.type);
+		info.applyPowers(AbstractDungeon.player, t);
 		setValues(t,info);
 		
 

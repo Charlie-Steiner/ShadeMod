@@ -57,7 +57,7 @@ public class ReturnExhaustedToDeckAction
 		}
     	
         AbstractCard c = this.p.exhaustPile.getRandomCard(true);
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, true));
+        AbstractDungeon.actionManager.addToTop(new MakeTempCardInDrawPileAction(c, 1, true, true));
         this.p.exhaustPile.removeCard(c);
         
         this.p.exhaustPile.group.addAll(classless);
@@ -91,7 +91,7 @@ public class ReturnExhaustedToDeckAction
 	      if (this.p.exhaustPile.size() == 1) {
 	        AbstractCard c = this.p.exhaustPile.getTopCard();
 	        c.unfadeOut();
-	        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, true));
+	        AbstractDungeon.actionManager.addToTop(new MakeTempCardInDrawPileAction(c, 1, true, true));
 	        this.p.exhaustPile.removeCard(c);
 	        c.fadingOut = false;
 	        
@@ -115,7 +115,7 @@ public class ReturnExhaustedToDeckAction
 	    
 	    if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
 	      for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-	        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, true));
+	        AbstractDungeon.actionManager.addToTop(new MakeTempCardInDrawPileAction(c, 1, true, true));
 	        this.p.exhaustPile.removeCard(c);
 	      } 
 	      AbstractDungeon.gridSelectScreen.selectedCards.clear();

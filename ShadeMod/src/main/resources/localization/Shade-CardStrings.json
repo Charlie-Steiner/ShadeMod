@@ -63,8 +63,8 @@
   },
     "Shade:RavenousHorde": {
     "NAME": "Ravenous Horde",
-    "DESCRIPTION": "Summon X+1 zombies. NL If this summons 4 or more, summon a skeleton.",
-    "UPGRADE_DESCRIPTION": "Summon X+1 zombies. NL If this summons 2 or more, summon a skeleton."
+    "DESCRIPTION": "Lose !M! HP. NL Summon 2X zombies.",
+    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Summon 2X+1 zombies."
   },
     "Shade:LichForm": {
     "NAME": "Lich Form",
@@ -151,8 +151,8 @@
   },
   "Shade:CommandSoldier": {
     "NAME": "Command Soldier",
-    "DESCRIPTION": "Summon a skeleton and trigger its attack.",
-    "UPGRADE_DESCRIPTION": "Summon a skeleton and trigger up to 3 skeleton attacks."
+    "DESCRIPTION": "Summon a skeleton and trigger up to !M! skeleton attacks.",
+    "UPGRADE_DESCRIPTION": "Summon a skeleton and trigger up to !M! skeleton attacks."
   },
   "Shade:SkeletonArmy": {
     "NAME": "Skeleton Army",
@@ -264,8 +264,8 @@
   },
   "Shade:CoffinDance": {
     "NAME": "Coffin Dance",
-    "DESCRIPTION": "Deal !D! damage. NL If you have exactly 4 zombies and skeletons combined, summon !M! zombies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If you have exactly 4 zombies and skeletons combined, summon !M! zombies."
+    "DESCRIPTION": "Deal !D! damage. NL If your number of zombies and skeletons is a multiple of 4, summon !M! zombies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If your number of zombies and skeletons is a multiple of 4, summon !M! zombies."
   },
   "Shade:UnbarTheGrave": {
     "NAME": "Unbar the Grave",
@@ -274,18 +274,18 @@
   },
   "Shade:Carnophage": {
     "NAME": "Carnophage",
-    "DESCRIPTION": "Whenever you draw a Status or Curse card, gain [E].",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you draw a Status or Curse card, gain [E]."
+    "DESCRIPTION": "Whenever you draw a Status or Curse card, summon a zombie.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw a Status or Curse card, summon a zombie."
   },
   "Shade:Excise": {
     "NAME": "Excise",
-    "DESCRIPTION": "Gain !B! Block. NL Exhaust a card from your hand. If it's a Status or Curse, gain [E].",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust a card from your hand. If it's a Status or Curse, gain [E]."
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust a card from your hand. If it's a Status or Curse, gain [E] and draw a card.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust a card from your hand. If it's a Status or Curse, gain [E] and draw a card."
   },
   "Shade:StitchTogether": {
     "NAME": "Stitch Together",
-    "DESCRIPTION": "The next time you draw a Status card, Exhaust it, draw a card, and heal !M! HP.",
-    "UPGRADE_DESCRIPTION": "The next time you draw a Status card, Exhaust it, draw a card, and heal !M! HP."
+    "DESCRIPTION": "The next time you draw a Status or Curse card, Exhaust it, draw a card, and heal !M! HP.",
+    "UPGRADE_DESCRIPTION": "The next time you draw a Status or Curse card, Exhaust it, draw a card, and heal !M! HP."
   },
   "Shade:FleshToFlesh": {
     "NAME": "Flesh To Flesh",

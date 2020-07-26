@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -99,7 +100,16 @@ public class Skeleton extends SpawnedUndead {
 
     	ShadeTipTracker.checkForTip(ShadeTipTracker.TipKey.SkeletonTip);
     	
-    	if(this.count>bigThreshold) {
+    	boolean intangibles = false;
+        for (AbstractMonster mon : (AbstractDungeon.getMonsters()).monsters) {
+            if (!mon.isDeadOrEscaped()) {
+              if(mon.hasPower("Intangible") || mon.hasPower("Buffer") || mon.currentHealth<=this.passiveAmount) {
+            	  intangibles=true;
+              }
+            }
+          } 
+    	
+    	if(this.count>bigThreshold && !intangibles) {
     		int bigs = (this.count-4)/5;
     		int remain = (this.count-4)%5+4;
 	    	for(int i=0; i<bigs;i++) {
@@ -108,7 +118,7 @@ public class Skeleton extends SpawnedUndead {
 	    	for(int i=0; i<remain;i++) {
 	    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));
 	    	}
-    	}else if(this.count>smallThreshold) {
+    	}else if(this.count>smallThreshold && !intangibles) {
     		int bigs = (this.count-4)/3;
     		int remain = (this.count-4)%3+4;
 	    	for(int i=0; i<bigs;i++) {

@@ -127,14 +127,15 @@
 		"Shade:CarnophagePower": {
 		"NAME": "Carnophagy",
 		"DESCRIPTIONS": [
-			"Wenever you draw a Status or Curse card, gain #b",
-			" energy."
+			"Wenever you draw a Status or Curse card, summon #b",
+			" zombie.",
+			" zombies."
 		]
 	},
 		"Shade:StitchTogetherPower": {
 		"NAME": "Stitch Together",
 		"DESCRIPTIONS": [
-			"The next time you draw a Status card, exhaust it, draw a card, and heal #b",
+			"The next time you draw a Status or Curse card, exhaust it, draw a card, and heal #b",
 			" HP."
 		]
 	},

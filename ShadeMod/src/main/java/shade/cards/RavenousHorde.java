@@ -1,5 +1,6 @@
 package shade.cards;
 
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -36,7 +37,9 @@ public class RavenousHorde extends AbstractShadeCard {
 	
 	public RavenousHorde() {
 		super(ID,NAME,ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
-		// TODO Auto-generated constructor stub
+		
+		this.baseMagicNumber=2;
+		this.magicNumber=this.baseMagicNumber;
 	}
 
 	@Override
@@ -54,8 +57,8 @@ public class RavenousHorde extends AbstractShadeCard {
 	}
 
 	@Override
-	public void use(AbstractPlayer arg0, AbstractMonster arg1) {
-		
+	public void use(AbstractPlayer p, AbstractMonster arg1) {
+		AbstractDungeon.actionManager.addToBottom(new LoseHPAction(p, p, this.magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new RavenousHordeAction(this.energyOnUse, this.upgraded, this.freeToPlayOnce));
 		
 	}

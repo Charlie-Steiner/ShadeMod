@@ -72,7 +72,7 @@ public class CoffinDance extends AbstractShadeCard{
 			undeads += ((SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
 		}
 		
-		if(undeads==4) {
+		if(undeads>=4 && undeads%4==0) {
 			for(int i=0;i<this.magicNumber;i++) {
 			    AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
 			}
@@ -87,7 +87,7 @@ public class CoffinDance extends AbstractShadeCard{
         if (!this.upgraded) {
             upgradeName();
             upgradeDamage(3);
-            upgradeMagicNumber(2);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

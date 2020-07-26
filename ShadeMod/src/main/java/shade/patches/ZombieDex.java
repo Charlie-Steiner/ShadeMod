@@ -17,6 +17,7 @@ public class ZombieDex
 	{
 	    for (AbstractOrb o : AbstractDungeon.player.orbs) {
 	    	o.applyFocus();
+	    	o.updateDescription();
 	    }
 	}
 }

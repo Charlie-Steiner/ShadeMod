@@ -54,14 +54,22 @@ public class PotionOfRestlessness extends AbstractShadeCard {
 		this.magicNumber=this.baseMagicNumber;
 	    
 	    if (this.magicNumber > 0) {
-	      this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+			if(this.upgraded) {
+				this.rawDescription = UPGRADED_DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+			}else {
+			    this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+			}
 	      initializeDescription();
 	    }
 	 }
 	  
 		
 	public void onMoveToDiscard() {
-	    this.rawDescription = cardStrings.DESCRIPTION;
+		if(this.upgraded) {
+			this.rawDescription = UPGRADED_DESCRIPTION;
+		}else {
+		    this.rawDescription = cardStrings.DESCRIPTION;
+		}
 	    initializeDescription();
 	}
 		
@@ -78,9 +86,9 @@ public class PotionOfRestlessness extends AbstractShadeCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if(!this.upgraded) {
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, 3), 3));
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, 2), 2));
 		}else {
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, 4), 4));
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, 3), 3));
 		}
 		if(p.getPower("Shade:MinionsPower").amount > 1) {
 			p.getPower("Shade:MinionsPower").amount -= 1;

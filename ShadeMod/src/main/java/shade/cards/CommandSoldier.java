@@ -45,6 +45,8 @@ public class CommandSoldier
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
+		this.baseMagicNumber=2;
+		this.magicNumber=this.baseMagicNumber;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
@@ -52,20 +54,20 @@ public class CommandSoldier
       AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(skele));
       Skeleton s;
       
+      int nHits=1;
+      
       if( AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead){
     	  s=(Skeleton) AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON);
+    	  nHits = Math.min(s.count+1, this.magicNumber);
       }else {
     	  s=skele;
       }
       
       s.applyFocus();
       
-      if(this.upgraded) {
-    	  for(int i=0;i<Math.min(s.count,2);i++){
-          	AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(s.passiveAmount+s.passiveBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,s,false,false,0,true,0));
-    	  }
+	  for(int i=0;i<nHits;i++){
+      	AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(s.passiveAmount+s.passiveBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,s,false,false,0,true,0));
 	  }
-      AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(s.passiveAmount+s.passiveBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,s,false,false,0,true,0));
   }
 
   
@@ -75,7 +77,6 @@ public class CommandSoldier
   public void upgrade() {
     if (!this.upgraded)
     	upgradeName(); 
-	    this.rawDescription=UPGRADED_DESCRIPTION;
-	    initializeDescription();
+    	upgradeMagicNumber(2);
   }
 }

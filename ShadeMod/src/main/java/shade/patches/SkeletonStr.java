@@ -17,6 +17,7 @@ public class SkeletonStr
 	{
 	    for (AbstractOrb o : AbstractDungeon.player.orbs) {
 	    	o.applyFocus();
+	    	o.updateDescription();
 	    }
 	}
 }

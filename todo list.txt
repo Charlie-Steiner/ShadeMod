@@ -1,58 +1,33 @@
-Card Bugs+Balance:
-Buff OneIsEnough to do something (like remove your undead and gain block) if you have undead.
+Command soldier attacks 1 too many times only when you have 0 skeletons. (should be fixed)
 
-Upgrade carnophage to give you a defensive bonus on drawing a status/curse? The upgrade to innate is bad.
+Buff OneIsEnough to do something, like remove your undead and gain block, if you have undead.
 
-Re-buff skeleton hug a bit? Remove vulnerable to increase weak?
+Make excise draw a card. [didn't work? Double check after recompiling]
 
-Make excise say draw a card.
+Extra limbs only hits twice upon replay by touch of the grave. rituals seem fine though.
 
-Think about adding more energy scaling?
+Check that Ravenous Horde really summons the right number now.
 
-Make zombies scale with 1/2 str rather than floor(1/2)?
-
-Try buffing flesh to flesh somehow.
-
-double check that potioning your minionsPower.
-
-Against intangible, grouping up the skeletons distorts the actual amount of damage.
-
-Think about bufffing Ravenous Horde in terms of block per energy.
-
-Potion of restlessness+ in your hand may have broken text.
-
-Bryan:
-"
-Zombie block wasn't updated when I drank a dex potion.  Summoning another zombie fixes.Asphyxiate doesn't deal damage, it causes hp loss.  (Ignored Byrd flight).	Stitch Together works on curses.	Spire Shield still gives focus down.+2 dexterity potionPermanent
-Grave Stillness/Putrefaction interaction.  If you have zombies, then 0 zombies decay, it will apply 0 poison to all enemies.  This breaks the debuff and applying more poison won't fix it.This may only bug if they don't already have poison.
-Spontaneous Ritual+ doesn't exhaust your whole hand
-"
-
-Flesh to flesh to add wound to hand?
-
-Grey bargain mistakenly draws the card before returning the thing, meaning it shuffles if you play with 0 cards in deack.
+Zombie block wasn't updated when I drank a dex potion and started with 0 dex. Need to patch a call in to constructor, not just updateDescription?
 
 Check interaction between play from exhaust and cards with canUse conditions
 
-Add ExtendedDescription estimate of damage to Trample? (check that it is applied when drawn naturally)
+Trample needs to update its calculated damage when drawn and on card play.
 
 Change description on skeletons when coordination is in play.
 
-Asphyxiate does too much damage to birds.
+Think about adding more energy scaling?
 
-Sense prey slightly too good (and still hard to balance)
+Maybe make zombies scale with 1/2 dex rather than floor(1/2)?
 
-Extra limbs only hits twice upon replay by touch of the grave (rituals seem fine though)
+Wraith art often doesn't "pop": add blurry white border?
 
-General Todo:
-Spire shield shouldn't give you -focus.
+Make sacrifice cards glow if canUse. Keep an eye out for bugs where the sacrifice cards aren't properly glowing.
 
-Maybe make a special change to zombie's calculated block, or a tooltip, for speed potion, to make it clear that it won't help?
+Do final recolors of card/power art.
 
-Wraith art often doesn't "pop" (add blurry white border?)
+Try to notice places for more interesting VFX / SFX
 
-Make sacrifice cards glow if canUse.
-
-Card art, Power art, more interesting VFX / SFX, custom heart scene.
+Custom heart scene.
 
 Revisit getPortraitImageName in ShadeCharacter, delete for "production" output.
