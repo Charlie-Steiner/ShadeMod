@@ -11,8 +11,8 @@
   },
 "Shade:AnimateDead": {
     "NAME": "Animate Dead",
-    "DESCRIPTION": "Summon a zombie and a skeleton. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Summon a zombie an two skeletons. NL Exhaust."
+    "DESCRIPTION": "Summon a zombie and two skeletons.",
+    "UPGRADE_DESCRIPTION": "Summon two zombies and two skeletons."
   },
 "Shade:ClawBack": {
     "NAME": "Claw Back",
