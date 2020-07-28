@@ -9,6 +9,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+
+import basemod.devcommands.relic.Relic;
+import shade.relics.Thing;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -35,6 +39,13 @@ public class ReturnExhaustedToDeckAction
   private ArrayList<AbstractCard> classless;
   
   public void update() {
+	  
+	 if(this.duration == Settings.ACTION_DUR_FAST && AbstractDungeon.player.hasRelic(Thing.ID))
+	 {
+		 Thing t = (Thing)AbstractDungeon.player.getRelic(Thing.ID);
+		 t.onExhume();
+	 }
+	  
     if(this.random) {
 	    if (this.p.exhaustPile.isEmpty()) {
 	        this.isDone = true;
@@ -130,6 +141,8 @@ public class ReturnExhaustedToDeckAction
 	      }
 	    }
     } 
+    
+
     
     tickDuration();
   }

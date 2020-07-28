@@ -301,6 +301,8 @@ public class ShadeMod implements PostInitializeSubscriber,
     @Override
 	public void receiveEditRelics() {
 		BaseMod.addRelicToCustomPool(new YorickSkull(), AbstractCardEnum.SHADE);
+		BaseMod.addRelicToCustomPool(new YorickPolishedSkull(), AbstractCardEnum.SHADE);
+		BaseMod.addRelicToCustomPool(new Thing(), AbstractCardEnum.SHADE);
 	}
 
 

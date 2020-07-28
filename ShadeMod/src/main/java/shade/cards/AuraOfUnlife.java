@@ -76,7 +76,7 @@ public class AuraOfUnlife extends AbstractShadeCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if(!this.upgraded) {
-			p.getPower("Shade:MinionsPower").amount += 1;
+			p.getPower("Shade:MinionsPower").amount += 2;
 		}else {
 			p.getPower("Shade:MinionsPower").amount += 2;
 		}
