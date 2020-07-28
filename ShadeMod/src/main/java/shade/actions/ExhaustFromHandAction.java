@@ -140,6 +140,7 @@ public class ExhaustFromHandAction extends AbstractGameAction {
         if(this.shadeCard=="Excise") {
       	  if (c.type == AbstractCard.CardType.STATUS || c.type == AbstractCard.CardType.CURSE) {
       		    AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
+      		    AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.p,1));
       	  }
         }
       }

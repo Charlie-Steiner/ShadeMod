@@ -54,6 +54,22 @@ public class Trample
     this.baseDamage = 0;
     this.damage=this.baseDamage;
   }
+  
+  public void applyPowers() {
+		this.baseDamage = 0;
+		if (AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
+			this.baseDamage += this.magicNumber*((SpawnedUndead) AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+		}
+		this.damage = this.baseDamage;
+		
+	    super.applyPowers();
+	    
+	    if (this.baseDamage > 0) {
+	    	this.rawDescription = UPGRADED_DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+	    	initializeDescription();
+	    }
+	    
+	  }
 
   
 	public void use(AbstractPlayer p, AbstractMonster m) {

@@ -48,7 +48,8 @@ public class PlayRandomFromExhaustAction extends AbstractGameAction
 		
 		for (Iterator<AbstractCard> ex = this.p.exhaustPile.group.iterator(); ex.hasNext(); ) {
 			AbstractCard derp = (AbstractCard)ex.next();
-			if (!derp.type.equals(this.type) || derp.color.equals(AbstractCard.CardColor.COLORLESS) || derp.color.equals(AbstractCard.CardColor.CURSE)) {
+			// Exclude a card if it's the wrong type, if it's a status, if it's a curse, or if you can't play it.
+			if (!derp.type.equals(this.type) || derp.color.equals(AbstractCard.CardColor.COLORLESS) || derp.color.equals(AbstractCard.CardColor.CURSE) || !derp.canUse(p, AbstractDungeon.getMonsters().getRandomMonster(true))) {
 				this.misfits.add(derp);
 				ex.remove();
 			} 

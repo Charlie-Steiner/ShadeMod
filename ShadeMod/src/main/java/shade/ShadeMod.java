@@ -33,6 +33,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import shade.characters.ShadeCharacter;
 import shade.orbs.EmptySlot;
+import shade.actions.RefreshUndeadPower;
 import shade.cards.*;
 import shade.relics.*;
 import shade.ui.ShadeTipTracker;
@@ -383,15 +384,7 @@ public class ShadeMod implements PostInitializeSubscriber,
 		if (AbstractDungeon.player.chosenClass == ShadeEnum.SHADE) {
 			if(target == AbstractDungeon.player)
 			{
-				for(int i = 0; i <= ShadeCharacter.INDEX_MAX; i++)
-				{
-					AbstractOrb u = AbstractDungeon.player.orbs.get(i);
-					if (!(u instanceof EmptyOrbSlot))
-					{
-						u.applyFocus();
-						u.updateDescription();
-					}
-				}
+				AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
 			}
 		}
 	}

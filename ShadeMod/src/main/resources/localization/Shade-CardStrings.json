@@ -53,8 +53,8 @@
   },
   "Shade:WallOfFlesh": {
     "NAME": "Wall of Flesh",
-    "DESCRIPTION": "Summon !M! zombies and gain !B! block.",
-    "UPGRADE_DESCRIPTION": "Summon !M! zombies and gain !B! block."
+    "DESCRIPTION": "Summon !M! zombies and gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Summon !M! zombies and gain !B! Block."
   },
   "Shade:FingerOfDeath": {
     "NAME": "Finger of Death",
@@ -244,8 +244,8 @@
   },
   "Shade:ScuttlingHand": {
     "NAME": "Scuttling Hand",
-    "DESCRIPTION": "Deal !D! damage. NL Whenever you exhaust a card, return this from the discard pile to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Whenever you exhaust a card, return this from the discard pile to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL When you play a card that Exhausts, return this from the discard pile to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL When you play a card that Exhausts, return this from the discard pile to your hand."
   },
   "Shade:Premonition": {
     "NAME": "Premonition",
@@ -370,8 +370,8 @@
   },
   "Shade:OneIsEnough": {
     "NAME": "One Is Enough",
-    "DESCRIPTION": "Sacrifice all your undead for 2 X block each and X [E]. NL If you have none, instead deal !D! damage X times.",
-    "UPGRADE_DESCRIPTION": "Sacrifice all your undead for 2 X block each and X [E]. NL If you have none, instead deal !D! damage X times."
+    "DESCRIPTION": "Sacrifice all your undead for !B! Block each. NL If you have none, deal !D! damage X times.",
+    "UPGRADE_DESCRIPTION": "Sacrifice all your undead for !B! Block each. NL If you have none, deal !D! damage X times."
   },
   "Shade:LastGasp": {
     "NAME": "Last Gasp",

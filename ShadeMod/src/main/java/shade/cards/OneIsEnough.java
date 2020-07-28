@@ -14,9 +14,11 @@ import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import shade.ShadeMod;
 import shade.actions.FingerOfDeathAction;
 import shade.actions.OneIsEnoughAction;
+import shade.actions.OneIsEnoughAction2;
 import shade.actions.UndeadSpawnAction;
 import shade.characters.ShadeCharacter;
 import shade.patches.AbstractCardEnum;
+import shade.orbs.SpawnedUndead;
 
 public class OneIsEnough extends AbstractShadeCard{
 	
@@ -46,6 +48,9 @@ public class OneIsEnough extends AbstractShadeCard{
 		super(ID,NAME,ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
 		this.baseDamage = 11;
 		this.damage = this.baseDamage;
+		
+		this.baseBlock=5;
+		this.block=this.baseBlock;
 	}
 	
 	public AbstractCard makeCopy()
@@ -57,21 +62,40 @@ public class OneIsEnough extends AbstractShadeCard{
 	    if (!this.upgraded)
 	    {
 		      upgradeName();
-		      this.rawDescription=UPGRADED_DESCRIPTION;
-		      initializeDescription();
+		      upgradeBlock(2);
+		      upgradeDamage(4);
 	    }
 		
 	}
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if(p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot
-				&& p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot
-				&& p.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot) {
-			AbstractDungeon.actionManager.addToBottom(new OneIsEnoughAction(this.energyOnUse, this.upgraded, p, m, this.damage,this.damageTypeForTurn, this.freeToPlayOnce));
+		int count=0;
+		if(!(p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot)) {
+			count += ( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON)).count;
+		}
+		if(!(p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot)) {
+			count += ( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+		}
+		if(!(p.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
+			count += ( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_WRAITH)).count;
+		}
+			
+		
+		if(count==0) {
+			AbstractDungeon.actionManager.addToBottom(new OneIsEnoughAction(this.energyOnUse, p, m, this.damage,this.damageTypeForTurn, this.freeToPlayOnce));
 		}
 		else
 		{
-			AbstractDungeon.player.energy.use(this.energyOnUse);
+			if(!(p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot)) {
+				( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON)).remove(count);
+			}
+			if(!(p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot)) {
+				( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).remove(count);
+			}
+			if(!(p.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
+				( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_WRAITH)).remove(count);
+			}
+			AbstractDungeon.actionManager.addToBottom(new OneIsEnoughAction2(this.energyOnUse, this.block, p, count, this.freeToPlayOnce));
 		}
 		
 	}
