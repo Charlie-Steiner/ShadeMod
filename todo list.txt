@@ -1,18 +1,10 @@
-Spontaneous ritual didn't return scuttling hand.
-
 Maybe buff potion of restlessness back to 3/4.
 
 Maybe buff specifically touch of the grave to return the cards to your discard?
 
-Buff OneIsEnough to do something, like remove your undead and gain block, if you have undead.
+Capitalize Block in OneIsEnough desc. (done and changed)
 
-Make excise draw a card. [doesn't work right now?]
-
-Zombie block wasn't updated when I drank a dex potion and started with 0 dex. Need to patch a call in to constructor, not just updateDescription? (maybe fixed by hanging onpowerapplysubscriber. Nope.)
-
-Check interaction between play from exhaust and cards with canUse conditions
-
-Trample needs to update its calculated damage when drawn and on card play.
+Check interaction between play from exhaust and cards with canUse conditions (probably made call and touch not play can'tUse things)
 
 Change description on skeletons when coordination is in play.
 
@@ -20,11 +12,7 @@ Think about adding more energy scaling?
 
 Maybe make zombies scale with 1/2 dex rather than floor(1/2)?
 
-Wraith art often doesn't "pop": add blurry white border?
-
 Make sacrifice cards glow if canUse. Keep an eye out for bugs where the sacrifice cards aren't properly glowing.
-
-Do final recolors of card/power art.
 
 Try to notice places for more interesting VFX / SFX
 
