@@ -5,6 +5,7 @@ import shade.actions.UndeadSpawnAction;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Logger;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -44,6 +45,7 @@ public class YorickPolishedSkull extends CustomRelic {
           AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
           AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
           AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
+  	    AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
         } else if (this.counter == 9) {
           beginPulse();
           this.pulse = true;
@@ -64,6 +66,7 @@ public class YorickPolishedSkull extends CustomRelic {
         	this.start=false;
         	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
         	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
+        	  AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
         }
       }
 
