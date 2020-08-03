@@ -29,6 +29,8 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import shade.characters.ShadeCharacter;
@@ -407,6 +409,10 @@ public class ShadeMod implements PostInitializeSubscriber,
 					new MinionsPower(AbstractDungeon.player, decayConstant),decayConstant));
 			logger.info(CardCrawlGame.languagePack.getPowerStrings("Shade:MinionsPower").NAME);
 
+			//move back slightly if fighting awakened one to make room for birbs
+			if(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss && AbstractDungeon.bossKey == "Awakened One") {
+				AbstractDungeon.player.movePosition(0.18F*Settings.WIDTH, AbstractDungeon.floorY);
+			}
 			
 			combatExhausts = 0;
 	    }

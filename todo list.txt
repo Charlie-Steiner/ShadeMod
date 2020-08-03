@@ -1,10 +1,30 @@
-Maybe buff potion of restlessness back to 3/4.
+Change self burial to only mill the top N cards and put all unearthed back? (done)
 
-Maybe buff specifically touch of the grave to return the cards to your discard?
+UI upgrade for multiple awakens, telling you how many you have.
 
-Capitalize Block in OneIsEnough desc. (done and changed)
+colorize premonition a little, change Frenzy colorization.
 
-Check interaction between play from exhaust and cards with canUse conditions (probably made call and touch not play can'tUse things)
+Check wraiths for bug where they trigger even if you got hit to go intangible?
+
+Move character back slightly in awakened one fight. (attempted in ShadeMod)
+
+Need to change some adddtobottoms to addtotops in call of the grave on last gasp. (changed the only one I saw)
+
+Keep buffing one is enough until morale improves. Remove condition from attack part, so that it uses up all your undead for block and energy for damage. (done)
+
+Un-nerf lose control. (done)
+
+Make dark of night on extra limbs cause double stacking?
+
+Maybe buff potion of restlessness back to 3/4.  (done)
+
+Maybe buff specifically touch of the grave to return the cards to your discard? (done)
+
+buff press the attack to more turns of buff? (done)
+
+Buff feral strike to AOE? (done)
+
+Add kewords for zombie, skeleton, wraith.
 
 Change description on skeletons when coordination is in play.
 
@@ -15,6 +35,8 @@ Maybe make zombies scale with 1/2 dex rather than floor(1/2)?
 Make sacrifice cards glow if canUse. Keep an eye out for bugs where the sacrifice cards aren't properly glowing.
 
 Try to notice places for more interesting VFX / SFX
+
+Sfx for summoning undead (particularly for indirect summons like pund of flesh, offering to the beyond, etc)?
 
 Custom heart scene.
 

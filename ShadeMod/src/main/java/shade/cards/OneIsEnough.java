@@ -12,9 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 
 import shade.ShadeMod;
-import shade.actions.FingerOfDeathAction;
 import shade.actions.OneIsEnoughAction;
-import shade.actions.OneIsEnoughAction2;
 import shade.actions.UndeadSpawnAction;
 import shade.characters.ShadeCharacter;
 import shade.patches.AbstractCardEnum;
@@ -80,24 +78,19 @@ public class OneIsEnough extends AbstractShadeCard{
 			count += ( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_WRAITH)).count;
 		}
 			
-		
-		if(count==0) {
-			AbstractDungeon.actionManager.addToBottom(new OneIsEnoughAction(this.energyOnUse, p, m, this.damage,this.damageTypeForTurn, this.freeToPlayOnce));
+		if(!(p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot)) {
+			( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON)).remove(count);
 		}
-		else
-		{
-			if(!(p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot)) {
-				( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON)).remove(count);
-			}
-			if(!(p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot)) {
-				( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).remove(count);
-			}
-			if(!(p.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
-				( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_WRAITH)).remove(count);
-			}
-			AbstractDungeon.actionManager.addToBottom(new OneIsEnoughAction2(this.energyOnUse, this.block, p, count, this.freeToPlayOnce));
+		if(!(p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot)) {
+			( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).remove(count);
+		}
+		if(!(p.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
+			( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_WRAITH)).remove(count);
 		}
 		
+
+		AbstractDungeon.actionManager.addToBottom(new OneIsEnoughAction(this.energyOnUse, p, m, this.damage,this.damageTypeForTurn, this.freeToPlayOnce, this.block, count));
+
 	}
 
 }

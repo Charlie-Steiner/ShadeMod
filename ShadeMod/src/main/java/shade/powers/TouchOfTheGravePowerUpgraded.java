@@ -1,5 +1,7 @@
 package shade.powers;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -8,7 +10,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import shade.actions.PlayRandomFromExhaustAction;
-
+import shade.ui.TextureLoader;
 import shade.ShadeMod;
 
 
@@ -17,7 +19,9 @@ public class TouchOfTheGravePowerUpgraded extends AbstractPower {
     public static final String POWER_ID = "Shade:TouchOfTheGravePowerUpgraded";
     public static final String NAME = "Potency";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/touch_of_the_grave.png";
+    public static final String IMG = "powers/touch_of_the_grave";
+    private static final Texture tex84 = TextureLoader.getTexture(ShadeMod.getResourcePath(IMG+"_84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(ShadeMod.getResourcePath(IMG+"_32.png"));
 
     public static String[] DESCRIPTIONS;
     
@@ -26,8 +30,10 @@ public class TouchOfTheGravePowerUpgraded extends AbstractPower {
     	this.ID = POWER_ID;
     	this.owner = owner;
     	this.amount = 1;
-        this.img = new com.badlogic.gdx.graphics.Texture(ShadeMod.getResourcePath(IMG));
         this.type = POWER_TYPE;
+        
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         this.DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(this.ID).DESCRIPTIONS;
         this.name = CardCrawlGame.languagePack.getPowerStrings(this.ID).NAME;

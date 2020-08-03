@@ -39,7 +39,7 @@
   "Shade:TouchOfTheGrave": {
     "NAME": "Touch of the Grave",
     "DESCRIPTION": "At the start of your turn, play a random shade:unearthed attack and remove it from play.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random shade:unearthed attack and remove it from play."
+    "UPGRADE_DESCRIPTION": "At the start of your turn, play a random shade:unearthed attack and return it to your discard pile."
   },
   "Shade:CallOfTheGrave": {
     "NAME": "Call of the Grave",
@@ -98,8 +98,8 @@
   },
   "Shade:SelfBurial": {
     "NAME": "Self-burial",
-    "DESCRIPTION": "Exchange ALL unexhausted cards for ALL shade:unearthed cards. NL Draw !M! cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Exchange ALL unexhausted cards for ALL shade:unearthed cards. NL Draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Exhaust your hand and top 10 cards in exchange for all shade:unearthed cards. NL Shuffle and draw !M! cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust your hand and top 10 cards in exchange for all shade:unearthed cards. NL Shuffle and draw !M! cards. NL Exhaust."
   },
   "Shade:GreyBargain": {
     "NAME": "Grey Bargain",
@@ -182,8 +182,8 @@
   },
   "Shade:PotionOfRestlessness": {
     "NAME": "Potion of Restlessness",
-    "DESCRIPTION": "Gain 2 Strength. NL Your zombies and skeletons decay one turn quicker.",
-    "UPGRADE_DESCRIPTION": "Gain 3 Strength. NL Your zombies and skeletons decay one turn quicker.",
+    "DESCRIPTION": "Gain 3 Strength. NL Your zombies and skeletons decay one turn quicker.",
+    "UPGRADE_DESCRIPTION": "Gain 4 Strength. NL Your zombies and skeletons decay one turn quicker.",
     "EXTENDED_DESCRIPTION": [" NL ( 1/ !M! per turn )"]
   },
   "Shade:GreaterAnimation": {
@@ -220,7 +220,7 @@
   "Shade:PressTheAttack": {
     "NAME": "Press the Attack",
     "DESCRIPTION": "Deal !D! damage. NL Your skeletons deal 3 more damage for 1 turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Your skeletons deal 3 more damage for 1 turn."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Your skeletons deal 3 more damage for 2 turns."
   },
   "Shade:Patience": {
     "NAME": "Patience",
@@ -294,8 +294,8 @@
   },
   "Shade:LoseControl": {
     "NAME": "Lose Control",
-    "DESCRIPTION": "Add 2 *Wounds to your hand and 1 to your discard pile. NL Draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Add 2 *Wounds to your hand and 1 to your discard pile. NL Draw !M! cards."
+    "DESCRIPTION": "Add 2 *Wounds to your discard pile. NL Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Add 2 *Wounds to your discard pile. NL Draw !M! cards."
   },
   "Shade:FleshOffering": {
     "NAME": "Flesh Offering",
@@ -304,8 +304,8 @@
   },
   "Shade:FeralStrike": {
     "NAME": "Feral Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Add a *Wound to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add a *Wound to your hand. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Add a *Wound to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Add a *Wound to your hand. NL Exhaust."
   },
   "Shade:DarkOfNight": {
     "NAME": "Dark of Night",
@@ -370,8 +370,8 @@
   },
   "Shade:OneIsEnough": {
     "NAME": "One Is Enough",
-    "DESCRIPTION": "Sacrifice all your undead for !B! Block each. NL If you have none, deal !D! damage X times.",
-    "UPGRADE_DESCRIPTION": "Sacrifice all your undead for !B! Block each. NL If you have none, deal !D! damage X times."
+    "DESCRIPTION": "Sacrifice all your undead for !B! Block each. NL Deal !D! damage X times.",
+    "UPGRADE_DESCRIPTION": "Sacrifice all your undead for !B! Block each. NL Deal !D! damage X times."
   },
   "Shade:LastGasp": {
     "NAME": "Last Gasp",

@@ -55,7 +55,7 @@ public class LastGasp
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  AbstractDungeon.actionManager.addToBottom(new PlayFromExhaustAction());
+	  AbstractDungeon.actionManager.addToTop(new PlayFromExhaustAction());
   }
 
   

@@ -26,6 +26,8 @@ public class SelfBurialAction extends AbstractGameAction {
 	
 	private ArrayList<AbstractCard> spares;
 	private ArrayList<AbstractCard> exhausts;
+	
+	private int topExhaust  = 10;
 
 	public SelfBurialAction() {
 		this.exhausts=new ArrayList();
@@ -38,6 +40,7 @@ public class SelfBurialAction extends AbstractGameAction {
 	
 
 	public void update() {
+		int countdown = topExhaust;
 		
 		AbstractCard derp;
 		if(!this.p.exhaustPile.isEmpty()) {
@@ -52,16 +55,31 @@ public class SelfBurialAction extends AbstractGameAction {
 			}
 		}
 		
-		for(int i=this.p.drawPile.size();i>0;i--) {
+		for(int i=this.p.hand.size();i>0;i--) {
+			this.p.hand.moveToExhaustPile(this.p.hand.getTopCard());
+		}
+		
+		int tempCount;
+		if(this.p.drawPile.size() > countdown) {
+			tempCount=countdown;
+			countdown=0;
+		}else {
+			tempCount = this.p.drawPile.size();
+			countdown -= this.p.drawPile.size();
+		}
+		for(int i=0;i<tempCount;i++) {
 			this.p.drawPile.moveToExhaustPile(this.p.drawPile.getTopCard());
 		}
 		
-		for(int i=this.p.discardPile.size();i>0;i--) {
-			this.p.discardPile.moveToExhaustPile(this.p.discardPile.getTopCard());
+		if(this.p.discardPile.size() > countdown) {
+			tempCount=countdown;
+			countdown=0;
+		}else {
+			tempCount = this.p.discardPile.size();
+			countdown -= this.p.discardPile.size();
 		}
-		
-		for(int i=this.p.hand.size();i>0;i--) {
-			this.p.hand.moveToExhaustPile(this.p.hand.getTopCard());
+		for(int i=0;i<tempCount;i++) {
+			this.p.discardPile.moveToExhaustPile(this.p.discardPile.getTopCard());
 		}
 		
 		for(int i=this.spares.size()-1;i>=0;i--) {

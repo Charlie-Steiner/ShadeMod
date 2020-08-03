@@ -2,6 +2,7 @@ package shade.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -17,8 +18,10 @@ public class OneIsEnoughAction extends AbstractGameAction {
 	private AbstractPlayer p;
 	private AbstractMonster m;
 	private DamageInfo.DamageType damageTypeForTurn;
+	private int block;
+	private int count;
 	  
-	public OneIsEnoughAction(int energy, AbstractPlayer p, AbstractMonster m, int damage, DamageInfo.DamageType damageTypeForTurn, boolean freeToPlayOnce)
+	public OneIsEnoughAction(int energy, AbstractPlayer p, AbstractMonster m, int damage, DamageInfo.DamageType damageTypeForTurn, boolean freeToPlayOnce, int block, int count)
 	{
 		this.energyOnUse = energy;
 		this.effect=energy;
@@ -27,6 +30,8 @@ public class OneIsEnoughAction extends AbstractGameAction {
 		this.damageTypeForTurn=damageTypeForTurn;
 		this.damage=damage;
 		this.freeToPlayOnce=freeToPlayOnce;
+		this.count=count;
+		this.block=block;
 	}
 	@Override
 	public void update() {
@@ -42,6 +47,7 @@ public class OneIsEnoughAction extends AbstractGameAction {
 			AbstractDungeon.actionManager.addToTop(new DamageAction(this.m, new DamageInfo(this.p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 		}
 		
+		AbstractDungeon.actionManager.addToTop(new GainBlockAction(p, p, count*block));
 		
 		if(!this.freeToPlayOnce) {
 			AbstractDungeon.player.energy.use(this.energyOnUse);

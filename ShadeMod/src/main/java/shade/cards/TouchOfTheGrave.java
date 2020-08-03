@@ -55,6 +55,10 @@ public class TouchOfTheGrave
   }
   
   public void use(AbstractPlayer p, AbstractMonster m) {
-	 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TouchOfTheGravePower(p), 1));
+	  if(this.upgraded) {
+		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TouchOfTheGravePowerUpgraded(p), 1));
+	  }else {
+		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TouchOfTheGravePower(p), 1));
+	  }
   }
 }

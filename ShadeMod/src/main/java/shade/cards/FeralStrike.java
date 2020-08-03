@@ -2,6 +2,7 @@ package shade.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -43,10 +44,11 @@ public class FeralStrike extends AbstractShadeCard{
 	public FeralStrike()
 	{
 		super(ID,NAME,ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
-		this.baseDamage = 12;
+		this.baseDamage = 10;
 		this.damage = this.baseDamage;
 		
 		this.exhaust=true;
+		this.isMultiDamage=true;
 	}
 	
 	public AbstractCard makeCopy()
@@ -58,15 +60,16 @@ public class FeralStrike extends AbstractShadeCard{
 	    if (!this.upgraded)
 	    {
 		      upgradeName(); 
-		      upgradeDamage(4);
+		      upgradeDamage(3);
 	    }
 		
 	}
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		
+		
+		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.damage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 		AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Wound(), 1));
-		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
 	}
 

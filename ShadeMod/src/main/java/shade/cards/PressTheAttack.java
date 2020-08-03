@@ -71,7 +71,9 @@ public class PressTheAttack
   public void upgrade() {
       if (!this.upgraded) {
           upgradeName();
-          upgradeDamage(3);
+          upgradeDamage(1);
+          this.rawDescription=UPGRADED_DESCRIPTION;
+          initializeDescription();
       }
   }
   
@@ -80,7 +82,11 @@ public class PressTheAttack
 		.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
 				AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 	  
-	  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrongBonesPower(p,1), 1));
-      AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
+	  if(this.upgraded) {
+		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrongBonesPower(p,2), 2));
+	  }else {
+		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrongBonesPower(p,1), 1));
+	  }
+	  AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
   }
 }

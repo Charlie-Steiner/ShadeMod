@@ -64,7 +64,7 @@ public class PlayRandomFromExhaustAction extends AbstractGameAction
 		
 		AbstractCard c = this.p.exhaustPile.getRandomCard(true);
 
-		playCard(c);
+		playCard(c, this.toDiscard);
 		
 		this.p.exhaustPile.group.addAll(misfits);
 		this.misfits.clear();
@@ -72,7 +72,7 @@ public class PlayRandomFromExhaustAction extends AbstractGameAction
 	    this.isDone=true;
 	}
 	
-	public static void playCard(AbstractCard c) {
+	public static void playCard(AbstractCard c, boolean toDiscard) {
 		AbstractMonster t = AbstractDungeon.getMonsters().getRandomMonster(true);
 		
 		
@@ -114,7 +114,11 @@ public class PlayRandomFromExhaustAction extends AbstractGameAction
 
         
 		//AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(c, t, false, true));
-		AbstractDungeon.actionManager.addToTop(new CleanUpCardAction(c, "exhaust", "nowhere", -1));
+        if(toDiscard) {
+        	AbstractDungeon.actionManager.addToTop(new CleanUpCardAction(c, "exhaust", "discard", -1));
+        }else {
+        	AbstractDungeon.actionManager.addToTop(new CleanUpCardAction(c, "exhaust", "nowhere", -1));
+        }
 		if (!Settings.FAST_MODE) {
 			AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
 		} else {

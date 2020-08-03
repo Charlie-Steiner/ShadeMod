@@ -51,12 +51,12 @@ public class CloudOfShrapnel extends AbstractShadeCard{
     public CloudOfShrapnel() {
         super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
 
-        
-        this.exhaust = true;
         this.baseDamage = 8;
         this.isMultiDamage = true;
         this.baseMagicNumber = 1;
         this.magicNumber=this.baseMagicNumber;
+        
+        this.exhaust=true;
     }
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
