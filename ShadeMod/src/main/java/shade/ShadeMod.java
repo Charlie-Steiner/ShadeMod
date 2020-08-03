@@ -417,6 +417,12 @@ public class ShadeMod implements PostInitializeSubscriber,
 		if (AbstractDungeon.player.chosenClass == ShadeEnum.SHADE) {
 			combatExhausts++;
 		}
+		for(AbstractCard c: AbstractDungeon.player.discardPile.group) {
+			if(c instanceof AbstractShadeCard)
+			{
+				((AbstractShadeCard)c).triggerOnAnyExhaust();
+			}
+		}
 	}
 	
 	public void receivePostBattle(AbstractRoom arg0) {

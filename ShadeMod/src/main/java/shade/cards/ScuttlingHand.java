@@ -1,6 +1,9 @@
 package shade.cards;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -16,6 +19,7 @@ import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
+
 import shade.ShadeMod;
 import shade.patches.AbstractCardEnum;
 
@@ -31,7 +35,8 @@ public class ScuttlingHand
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
   public static String UPGRADED_DESCRIPTION;
-  
+
+  public static final Logger logger = LogManager.getLogger(ShadeMod.class.getName());
   private static final int COST = 0;
   
   private static final CardStrings cardStrings;
@@ -47,6 +52,7 @@ public class ScuttlingHand
    
     this.baseDamage = 4;
     this.damage=this.baseDamage;
+    this.magicNumber = ShadeMod.combatExhausts;
 
   }
 
@@ -57,14 +63,14 @@ public class ScuttlingHand
 							AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 	}
 	
-	  public void triggerOnCardPlayed(AbstractCard cardPlayed) {
-		  if(cardPlayed.exhaust) {
-			  AbstractDungeon.actionManager.addToBottom(new DiscardToHandAction(this));
-		  }
-	  }
-  
+
   public AbstractCard makeCopy() { return new ScuttlingHand(); }
 
+  
+  public void triggerOnAnyExhaust() {
+
+		AbstractDungeon.actionManager.addToBottom(new DiscardToHandAction(this));
+  }
   
   public void upgrade() {
     if (!this.upgraded) {
@@ -72,4 +78,5 @@ public class ScuttlingHand
       upgradeDamage(2);
     } 
   }
+
 }
