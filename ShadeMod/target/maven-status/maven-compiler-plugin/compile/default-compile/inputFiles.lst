@@ -27,6 +27,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\OpenGravesPowe
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\TouchOfTheGravePower.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\CallOfTheGrave.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Frenzy.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\SpectralStrikesPower.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\SelfBurial.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Defend_Shade.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\PlayFromExhaustAction.java
@@ -56,6 +57,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\CallOfTheGrave
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\characters\ShadeCharacter.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Consume.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\DarkOfNightPower.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\ZombieBurns.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\CleanUpCardAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\ExhaustFromDeckAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\AnimateDead.java
@@ -68,6 +70,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\FrenzyDownPowe
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\OneIsEnoughAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\GraveStillness.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\WallOfFlesh.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\SpectralStrikes.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\UndeadSpawnAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\FingerOfDeath.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Bite_Shade.java
