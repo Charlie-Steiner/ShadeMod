@@ -53,6 +53,9 @@ public class Bonestorm
       
       this.baseDamage = 7;
       this.isMultiDamage = true;
+      
+      this.baseMagicNumber=1;
+      this.magicNumber=this.baseMagicNumber;
   }
 
 
@@ -65,6 +68,7 @@ public class Bonestorm
   public void upgrade() {
       if (!this.upgraded) {
           upgradeName();
+          upgradeMagicNumber(1);
 	        this.rawDescription=UPGRADED_DESCRIPTION;
 	        initializeDescription();
       }
@@ -76,9 +80,6 @@ public class Bonestorm
 		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage,
 				this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
 		
-      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-      if(this.upgraded) {
-    	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-      }
+      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton(),this.magicNumber));
   }
 }

@@ -47,9 +47,7 @@ public class CarnophagePower extends AbstractPower {
     public void onCardDraw(AbstractCard card) {
         if (card.type == AbstractCard.CardType.STATUS || card.type == AbstractCard.CardType.CURSE) {
           flash();
-          for(int i=0;i<this.amount;i++) {
-        	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-          }
+          AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie(),this.amount));
         } 
       }
     

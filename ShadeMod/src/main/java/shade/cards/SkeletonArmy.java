@@ -52,9 +52,7 @@ public class SkeletonArmy
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  for(int i=0;i<this.magicNumber;i++) {
-		  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-	  }
+	 AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton(),this.magicNumber));
 	  
   }
 

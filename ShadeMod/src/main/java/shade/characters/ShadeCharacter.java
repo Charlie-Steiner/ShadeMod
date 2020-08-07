@@ -239,6 +239,16 @@ public class ShadeCharacter extends CustomPlayer {
 		AbstractDungeon.actionManager.orbsChanneledThisCombat.add(orbType);
 		AbstractDungeon.actionManager.orbsChanneledThisTurn.add(orbType);
 	}
+	
+	//Put in custom ending images
+	@Override
+	public List<CutscenePanel> getCutscenePanels(){
+		List<CutscenePanel> panels = new ArrayList();
+		panels.add(new CutscenePanel("ShadeImages/scenes/shade1.png", "MONSTER_SNECKO_GLARE"));
+        panels.add(new CutscenePanel("ShadeImages/scenes/shade2.png", "EVENT_SPIRITS"));
+        panels.add(new CutscenePanel("ShadeImages/scenes/shade3.png", "EVENT_GHOSTS"));
+		return panels;
+	}
 
 	@Override
 	public String getPortraitImageName() {

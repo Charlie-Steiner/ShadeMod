@@ -46,14 +46,12 @@ public class MadHubris
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
-		this.baseMagicNumber=7;
+		this.baseMagicNumber=8;
 		this.magicNumber=this.baseMagicNumber;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  for(int i=0;i<this.magicNumber;i++) {
-		  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-	  }
+	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton(),this.magicNumber));
 	  
       AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new MadHubrisPower(p,1), 1));
   }
@@ -67,7 +65,9 @@ public class MadHubris
   public void upgrade() {
     if (!this.upgraded) {
       upgradeName();
-      upgradeMagicNumber(2);
+      this.rawDescription=UPGRADED_DESCRIPTION;
+      initializeDescription();
+      this.selfRetain=true;
     }
   }
 }

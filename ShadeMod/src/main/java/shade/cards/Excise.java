@@ -47,7 +47,7 @@ public class Excise
   public Excise() {
       super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
    
-	    this.baseBlock=7;
+	    this.baseBlock=6;
 	    this.block=this.baseBlock;
 
   }

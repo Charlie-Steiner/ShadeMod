@@ -19,7 +19,7 @@ public class TouchOfTheGravePower extends AbstractPower {
     public static final String POWER_ID = "Shade:TouchOfTheGravePower";
     public static final String NAME = "Potency";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/touch_of_the_grave";
+    public static final String IMG = "powers/vengefulDead";
     private static final Texture tex84 = TextureLoader.getTexture(ShadeMod.getResourcePath(IMG+"_84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(ShadeMod.getResourcePath(IMG+"_32.png"));
 

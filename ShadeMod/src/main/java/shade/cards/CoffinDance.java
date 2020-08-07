@@ -73,9 +73,7 @@ public class CoffinDance extends AbstractShadeCard{
 		}
 		
 		if(undeads>=4 && undeads%4==0) {
-			for(int i=0;i<this.magicNumber;i++) {
-			    AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-			}
+		    AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie(),this.magicNumber));
 		}
 	}
 	

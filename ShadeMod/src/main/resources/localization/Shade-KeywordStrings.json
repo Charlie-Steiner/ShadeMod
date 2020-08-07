@@ -6,5 +6,37 @@
       "unearthed"
     ],
     "DESCRIPTION": "A class card (not Colorless, Status, or Curse) from your exhaust pile."
+  },
+  {
+    "PROPER_NAME": "Zombie",
+    "NAMES": [
+      "zombie",
+      "zombies"
+    ],
+    "DESCRIPTION": "Undead that sacrifice themselves to block for you."
+  },
+  {
+    "PROPER_NAME": "Skeleton",
+    "NAMES": [
+      "skeleton",
+      "skeletons"
+    ],
+    "DESCRIPTION": "Undead that deal damage at the end of your turn."
+  },
+  {
+    "PROPER_NAME": "Wraith",
+    "NAMES": [
+      "wraith",
+      "wraiths"
+    ],
+    "DESCRIPTION": "Undead that render you intangible if attacked, and deal damage if not."
+  },
+  {
+    "PROPER_NAME": "Purge",
+    "NAMES": [
+      "purge",
+      "purges"
+    ],
+    "DESCRIPTION": "Utterly removed from the game until the end of combat."
   }
 ]

@@ -59,9 +59,7 @@ public class LyeBath
 	  if(z instanceof SpawnedUndead) {
 		  n=((SpawnedUndead) z).count;
 		  ((SpawnedUndead) z).remove(n);
-		  for(int i=0;i<n;i++) {
-		      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-		  } 
+	      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton(),n));
 	  }
 	  
 	  if(this.upgraded) {

@@ -44,7 +44,7 @@ public class OneIsEnough extends AbstractShadeCard{
 	public OneIsEnough()
 	{
 		super(ID,NAME,ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
-		this.baseDamage = 11;
+		this.baseDamage = 10;
 		this.damage = this.baseDamage;
 		
 		this.baseBlock=5;
@@ -60,8 +60,8 @@ public class OneIsEnough extends AbstractShadeCard{
 	    if (!this.upgraded)
 	    {
 		      upgradeName();
-		      upgradeBlock(2);
-		      upgradeDamage(4);
+		      upgradeBlock(1);
+		      upgradeDamage(3);
 	    }
 		
 	}

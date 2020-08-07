@@ -38,7 +38,7 @@ public class SoulPierce extends AbstractShadeCard {
 	public SoulPierce() {
 		super(ID,NAME,shade.ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
 		// TODO Auto-generated constructor stub
-		this.baseMagicNumber=30;
+		this.baseMagicNumber=40;
 		this.magicNumber=this.baseMagicNumber;
 	}
 
@@ -46,7 +46,7 @@ public class SoulPierce extends AbstractShadeCard {
 	public void upgrade() {
 	    if (!this.upgraded) {
 	      upgradeName();
-	      upgradeMagicNumber(15);
+	      upgradeMagicNumber(20);
 	    } 
 	}
 

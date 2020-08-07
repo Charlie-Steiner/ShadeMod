@@ -27,7 +27,7 @@ public class FeralStrike extends AbstractShadeCard{
 	  public static final String IMG_PATH = "cards/feral_strike.png";
 	  private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
 	  private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
-	  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
+	  private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ALL_ENEMY;
 	  
 
 	  private static final int COST = 1;
@@ -49,6 +49,8 @@ public class FeralStrike extends AbstractShadeCard{
 		
 		this.exhaust=true;
 		this.isMultiDamage=true;
+		
+		this.tags.add(AbstractCard.CardTags.STRIKE);
 	}
 	
 	public AbstractCard makeCopy()

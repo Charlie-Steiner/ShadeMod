@@ -8,18 +8,17 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import shade.patches.AbstractCardEnum;
-import shade.powers.TouchOfTheGravePower;
-import shade.powers.TouchOfTheGravePowerUpgraded;
+import shade.powers.SpectralStrikesPower;
 
 
-public class TouchOfTheGrave
+public class SpectralStrikes
   extends AbstractShadeCard
 {
-  public static final String ID = "Shade:TouchOfTheGrave";
+  public static final String ID = "Shade:SpectralStrikes";
   public static final String NAME;
   public static final String DESCRIPTION;
   public static String UPGRADED_DESCRIPTION;
-  public static final String IMG_PATH = "cards/VengefulDead.png";
+  public static final String IMG_PATH = "cards/SpectralStrikes.png";
   private static final AbstractCard.CardType TYPE = AbstractCard.CardType.POWER;
   private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
   private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
@@ -36,29 +35,27 @@ public class TouchOfTheGrave
 
   private static final int COST = 1;
   
-  public TouchOfTheGrave() {
+  public SpectralStrikes() {
       super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
+  
+      this.tags.add(AbstractCard.CardTags.STRIKE);
   }
 
 
   
-  public AbstractCard makeCopy() { return new TouchOfTheGrave(); }
+  public AbstractCard makeCopy() { return new SpectralStrikes(); }
 
   
   public void upgrade() {
     if (!this.upgraded) {
       upgradeName();
-      this.isInnate=true;
+      this.isInnate = true;
       this.rawDescription=UPGRADED_DESCRIPTION;
       initializeDescription();
     } 
   }
   
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  if(this.upgraded) {
-		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TouchOfTheGravePowerUpgraded(p), 1));
-	  }else {
-		  AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TouchOfTheGravePower(p), 1));
-	  }
+	 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpectralStrikesPower(p), 1));
   }
 }

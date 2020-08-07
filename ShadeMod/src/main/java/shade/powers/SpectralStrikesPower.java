@@ -2,43 +2,42 @@ package shade.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import shade.ShadeMod;
-import shade.actions.RefreshUndeadPower;
-import shade.characters.ShadeCharacter;
-import shade.orbs.Skeleton;
-import shade.orbs.SpawnedUndead;
+import shade.actions.PlayRandomFromExhaustAction;
 import shade.ui.TextureLoader;
+import shade.ShadeMod;
 
 
-public class MadHubrisPower extends AbstractPower {
+public class SpectralStrikesPower extends AbstractPower {
 	
-    public static final String POWER_ID = "Shade:MadHubrisPower";
+    public static final String POWER_ID = "Shade:SpectralStrikesPower";
     public static PowerType POWER_TYPE = PowerType.BUFF;
-    public static final String IMG = "powers/mad_hubris";
+    public static final String IMG = "powers/SpectralStrikes";
+    
     private static final Texture tex84 = TextureLoader.getTexture(ShadeMod.getResourcePath(IMG+"_84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(ShadeMod.getResourcePath(IMG+"_32.png"));
 
     public static String[] DESCRIPTIONS;
     
-    public MadHubrisPower(AbstractCreature owner, int newAmount)
+    public SpectralStrikesPower(AbstractCreature owner)
     {
     	this.ID = POWER_ID;
     	this.owner = owner;
-    	this.amount = newAmount;
+    	this.amount = 1;
         this.type = POWER_TYPE;
         
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -47,31 +46,24 @@ public class MadHubrisPower extends AbstractPower {
         this.DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(this.ID).DESCRIPTIONS;
         this.name = CardCrawlGame.languagePack.getPowerStrings(this.ID).NAME;
     	updateDescription();
-    	
     }
     
 
-    public void atStartOfTurn() {
-    	flash();
-    	for(int i=0;i<this.amount;i++) {
-    		if(AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead) {
-    			Skeleton s = (Skeleton)AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON);
-    			int damage = s.passiveAmount+s.passiveBonus;
-    			for(int j=0;j<s.count;j++) {
-			    	AbstractDungeon.actionManager.addToTop(new DamageAction(owner,
-			                new DamageInfo(AbstractDungeon.getRandomMonster(), damage, DamageInfo.DamageType.THORNS),AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-    			}
-    		}
-    	}
-    	
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-	}
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (card.hasTag(AbstractCard.CardTags.STRIKE) && this.amount > 0) {
+          flash();
+          card.purgeOnUse=true;
+          AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player,this.amount));
+          AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, 
+        		  new StrengthPower(AbstractDungeon.player, this.amount), this.amount));
+        } 
+      }
     
 	public void updateDescription() {
 		if(this.amount==1) {
 			this.description = DESCRIPTIONS[0];
-		}else {
-			this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
+		} else {
+			this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3];
 		}
 	}
 	

@@ -282,6 +282,7 @@ public class ShadeMod implements PostInitializeSubscriber,
 		BaseMod.addCard(new shade.cards.MadHubris());
 		BaseMod.addCard(new shade.cards.OneIsEnough());
 		BaseMod.addCard(new shade.cards.LastGasp());
+		BaseMod.addCard(new shade.cards.SpectralStrikes());
 
 		//unlock cards:
 		UnlockTracker.unlockCard(shade.cards.Putrefaction.ID);
@@ -296,6 +297,7 @@ public class ShadeMod implements PostInitializeSubscriber,
 		UnlockTracker.unlockCard(shade.cards.MadHubris.ID);
 		UnlockTracker.unlockCard(shade.cards.OneIsEnough.ID);
 		UnlockTracker.unlockCard(shade.cards.LastGasp.ID);
+		UnlockTracker.unlockCard(shade.cards.SpectralStrikes.ID);
 		
 		logger.info("Done adding Shade cards!");
 	}
@@ -398,6 +400,12 @@ public class ShadeMod implements PostInitializeSubscriber,
     @Override
 	public void receiveOnBattleStart(AbstractRoom room) {
 	    if (AbstractDungeon.player.chosenClass == ShadeEnum.SHADE) {
+			//move back slightly if fighting awakened one to make room for birbs
+			if(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss && AbstractDungeon.bossKey == "Awakened One") {
+				AbstractDungeon.player.movePosition(0.18F*Settings.WIDTH, AbstractDungeon.floorY);
+			}
+	    	
+			//spawn EmptySlot orbs
 	    	AbstractDungeon.player.orbs.set(0, new EmptySlot());
 	    	AbstractDungeon.player.orbs.set(1, new EmptySlot());
 	    	AbstractDungeon.player.orbs.set(2, new EmptySlot());
@@ -409,11 +417,7 @@ public class ShadeMod implements PostInitializeSubscriber,
 					new MinionsPower(AbstractDungeon.player, decayConstant),decayConstant));
 			logger.info(CardCrawlGame.languagePack.getPowerStrings("Shade:MinionsPower").NAME);
 
-			//move back slightly if fighting awakened one to make room for birbs
-			if(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss && AbstractDungeon.bossKey == "Awakened One") {
-				AbstractDungeon.player.movePosition(0.18F*Settings.WIDTH, AbstractDungeon.floorY);
-			}
-			
+
 			combatExhausts = 0;
 	    }
 	}

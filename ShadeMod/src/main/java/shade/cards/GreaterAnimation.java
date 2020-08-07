@@ -61,10 +61,7 @@ public class GreaterAnimation extends AbstractShadeCard {
 		}
 		
 		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-		
-		for(int i=0;i<this.magicNumber;i++){
-			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-		}
+		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton(),this.magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Wraith()));
 		
 	    AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());

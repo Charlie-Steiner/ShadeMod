@@ -11,70 +11,70 @@
   },
 "Shade:AnimateDead": {
     "NAME": "Animate Dead",
-    "DESCRIPTION": "Summon a zombie and two skeletons.",
-    "UPGRADE_DESCRIPTION": "Summon two zombies and two skeletons."
+    "DESCRIPTION": "Summon !M! shade:Zombie and 2 shade:Skeletons.",
+    "UPGRADE_DESCRIPTION": "Summon !M! shade:Zombies and 2 shade:Skeletons."
   },
 "Shade:ClawBack": {
     "NAME": "Claw Back",
-    "DESCRIPTION": "Deal !D! damage. NL Return a random shade:unearthed card to your draw pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Return a random shade:unearthed card to your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL Return a random shade:Unearthed card to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Return a random shade:Unearthed card to your draw pile."
   },
   "Shade:AblativeArmor": {
     "NAME": "Ablative Armor",
-    "DESCRIPTION": "Sacrifice a zombie to apply !M! Weak to all enemies and gain 1 Dexterity.",
-    "UPGRADE_DESCRIPTION": "Sacrifice a zombie to apply !M! Weak to all enemies and gain 1 Dexterity.",
-    "EXTENDED_DESCRIPTION": ["I need a zombie."]
+    "DESCRIPTION": "Sacrifice a shade:Zombie to apply !M! Weak to all enemies and gain 1 Dexterity.",
+    "UPGRADE_DESCRIPTION": "Sacrifice a shade:Zombie to apply !M! Weak to all enemies and gain 1 Dexterity.",
+    "EXTENDED_DESCRIPTION": ["I need a shade:Zombie."]
   },
   "Shade:Boneskin": {
     "NAME": "Boneskin",
-    "DESCRIPTION": "Sacrifice up to !M! zombies. Gain 2 plated armor for each zombie sacrificed.",
-    "UPGRADE_DESCRIPTION": "Sacrifice up to !M! zombies. Gain 3 plated armor for each zombie sacrificed.",
-    "EXTENDED_DESCRIPTION": ["I need a zombie."]
+    "DESCRIPTION": "Sacrifice up to !M! shade:Zombies. Gain 2 plated armor for each shade:Zombie sacrificed.",
+    "UPGRADE_DESCRIPTION": "Sacrifice up to !M! shade:Zombies. Gain 3 plated armor for each shade:Zombie sacrificed.",
+    "EXTENDED_DESCRIPTION": ["I need a shade:Zombie."]
   },
   "Shade:FreshBones": {
     "NAME": "Fresh Bones",
-    "DESCRIPTION": "Summon a skeleton. NL Your skeletons deal 3 more damage for !M! turn.",
-    "UPGRADE_DESCRIPTION": "Summon a skeleton. NL Your skeletons deal 3 more damage for !M! turns."
+    "DESCRIPTION": "Summon a shade:Skeleton. NL Your shade:Skeletons deal 3 more damage for !M! turn.",
+    "UPGRADE_DESCRIPTION": "Summon a shade:Skeleton. NL Your shade:Skeletons deal 3 more damage for !M! turns."
   },
   "Shade:TouchOfTheGrave": {
-    "NAME": "Touch of the Grave",
-    "DESCRIPTION": "At the start of your turn, play a random shade:unearthed attack and remove it from play.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, play a random shade:unearthed attack and return it to your discard pile."
+    "NAME": "Vengeful Dead",
+    "DESCRIPTION": "At the start of your turn, play a random shade:Unearthed attack and shade:Purge it.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, play a random shade:Unearthed attack and return it to your discard pile."
   },
   "Shade:CallOfTheGrave": {
     "NAME": "Call of the Grave",
-    "DESCRIPTION": "At the start of your turn, play a random shade:unearthed skill and remove it from play.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random shade:unearthed skill and remove it from play."
+    "DESCRIPTION": "At the start of your turn, play a random shade:Unearthed skill and shade:Purge it.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random shade:Unearthed skill and shade:Purge it."
   },
   "Shade:Bonestorm": {
     "NAME": "Bonestorm",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Summon 1 skeleton.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Summon 2 skeletons."
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Summon !M! shade:Skeleton.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Summon !M! shade:Skeletons."
   },
   "Shade:WallOfFlesh": {
     "NAME": "Wall of Flesh",
-    "DESCRIPTION": "Summon !M! zombies and gain !B! Block.",
-    "UPGRADE_DESCRIPTION": "Summon !M! zombies and gain !B! Block."
+    "DESCRIPTION": "Summon !M! shade:Zombies and gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Summon !M! shade:Zombies and gain !B! Block."
   },
   "Shade:FingerOfDeath": {
     "NAME": "Finger of Death",
-    "DESCRIPTION": "Deal !D! damage. NL If it kills the target, summon 2 zombies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If it kills the target, summon 2 zombies."
+    "DESCRIPTION": "Deal !D! damage. NL If it kills the target, summon 2 shade:Zombies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If it kills the target, summon 2 shade:Zombies."
   },
     "Shade:RavenousHorde": {
     "NAME": "Ravenous Horde",
-    "DESCRIPTION": "Lose !M! HP. NL Summon 2 X zombies.",
-    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Summon 2 X + 1 zombies."
+    "DESCRIPTION": "Lose !M! HP. NL Summon 2 X shade:Zombies.",
+    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Summon 2 X + 1 shade:Zombies."
   },
     "Shade:LichForm": {
     "NAME": "Lich Form",
-    "DESCRIPTION": "At the start of your turn, summon !M! skeletons.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, summon !M! skeletons."
+    "DESCRIPTION": "At the start of your turn, summon !M! shade:Skeletons.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, summon !M! shade:Skeletons."
   },
   "Shade:CallWraith": {
     "NAME": "Call Wraith",
-    "DESCRIPTION": "Lose !M! HP. NL Summon a wraith. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Summon a wraith. NL Exhaust"
+    "DESCRIPTION": "Lose !M! HP. NL Summon a shade:Wraith. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Summon a shade:Wraith. NL Exhaust"
   },
   "Shade:Bite_Shade": {
     "NAME": "Bite",
@@ -98,14 +98,14 @@
   },
   "Shade:SelfBurial": {
     "NAME": "Self-burial",
-    "DESCRIPTION": "Exhaust your hand and top 10 cards in exchange for all shade:unearthed cards. NL Shuffle and draw !M! cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Exhaust your hand and top 10 cards in exchange for all shade:unearthed cards. NL Shuffle and draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Exhaust your hand and top 10 cards in exchange for all shade:Unearthed cards. NL Shuffle and draw !M! cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust your hand and top 10 cards in exchange for all shade:Unearthed cards. NL Shuffle and draw !M! cards. NL Exhaust."
   },
   "Shade:GreyBargain": {
     "NAME": "Grey Bargain",
-    "DESCRIPTION": "Return an shade:unearthed card to your draw pile by exhausting a card in your hand.",
-    "UPGRADE_DESCRIPTION": "Return an shade:unearthed card to your draw pile by exhausting a card in your hand. NL Draw a card.",
-    "EXTENDED_DESCRIPTION": ["I need a card to exhaust."]
+    "DESCRIPTION": "Return an shade:Unearthed card to your draw pile by Exhausting a card in your hand.",
+    "UPGRADE_DESCRIPTION": "Return an shade:Unearthed card to your draw pile by Exhausting a card in your hand. NL Draw a card.",
+    "EXTENDED_DESCRIPTION": ["I need a card to Exhaust."]
   },
   "Shade:FleshLikeOak": {
     "NAME": "Flesh Like Oak",
@@ -114,9 +114,9 @@
   },
   "Shade:CloudOfShrapnel": {
     "NAME": "Cloud of Shrapnel",
-    "DESCRIPTION": "Sacrifice a skeleton to deal !D! damage to all enemies and gain !M! Dexterity. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Sacrifice a skeleton to deal !D! damage to all enemies and gain !M! Dexterity. NL Exhaust.",
-    "EXTENDED_DESCRIPTION": ["I need a skeleton."]
+    "DESCRIPTION": "Sacrifice a shade:Skeleton to deal !D! damage to all enemies and gain !M! Dexterity. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Sacrifice a shade:Skeleton to deal !D! damage to all enemies and gain !M! Dexterity. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": ["I need a shade:Skeleton."]
   },
   "Shade:SanguineRitual": {
     "NAME": "Sanguine Ritual",
@@ -140,87 +140,87 @@
   },
   "Shade:DangerousRitual": {
     "NAME": "Dangerous Ritual",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Costs 1 less per !M! cards exhausted this combat.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Costs 1 less per !M! cards exhausted this combat."
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Costs 1 less per !M! cards Exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Costs 1 less per !M! cards Exhausted this combat."
   },
   "Shade:OminousRitual": {
     "NAME": "Ominous Ritual",
-    "DESCRIPTION": "Gain Block and deal damage to all enemies for each card exhausted this combat.",
-    "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies for each card exhausted this combat.",
+    "DESCRIPTION": "Gain Block and deal damage to all enemies for each card Exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies for each card Exhausted this combat.",
   	"EXTENDED_DESCRIPTION": [" NL ( !M! cards )"]
   },
   "Shade:CommandSoldier": {
     "NAME": "Command Soldier",
-    "DESCRIPTION": "Summon a skeleton and trigger up to !M! skeleton attacks.",
-    "UPGRADE_DESCRIPTION": "Summon a skeleton and trigger up to !M! skeleton attacks."
+    "DESCRIPTION": "Summon a shade:Skeleton and trigger up to !M! shade:Skeleton attacks.",
+    "UPGRADE_DESCRIPTION": "Summon a shade:Skeleton and trigger up to !M! shade:Skeleton attacks."
   },
   "Shade:SkeletonArmy": {
     "NAME": "Skeleton Army",
-    "DESCRIPTION": "Summon !M! skeletons.",
-    "UPGRADE_DESCRIPTION": "Summon !M! skeletons."
+    "DESCRIPTION": "Summon !M! shade:Skeletons.",
+    "UPGRADE_DESCRIPTION": "Summon !M! shade:Skeletons."
   },
   "Shade:LyeBath": {
     "NAME": "Lye Bath",
-    "DESCRIPTION": "Convert all your zombies into skeletons. NL Draw a card.",
-    "UPGRADE_DESCRIPTION": "Convert all your zombies into skeletons. NL Draw two cards."
+    "DESCRIPTION": "Convert all your shade:Zombies into shade:Skeletons. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "Convert all your shade:Zombies into shade:Skeletons. NL Draw two cards."
   },
   "Shade:GoDigging": {
     "NAME": "Go Digging",
-    "DESCRIPTION": "Sacrifice up to !M! skeletons. At the start of next turn, summon 2 zombies for each one sacrificed.",
-    "UPGRADE_DESCRIPTION": "Sacrifice up to !M! skeletons. At the start of next turn, summon 2 zombies for each one sacrificed."
+    "DESCRIPTION": "Sacrifice up to !M! shade:Skeletons. At the start of next turn, summon 2 shade:Zombies for each one sacrificed.",
+    "UPGRADE_DESCRIPTION": "Sacrifice up to !M! shade:Skeletons. At the start of next turn, summon 2 shade:Zombies for each one sacrificed."
   },
   "Shade:AuraOfUnlife": {
     "NAME": "Aura of Unlife",
-    "DESCRIPTION": "Your zombies and skeletons take two turns longer to decay.",
-    "UPGRADE_DESCRIPTION": "Your zombies and skeletons take two turns longer to decay.",
+    "DESCRIPTION": "Your shade:Zombies and shade:Skeletons take two turns longer to decay.",
+    "UPGRADE_DESCRIPTION": "Your shade:Zombies and shade:Skeletons take two turns longer to decay.",
     "EXTENDED_DESCRIPTION": [" NL ( 1/ !M! per turn )"]
   },
   "Shade:GraveStillness": {
     "NAME": "Grave Stillness",
-    "DESCRIPTION": "Gain !B! Block. NL Your zombies and skeletons decay by !M! less this turn.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Your zombies and skeletons decay by !M! less this turn."
+    "DESCRIPTION": "Gain !B! Block. NL Your shade:Zombies and shade:Skeletons decay by !M! less this turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Your shade:Zombies and shade:Skeletons decay by !M! less this turn."
   },
   "Shade:PotionOfRestlessness": {
-    "NAME": "Potion of Restlessness",
-    "DESCRIPTION": "Gain 3 Strength. NL Your zombies and skeletons decay one turn quicker.",
-    "UPGRADE_DESCRIPTION": "Gain 4 Strength. NL Your zombies and skeletons decay one turn quicker.",
+    "NAME": "Potion of Madness",
+    "DESCRIPTION": "Gain 3 Strength. NL Your shade:Zombies and shade:Skeletons decay one turn quicker.",
+    "UPGRADE_DESCRIPTION": "Gain 4 Strength. NL Your shade:Zombies and shade:Skeletons decay one turn quicker.",
     "EXTENDED_DESCRIPTION": [" NL ( 1/ !M! per turn )"]
   },
   "Shade:GreaterAnimation": {
     "NAME": "Greater Animation",
-    "DESCRIPTION": "Summon 1 zombie, !M! skeletons, and 1 wraith. NL Lose 1 Strength and 1 Dexterity.",
-    "UPGRADE_DESCRIPTION": "Summon 1 zombie, !M! skeletons, and 1 wraith."
+    "DESCRIPTION": "Summon 1 shade:Zombie, !M! shade:Skeletons, and 1 shade:Wraith. NL Lose 1 Strength and 1 Dexterity.",
+    "UPGRADE_DESCRIPTION": "Summon 1 shade:Zombie, !M! shade:Skeletons, and 1 shade:Wraith."
   },
   "Shade:OfferingToTheBeyond": {
-    "NAME": "Offering to the Beyond",
-    "DESCRIPTION": "The next time you exhaust !M! cards in one turn, summon a wraith.",
-    "UPGRADE_DESCRIPTION": "The next time you exhaust !M! cards in one turn, summon a wraith."
+    "NAME": "Ethereal Offering",
+    "DESCRIPTION": "The next time you Exhaust !M! cards in one turn, summon a shade:Wraith.",
+    "UPGRADE_DESCRIPTION": "The next time you Exhaust !M! cards in one turn, summon a shade:Wraith."
   },
   "Shade:SoulPierce": {
     "NAME": "Soul Pierce",
-    "DESCRIPTION": "Your wraiths deal !M! more damage.",
-    "UPGRADE_DESCRIPTION": "Your wraiths deal !M! more damage."
+    "DESCRIPTION": "Your shade:Wraiths deal !M! more damage.",
+    "UPGRADE_DESCRIPTION": "Your shade:Wraiths deal !M! more damage."
   },
   "Shade:OpenGraves": {
     "NAME": "Open Graves",
-    "DESCRIPTION": "Summon either a zombie or a skeleton at the beginning of your turn, alternating.",
-    "UPGRADE_DESCRIPTION": "Summon a skeleton. NL Summon either a zombie or a skeleton at the beginning of your turn, alternating."
+    "DESCRIPTION": "Summon either a shade:Zombie or a shade:Skeleton at the beginning of your turn, alternating.",
+    "UPGRADE_DESCRIPTION": "Summon a shade:Skeleton. NL Summon either a shade:Zombie or a shade:Skeleton at the beginning of your turn, alternating."
   },
   "Shade:SensePrey": {
     "NAME": "Sense Prey",
-    "DESCRIPTION": "Summon a zombie and a skeleton for each enemy in combat. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Summon a zombie and a skeleton for each enemy in combat. NL Exhaust"
+    "DESCRIPTION": "Summon a shade:Zombie and a shade:Skeleton for each enemy in combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Summon a shade:Zombie and a shade:Skeleton for each enemy in combat. NL Exhaust"
   },
   "Shade:Trample": {
     "NAME": "Trample",
-    "DESCRIPTION": "Deal damage equal to !M! times your number of zombies.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to !M! times your number of zombies.",
+    "DESCRIPTION": "Deal damage equal to !M! times your number of shade:Zombies.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to !M! times your number of shade:Zombies.",
     "EXTENDED_DESCRIPTION": [" NL ( !D! damage )"]
   },
   "Shade:PressTheAttack": {
     "NAME": "Press the Attack",
-    "DESCRIPTION": "Deal !D! damage. NL Your skeletons deal 3 more damage for 1 turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Your skeletons deal 3 more damage for 2 turns."
+    "DESCRIPTION": "Deal !D! damage. NL Your shade:Skeletons deal 3 more damage for 1 turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Your shade:Skeletons deal 3 more damage for 2 turns."
   },
   "Shade:Patience": {
     "NAME": "Patience",
@@ -229,18 +229,18 @@
   },
   "Shade:Awaken": {
     "NAME": "Awaken",
-    "DESCRIPTION": "At the start of next turn, choose an shade:unearthed card and return it to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "At the start of next turn, choose an shade:unearthed card and return it to your hand. NL Exhaust."
+    "DESCRIPTION": "At the start of next turn, choose an shade:Unearthed card and return it to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "At the start of next turn, choose an shade:Unearthed card and return it to your hand. NL Exhaust."
   },
   "Shade:Haruspicy": {
     "NAME": "Haruspicy",
-    "DESCRIPTION": "Scry 5 and draw 2 cards. NL Sacrifice a zombie or lose 4 HP.",
-    "UPGRADE_DESCRIPTION": "Scry 6 and draw 3 cards. NL Sacrifice a zombie or lose 4 HP."
+    "DESCRIPTION": "Scry 5 and draw 2 cards. NL Sacrifice a shade:Zombie or lose 4 HP.",
+    "UPGRADE_DESCRIPTION": "Scry 6 and draw 3 cards. NL Sacrifice a shade:Zombie or lose 4 HP."
   },
   "Shade:Brains": {
     "NAME": "Brains",
-    "DESCRIPTION": "Summon a zombie. NL Draw 2 cards.",
-    "UPGRADE_DESCRIPTION": "Summon two zombies. NL Draw 2 cards."
+    "DESCRIPTION": "Summon a shade:Zombie. NL Draw 2 cards.",
+    "UPGRADE_DESCRIPTION": "Summon two shade:Zombies. NL Draw 2 cards."
   },
   "Shade:ScuttlingHand": {
     "NAME": "Scuttling Hand",
@@ -249,33 +249,33 @@
   },
   "Shade:Premonition": {
     "NAME": "Premonition",
-    "DESCRIPTION": "Gain !B! Block. NL Whenever you summon a wraith, move this to your hand from wherever it is.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Whenever you summon a wraith, move this to your hand from wherever it is."
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you summon a shade:Wraith, move this to your hand from wherever it is.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Whenever you summon a shade:Wraith, move this to your hand from wherever it is."
   },
   "Shade:SkeletonHug": {
     "NAME": "Skeleton Hug",
-    "DESCRIPTION": "Summon a skeleton. NL Deal !D! damage. NL Apply !M! Weak.",
-    "UPGRADE_DESCRIPTION": "Summon a skeleton. NL Deal !D! damage. NL Apply !M! Weak."
+    "DESCRIPTION": "Summon a shade:Skeleton. NL Deal !D! damage. NL Apply !M! Weak.",
+    "UPGRADE_DESCRIPTION": "Summon a shade:Skeleton. NL Deal !D! damage. NL Apply !M! Weak."
   },
   "Shade:BoneShards": {
     "NAME": "Bone Shards",
-    "DESCRIPTION": "Sacrifice up to !M! skeletons to deal !D! damage each.",
-    "UPGRADE_DESCRIPTION": "Sacrifice up to !M! skeletons to deal !D! damage each."
+    "DESCRIPTION": "Sacrifice up to !M! shade:Skeletons to deal !D! damage each.",
+    "UPGRADE_DESCRIPTION": "Sacrifice up to !M! shade:Skeletons to deal !D! damage each."
   },
   "Shade:CoffinDance": {
     "NAME": "Coffin Dance",
-    "DESCRIPTION": "Deal !D! damage. NL If your number of zombies and skeletons is a multiple of 4, summon !M! zombies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If your number of zombies and skeletons is a multiple of 4, summon !M! zombies."
+    "DESCRIPTION": "Deal !D! damage. NL If your number of shade:Zombies and shade:Skeletons is a multiple of 4, summon !M! shade:Zombies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If your number of shade:Zombies and shade:Skeletons is a multiple of 4, summon !M! shade:Zombies."
   },
   "Shade:UnbarTheGrave": {
     "NAME": "Unbar the Grave",
-    "DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return !M! random shade:unearthed cards to your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Summon !M! zombies and !M! skeletons. NL Return !M! random shade:unearthed cards to your draw pile. NL Exhaust."
+    "DESCRIPTION": "Summon !M! shade:Zombies and !M! shade:Skeletons. NL Return !M! random shade:Unearthed cards to your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Summon !M! shade:Zombies and !M! shade:Skeletons. NL Return !M! random shade:Unearthed cards to your draw pile. NL Exhaust."
   },
   "Shade:Carnophage": {
     "NAME": "Carnophage",
-    "DESCRIPTION": "Whenever you draw a Status or Curse card, summon a zombie.",
-    "UPGRADE_DESCRIPTION": "Whenever you draw a Status or Curse card, summon a zombie."
+    "DESCRIPTION": "Whenever you draw a Status or Curse card, summon a shade:Zombie.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw a Status or Curse card, summon a shade:Zombie."
   },
   "Shade:Excise": {
     "NAME": "Excise",
@@ -289,8 +289,8 @@
   },
   "Shade:FleshToFlesh": {
     "NAME": "Flesh To Flesh",
-    "DESCRIPTION": "Summon !M! zombies. NL Add a *Wound to your discard pile.",
-    "UPGRADE_DESCRIPTION": "Summon !M! zombies. NL Add a *Wound to your discard pile."
+    "DESCRIPTION": "Summon !M! shade:Zombies. NL Add a *Wound to your discard pile.",
+    "UPGRADE_DESCRIPTION": "Summon !M! shade:Zombies. NL Add a *Wound to your discard pile."
   },
   "Shade:LoseControl": {
     "NAME": "Lose Control",
@@ -299,8 +299,8 @@
   },
   "Shade:FleshOffering": {
     "NAME": "Flesh Offering",
-    "DESCRIPTION": "Summon a wraith. NL Gain !B! Block. NL Add 4 *Wounds to your discard pile.",
-    "UPGRADE_DESCRIPTION": "Summon a wraith. NL Gain !B! Block. NL Add 4 *Wounds to your discard pile."
+    "DESCRIPTION": "Summon a shade:Wraith. NL Gain !B! Block. NL Add 4 *Wounds to your discard pile.",
+    "UPGRADE_DESCRIPTION": "Summon a shade:Wraith. NL Gain !B! Block. NL Add 4 *Wounds to your discard pile."
   },
   "Shade:FeralStrike": {
     "NAME": "Feral Strike",
@@ -319,13 +319,13 @@
   },
   "Shade:Putrefaction": {
     "NAME": "Putrefaction",
-    "DESCRIPTION": "Whenever a zombie dies, apply !M! Poison to all enemies.",
-    "UPGRADE_DESCRIPTION": "Whenever a zombie dies, apply !M! Poison to all enemies."
+    "DESCRIPTION": "Whenever a shade:Zombie dies, apply !M! Poison to all enemies.",
+    "UPGRADE_DESCRIPTION": "Whenever a shade:Zombie dies, apply !M! Poison to all enemies."
   },
   "Shade:PoundOfFlesh": {
     "NAME": "Pound of Flesh",
-    "DESCRIPTION": "Deal !D! damage. NL Next turn, summon !M! zombies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Next turn, summon !M! zombies."
+    "DESCRIPTION": "Deal !D! damage. NL Next turn, summon !M! shade:Zombies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Next turn, summon !M! shade:Zombies."
   },
   "Shade:Doomsay": {
     "NAME": "Doomsay",
@@ -339,23 +339,23 @@
   },
   "Shade:Coordination": {
     "NAME": "Coordination",
-    "DESCRIPTION": "Your skeletons' attacks hit all enemies.",
-    "UPGRADE_DESCRIPTION": "Your skeletons' attacks all enemies. NL Trigger up to 2 skeleton attacks."
+    "DESCRIPTION": "Your shade:Skeletons' attacks hit all enemies.",
+    "UPGRADE_DESCRIPTION": "Your shade:Skeletons' attacks all enemies. NL Trigger up to 2 shade:Skeleton attacks."
   },
   "Shade:SoulToxin": {
     "NAME": "Soul Toxin",
-    "DESCRIPTION": "Apply 2 Weak. NL Target loses 3 HP. NL If you have a wraith, apply !M! Poison.",
-    "UPGRADE_DESCRIPTION": "Apply 3 Weak. NL Target loses 5 HP. NL If you have a wraith, apply !M! Poison."
+    "DESCRIPTION": "Apply 2 Weak. NL Target loses 3 HP. NL If you have a shade:Wraith, apply !M! Poison.",
+    "UPGRADE_DESCRIPTION": "Apply 3 Weak. NL Target loses 5 HP. NL If you have a shade:Wraith, apply !M! Poison."
   },
   "Shade:Asphyxiate": {
     "NAME": "Asphyxiate",
-    "DESCRIPTION": "Apply !M! Poison. NL Deal damage equal to the enemy's poison. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Poison. NL Deal damage equal to the enemy's poison. NL Exhaust."
+    "DESCRIPTION": "Apply !M! Poison. NL Deal damage equal to the enemy's Poison. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Poison. NL Deal damage equal to the enemy's Poison. NL Exhaust."
   },
   "Shade:SpontaneousRitual": {
     "NAME": "Spontaneous Ritual",
-    "DESCRIPTION": "Exhaust your hand. NL Deal damage for each card exhausted this combat.",
-    "UPGRADE_DESCRIPTION": "Add 3 *Wounds to your hand. NL Exhaust your hand. NL Deal damage for each card exhausted this combat.",
+    "DESCRIPTION": "Exhaust your hand. NL Deal damage for each card Exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Add 3 *Wounds to your hand. NL Exhaust your hand. NL Deal damage for each card Exhausted this combat.",
   	"EXTENDED_DESCRIPTION": [" NL ( !M! cards so far )"]
   },
   "Shade:CarefulCut": {
@@ -364,9 +364,9 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Exhaust a card from your hand."
   },
   "Shade:MadHubris": {
-    "NAME": "Mad Hubris",
-    "DESCRIPTION": "Summon !M! skeletons. NL At the start of your next turn, your skeletons attack you.",
-    "UPGRADE_DESCRIPTION": "Summon !M! skeletons. NL At the start of your next turn, your skeletons attack you."
+    "NAME": "Lunar Madness",
+    "DESCRIPTION": "Summon !M! shade:Skeletons. NL Before your next turn, your shade:Skeletons attack you.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Summon !M! shade:Skeletons. NL Before your next turn, your shade:Skeletons attack you."
   },
   "Shade:OneIsEnough": {
     "NAME": "One Is Enough",
@@ -375,7 +375,12 @@
   },
   "Shade:LastGasp": {
     "NAME": "Last Gasp",
-    "DESCRIPTION": "Ethereal. NL Choose an shade:unearthed card, play it, then remove it from play.",
-    "UPGRADE_DESCRIPTION": "Choose an shade:unearthed card, play it, then remove it from play."
+    "DESCRIPTION": "Ethereal. NL Choose an shade:Unearthed card, play it, and shade:Purge it.",
+    "UPGRADE_DESCRIPTION": "Choose an shade:Unearthed card, play it, and shade:Purge it."
+  },
+  "Shade:SpectralStrikes": {
+    "NAME": "Spectral Strikes",
+    "DESCRIPTION": "When you play a card containing \"Strike,\" shade:Purge it, draw a card, and gain 1 Strength.",
+    "UPGRADE_DESCRIPTION": "Innate. NL When you play a card containing \"Strike,\" shade:Purge it, draw a card, and gain 1 Strength."
   }
 }

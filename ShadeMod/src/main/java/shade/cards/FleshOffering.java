@@ -49,7 +49,7 @@ public class FleshOffering
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
-		this.baseBlock=14;
+		this.baseBlock=13;
 		this.block=this.baseBlock;
   }
 

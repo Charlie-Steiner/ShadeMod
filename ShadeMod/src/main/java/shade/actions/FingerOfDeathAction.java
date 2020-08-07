@@ -10,6 +10,7 @@ public class FingerOfDeathAction extends AbstractGameAction {
 
 	
 	private DamageInfo info;
+	private final int nZombies = 2;
 
 	public FingerOfDeathAction(AbstractCreature target, DamageInfo info) {
 		this.info = info;
@@ -27,8 +28,7 @@ public class FingerOfDeathAction extends AbstractGameAction {
 				this.target.damage(this.info);
 				
 				if((this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead) {
-					AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-					AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
+					AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie(),nZombies));
 				}
 			}
 	    	if ((AbstractDungeon.getCurrRoom()).monsters.areMonstersBasicallyDead()) {

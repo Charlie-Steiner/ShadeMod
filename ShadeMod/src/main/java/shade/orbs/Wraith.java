@@ -22,7 +22,7 @@ public class Wraith extends SpawnedUndead {
 
 
 	public static final String ID = "Shade:Wraith";
-	public static final int damage = 30;
+	public static final int damage = 25;
 	
 	public Wraith()
 	{

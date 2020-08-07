@@ -55,9 +55,7 @@ public class Brains
 
   public void use(AbstractPlayer p, AbstractMonster m) {
 	  
-	  for(int i=0;i<this.magicNumber;i++){
-		  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-	  }
+	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie(),this.magicNumber));
 	  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,2));
   }
 

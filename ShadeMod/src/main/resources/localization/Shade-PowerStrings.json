@@ -2,55 +2,55 @@
 	"Shade:MinionsPower":{
 		"NAME": "Minions",
 		"DESCRIPTIONS": [
-			"Zombies will sacrifice themselves to prevent unblocked damage. Zombies and Skeletons decay at a rate of 1/",
+			"#yZombies and #ySkeletons decay at a rate of 1/",
 			" per turn."
 		]
 	},
 	"Shade:TouchOfTheGravePower": {
-		"NAME": "Touch of the Grave",
+		"NAME": "Vengeful Dead",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random #yunearthed attack, then remove it.",
+			"At the start of your turn, play a random #yUnearthed attack, then #yPurge it.",
 			"At the start of your turn, play #b",
-			" random #yunearthed attacks, then remove them."
+			" random #yUnearthed attacks, then #yPurge them."
 		]
 	},
 	"Shade:TouchOfTheGravePowerUpgraded": {
-		"NAME": "Touch of the Grave +",
+		"NAME": "Vengeful Dead +",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random #yunearthed attack, then return it to your discard.",
+			"At the start of your turn, play a random #yUnearthed attack, then return it to your discard.",
 			"At the start of your turn, play #b",
-			" random #yunearthed attacks, then return them to your discard."
+			" random #yUnearthed attacks, then return them to your discard."
 		]
 	},
 	"Shade:CallOfTheGravePower": {
 		"NAME": "Call of the Grave",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random #yunearthed skill, then remove it.",
+			"At the start of your turn, play a random #yUnearthed skill, then #yPurge it.",
 			"At the start of your turn, play #b",
-			" random #yunearthed skills, then remove them."
+			" random #yUnearthed skills, then #yPurge` them."
 		]
 	},
 	"Shade:CallOfTheGravePowerUpgraded": {
 		"NAME": "Call of the Grave +",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random #yunearthed skill, then return it to your discard.",
+			"At the start of your turn, play a random #yUnearthed skill, then return it to your discard.",
 			"At the start of your turn, play #b",
-			" random #yunearthed skills, then return them to your discard."
+			" random #yUnearthed skills, then return them to your discard."
 		]
 	},
 	"Shade:FrenzyDownPower": {
 		"NAME": "Losing Frenzy",
 		"DESCRIPTIONS": [
 			"At the start of your turn, after minion attacks, lose #b",
-			" Strength and #b",
-			" Dexterity"
+			" #yStrength and #b",
+			" #yDexterity"
 		]
 	},
 		"Shade:StrongBonesPower": {
 		"NAME": "Strong Bones",
 		"DESCRIPTIONS": [
-			"Your skeletons deal 3 addtional damage this turn.",
-			"Your skeletons deal 3 addtional damage for #b",
+			"Your #ySkeletons deal 3 addtional damage this turn.",
+			"Your #ySkeletons deal 3 addtional damage for #b",
 			" turns."
 		]
 	},
@@ -58,20 +58,20 @@
 		"NAME": "Lich Form",
 		"DESCRIPTIONS": [
 			"Summon #b",
-			" skeletons at the start of your turn."
+			" #ySkeletons at the start of your turn."
 		]
 	},
 		"Shade:GoneDiggingPower": {
 		"NAME": "Gone Digging",
 		"DESCRIPTIONS": [
 			"Summon #b",
-			" zombies at the start of your next turn."
+			" #yZombies at the start of your next turn."
 		]
 	},
 		"Shade:GraveStillnessPower": {
 		"NAME": "Grave Stillness",
 		"DESCRIPTIONS": [
-			"Your zombies and skeletons decay by #b",
+			"Your #yZombies and #ySkeletons decay by #b",
 			" less this turn."
 		]
 	},
@@ -81,9 +81,9 @@
 		      "If you exhaust #b",
 		      " more card",
 		      " more cards",
-		      " this turn, summon a wraith.",
+		      " this turn, summon a #yWraith.",
 		      " this turn, summon #b",
-		      " wraiths"
+		      " #yWraiths"
 		]
 	},
 		"Shade:OfferingToTheBeyondPowerUpgraded": {
@@ -92,26 +92,26 @@
 		      "If you exhaust #b",
 		      " more card",
 		      " more cards",
-		      " this turn, summon a wraith.",
+		      " this turn, summon a #yWraith.",
 		      " this turn, summon #b",
-		      " wraiths"
+		      " #yWraiths"
 		]
 	},
 		"Shade:SoulPiercePower": {
 		"NAME": "Soul Pierce",
 		"DESCRIPTIONS": [
-		      "Your wraiths deal #b",
+		      "Your #yWraiths deal #b",
 		      " more damage."
 		]
 	},
 		"Shade:OpenGravesPower": {
 		"NAME": "Open Graves",
 		"DESCRIPTIONS": [
-		      "Alternates between summoning a zombie and a skeleton. ",
-		      "Alternates between summoning zombies and skeletons. ",
+		      "Alternates between summoning a #yZombie and a #ySkeleton. ",
+		      "Alternates between summoning #yZombies and #ySkeletons. ",
 		      "Next turn, summon #b",
-		      " zombie",
-		      " skeleton",
+		      " #yZombie",
+		      " #ySkeleton",
 		      ".",
 		      "s."
 		]
@@ -119,17 +119,17 @@
 		"Shade:AwakenPower": {
 		"NAME": "Awakening",
 		"DESCRIPTIONS": [
-			"Return an #yunearthed card to your hand next turn.",
+			"Return an #yUnearthed card to your hand next turn.",
 			"Return #b",
-			" #yunearthed cards to your hand next turn."
+			" #yUnearthed cards to your hand next turn."
 		]
 	},
 		"Shade:CarnophagePower": {
 		"NAME": "Carnophagy",
 		"DESCRIPTIONS": [
 			"Wenever you draw a Status or Curse card, summon #b",
-			" zombie.",
-			" zombies."
+			" #yZombie.",
+			" #yZombies."
 		]
 	},
 		"Shade:StitchTogetherPower": {
@@ -142,30 +142,39 @@
 		"Shade:DarkOfNightPower": {
 		"NAME": "Dark Night",
 		"DESCRIPTIONS": [
-			"The next card that Exhausts is played twice.",
+			"The next card that #yExhausts is played twice.",
 			"The next #b",
-			" cards that Exhaust are played twice."
+			" cards that #yExhaust are played twice."
 		]
 	},
 		"Shade:PutrefactionPower": {
 		"NAME": "Putrefaction",
 		"DESCRIPTIONS": [
-		      "Your zombies apply #b",
-		      " poison to all enemies on death."
+		      "Your #yZombies apply #b",
+		      " #yPoison to all enemies on death."
 		]
 	},
 		"Shade:CoordinationPower": {
 		"NAME": "Coordination",
 		"DESCRIPTIONS": [
-		      "Your skeletons' attacks hit all enemies"
+		      "Your #ySkeletons' attacks hit all enemies."
 		]
 	},
 		"Shade:MadHubrisPower": {
-		"NAME": "Mad Hubris",
+		"NAME": "Lunacy",
 		"DESCRIPTIONS": [
-		      "At the start of your next turn, your skeletons attack you.",
-		      "At the start of your next turn, your skeletons attack you #b",
+		      "Before your next turn, your #ySkeletons attack you.",
+		      "Before your next turn, your #ySkeletons attack you #b",
 			  " times."		      
+		]
+	},
+		"Shade:SpectralStrikesPower": {
+		"NAME": "Spectral Strikes",
+		"DESCRIPTIONS": [
+		      "When you play a card containing \"Strike,\" #yPurge it, draw #b1 card, and gain #b1 #yStrength.",
+		      "When you play a card containing \"Strike,\" #yPurge it, draw #b",
+		      " cards, and gain #b",
+			  " #yStrength."		      
 		]
 	}
 }

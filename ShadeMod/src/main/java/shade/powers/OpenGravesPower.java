@@ -46,13 +46,9 @@ public class OpenGravesPower extends AbstractPower {
     public void atStartOfTurn() {
     	flash();
     	if(this.zombieTurn) {
-    		for(int i=0;i<this.amount;i++) {
-    			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-    		}
+    		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie(),this.amount));
     	}else {
-    		for(int i=0;i<this.amount;i++) {
-    			AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-    		}
+    		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton(),this.amount));
     	}
     	this.zombieTurn = !this.zombieTurn;
     	

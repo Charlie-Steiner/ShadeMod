@@ -50,9 +50,7 @@ public class OfferingToTheBeyondPower extends TwoAmountPower {
         this.amount2 -= 1;
         
         if(this.amount2==0) {
-        	for(int i=0;i<this.amount;i++) {
-        		AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Wraith()));
-        	}
+        	AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Wraith(),this.amount));
         	AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
         else {

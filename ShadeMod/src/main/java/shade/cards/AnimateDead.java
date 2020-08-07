@@ -40,19 +40,15 @@ public class AnimateDead
 		super(ID, NAME, ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE,
 				AbstractCardEnum.SHADE, RARITY, TARGET);
 		
-		
+		this.baseMagicNumber=1;
+		this.magicNumber=this.baseMagicNumber;
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
 
 	  ShadeMod.logger.info("Use Animate Dead");
-      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-      
-      if(this.upgraded) {
-    	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-      }
+      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton(),2));
+      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie(),this.magicNumber));
   }
 
 
@@ -63,6 +59,7 @@ public class AnimateDead
   
   public void upgrade() {
 	    if (!this.upgraded) {
+	    	upgradeMagicNumber(1);
 	        upgradeName();
 	        this.rawDescription=UPGRADED_DESCRIPTION;
 	        initializeDescription();

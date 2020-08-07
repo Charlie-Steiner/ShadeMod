@@ -52,7 +52,7 @@ public class SkeletonHug
   public SkeletonHug() {
       super(ID, NAME, shade.ShadeMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.SHADE, RARITY, TARGET);
    
-    this.baseDamage = 6;
+    this.baseDamage = 7;
     this.damage=this.baseDamage;
     this.baseMagicNumber = 2;
     this.magicNumber=this.baseMagicNumber;
