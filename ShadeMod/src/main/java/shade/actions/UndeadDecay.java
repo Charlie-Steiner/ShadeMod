@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
+import shade.characters.ShadeCharacter;
 import shade.orbs.SpawnedUndead;
 import shade.ui.ShadeTipTracker;
 
@@ -22,14 +23,16 @@ public class UndeadDecay extends AbstractGameAction {
 	
 	@Override
 	public void update() {
-		ShadeTipTracker.checkForTip(ShadeTipTracker.TipKey.DecayTip);
-		
-		SpawnedUndead u = (SpawnedUndead)AbstractDungeon.player.orbs.get(orbIndex);
-		
-		u.remove(getDecay(u.count));
-
-		
-		u.triggerEvokeAnimation();
+		if(AbstractDungeon.player instanceof ShadeCharacter) {
+			ShadeTipTracker.checkForTip(ShadeTipTracker.TipKey.DecayTip);
+			
+			SpawnedUndead u = (SpawnedUndead)((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(orbIndex);
+			
+			u.remove(getDecay(u.count));
+	
+			
+			u.triggerEvokeAnimation();
+		}
 		this.isDone = true;
 	}
 	

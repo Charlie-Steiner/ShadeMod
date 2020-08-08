@@ -1,6 +1,5 @@
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\FleshOffering.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\SkeletonHug.java
-C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\OrbPositionPatch.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\CloudOfShrapnel.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\OpenGraves.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\RitualOffering.java
@@ -50,6 +49,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Awaken.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Excise.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\StitchTogether.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\OfferingToTheBeyondPower.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\TriggerEndOfTurnUndead.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\ui\TextureLoader.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\ReturnExhaustedToHandAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\Brains.java
@@ -70,6 +70,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\FrenzyDownPowe
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\OneIsEnoughAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\GraveStillness.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\WallOfFlesh.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\orbs\UndeadGroup.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\SpectralStrikes.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\UndeadSpawnAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\FingerOfDeath.java
@@ -96,6 +97,7 @@ C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\CallWraith.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\cards\FuneraryArmor.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\RavenousHordeAction.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\StitchTogetherPower.java
+C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\UndeadGroupPatch.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\powers\GraveStillnessPower.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\patches\SpireShieldAI.java
 C:\Users\Charlie\git\ShadeMod\ShadeMod\src\main\java\shade\actions\UndeadDecay.java
