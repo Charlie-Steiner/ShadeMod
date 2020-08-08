@@ -3,21 +3,21 @@
     "NAME": "Yorick's Skull",
     "FLAVOR": "I knew him, alas.",
     "DESCRIPTIONS": [
-      "Start each combat with a #yZombie. Whenever you play #b10 cards, summon a #yZombie."
+      "Start each combat with a #yshade:Zombie. Whenever you play #b10 cards, summon a #yshade:Zombie."
     ]
   },
   "Shade:YorickPolishedSkull": {
     "NAME": "Yorick's Polished Skull",
     "FLAVOR": "I knew him, alas.",
     "DESCRIPTIONS": [
-      "Start each combat with 1 #yZombie and 2 #ySkeletons. Whenever you play #b10 cards, summon 1 #yZombie and 2 #ySkeletons."
+      "Start each combat with a #yshade:Zombie and 2 #yshade:Skeletons. Whenever you play #b10 cards, summon a #yshade:Zombie and 2 #yshade:Skeletons."
     ]
   },
     "Shade:Thing": {
     "NAME": "Thing",
     "FLAVOR": "Its creepy.",
     "DESCRIPTIONS": [
-      "When you #yUnearth a card from your exhaust to your hand or deck, gain #b3 #yBlock."
+      "When you return a #yshade:Buried card to your hand or deck, gain #b3 #yBlock."
     ]
   }
 }

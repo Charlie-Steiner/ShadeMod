@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class YorickPolishedSkull extends CustomRelic {
     public static final String ID = "Shade:YorickPolishedSkull";
-    public static final String IMG_PATH = "relics/YorickSkull.png";
+    public static final String IMG_PATH = "relics/YorickPolishedSkull.png";
     public static final String OUTLINE_IMG_PATH = "relics/YorickSkullOutline.png";
     private static final int COUNT = 10;
     private boolean start=true;

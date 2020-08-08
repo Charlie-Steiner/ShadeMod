@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import shade.ShadeMod;
+import shade.actions.RefreshUndeadPower;
 import shade.characters.ShadeCharacter;
 import shade.ui.TextureLoader;
 
@@ -53,8 +54,10 @@ public class StrongBonesPower extends AbstractPower {
     public void atStartOfTurnPostDraw() {
     	  if (this.amount == 0) {
         		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+        		AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
           } else {
         	  	AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
+        	  	AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
           }
 
     }

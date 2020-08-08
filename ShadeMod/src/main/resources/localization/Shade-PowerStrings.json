@@ -9,33 +9,33 @@
 	"Shade:TouchOfTheGravePower": {
 		"NAME": "Vengeful Dead",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random #yUnearthed attack, then #yPurge it.",
+			"At the start of your turn, play a random #yBuried attack, then #yPurge it.",
 			"At the start of your turn, play #b",
-			" random #yUnearthed attacks, then #yPurge them."
+			" random #yBuried attacks, then #yPurge them."
 		]
 	},
 	"Shade:TouchOfTheGravePowerUpgraded": {
 		"NAME": "Vengeful Dead +",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random #yUnearthed attack, then return it to your discard.",
+			"At the start of your turn, play a random #yBuried attack, then return it to your discard.",
 			"At the start of your turn, play #b",
-			" random #yUnearthed attacks, then return them to your discard."
+			" random #yBuried attacks, then return them to your discard."
 		]
 	},
 	"Shade:CallOfTheGravePower": {
 		"NAME": "Call of the Grave",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random #yUnearthed skill, then #yPurge it.",
+			"At the start of your turn, play a random #yBuried skill, then #yPurge it.",
 			"At the start of your turn, play #b",
-			" random #yUnearthed skills, then #yPurge` them."
+			" random #yBuried skills, then #yPurge them."
 		]
 	},
 	"Shade:CallOfTheGravePowerUpgraded": {
 		"NAME": "Call of the Grave +",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random #yUnearthed skill, then return it to your discard.",
+			"At the start of your turn, play a random #yBuried skill, then return it to your discard.",
 			"At the start of your turn, play #b",
-			" random #yUnearthed skills, then return them to your discard."
+			" random #yBuried skills, then return them to your discard."
 		]
 	},
 	"Shade:FrenzyDownPower": {
@@ -78,7 +78,7 @@
 		"Shade:OfferingToTheBeyondPower": {
 		"NAME": "Offering to the Beyond",
 		"DESCRIPTIONS": [
-		      "If you exhaust #b",
+		      "If you #yExhaust #b",
 		      " more card",
 		      " more cards",
 		      " this turn, summon a #yWraith.",
@@ -89,7 +89,7 @@
 		"Shade:OfferingToTheBeyondPowerUpgraded": {
 		"NAME": "Offering to the Beyond +",
 		"DESCRIPTIONS": [
-		      "If you exhaust #b",
+		      "If you #yExhaust #b",
 		      " more card",
 		      " more cards",
 		      " this turn, summon a #yWraith.",
@@ -119,9 +119,9 @@
 		"Shade:AwakenPower": {
 		"NAME": "Awakening",
 		"DESCRIPTIONS": [
-			"Return an #yUnearthed card to your hand next turn.",
+			"Return a #yBuried card to your hand next turn.",
 			"Return #b",
-			" #yUnearthed cards to your hand next turn."
+			" #yBuried cards to your hand next turn."
 		]
 	},
 		"Shade:CarnophagePower": {
@@ -135,7 +135,7 @@
 		"Shade:StitchTogetherPower": {
 		"NAME": "Stitch Together",
 		"DESCRIPTIONS": [
-			"The next time you draw a Status or Curse card, exhaust it, draw a card, and heal #b",
+			"The next time you draw a Status or Curse card, #yExhaust it, draw a card, and heal #b",
 			" HP."
 		]
 	},

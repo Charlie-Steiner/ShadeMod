@@ -93,6 +93,12 @@ public class SelfBurialAction extends AbstractGameAction {
 		CardCrawlGame.sound.play("CARD_OBTAIN");
 		for(int i=this.exhausts.size()-1;i>=0;i--) {
 			this.p.drawPile.addToRandomSpot(exhausts.get(i).makeStatEquivalentCopy());
+			
+			if(AbstractDungeon.player.hasRelic(Thing.ID))
+			{
+			   Thing t = (Thing)AbstractDungeon.player.getRelic(Thing.ID);
+			   t.onExhume();
+			}
 		}
 		this.exhausts.clear();
 		

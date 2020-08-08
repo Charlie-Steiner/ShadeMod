@@ -16,8 +16,8 @@
   },
 "Shade:ClawBack": {
     "NAME": "Claw Back",
-    "DESCRIPTION": "Deal !D! damage. NL Return a random shade:Unearthed card to your draw pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Return a random shade:Unearthed card to your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL Return a random shade:Buried card to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Return a random shade:Buried card to your draw pile."
   },
   "Shade:AblativeArmor": {
     "NAME": "Ablative Armor",
@@ -38,13 +38,13 @@
   },
   "Shade:TouchOfTheGrave": {
     "NAME": "Vengeful Dead",
-    "DESCRIPTION": "At the start of your turn, play a random shade:Unearthed attack and shade:Purge it.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, play a random shade:Unearthed attack and return it to your discard pile."
+    "DESCRIPTION": "At the start of your turn, play a random shade:Buried attack and shade:Purge it.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, play a random shade:Buried attack and return it to your discard pile."
   },
   "Shade:CallOfTheGrave": {
     "NAME": "Call of the Grave",
-    "DESCRIPTION": "At the start of your turn, play a random shade:Unearthed skill and shade:Purge it.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random shade:Unearthed skill and shade:Purge it."
+    "DESCRIPTION": "At the start of your turn, play a random shade:Buried skill and shade:Purge it.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, play a random shade:Buried skill and shade:Purge it."
   },
   "Shade:Bonestorm": {
     "NAME": "Bonestorm",
@@ -98,13 +98,13 @@
   },
   "Shade:SelfBurial": {
     "NAME": "Self-burial",
-    "DESCRIPTION": "Return all shade:Unearthed cards to your deck by exhausting your hand and next 10 cards. NL Draw !M! cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Return all shade:Unearthed cards to your deck by exhausting your hand and next 10 cards. NL Draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Return all shade:Buried cards to your deck by exhausting your hand and next 10 cards. NL Draw !M! cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Return all shade:Buried cards to your deck by exhausting your hand and next 10 cards. NL Draw !M! cards. NL Exhaust."
   },
   "Shade:GreyBargain": {
     "NAME": "Grey Bargain",
-    "DESCRIPTION": "Return an shade:Unearthed card to your draw pile by exhausting a card in your hand.",
-    "UPGRADE_DESCRIPTION": "Return an shade:Unearthed card to your draw pile by exhausting a card in your hand. NL Draw a card.",
+    "DESCRIPTION": "Return a shade:Buried card to your draw pile by exhausting a card in your hand.",
+    "UPGRADE_DESCRIPTION": "Return a shade:Buried card to your draw pile by exhausting a card in your hand. NL Draw a card.",
     "EXTENDED_DESCRIPTION": ["I need a card to Exhaust."]
   },
   "Shade:FleshLikeOak": {
@@ -229,8 +229,8 @@
   },
   "Shade:Awaken": {
     "NAME": "Awaken",
-    "DESCRIPTION": "At the start of next turn, choose an shade:Unearthed card and return it to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "At the start of next turn, choose an shade:Unearthed card and return it to your hand. NL Exhaust."
+    "DESCRIPTION": "Before your next turn, choose a shade:Buried card and return it to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Before your next turn, choose a shade:Buried card and return it to your hand. NL Exhaust."
   },
   "Shade:Haruspicy": {
     "NAME": "Haruspicy",
@@ -269,8 +269,8 @@
   },
   "Shade:UnbarTheGrave": {
     "NAME": "Unbar the Grave",
-    "DESCRIPTION": "Summon !M! shade:Zombies and !M! shade:Skeletons. NL Return !M! random shade:Unearthed cards to your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Summon !M! shade:Zombies and !M! shade:Skeletons. NL Return !M! random shade:Unearthed cards to your draw pile. NL Exhaust."
+    "DESCRIPTION": "Summon !M! shade:Zombies and !M! shade:Skeletons. NL Return !M! random shade:Buried cards to your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Summon !M! shade:Zombies and !M! shade:Skeletons. NL Return !M! random shade:Buried cards to your draw pile. NL Exhaust."
   },
   "Shade:Carnophage": {
     "NAME": "Carnophage",
@@ -350,7 +350,8 @@
   "Shade:Asphyxiate": {
     "NAME": "Asphyxiate",
     "DESCRIPTION": "Apply !M! Poison. NL Deal damage equal to the enemy's Poison. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Poison. NL Deal damage equal to the enemy's Poison. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Apply !M! Poison. NL Deal damage equal to the enemy's Poison. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [" NL ( !D! damage )"]
   },
   "Shade:SpontaneousRitual": {
     "NAME": "Spontaneous Ritual",
@@ -375,8 +376,8 @@
   },
   "Shade:LastGasp": {
     "NAME": "Last Gasp",
-    "DESCRIPTION": "Ethereal. NL Choose an shade:Unearthed card, play it, and shade:Purge it.",
-    "UPGRADE_DESCRIPTION": "Choose an shade:Unearthed card, play it, and shade:Purge it."
+    "DESCRIPTION": "Ethereal. NL Choose a shade:Buried card, play it, and shade:Purge it.",
+    "UPGRADE_DESCRIPTION": "Choose a shade:Buried card, play it, and shade:Purge it."
   },
   "Shade:SpectralStrikes": {
     "NAME": "Spectral Strikes",

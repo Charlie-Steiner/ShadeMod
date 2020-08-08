@@ -1,9 +1,15 @@
 [
   {
-    "PROPER_NAME": "Unearthed",
+    "PROPER_NAME": "Unearth",
     "NAMES": [
-      "unearth",
-      "unearthed"
+      "unearth"
+    ],
+    "DESCRIPTION": "Move a card from your exhaust pile."
+  },
+  {
+    "PROPER_NAME": "Buried",
+    "NAMES": [
+      "buried"
     ],
     "DESCRIPTION": "A class card (not Colorless, Status, or Curse) from your exhaust pile."
   },
@@ -37,6 +43,6 @@
       "purge",
       "purges"
     ],
-    "DESCRIPTION": "Utterly removed from the game until the end of combat."
+    "DESCRIPTION": "Removed from play until the end of combat."
   }
 ]

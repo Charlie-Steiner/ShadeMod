@@ -14,6 +14,8 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 
 import shade.ShadeMod;
 import shade.actions.AsphyxiateAction;
+import shade.characters.ShadeCharacter;
+import shade.orbs.SpawnedUndead;
 import shade.patches.AbstractCardEnum;
 
 
@@ -52,6 +54,37 @@ public class Asphyxiate
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber), this.magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new AsphyxiateAction(m,this.damageTypeForTurn));
 		
+	}
+	
+	public void calculateCardDamage(AbstractMonster mo) {
+		
+		this.baseDamage = 0;
+		if(mo.hasPower("Poison")) {
+			this.baseDamage += mo.getPower("Poison").amount;
+		}
+		
+		if(!mo.hasPower("Artifact")) {
+			this.baseDamage += this.magicNumber;
+		}
+	    super.calculateCardDamage(mo);
+	    
+	    this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+    	
+	    initializeDescription();
+	}
+	
+	public void unhover() {
+	    super.unhover();
+	    
+		this.rawDescription = cardStrings.DESCRIPTION;
+		
+	    initializeDescription();
+	}
+	  
+	public void onMoveToDiscard() {
+		this.rawDescription = cardStrings.DESCRIPTION;
+		
+	    initializeDescription();
 	}
 
   

@@ -66,7 +66,7 @@ public class MadHubrisPower extends AbstractPower {
 	    	}
     	}
     	
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
 	}
     
 	public void updateDescription() {

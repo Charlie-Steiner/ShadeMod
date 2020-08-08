@@ -1,6 +1,6 @@
 Card ideas: Some card that exchanges wounds or maybe other status cards for Dazes?
 
-Check that the Thing relic works.
+Check that the Thing relic works. Check with self-burial.
 
 Change version number everywhere and add a general art thanks.
 
@@ -8,16 +8,11 @@ Yorick's skull text should have capitalization and highlights. (done)
 
 Yorick's polished skull needs nerf stat (done)
 
-Zombie description should just say unblocked damage, not attack damage. (done)
-
-x.x did jason change scuttling hand behavior but not its text? (reverted)
-
-Scuttling Hand is triggered by Dazed exhausting themselves at the end of the turn. Not sure how you're activating them, but try checking the "dontTriggerOnUseCard" variable of the card being played. (checked)
-
-If someone somehow gets prismatic shard for channeling orbs, fix it so they just instantly evoke instead, and if they would gain orb the don't, or something like that.
+If someone somehow gets prismatic shard for channeling orbs, fix it so they just instantly evoke instead, and if they would gain orb the don't, or something like that. (done)
 
 Custom orb system! Need to patch in rendering, probably applying focus (probably not done), clearing between combat and resetting to emptySlots (done?), and doing start and end of turn actions (done?). Need to make UndeadSpawnAction check if you're the shade and fail gracefully [text bubble] if not (done). Need to go through and change all references to orbs to undeads. Need to go back and delete the orb patch and the setting that gives Shade 3 starting orbs (done).
 
+Now skeletons don't properly un-update on losing FreshBones. (probs fixed)
 
 Having Bite as an uncommon card is a bit awkward, Achyr suggests replacing it with something else.
 
@@ -33,19 +28,17 @@ This applies to Careful Cut and... some other card (done)
 Self-Burial's wording is a bit poor. Suggestion:
 Exhaust your hand and the top 10 cards of your draw pile. Shuffle all Unearthed cards into your draw pile and draw 3 [5] cards. Exhaust. (tried to make slight improvement)
 
-Doomsay art needs cropping
+Doomsay art needs cropping (done)
 
-Make campfire image a little smaller, to make room for possible extra buttons.
+Make campfire image a little smaller, to make room for possible extra buttons. (done)
 
-Note where the game slows down and either fix code or report to mod discord. (Already done for Discovery.)
-
-UI upgrade for multiple awakens, telling you how many you have.
+Note where the game slows down and either fix code or report to mod discord. (Already done for Discovery.) (First time per run you exhaust Ascender's Bane?)
 
 Exhausting isn't a keyword, so e.g. on Grey Bargain can be non-capitalized. (done)
 
 potion of restlessness and aura of unlife descriptions aren't accurate. (changed)
 
-Add to card queue-s, like call of the grave, are currently slower than resolving all the other powers, when ideally resolving the card would happen instantly. Annoying to code, might just fix by pushing the trigger on call and touch of the grave to the bottom of the list of powers.
+Add to card queue-s, like call of the grave, are currently slower than resolving all the other powers, when ideally resolving the card would happen instantly. Annoying to code, might just fix by pushing the trigger on call and touch of the grave to the bottom of the list of powers. (just moved Awaken to top to avoid the most common interaction)
 
 Make sacrifice cards glow if canUse. Keep an eye out for bugs where the sacrifice cards aren't properly glowing.
 

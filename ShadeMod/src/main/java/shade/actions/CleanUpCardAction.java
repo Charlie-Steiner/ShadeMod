@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import shade.ShadeMod;
+import shade.relics.Thing;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -47,6 +48,12 @@ public class CleanUpCardAction extends AbstractGameAction
 						c.stopGlowing();
 						c.unfadeOut();
 					}
+					 if(AbstractDungeon.player.hasRelic(Thing.ID))
+					 {
+						 Thing t = (Thing)AbstractDungeon.player.getRelic(Thing.ID);
+						 t.onExhume();
+					 }
+					
 				}else {
 					ShadeMod.logger.info("Trying to remove " + this.card.name);
 					this.p.exhaustPile.removeCard(this.card);

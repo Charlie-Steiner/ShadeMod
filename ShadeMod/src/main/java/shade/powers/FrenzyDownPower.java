@@ -47,7 +47,7 @@ public class FrenzyDownPower extends AbstractPower {
     }
     
 
-    public void atStartOfTurnPostDraw() {
+    public void atStartOfTurn() {
     	flash();
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, -this.amount), -this.amount));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DexterityPower(this.owner, -this.amount), -this.amount));

@@ -52,6 +52,7 @@ public class DarkOfNight
 
   public void use(AbstractPlayer p, AbstractMonster m) {
       AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DarkOfNightPower(p,this.magicNumber), this.magicNumber));
+      CardCrawlGame.sound.play("EVENT_SPIRITS", 0.05F);
   }
 
 

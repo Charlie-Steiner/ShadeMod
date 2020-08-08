@@ -42,7 +42,7 @@ public class CallOfTheGravePower extends AbstractPower {
     }
     
 
-    public void atStartOfTurn() {
+    public void atStartOfTurnPostDraw() {
     	flash();
     	for(int i=0;i<this.amount;i++) {
     		AbstractDungeon.actionManager.addToBottom(new WaitAction(Settings.ACTION_DUR_FAST));

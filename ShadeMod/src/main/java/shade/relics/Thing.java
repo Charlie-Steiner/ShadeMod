@@ -37,7 +37,7 @@ public class Thing  extends CustomRelic{
     
     public void onExhume() {
     	flash();
-    	 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player,AbstractDungeon.player,3,true));
+    	AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player,AbstractDungeon.player,3,true));
     }
     
 }

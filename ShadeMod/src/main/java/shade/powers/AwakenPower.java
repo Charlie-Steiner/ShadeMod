@@ -52,14 +52,14 @@ public class AwakenPower extends AbstractPower {
     }
     
 
-    public void atStartOfTurnPostDraw() {
+    public void atStartOfTurn() {
+    	AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
     	
     	for(int i=0;i<this.amount;i++) {
     		flash();
-        	AbstractDungeon.actionManager.addToBottom(new ReturnExhaustedToHandAction(false));
+        	AbstractDungeon.actionManager.addToTop(new ReturnExhaustedToHandAction(false));
     	}
     	
-    	AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
     }
     
 	public void updateDescription() {
