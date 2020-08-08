@@ -65,12 +65,13 @@ public class ScuttlingHand
 	
 
   public AbstractCard makeCopy() { return new ScuttlingHand(); }
-
   
-  public void triggerOnAnyExhaust() {
-
-		AbstractDungeon.actionManager.addToBottom(new DiscardToHandAction(this));
-  }
+  
+  	  public void triggerOnCardPlayed(AbstractCard cardPlayed) {
+  		  if(cardPlayed.exhaust && !cardPlayed.dontTriggerOnUseCard) {
+  			  AbstractDungeon.actionManager.addToBottom(new DiscardToHandAction(this));
+  		  }
+  	  }
   
   public void upgrade() {
     if (!this.upgraded) {

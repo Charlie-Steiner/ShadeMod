@@ -2,40 +2,41 @@
 "Shade:Skeleton": {
     "NAME": "Skeleton",
     "DESCRIPTION": [
-      "Your ",
-      " skeletons attack random enemies for ",
-      " damage each at the end of your turn (affected by Strength). ",
-      " skeletons decay next turn.",
-      " skeleton attacks a random enemy for ",
-      " damage at the end of your turn (affected by Strength). ",
-      " skeleton decays next turn."
+      "Your #b",
+      " #ySkeletons attack random enemies for #b",
+      " damage each at the end of your turn (affected by #yStrength). #b",
+      " #ySkeletons decay next turn.",
+      " #ySkeleton attacks a random enemy for #b",
+      " damage at the end of your turn (affected by #yStrength). #b",
+      " #ySkeleton decays next turn."
     ]
   },
  "Shade:Zombie": {
     "NAME": "Zombie",
     "DESCRIPTION": [
-      "Your ",
-      " zombies can block up to ",
-      " damage each (affected by Dexterity). ",
-      " zombies decay next turn.",
-      " zombie can block up to ",
-      " damage (affected by Dexterity). ",
-      " zombie decays next turn."
+      "Your #b",
+      " #yZombies can block up to #b",
+      " damage each (affected by #yDexterity). #b",
+      " #yZombies decay next turn. #b",
+      " #yZombie can block up to #b",
+      " damage (affected by #yDexterity). #b",
+      " #yZombie decays next turn."
 	]
   },
  "Shade:Wraith": {
     "NAME": "Wraith",
     "DESCRIPTION": [
-      "You have ",
-      " wraith",
-      " wraiths",
-      ". If you would take unblocked attack damage, instead become intangible and sacrifice a wraith. At the beginning of your turn, sacrifice 1 wraith to deal 30 damage to all enemies."
+      "You have #b",
+      " #yWraith",
+      " #yWraiths",
+      ". If you would take unblocked attack damage, instead become intangible and sacrifice a #yWraith. At the beginning of your turn, sacrifice a #yWraith to deal #b",
+      " damage to all enemies."
     ]
   },
   "Shade:Empty": {
     "NAME": "Empty Slot",
     "DESCRIPTION": [
-      "You haven't summoned any minions of this type."
+      "You haven't summoned any undead of this type."
     ]
   }
 }

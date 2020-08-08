@@ -1,8 +1,10 @@
 package shade.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.actions.common.ShuffleAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -94,8 +96,10 @@ public class SelfBurialAction extends AbstractGameAction {
 		}
 		this.exhausts.clear();
 		
-		
-
+		AbstractDungeon.actionManager.addToTop(new ShuffleAction(AbstractDungeon.player.drawPile, false));
+		if(p.discardPile.size()>0) {
+			AbstractDungeon.actionManager.addToTop(new EmptyDeckShuffleAction());
+		}
 		
 		this.isDone = true;
 	}

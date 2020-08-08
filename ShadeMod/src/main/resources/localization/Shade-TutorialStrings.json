@@ -3,28 +3,28 @@
     "LABEL": ["Undead decay"],
     "TEXT": [
       "At the start of your turn, your undead decay.  ",
-      "You lose one third (rounded up) of your zombies and skeletons each turn. This means the first skeleton only lasts for 1 turn, but the third lasts for 3 turns."
+      "You lose one third (rounded up) of your #yZombies and #ySkeletons each turn. This means the first #ySkeleton only lasts for 1 turn, but the third lasts for 3 turns."
     ]
   },
   "Shade:SkeletonTip": {
     "LABEL": ["Skeleton attacks"],
     "TEXT": [
-      "Your skeletons attack random enemies at the end of your turn.  ",
-      "The damage of skeletons is increased by half your #yStrength (rounded down)."
+      "Your #ySkeletons attack random enemies at the end of your turn.  ",
+      "The damage of #ySkeletons is increased by half your #yStrength (rounded down)."
     ]
   },
   "Shade:ZombieTip": {
     "LABEL": ["Zombie block"],
     "TEXT": [
-      "If you haven't fully blocked an attack, some of your zombies will take the hit for you. If a zombie blocks for more than enough, you even get the leftover block.  ",
-      "The block of zombies is increased by half your #yDexterity (rounded down)."
+      "If you haven't fully blocked damage, some of your #yZombies will take the hit for you. If a #yZombie blocks for more than enough, you even get the leftover #yBlock.  ",
+      "The block of #yZombies is increased by half your #yDexterity (rounded down)."
     ]
   },
   "Shade:WraithTip": {
     "LABEL": ["Wraiths"],
     "TEXT": [
-      "If you would take more than 1 damage from an attack, one of your wraiths will sacrifice itself to grant you intangibility.  ",
-      "At the beginning of your turn, wraiths dissipate, dealing damage to all enemies."
+      "If you would take more than 1 damage from an attack, one of your #yWraiths will sacrifice itself to grant you intangibility.  ",
+      "At the beginning of your turn, a #yWraith dissipates, dealing damage to all enemies."
     ]
   }
 }

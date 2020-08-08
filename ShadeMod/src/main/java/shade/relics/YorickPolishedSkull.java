@@ -44,8 +44,7 @@ public class YorickPolishedSkull extends CustomRelic {
           this.pulse = false;
           AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
           AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-          AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-  	    AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
+          AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton(),2));
         } else if (this.counter == 9) {
           beginPulse();
           this.pulse = true;
@@ -65,8 +64,7 @@ public class YorickPolishedSkull extends CustomRelic {
         if (this.start) {
         	this.start=false;
         	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie()));
-        	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton()));
-        	  AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
+        	  AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton(),2));
         }
       }
 

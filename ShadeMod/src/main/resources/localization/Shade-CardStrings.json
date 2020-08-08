@@ -94,17 +94,17 @@
   "Shade:ExtraLimbs": {
     "NAME": "Extra Limbs",
     "DESCRIPTION": "Deal !D! damage !M! times. NL When Exhausted, increase the number of strikes by 1 this combat. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times. NL When Exhausted, Increase the number of strikes by 1 this combat. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times. NL When Exhausted, increase the number of strikes by 1 this combat. NL Exhaust."
   },
   "Shade:SelfBurial": {
     "NAME": "Self-burial",
-    "DESCRIPTION": "Exhaust your hand and top 10 cards in exchange for all shade:Unearthed cards. NL Shuffle and draw !M! cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Exhaust your hand and top 10 cards in exchange for all shade:Unearthed cards. NL Shuffle and draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Return all shade:Unearthed cards by exhausting your hand and next 10 cards. NL Draw !M! cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Return all shade:Unearthed cards by exhausting your hand and next 10 cards. NL Draw !M! cards. NL Exhaust."
   },
   "Shade:GreyBargain": {
     "NAME": "Grey Bargain",
-    "DESCRIPTION": "Return an shade:Unearthed card to your draw pile by Exhausting a card in your hand.",
-    "UPGRADE_DESCRIPTION": "Return an shade:Unearthed card to your draw pile by Exhausting a card in your hand. NL Draw a card.",
+    "DESCRIPTION": "Return an shade:Unearthed card to your draw pile by exhausting a card in your hand.",
+    "UPGRADE_DESCRIPTION": "Return an shade:Unearthed card to your draw pile by exhausting a card in your hand. NL Draw a card.",
     "EXTENDED_DESCRIPTION": ["I need a card to Exhaust."]
   },
   "Shade:FleshLikeOak": {
@@ -145,8 +145,8 @@
   },
   "Shade:OminousRitual": {
     "NAME": "Ominous Ritual",
-    "DESCRIPTION": "Gain Block and deal damage to all enemies for each card Exhausted this combat.",
-    "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies for each card Exhausted this combat.",
+    "DESCRIPTION": "Gain Block and deal damage to all enemies for each cardequal to the number of cards Exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies equal to the number of cards Exhausted this combat.",
   	"EXTENDED_DESCRIPTION": [" NL ( !M! cards )"]
   },
   "Shade:CommandSoldier": {
@@ -171,8 +171,8 @@
   },
   "Shade:AuraOfUnlife": {
     "NAME": "Aura of Unlife",
-    "DESCRIPTION": "Your shade:Zombies and shade:Skeletons take two turns longer to decay.",
-    "UPGRADE_DESCRIPTION": "Your shade:Zombies and shade:Skeletons take two turns longer to decay.",
+    "DESCRIPTION": "Increase the decay constant by 2, slowing the decay of your shade:Zombies and shade:Skeletons.",
+    "UPGRADE_DESCRIPTION": "Increase the decay constant by 2, slowing the decay of your shade:Zombies and shade:Skeletons.",
     "EXTENDED_DESCRIPTION": [" NL ( 1/ !M! per turn )"]
   },
   "Shade:GraveStillness": {
@@ -182,8 +182,8 @@
   },
   "Shade:PotionOfRestlessness": {
     "NAME": "Potion of Madness",
-    "DESCRIPTION": "Gain 3 Strength. NL Your shade:Zombies and shade:Skeletons decay one turn quicker.",
-    "UPGRADE_DESCRIPTION": "Gain 4 Strength. NL Your shade:Zombies and shade:Skeletons decay one turn quicker.",
+    "DESCRIPTION": "Gain 3 Strength. NL Decrease the decay constant by 1, speeding up the decay of your shade:Zombies and shade:Skeletons.",
+    "UPGRADE_DESCRIPTION": "Gain 4 Strength. NL Decrease the decay constant by 1, speeding up the decay of your shade:Zombies and shade:Skeletons.",
     "EXTENDED_DESCRIPTION": [" NL ( 1/ !M! per turn )"]
   },
   "Shade:GreaterAnimation": {
@@ -279,8 +279,8 @@
   },
   "Shade:Excise": {
     "NAME": "Excise",
-    "DESCRIPTION": "Gain !B! Block. NL Exhaust a card from your hand. If it's a Status or Curse, gain [E] and draw a card.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust a card from your hand. If it's a Status or Curse, gain [E] and draw a card."
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust a card. If it's a Status or Curse, gain [E] and draw a card.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust a card. If it's a Status or Curse, gain [E] and draw a card."
   },
   "Shade:StitchTogether": {
     "NAME": "Stitch Together",
@@ -354,14 +354,14 @@
   },
   "Shade:SpontaneousRitual": {
     "NAME": "Spontaneous Ritual",
-    "DESCRIPTION": "Exhaust your hand. NL Deal damage for each card Exhausted this combat.",
-    "UPGRADE_DESCRIPTION": "Add 3 *Wounds to your hand. NL Exhaust your hand. NL Deal damage for each card Exhausted this combat.",
+    "DESCRIPTION": "Exhaust your hand. NL Deal damage equal to the number of cards Exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Add 3 *Wounds to your hand. NL Exhaust your hand. NL Deal damage equal to the number of cards Exhausted this combat.",
   	"EXTENDED_DESCRIPTION": [" NL ( !M! cards so far )"]
   },
   "Shade:CarefulCut": {
     "NAME": "Careful Cut",
-    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Exhaust a card from your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Exhaust a card from your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Exhaust a card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Exhaust a card."
   },
   "Shade:MadHubris": {
     "NAME": "Lunar Madness",

@@ -66,7 +66,7 @@ public class Wraith extends SpawnedUndead {
 			firstPlural = this.descriptions[2];
 		}
 		
-        this.description = this.descriptions[0] + this.count + firstPlural + this.descriptions[3];
+        this.description = this.descriptions[0] + this.count + firstPlural + this.descriptions[3] + this.passiveAmount + this.descriptions[4];
 	}
 	
     public void onStartOfTurn() {
