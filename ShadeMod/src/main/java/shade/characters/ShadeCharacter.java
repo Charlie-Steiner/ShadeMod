@@ -28,6 +28,7 @@ import shade.cards.AnimateDead;
 import shade.cards.CarefulCut;
 import shade.cards.Strike_Shade;
 import shade.orbs.SpawnedUndead;
+import shade.orbs.UndeadGroup;
 import shade.patches.*;
 import shade.relics.YorickSkull;
 
@@ -38,7 +39,8 @@ import java.util.List;
 public class ShadeCharacter extends CustomPlayer {
 
     public static final String[] orbTextures = {"ShadeImages/char/orb/layer1.png", "ShadeImages/char/orb/layer2.png", "ShadeImages/char/orb/layer3.png", "ShadeImages/char/orb/layer4.png", "ShadeImages/char/orb/layer5.png", "ShadeImages/char/orb/layer6.png", "ShadeImages/char/orb/layer1d.png", "ShadeImages/char/orb/layer2d.png", "ShadeImages/char/orb/layer3d.png", "ShadeImages/char/orb/layer4d.png", "ShadeImages/char/orb/layer5d.png"};
-
+    
+    public static final String notAShade = "I'd need to be a Shade.";
 
     public static final int INDEX_WRAITH = 0;
     public static final int INDEX_ZOMBIE = 1;
@@ -52,15 +54,15 @@ public class ShadeCharacter extends CustomPlayer {
     
     private static float yStartOffset = AbstractDungeon.floorY * 0.29F;
     
-    public float[] orbPositionsX = {0,0,0,0,0,0,0,0,0,0};
+    public float[] orbPositionsX = {0,0,0};
 
-    public float[] orbPositionsY = {0,0,0,0,0,0,0,0,0,0};
-    
+    public float[] orbPositionsY = {0,0,0};
 
     public float renderscale = 1.0F;
 
     public float leftScale = 0.15F;
     
+    public UndeadGroup undeadGroup;
     
     public ShadeCharacter(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures, "ShadeImages/char/orb/vfx.png", (String) null, (String) null);
@@ -68,7 +70,8 @@ public class ShadeCharacter extends CustomPlayer {
         initializeClass("ShadeImages/char/idle.png", "ShadeImages/char/shoulder2.png", "ShadeImages/char/shoulder.png", "ShadeImages/char/corpse.png", getLoadout(), 10.0F, 0.0F, 220.0F, 290.0F, new EnergyManager(3));
 
         initializeSlotPositions();
-
+        
+        undeadGroup = new UndeadGroup();
     }
     
     public void initializeSlotPositions() {
@@ -76,27 +79,10 @@ public class ShadeCharacter extends CustomPlayer {
         orbPositionsX[0] = xStartOffset + (xSpaceBetweenSlots * 1F);
         orbPositionsX[1] = xStartOffset + (xSpaceBetweenSlots * 1.5F);
         orbPositionsX[2] = xStartOffset + (xSpaceBetweenSlots * 0.6F);
-        
-        orbPositionsX[3] = xStartOffset + (xSpaceBetweenSlots * 2);
-        orbPositionsX[4] = xStartOffset + (xSpaceBetweenSlots * 3);
-        orbPositionsX[5] = xStartOffset + (xSpaceBetweenSlots * 3);
-        orbPositionsX[6] = xStartOffset + (xSpaceBetweenSlots * 4);
-        orbPositionsX[7] = xStartOffset + (xSpaceBetweenSlots * 4);
-        orbPositionsX[8] = xStartOffset + (xSpaceBetweenSlots * 5);
-        orbPositionsX[9] = xStartOffset + (xSpaceBetweenSlots * 5);
 
         orbPositionsY[0] = yStartOffset + 55 * Settings.scale;
         orbPositionsY[1] = yStartOffset - 60 * Settings.scale;
         orbPositionsY[2] = yStartOffset - 60 * Settings.scale;
-        
-        orbPositionsY[3] = yStartOffset + -100 * Settings.scale;
-        orbPositionsY[4] = yStartOffset;
-        orbPositionsY[5] = yStartOffset + -100 * Settings.scale;
-        orbPositionsY[6] = yStartOffset;
-        orbPositionsY[7] = yStartOffset + -100 * Settings.scale;
-        orbPositionsY[8] = yStartOffset;
-        orbPositionsY[9] = yStartOffset + -100 * Settings.scale;
-        
     }
 
     public String getTitle(PlayerClass playerClass) {
@@ -153,9 +139,7 @@ public class ShadeCharacter extends CustomPlayer {
     
     
     public CharSelectInfo getLoadout() {
-    	int startingOrbs = 3;
-    	
-        return new CharSelectInfo("The Shade", "This sorceror wields the power of the grave. NL A bit of a shady character.", 65, 65, startingOrbs, 99, 5, this,
+        return new CharSelectInfo("The Shade", "This sorceror wields the power of the grave. NL A bit of a shady character.", 65, 65, 0, 99, 5, this,
 
                 getStartingRelics(), getStartingDeck(), false);
     }
@@ -200,17 +184,17 @@ public class ShadeCharacter extends CustomPlayer {
 		
 		if(orbType instanceof shade.orbs.Skeleton)
 		{
-			ShadeMod.logger.info("chanelling skeleton");
+			ShadeMod.logger.info("chaneling skeleton");
 			index = INDEX_SKELETON;
 		}
 		else if (orbType instanceof shade.orbs.Zombie)
 		{
-			ShadeMod.logger.info("chanelling zombie");
+			ShadeMod.logger.info("chaneling zombie");
 			index = INDEX_ZOMBIE;
 		}
 		else if (orbType instanceof shade.orbs.Wraith)
 		{
-			ShadeMod.logger.info("chanelling wraith");
+			ShadeMod.logger.info("chaneling wraith");
 			index = INDEX_WRAITH;
 			AbstractDungeon.actionManager.addToBottom(new FindPremonitions());
 		}
@@ -219,12 +203,12 @@ public class ShadeCharacter extends CustomPlayer {
 		if(index == -1)
 			return;
 		
-		AbstractOrb currentUndead = orbs.get(index);
+		AbstractOrb currentUndead = undeadGroup.undeads.get(index);
 		
 		if(currentUndead instanceof EmptyOrbSlot)
 		{
 			ShadeMod.logger.info("only 1 minion");
-			orbs.set(index, orbType);
+			undeadGroup.undeads.set(index, orbType);
 		}
 		else
 		{

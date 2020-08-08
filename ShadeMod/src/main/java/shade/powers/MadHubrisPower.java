@@ -53,15 +53,17 @@ public class MadHubrisPower extends AbstractPower {
 
     public void atStartOfTurn() {
     	flash();
-    	for(int i=0;i<this.amount;i++) {
-    		if(AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead) {
-    			Skeleton s = (Skeleton)AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON);
-    			int damage = s.passiveAmount+s.passiveBonus;
-    			for(int j=0;j<s.count;j++) {
-			    	AbstractDungeon.actionManager.addToTop(new DamageAction(owner,
-			                new DamageInfo(AbstractDungeon.getRandomMonster(), damage, DamageInfo.DamageType.THORNS),AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-    			}
-    		}
+    	if(AbstractDungeon.player instanceof ShadeCharacter) {
+	    	for(int i=0;i<this.amount;i++) {
+	    		if(((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead) {
+	    			Skeleton s = (Skeleton)((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON);
+	    			int damage = s.passiveAmount+s.passiveBonus;
+	    			for(int j=0;j<s.count;j++) {
+				    	AbstractDungeon.actionManager.addToTop(new DamageAction(owner,
+				                new DamageInfo(AbstractDungeon.getRandomMonster(), damage, DamageInfo.DamageType.THORNS),AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+	    			}
+	    		}
+	    	}
     	}
     	
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));

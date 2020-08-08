@@ -98,8 +98,8 @@
   },
   "Shade:SelfBurial": {
     "NAME": "Self-burial",
-    "DESCRIPTION": "Return all shade:Unearthed cards by exhausting your hand and next 10 cards. NL Draw !M! cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Return all shade:Unearthed cards by exhausting your hand and next 10 cards. NL Draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Return all shade:Unearthed cards to your deck by exhausting your hand and next 10 cards. NL Draw !M! cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Return all shade:Unearthed cards to your deck by exhausting your hand and next 10 cards. NL Draw !M! cards. NL Exhaust."
   },
   "Shade:GreyBargain": {
     "NAME": "Grey Bargain",
@@ -145,7 +145,7 @@
   },
   "Shade:OminousRitual": {
     "NAME": "Ominous Ritual",
-    "DESCRIPTION": "Gain Block and deal damage to all enemies for each cardequal to the number of cards Exhausted this combat.",
+    "DESCRIPTION": "Gain Block and deal damage to all enemies equal to the number of cards Exhausted this combat.",
     "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies equal to the number of cards Exhausted this combat.",
   	"EXTENDED_DESCRIPTION": [" NL ( !M! cards )"]
   },

@@ -68,26 +68,28 @@ public class OneIsEnough extends AbstractShadeCard{
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		int count=0;
-		if(!(p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot)) {
-			count += ( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON)).count;
-		}
-		if(!(p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot)) {
-			count += ( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
-		}
-		if(!(p.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
-			count += ( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_WRAITH)).count;
-		}
-			
-		if(!(p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot)) {
-			( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON)).remove(count);
-		}
-		if(!(p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot)) {
-			( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).remove(count);
-		}
-		if(!(p.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
-			( (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_WRAITH)).remove(count);
-		}
 		
+		if(p instanceof ShadeCharacter) {
+			if(!(((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot)) {
+				count += ( (SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON)).count;
+			}
+			if(!(((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot)) {
+				count += ( (SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+			}
+			if(!(((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
+				count += ( (SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_WRAITH)).count;
+			}
+				
+			if(!(((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot)) {
+				( (SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON)).remove(count);
+			}
+			if(!(((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot)) {
+				( (SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE)).remove(count);
+			}
+			if(!(((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
+				( (SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_WRAITH)).remove(count);
+			}
+		}
 
 		AbstractDungeon.actionManager.addToBottom(new OneIsEnoughAction(this.energyOnUse, p, m, this.damage,this.damageTypeForTurn, this.freeToPlayOnce, this.block, count));
 

@@ -1,6 +1,7 @@
 package shade.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -56,6 +57,8 @@ public class UndeadSpawnAction extends AbstractGameAction{
         	}else{
         		CardCrawlGame.sound.play("APPEAR", 0.05F);
         	}
+        }else {
+        	AbstractDungeon.actionManager.addToBottom(new TalkAction(AbstractDungeon.player, ShadeCharacter.notAShade));
         }
         
         

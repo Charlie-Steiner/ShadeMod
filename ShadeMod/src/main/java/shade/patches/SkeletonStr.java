@@ -5,6 +5,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
+import shade.characters.ShadeCharacter;
+
 @SpirePatch(
 		clz=StrengthPower.class,
 		method="updateDescription",
@@ -15,9 +17,11 @@ public class SkeletonStr
 	@SpirePrefixPatch
 	public static void Prefix(StrengthPower __instance)
 	{
-	    for (AbstractOrb o : AbstractDungeon.player.orbs) {
-	    	o.applyFocus();
-	    	o.updateDescription();
-	    }
+		if(AbstractDungeon.player instanceof ShadeCharacter) {
+		    for (AbstractOrb o : ((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads) {
+		    	o.applyFocus();
+		    	o.updateDescription();
+		    }
+		}
 	}
 }

@@ -60,7 +60,7 @@ public class CloudOfShrapnel extends AbstractShadeCard{
     }
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		SpawnedUndead u = (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON);
+		SpawnedUndead u = (SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON);
 
 		if (u.count > 0) {
 			AbstractDungeon.actionManager.addToBottom(new VFXAction(new DaggerSprayEffect(AbstractDungeon.getMonsters().shouldFlipVfx()), 0.1F));
@@ -79,7 +79,13 @@ public class CloudOfShrapnel extends AbstractShadeCard{
 		if (!canUse) {
 			return false;
 		}
-		if (p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot) {
+		
+		if(!(p instanceof ShadeCharacter)) {
+			this.cantUseMessage = ShadeCharacter.notAShade;
+			return false;
+		}
+		
+		if (((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON) instanceof EmptyOrbSlot) {
 			canUse = false;
 			this.cantUseMessage = EXTENDED_DESCRIPTION[0];
 		}

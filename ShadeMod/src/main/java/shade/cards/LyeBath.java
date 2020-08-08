@@ -54,14 +54,15 @@ public class LyeBath
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  AbstractOrb z = p.orbs.get(ShadeCharacter.INDEX_ZOMBIE);
-	  int n = 0;
-	  if(z instanceof SpawnedUndead) {
-		  n=((SpawnedUndead) z).count;
-		  ((SpawnedUndead) z).remove(n);
-	      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton(),n));
+	  if(p instanceof ShadeCharacter) {
+		  AbstractOrb z = ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE);
+		  int n = 0;
+		  if(z instanceof SpawnedUndead) {
+			  n=((SpawnedUndead) z).count;
+			  ((SpawnedUndead) z).remove(n);
+		      AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Skeleton(),n));
+		  }
 	  }
-	  
 	  if(this.upgraded) {
 		  AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,2));
 	  }else {

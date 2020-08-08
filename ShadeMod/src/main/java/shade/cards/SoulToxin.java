@@ -72,8 +72,10 @@ public class SoulToxin
 
     	AbstractDungeon.actionManager.addToBottom(new LoseHPAction(m, p, hpLoss, AbstractGameAction.AttackEffect.FIRE));
     	
-    	if(p.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof SpawnedUndead) {
-    		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber), this.magicNumber));
+    	if(p instanceof ShadeCharacter) {
+	    	if(((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_WRAITH) instanceof SpawnedUndead) {
+	    		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber), this.magicNumber));
+	    	}
     	}
   }
 

@@ -405,12 +405,9 @@ public class ShadeMod implements PostInitializeSubscriber,
 				AbstractDungeon.player.movePosition(0.18F*Settings.WIDTH, AbstractDungeon.floorY);
 			}
 	    	
-			//spawn EmptySlot orbs
-	    	AbstractDungeon.player.orbs.set(0, new EmptySlot());
-	    	AbstractDungeon.player.orbs.set(1, new EmptySlot());
-	    	AbstractDungeon.player.orbs.set(2, new EmptySlot());
-	        for (int i = 0; i < AbstractDungeon.player.orbs.size(); i++) {
-	            ((AbstractOrb)AbstractDungeon.player.orbs.get(i)).setSlot(i, AbstractDungeon.player.maxOrbs);
+			//run setSlot
+	        for (int i = 0; i < ((ShadeCharacter)AbstractDungeon.player).undeadGroup.maxUndead; i++) {
+	        	((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(i).setSlot(i, ((ShadeCharacter)AbstractDungeon.player).undeadGroup.maxUndead);
 	         }
 
 	        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,

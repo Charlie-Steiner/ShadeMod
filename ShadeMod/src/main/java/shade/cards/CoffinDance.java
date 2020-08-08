@@ -24,6 +24,7 @@ import shade.patches.AbstractCardEnum;
 import shade.actions.UndeadSpawnAction;
 import shade.characters.ShadeCharacter;
 import shade.orbs.SpawnedUndead;
+import shade.orbs.Zombie;
 
 public class CoffinDance extends AbstractShadeCard{
 
@@ -65,15 +66,18 @@ public class CoffinDance extends AbstractShadeCard{
 
 		
 		int undeads=0;
-		if(p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead) {
-			undeads += ((SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON)).count;
-		}
-		if(p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
-			undeads += ((SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+		
+		if(p instanceof ShadeCharacter) {
+			if(((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead) {
+				undeads += ((SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON)).count;
+			}
+			if(((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
+				undeads += ((SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+			}
 		}
 		
 		if(undeads>=4 && undeads%4==0) {
-		    AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new shade.orbs.Zombie(),this.magicNumber));
+		    AbstractDungeon.actionManager.addToBottom(new UndeadSpawnAction(new Zombie(),this.magicNumber));
 		}
 	}
 	

@@ -59,15 +59,16 @@ public class BoneShards extends AbstractShadeCard{
     }
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if(p.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead) {
-			SpawnedUndead u = (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_SKELETON);
-			for(int i=0;i<Math.min(u.count, this.magicNumber);i++) {
-				AbstractDungeon.actionManager.addToBottom(new VFXAction(new ThrowDaggerEffect(m.hb.cX, m.hb.cY)));
-				AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
+		if(p instanceof ShadeCharacter) {
+			if(((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead) {
+				SpawnedUndead u = (SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON);
+				for(int i=0;i<Math.min(u.count, this.magicNumber);i++) {
+					AbstractDungeon.actionManager.addToBottom(new VFXAction(new ThrowDaggerEffect(m.hb.cX, m.hb.cY)));
+					AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
+				}
+				u.remove(this.magicNumber);
 			}
-			u.remove(this.magicNumber);
 		}
-		
 	}
 	
     public AbstractCard makeCopy() {

@@ -56,16 +56,18 @@ public class GoDigging
 	}
 
   public void use(AbstractPlayer p, AbstractMonster m) {
-	  AbstractOrb z = p.orbs.get(ShadeCharacter.INDEX_SKELETON);
-	  int n = 0;
-	  if(!(z instanceof EmptyOrbSlot)) {
-		  n=((SpawnedUndead) z).count;
-		  if(n>this.magicNumber) {
-			  n=this.magicNumber;
+	  if(p instanceof ShadeCharacter) {
+		  AbstractOrb z = ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON);
+		  int n = 0;
+		  if(!(z instanceof EmptyOrbSlot)) {
+			  n=((SpawnedUndead) z).count;
+			  if(n>this.magicNumber) {
+				  n=this.magicNumber;
+			  }
+			  ((SpawnedUndead) z).remove(n);
+			  
+		      AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GoneDiggingPower(p,2*n), 2*n));
 		  }
-		  ((SpawnedUndead) z).remove(n);
-		  
-	      AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GoneDiggingPower(p,2*n), 2*n));
 	  }
   }
 

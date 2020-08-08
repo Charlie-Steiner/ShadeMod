@@ -23,6 +23,8 @@ import com.megacrit.cardcrawl.vfx.combat.LightningOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
 import shade.ShadeMod;
+import shade.characters.ShadeCharacter;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -64,6 +66,16 @@ public class EmptySlot extends EmptyOrbSlot{
     this.description = DESCRIPTIONS[0];
   }
 
+ @Override
+   public void setSlot(int slotNum, int maxOrbs) {
+       if (AbstractDungeon.player instanceof ShadeCharacter) {
+           this.tX = ((ShadeCharacter) AbstractDungeon.player).orbPositionsX[slotNum]+AbstractDungeon.player.drawX;
+           this.tY = ((ShadeCharacter) AbstractDungeon.player).orbPositionsY[slotNum]+AbstractDungeon.player.drawY;
+
+       }
+
+       this.hb.move(this.tX, this.tY);
+   }
   
   public void onEvoke() {}
 

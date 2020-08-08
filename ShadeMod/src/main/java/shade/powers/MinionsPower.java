@@ -56,7 +56,7 @@ public class MinionsPower extends AbstractPower {
 	}
 	
 	public int onAttackedToChangeDamage(DamageInfo info, int damageAmount) {
-		if(!(info.owner instanceof AbstractPlayer)) {
+		if(!(info.owner instanceof AbstractPlayer) && AbstractDungeon.player instanceof ShadeCharacter) {
 			if(damageAmount > 0)
 			{
 				damageAmount = minionBlock(info,damageAmount,ShadeCharacter.INDEX_ZOMBIE);
@@ -65,10 +65,10 @@ public class MinionsPower extends AbstractPower {
 	
 			if(damageAmount>1 && (AbstractPower)AbstractDungeon.player.getPower("Buffer")==null && (AbstractPower)AbstractDungeon.player.getPower("IntangiblePlayer")==null)
 			{
-				if(!(AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
+				if(!(((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(ShadeCharacter.INDEX_WRAITH) instanceof EmptyOrbSlot)) {
 					damageAmount = 1;
 					AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new IntangiblePlayerPower(AbstractDungeon.player, 1), 1));
-					((SpawnedUndead) AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_WRAITH)).remove(1);
+					((SpawnedUndead) ((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(ShadeCharacter.INDEX_WRAITH)).remove(1);
 				}
 			}
 		}
@@ -81,27 +81,28 @@ public class MinionsPower extends AbstractPower {
 	
 	private int minionBlock(DamageInfo info, int damageAmount, int index)
 	{
-		//only zombies block
-		if(index == ShadeCharacter.INDEX_ZOMBIE && AbstractDungeon.player.orbs.get(index) instanceof SpawnedUndead)
-		{
-			ShadeTipTracker.checkForTip(ShadeTipTracker.TipKey.ZombieTip);
-			
-			SpawnedUndead u = (SpawnedUndead)AbstractDungeon.player.orbs.get(index);
-			
-			if(damageAmount >= (u.passiveAmount+u.passiveBonus)*u.count)
-			{	//minions destroyed
-				damageAmount -= (u.passiveAmount+u.passiveBonus)*u.count;
-				u.remove(u.count);
-			}
-			else
+		if(AbstractDungeon.player instanceof ShadeCharacter) {
+			//only zombies block
+			if(index == ShadeCharacter.INDEX_ZOMBIE && ((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(index) instanceof SpawnedUndead)
 			{
-				int minionsLost = (damageAmount-1)/(u.passiveAmount+u.passiveBonus)+1;
-				AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player,AbstractDungeon.player,(u.passiveAmount+u.passiveBonus)*minionsLost-damageAmount));
-				damageAmount = 0;
-				u.remove(minionsLost);
+				ShadeTipTracker.checkForTip(ShadeTipTracker.TipKey.ZombieTip);
+				
+				SpawnedUndead u = (SpawnedUndead)((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(index);
+				
+				if(damageAmount >= (u.passiveAmount+u.passiveBonus)*u.count)
+				{	//minions destroyed
+					damageAmount -= (u.passiveAmount+u.passiveBonus)*u.count;
+					u.remove(u.count);
+				}
+				else
+				{
+					int minionsLost = (damageAmount-1)/(u.passiveAmount+u.passiveBonus)+1;
+					AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player,AbstractDungeon.player,(u.passiveAmount+u.passiveBonus)*minionsLost-damageAmount));
+					damageAmount = 0;
+					u.remove(minionsLost);
+				}
 			}
 		}
-		
 		return damageAmount;
 	}
 

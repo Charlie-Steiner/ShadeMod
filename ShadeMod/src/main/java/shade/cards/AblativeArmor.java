@@ -60,7 +60,7 @@ public class AblativeArmor extends AbstractShadeCard{
     }
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		SpawnedUndead u = (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE);
+		SpawnedUndead u = (SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE);
 
 		if (u.count > 0) {
 		    for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
@@ -74,11 +74,19 @@ public class AblativeArmor extends AbstractShadeCard{
 	}
 
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+		
 		boolean canUse = super.canUse(p, m);
+		
 		if (!canUse) {
 			return false;
 		}
-		if (p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot) {
+		
+		if(!(p instanceof ShadeCharacter)) {
+			this.cantUseMessage = ShadeCharacter.notAShade;
+			return false;
+		}
+		
+		if (((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot) {
 			canUse = false;
 			this.cantUseMessage = EXTENDED_DESCRIPTION[0];
 		}

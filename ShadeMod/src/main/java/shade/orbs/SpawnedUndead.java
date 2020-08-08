@@ -16,6 +16,8 @@ import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.SkeletonData;
 import com.esotericsoftware.spine.SkeletonJson;
 import com.esotericsoftware.spine.SkeletonMeshRenderer;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -132,8 +134,6 @@ public void spawnVFX(){
             this.tY = ((ShadeCharacter) AbstractDungeon.player).orbPositionsY[slotNum]+AbstractDungeon.player.drawY;
 
         }
-
-
 
         this.hb.move(this.tX, this.tY);
     }
@@ -265,27 +265,30 @@ public void spawnVFX(){
     }
 	
 	public void remove(int amount){
-		int nR = amount;
-		if(count>amount) {
-			count-= amount;
-			triggerEvokeAnimation();
-			this.updateDescription();
-		}else{
-			nR=count;
-			//ShadeMod.logger.info("Removing last undead: Yorick count " + AbstractDungeon.player.getRelic("Shade:YorickSkull").counter);
-	    	AbstractDungeon.player.orbs.set(index, new EmptySlot());
-	        ((AbstractOrb)AbstractDungeon.player.orbs.get(index)).setSlot(index, AbstractDungeon.player.maxOrbs);
-		}
-		
-		if(this.index == ShadeCharacter.INDEX_ZOMBIE) {
-			if(AbstractDungeon.player.hasPower("Shade:PutrefactionPower") && nR>0) {
-			      for (AbstractMonster monster : (AbstractDungeon.getMonsters()).monsters) {
-			          if (!monster.isDead && !monster.isDying) {
-			            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction
-			            		(monster, p, new PoisonPower(monster, p, AbstractDungeon.player.getPower("Shade:PutrefactionPower").amount*nR), AbstractDungeon.player.getPower("Shade:PutrefactionPower").amount*nR));
-			          } 
-			      } 
+		if(AbstractDungeon.player instanceof ShadeCharacter) {
+			int nR = amount;
+			if(count>amount) {
+				count-= amount;
+				triggerEvokeAnimation();
+				this.updateDescription();
+			}else{
+				nR=count;
+		    	((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.set(index, new EmptySlot());
+		        ((AbstractOrb)((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(index)).setSlot(index, ((ShadeCharacter)AbstractDungeon.player).undeadGroup.maxUndead);
 			}
+			
+			if(this.index == ShadeCharacter.INDEX_ZOMBIE) {
+				if(AbstractDungeon.player.hasPower("Shade:PutrefactionPower") && nR>0) {
+				      for (AbstractMonster monster : (AbstractDungeon.getMonsters()).monsters) {
+				          if (!monster.isDead && !monster.isDying) {
+				            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction
+				            		(monster, p, new PoisonPower(monster, p, AbstractDungeon.player.getPower("Shade:PutrefactionPower").amount*nR), AbstractDungeon.player.getPower("Shade:PutrefactionPower").amount*nR));
+				          } 
+				      } 
+				}
+			}
+		}else {
+			AbstractDungeon.actionManager.addToBottom(new TalkAction(AbstractDungeon.player, ShadeCharacter.notAShade));
 		}
 	}
 }

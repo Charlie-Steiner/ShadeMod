@@ -62,12 +62,12 @@ public class Coordination extends AbstractShadeCard {
 		
 
 	      
-	      if(this.upgraded) {
+	      if(this.upgraded && p instanceof ShadeCharacter) {
 	    	  
 		      int nHits=0;
 		      Skeleton s;
-		      if( AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead){
-		    	  s=(Skeleton) AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON);
+		      if( ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead){
+		    	  s=(Skeleton) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON);
 		    	  nHits=Math.min(s.count,2);
 		    	  
 		    	  for(int i=0;i<nHits;i++){

@@ -63,7 +63,13 @@ public class Boneskin
 		if (!canUse) {
 			return false;
 		}
-		if (p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot) {
+		
+		if(!(p instanceof ShadeCharacter)) {
+			this.cantUseMessage = ShadeCharacter.notAShade;
+			return false;
+		}
+		
+		if (((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE) instanceof EmptyOrbSlot) {
 			canUse = false;
 			this.cantUseMessage = EXTENDED_DESCRIPTION[0];
 		}
@@ -84,7 +90,7 @@ public class Boneskin
   }
   
   public void use(AbstractPlayer p, AbstractMonster arg1) {
-	SpawnedUndead u = (SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE);
+	SpawnedUndead u = (SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE);
 	int removed = Math.min(this.magicNumber, u.count);
 	int armor;
 	if(this.upgraded) {

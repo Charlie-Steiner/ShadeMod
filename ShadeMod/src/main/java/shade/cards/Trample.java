@@ -57,8 +57,10 @@ public class Trample
   
   public void applyPowers() {
 		this.baseDamage = 0;
-		if (AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
-			this.baseDamage += this.magicNumber*((SpawnedUndead) AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+		if(AbstractDungeon.player instanceof ShadeCharacter) {
+			if (((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
+				this.baseDamage += this.magicNumber*((SpawnedUndead) ((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+			}
 		}
 		this.damage = this.baseDamage;
 		
@@ -74,8 +76,10 @@ public class Trample
   
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		this.baseDamage = 0;
-		if (p.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
-			this.baseDamage += this.magicNumber*((SpawnedUndead) p.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+		if(p instanceof ShadeCharacter) {
+			if (((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
+				this.baseDamage += this.magicNumber*((SpawnedUndead) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+			}
 		}
 		
 		this.damage=this.baseDamage;
@@ -90,10 +94,11 @@ public class Trample
 	public void calculateCardDamage(AbstractMonster mo) {
 		
 		this.baseDamage = 0;
-		if (AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
-			this.baseDamage += this.magicNumber*((SpawnedUndead) AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+		if(AbstractDungeon.player instanceof ShadeCharacter) {
+			if (((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE) instanceof SpawnedUndead) {
+				this.baseDamage += this.magicNumber*((SpawnedUndead) ((ShadeCharacter)AbstractDungeon.player).undeadGroup.undeads.get(ShadeCharacter.INDEX_ZOMBIE)).count;
+			}
 		}
-		
 	    super.calculateCardDamage(mo);
 	    
 	    this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];

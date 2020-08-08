@@ -56,18 +56,20 @@ public class CommandSoldier
       
       int nHits=1;
       
-      if( AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead){
-    	  s=(Skeleton) AbstractDungeon.player.orbs.get(ShadeCharacter.INDEX_SKELETON);
-    	  nHits = Math.min(s.count+1, this.magicNumber);
-      }else {
-    	  s=skele;
+      if(p instanceof ShadeCharacter) {
+	      if( ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON) instanceof SpawnedUndead){
+	    	  s=(Skeleton) ((ShadeCharacter)p).undeadGroup.undeads.get(ShadeCharacter.INDEX_SKELETON);
+	    	  nHits = Math.min(s.count+1, this.magicNumber);
+	      }else {
+	    	  s=skele;
+	      }
+	      
+	      s.applyFocus();
+	      
+		  for(int i=0;i<nHits;i++){
+	      	AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(s.passiveAmount+s.passiveBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,s,false,false,0,true,0));
+		  }
       }
-      
-      s.applyFocus();
-      
-	  for(int i=0;i<nHits;i++){
-      	AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,(s.passiveAmount+s.passiveBonus), AbstractGameAction.AttackEffect.BLUNT_LIGHT,s,false,false,0,true,0));
-	  }
   }
 
   
