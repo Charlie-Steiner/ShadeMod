@@ -9,8 +9,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import shade.ShadeMod;
+import shade.actions.RefreshUndeadPower;
 import shade.patches.AbstractCardEnum;
 import shade.powers.LichFormPower;
+import shade.powers.MinionsPower;
 
 public class AuraOfUnlife extends AbstractShadeCard {
 
@@ -44,11 +46,14 @@ public class AuraOfUnlife extends AbstractShadeCard {
 	public void applyPowers() {
 	    super.applyPowers();
 	    
-		if(!this.upgraded) {
-			this.baseMagicNumber=AbstractDungeon.player.getPower("Shade:MinionsPower").amount + 2;
-		}else {
-			this.baseMagicNumber=AbstractDungeon.player.getPower("Shade:MinionsPower").amount + 2;
-		}
+	    this.baseMagicNumber=5;
+	    if(AbstractDungeon.player.hasPower("Shade:MinionsPower")) {
+			if(!this.upgraded) {
+				this.baseMagicNumber=AbstractDungeon.player.getPower("Shade:MinionsPower").amount + 2;
+			}else {
+				this.baseMagicNumber=AbstractDungeon.player.getPower("Shade:MinionsPower").amount + 2;
+			}
+	    }
 		this.magicNumber=this.baseMagicNumber;
 	    
 	    if (this.magicNumber > 0) {
@@ -75,11 +80,10 @@ public class AuraOfUnlife extends AbstractShadeCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if(!this.upgraded) {
-			p.getPower("Shade:MinionsPower").amount += 2;
-		}else {
-			p.getPower("Shade:MinionsPower").amount += 2;
-		}
+		
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new MinionsPower(p,2),2));
+
+		AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
 	}
 
 }

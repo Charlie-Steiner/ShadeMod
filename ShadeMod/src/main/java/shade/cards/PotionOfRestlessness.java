@@ -9,9 +9,11 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
+import shade.ShadeMod;
 import shade.actions.RefreshUndeadPower;
 import shade.patches.AbstractCardEnum;
 import shade.powers.LichFormPower;
+import shade.powers.MinionsPower;
 
 public class PotionOfRestlessness extends AbstractShadeCard {
 
@@ -45,7 +47,7 @@ public class PotionOfRestlessness extends AbstractShadeCard {
 	public void applyPowers() {
 	    super.applyPowers();
 	    
-	    this.baseMagicNumber=1;
+	    this.baseMagicNumber=2;
 	    if(AbstractDungeon.player.hasPower("Shade:MinionsPower")) {
 			if(AbstractDungeon.player.getPower("Shade:MinionsPower").amount>1) {
 				this.baseMagicNumber=AbstractDungeon.player.getPower("Shade:MinionsPower").amount - 1;
@@ -90,9 +92,15 @@ public class PotionOfRestlessness extends AbstractShadeCard {
 		}else {
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, 4), 4));
 		}
-		if(p.getPower("Shade:MinionsPower").amount > 1) {
-			p.getPower("Shade:MinionsPower").amount -= 1;
+		
+		if(AbstractDungeon.player.hasPower("Shade:MinionsPower")) {
+			if(p.getPower("Shade:MinionsPower").amount > 1) {
+				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new MinionsPower(p,-1),-1));
+			}
+		}else {
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new MinionsPower(p,-1),-1));
 		}
-	      AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
+		
+	    AbstractDungeon.actionManager.addToBottom(new RefreshUndeadPower());
 	}
 }

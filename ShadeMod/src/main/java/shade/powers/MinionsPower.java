@@ -75,10 +75,6 @@ public class MinionsPower extends AbstractPower {
 		return damageAmount;
 	}
 	
-	public void onAfterCardPlayed(AbstractCard usedCard) {
-		this.updateDescription();
-	}
-	
 	private int minionBlock(DamageInfo info, int damageAmount, int index)
 	{
 		if(AbstractDungeon.player instanceof ShadeCharacter) {

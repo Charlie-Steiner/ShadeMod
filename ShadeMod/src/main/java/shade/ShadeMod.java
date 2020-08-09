@@ -414,7 +414,6 @@ public class ShadeMod implements PostInitializeSubscriber,
 					new MinionsPower(AbstractDungeon.player, decayConstant),decayConstant));
 			logger.info(CardCrawlGame.languagePack.getPowerStrings("Shade:MinionsPower").NAME);
 
-
 			combatExhausts = 0;
 	    }
 	}
