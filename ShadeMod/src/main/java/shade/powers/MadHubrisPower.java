@@ -51,7 +51,7 @@ public class MadHubrisPower extends AbstractPower {
     }
     
 
-    public void atStartOfTurn() {
+    public void atEndOfTurn(boolean isPLayer) {
     	flash();
     	if(AbstractDungeon.player instanceof ShadeCharacter) {
 	    	for(int i=0;i<this.amount;i++) {

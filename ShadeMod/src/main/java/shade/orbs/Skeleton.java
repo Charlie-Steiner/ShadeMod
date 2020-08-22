@@ -103,7 +103,7 @@ public class Skeleton extends SpawnedUndead {
     	boolean intangibles = false;
         for (AbstractMonster mon : (AbstractDungeon.getMonsters()).monsters) {
             if (!mon.isDeadOrEscaped()) {
-              if(mon.hasPower("Intangible") || mon.hasPower("Buffer") || mon.currentHealth<=this.passiveAmount) {
+              if(mon.hasPower("Intangible") || mon.hasPower("Buffer") || mon.currentHealth<=this.passiveAmount*3) {
             	  intangibles=true;
               }
             }
@@ -113,7 +113,7 @@ public class Skeleton extends SpawnedUndead {
     		int bigs = (this.count-4)/5;
     		int remain = (this.count-4)%5+4;
 	    	for(int i=0; i<bigs;i++) {
-	    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot*5, AbstractGameAction.AttackEffect.BLUNT_HEAVY,this,false,false,0,true,0));
+	    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot*5, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));
 	    	}
 	    	for(int i=0; i<remain;i++) {
 	    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));
@@ -122,7 +122,7 @@ public class Skeleton extends SpawnedUndead {
     		int bigs = (this.count-4)/3;
     		int remain = (this.count-4)%3+4;
 	    	for(int i=0; i<bigs;i++) {
-	    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot*3, AbstractGameAction.AttackEffect.BLUNT_HEAVY,this,false,false,0,true,0));
+	    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot*3, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));
 	    	}
 	    	for(int i=0; i<remain;i++) {
 	    		AbstractDungeon.actionManager.addToBottom(new UndeadAutoAttack(AbstractDungeon.player,damageTot, AbstractGameAction.AttackEffect.BLUNT_LIGHT,this,false,false,0,true,0));

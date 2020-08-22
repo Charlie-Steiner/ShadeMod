@@ -38,7 +38,7 @@ public class StitchTogether extends AbstractShadeCard {
 	public StitchTogether() {
 		super(ID,NAME,shade.ShadeMod.getResourcePath(IMG_PATH),COST,DESCRIPTION,TYPE,AbstractCardEnum.SHADE,RARITY,TARGET);
 		// TODO Auto-generated constructor stub
-		this.baseMagicNumber=6;
+		this.baseMagicNumber=7;
 		this.magicNumber=this.baseMagicNumber;
 	}
 

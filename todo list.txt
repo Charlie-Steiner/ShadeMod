@@ -1,13 +1,30 @@
-Check that the Thing relic works (in general yes). Check with self-burial (no dice). (done)
+Art credits: CausticImp, Michael Mayhem, AlexMdle, Shiki, Celicath, Icis, and Corax (credited)
 
-Get keywords attached to relics. (done)
+Art: increase contrast of yorick skulls, Desaturate Strike colors.
 
-Change thing art to be more brown, add sparkle to Yorick's polished skull art. (done)
+Darken and increase saturation on character stills for combat.
 
-Change version number everywhere and add a general art thanks. (done?)
+add MIT license to github. (done)
 
-Self-Burial's wording is a bit poor. Suggestion:
-Exhaust your hand and the top 10 cards of your draw pile. Shuffle all Unearthed cards into your draw pile and draw 3 [5] cards. Exhaust. (tried to make slight improvement)
+New art for jobrscards (done)
+
+Do skeletons bypass nemesis intangibility? (nope)
+
+Actually buff stitch together by 1? (done)
+
+Buff Skeleton Army slightly? (buffed upgrade)
+
+Buff mad hubris by making the skeletons attack you after they attack the enemy, so you can block. (done, check)
+
+buff ominous ritual to cost 1 and/or add dazes to your hand (change spontaneous ritual to add dazes for theme?) (fix text update on upgrade) (done)
+
+Buff Wall of Flesh slightly. (done, check)
+
+Ogg vorbis the coffin dance audio to play when you trigger coffin dance.
+
+Coffin dance text to "zombies plus skeletons" or "total number"? (done)
+
+Change sfx for aggregated skeleton hits back to blunt_light, make disaggregation more aggressive for low-HP enemies. (done)
 
 Make sacrifice cards glow if canUse. Keep an eye out for bugs where the sacrifice cards aren't properly glowing.
 
@@ -17,4 +34,4 @@ Note where the game slows down and either fix code or report to mod discord. (Al
 
 Maybe try to remove loggger entries for production run, to reduce lag.
 
-Revisit getPortraitImageName in ShadeCharacter, delete for "production" output.
+Revisit getPortraitImageName in ShadeCharacter, delete for "production" output. (done)

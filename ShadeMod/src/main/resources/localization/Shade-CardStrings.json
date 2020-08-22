@@ -146,7 +146,7 @@
   "Shade:OminousRitual": {
     "NAME": "Ominous Ritual",
     "DESCRIPTION": "Gain Block and deal damage to all enemies equal to the number of cards Exhausted this combat.",
-    "UPGRADE_DESCRIPTION": "Gain Block and deal damage to all enemies equal to the number of cards Exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Add 3 *Dazed to your hand. NL Gain Block and deal damage to all enemies equal to the number of cards Exhausted this combat.",
   	"EXTENDED_DESCRIPTION": [" NL ( !M! cards )"]
   },
   "Shade:CommandSoldier": {
@@ -264,8 +264,8 @@
   },
   "Shade:CoffinDance": {
     "NAME": "Coffin Dance",
-    "DESCRIPTION": "Deal !D! damage. NL If your number of shade:Zombies and shade:Skeletons is a multiple of 4, summon !M! shade:Zombies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If your number of shade:Zombies and shade:Skeletons is a multiple of 4, summon !M! shade:Zombies."
+    "DESCRIPTION": "Deal !D! damage. NL If your total number of shade:Zombies and shade:Skeletons is a multiple of 4, summon !M! shade:Zombies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If your total number of shade:Zombies and shade:Skeletons is a multiple of 4, summon !M! shade:Zombies."
   },
   "Shade:UnbarTheGrave": {
     "NAME": "Unbar the Grave",
@@ -356,7 +356,7 @@
   "Shade:SpontaneousRitual": {
     "NAME": "Spontaneous Ritual",
     "DESCRIPTION": "Exhaust your hand. NL Deal damage equal to the number of cards Exhausted this combat.",
-    "UPGRADE_DESCRIPTION": "Add 3 *Wounds to your hand. NL Exhaust your hand. NL Deal damage equal to the number of cards Exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Add 3 *Dazed to your hand. NL Exhaust your hand. NL Deal damage equal to the number of cards Exhausted this combat.",
   	"EXTENDED_DESCRIPTION": [" NL ( !M! cards so far )"]
   },
   "Shade:CarefulCut": {
@@ -366,8 +366,8 @@
   },
   "Shade:MadHubris": {
     "NAME": "Lunar Madness",
-    "DESCRIPTION": "Summon !M! shade:Skeletons. NL Before your next turn, your shade:Skeletons attack you.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Summon !M! shade:Skeletons. NL Before your next turn, your shade:Skeletons attack you."
+    "DESCRIPTION": "Summon !M! shade:Skeletons. NL After the end of your turn, your shade:Skeletons attack you.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Summon !M! shade:Skeletons. NL After the end of your turn, your shade:Skeletons attack you."
   },
   "Shade:OneIsEnough": {
     "NAME": "One Is Enough",

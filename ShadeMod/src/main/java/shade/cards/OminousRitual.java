@@ -4,13 +4,17 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.status.Dazed;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import basemod.BaseMod;
 import shade.ShadeMod;
 import shade.patches.AbstractCardEnum;
 
@@ -61,18 +65,24 @@ public class OminousRitual extends AbstractShadeCard {
 	    this.baseMagicNumber=ShadeMod.combatExhausts;
 		this.magicNumber=this.baseMagicNumber;
 	    
-	    if (this.magicNumber > 0) {
-	      this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-	      initializeDescription();
+	    if (ShadeMod.combatExhausts > 0) {
+			if(this.upgraded) {
+				this.rawDescription = UPGRADED_DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+			}else {
+				this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+			}
+			initializeDescription();
 	    }
-	    
-
 	  }
 
 	
 	public void use(AbstractPlayer p, AbstractMonster m) {
 	    this.baseDamage=ShadeMod.combatExhausts;
 	    this.damage=this.baseDamage;
+	    
+		if(this.upgraded) {
+			AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Dazed(), 3));
+		}
 	    
 	    CardCrawlGame.sound.play("ORB_DARK_EVOKE", 0.1F);
 	    AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.damage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));		
@@ -83,9 +93,13 @@ public class OminousRitual extends AbstractShadeCard {
 	  public void calculateCardDamage(AbstractMonster mo) {
 	    super.calculateCardDamage(mo);
 	    if (ShadeMod.combatExhausts > 0) {
-	      this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+			if(this.upgraded) {
+				this.rawDescription = UPGRADED_DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+			}else {
+				this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+			}
+			initializeDescription();
 	    }
-	    initializeDescription();
 	  }
 
 	public AbstractCard makeCopy() {
@@ -115,7 +129,8 @@ public class OminousRitual extends AbstractShadeCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeBaseCost(1);
+			this.rawDescription = UPGRADED_DESCRIPTION;
+			initializeDescription();
 		}
 	}
 }

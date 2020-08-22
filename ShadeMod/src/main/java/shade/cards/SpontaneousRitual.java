@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.status.Dazed;
 import com.megacrit.cardcrawl.cards.status.Wound;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -84,7 +85,7 @@ public class SpontaneousRitual extends AbstractShadeCard {
 	    
 		if(this.upgraded) {
 				tempDamage+= 3 - java.lang.Math.max(p.hand.size()-BaseMod.MAX_HAND_SIZE+2, 0);	//when hand is too large, don't add the full 3 to damage (extra wounds are automatically discarded)
-				AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(new Wound(), 3));
+				AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(new Dazed(), 3));
 		}
 		
 		AbstractDungeon.actionManager.addToBottom(new ExhaustFromHandAction(BaseMod.MAX_HAND_SIZE,true,false,false));	//p.hand.size() not updating correctly for some reason
